@@ -11,8 +11,9 @@ This is a notebook for css quick search.
 + 响应式布局常用尺寸
 + 推荐的文档或资讯站
 
-不定期更新补充，反馈 http://weibo.com/yuanzi0512
+不定期更新补充，你可以直接保存内容页面，PC离线或手机阅读它。
 
-你可以访问http://iruxu.com (跳转至github) 获取最新版
++反馈 http://weibo.com/yuanzi0512
++演示 http://iruxu.com/CSS-View/
 
-你可以直接保存内容页面，PC离线或手机阅读它。
+
