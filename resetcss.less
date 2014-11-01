@@ -9,6 +9,7 @@ audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
 blockquote,q {quotes:none;}
 //table & list
 table {border-collapse:collapse;border-spacing:0;}
+table td{border:1px solid #ddd;padding:2px 5px;font-size:12px;line-height: 24px;}
 ul,ol{list-style:none outside none;}
 //img & frame
 fieldset,iframe{border:0 none;}
@@ -25,7 +26,7 @@ textarea{overflow:auto;resize:vertical;vertical-align:top;}
 //font
 a{text-decoration:none;}
 a:hover,a:active,:focus{outline:0;}
-body,button,input,select,textarea{font:12px/1.5 Tahoma,Helvetica,Arial,'\5FAE\8F6F\96C5\9ED1',sans-serif;}
+button,input,select,textarea{font:12px/1.5 'Trebuchet MS',Tahoma,Helvetica,Arial,'\5FAE\8F6F\96C5\9ED1',sans-serif;}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
 strong{font-weight:normal;}
 address,cite,dfn,em,var,i{font-style:normal;}
@@ -37,87 +38,44 @@ sup{top:-.5em;}
 sub{bottom:-.25em;}
 abbr[title],acronym[title]{cursor:help;border-bottom: 1px dotted;}
 mark{color:#000;background:#E55B00;}
-
-
-
-// =Common
-//--------------------------------------------------------------
+//clear
 .clearfix:after {content:"\200B";display:block;height:0;clear:both;}
 .clearfix{*zoom:1;}
-.clear{font-size: 0;clear: both;height: 0;}
-
 
 //=LESS
 //--------------------------------------------------------------
-//Base var for path or color
-@color:#fff;
-@url:"img";
-
-//Package var for model
-.font-size(@font-size){font-size:@font-size;line-height:1.5;}
-.bold(@bold:bold){font-weight:@weight;}
-.italic(@italic:italic){font-style:@italic;}
-.uppercase(@uppercase:uppercase){text-transform:@uppercase;}
-.nobreak(@this-width:100%){overflow:hidden;white-space:nowrap;text-overflow:ellipsis;width:@this-width;}
+.clear{
+    *zoom:1;
+    &:after {content:"\200B"; display:block; height:0; clear:both; }}
+.nobreak{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 .break{word-wrap:break-word;word-break:break-all;}
-.x-align(@text-align){text-align:@text-align;}
-.y-align(@vertical-align){vertical-align:@vertical-align;}
-
-.tm(@tm){@alpha:@tm*100;filter:alpha(opacity=@alpha);opacity:@tm;}
-.rgba(@r,@g,@b,@tm){
-	@rgba:rgba(@r,@g,@b,@tm);
-	@ietm:argb(@rgba);
-	background: @rgba;
-	_background: rgb(@r,@g,@b);
-	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
-}
-.rgba-color(@r,@g,@b,@tm){
-	@rgba:rgba(@r,@g,@b,@tm);
-	@ietm:argb(@rgba);
-	color: @rgba;
-	_color: rgb(@r,@g,@b);
-	filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
-}
-.tm-png(@url){ //!add a absolute path
-	background:url(@url) no-repeat;
-	_background:none;
-	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
-	a{_position:relative;}
-}
-
-.max-width(@max-width){max-width:@max-width;_width:@max-width;overflow:hidden;}
-.max-height(@max-height){max-height:@max-height;_height:@max-height;overflow:hidden;}
-.min-width(@min-width){min-width:@min-width;_width:@min-width;}
-.min-height(@min-height){min-height:@min-height;_height:@min-height;}
-
-.none{display:none!important;}
-.db{display:block;}
 .dbi{display:inline-block;*display:inline;*zoom:1;}
-.hidden{visibility: hidden;}
-.visible{visibility: visible;}
-.overflow{overflow:hidden;*zoom: 1;}
-
-.center{margin-left:auto;margin-right:auto;}
+.hidden{overflow:hidden;*zoom: 1;}
 .fl{display: inline;float: left;}
 .fr{display: inline;float: right;}
-.por{position: relative;*zoom: 1;}
-.poa{position: absolute;}
-.pos{position: static;}
-
-.bo(@bo){border:@bo;}
-.bo(l,@bo-width,@bo-style,@bo-color:#ccc){border-left:@bo-width @bo-style @bo-color;}
-.bo(r,@bo-width,@bo-style,@bo-color:#ccc){border-right:@bo-width @bo-style @bo-color;}
-.bo(t,@bo-width,@bo-style,@bo-color:#ccc){border-top:@bo-width @bo-style @bo-color;}
-.bo(b,@bo-width,@bo-style,@bo-color:#ccc){border-bottom:@bo-width @bo-style @bo-color;}
-
-.text-shadow(@text-shadow-style, @text-shadow-color:#ccc){text-shadow:@text-shadow-style  @text-shadow-color;}
-.box-shadow(@box-shadow-style,@box-shadow-color:#ccc){box-shadow:@box-shadow-style @box-shadow-color}
-
-.radius(@radius){border-radius:@radius;}
-.radius(lt,@radius){border-top-left-radius: @radius;}
-.radius(lb,@radius){border-bottom-left-radius: @radius;}
-.radius(rt,@radius){border-top-right-radius: @radius;}
-.radius(rb,@radius){border-bottom-right-radius: @radius;}
+.pr{position: relative;*zoom: 1;}
+.pa{position: absolute;}
+.ps{position: static !important;}
+.tm(@tm){@alpha:@tm*100;filter:alpha(opacity=@alpha);opacity:@tm;}
+.rgba(@r,@g,@b,@tm){
+    @rgba:rgba(@r,@g,@b,@tm);
+    @ietm:argb(@rgba);
+    background: @rgba;
+    _background: rgb(@r,@g,@b);
+    _filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
+}
+.tm-png(@url){ //!add a absolute path
+    background:url(@url) no-repeat;
+    _background:none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
+    a{_position:relative;}
+}
+.max-width(@max-width){max-width:@max-width;_width:@max-width;}
+.min-width(@min-width){min-width:@min-width;_width:@min-width;}
+.max-height(@max-height){max-height:@max-height;_height:@max-height;}
+.min-height(@min-height){min-height:@min-height;_height:@min-height;}
+.x-align(@text-align){text-align:@text-align;}
+.y-align(@vertical-align){vertical-align:@vertical-align;}
 
 .items(fk){list-style:square;}
 .items(dian){list-style:disc;}
@@ -130,11 +88,22 @@ mark{color:#000;background:#E55B00;}
 .items(A){list-style:upper-alpha;}
 .items(@_){padding-left:40px;}
 
-.cursor(@cursor:pointer){cursor:@cursor;}
-
 .gr-l(@point,@colorA,@colorB){background-image:linear-gradient(@point,@colorA,@colorB)}
 .gr-c(@center,@colorA,@colorB){background-image:radial-gradient(@center,@colorA,@colorB)}
+//Base var for path or color
+@color:#333;
+@bgcolor:#f1f1f1;
+@url:"img";
 
+
+// =Style
+//--------------------------------------------------------------
+html,body{width:100%;background:@bgcolor;
+    font-size:12px;line-height: 180%;color:@color;
+    font-family: Consolas,'Trebuchet MS',Verdana,Helvetica,Arial,sans-serif;}
+a{}
+a:hover{}
+a:active{}
 
 
 // =Responsive
