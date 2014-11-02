@@ -28,15 +28,15 @@ audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
 //Unity the form style
 button[disabled],input[disabled]{cursor: default;}
 textarea{overflow:auto;resize:vertical;vertical-align:top;} //you can also delete this line
-//*for ie7 button align
+//+for ie7 button align
 button,input,select,textarea{font-family:inherit;font-size:100%;vertical-align:baseline;*vertical-align:middle;} 
-//*for safari button,you can change the 'button' with 'none'
+//+for safari button,you can change the 'button' with 'none'
 button,input[type=button],input[type=submit],input[type='reset']{
 cursor:pointer;*overflow:visible;
 -webkit-appearance:button;} 
-//*for firefox button style
+//+for firefox button style
 button::-moz-focus-inner,button::-moz-focus-outer,input::-moz-focus-inner,input::-moz-focus-outer{margin:0;padding:0;border:0 none;} 
-//*for chrome search input type style
+//+for chrome search input type style
 input[type=search]{box-sizing: content-box;-webkit-appearance:textfield;}
 input[type='search']::-webkit-search-cancel-button,input[type='search']::-webkit-search-decoration{-webkit-appearance:none;}
 
@@ -74,7 +74,7 @@ mark{color:#000;background:#E55B00;} //you can change the focus color
 .pr{position: relative;*zoom: 1;}
 .pa{position: absolute;}
 .ps{position: static !important;}
-//*for ie6 position fixed
+//+for ie6 position fixed
 .fixed(lt,@fix){
     position: fixed;
     left:0px;
@@ -115,7 +115,7 @@ mark{color:#000;background:#E55B00;} //you can change the focus color
     overflow:hidden; 
     *zoom:1;
 }
-//*for ie6 transparent
+//+for ie6 transparent
 .tm(@tm){
     @alpha:@tm*100;
     opacity:@tm; //ie9 webkit etc.
@@ -138,7 +138,7 @@ mark{color:#000;background:#E55B00;} //you can change the focus color
     _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
     a{_position:relative;} //maybe you can delete this line
 }
-//*for ie6 size
+//+for ie6 size
 .min-height(@min-height){
     min-height:@min-height px;
     _height:@min-height px;
@@ -153,7 +153,7 @@ mark{color:#000;background:#E55B00;} //you can change the focus color
 .x-align(@text-align:center){text-align:@text-align;}
 .y-align(@vertical-align:middle){vertical-align:@vertical-align;}
 
-//*the item style
+//+the item style
 .items(fk){list-style:square;}
 .items(dian){list-style:disc;}
 .items(quan){list-style:circle;}
@@ -165,8 +165,8 @@ mark{color:#000;background:#E55B00;} //you can change the focus color
 .items(A){list-style:upper-alpha;}
 .items(@_){padding-left:40px;} //you can change the number here,but if the num is zero,and the item style will be no effect
 
-//*the simple gradient
-//*more complex css3 style you can make it on http://iruxu.com/to-be-css/
+//+the simple gradient
+//more complex css3 style you can make it on http://iruxu.com/to-be-css/
 .gr-l(@point,@colorA,@colorB){background-image:linear-gradient(@point,@colorA,@colorB)}
 .gr-c(@center,@colorA,@colorB){background-image:radial-gradient(@center,@colorA,@colorB)}
 
