@@ -1,32 +1,48 @@
+/*
+iRuxu's Base Css File
+https://github.com/iRuxu/resetcss
+2014.11.2
+*/
+
+
 // =Reset
 //--------------------------------------------------------------
 @charset "utf-8";
+
+//quick regional rollback for mac,google base font
 html{-webkit-overflow-scrolling:touch;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+
+//clear the padding & margin,browser default style
 body,header,footer,hgroup,menu,nav,section,article,aside,details,figcaption,figure,div,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,fieldset,legend,button,input,textarea,form,th,td
 {margin:0;padding:0;vertical-align:baseline;}
+blockquote,q {quotes:none;}
+table {border-collapse:collapse;border-spacing:0;}
+ul,ol{list-style:none outside none;}
+fieldset,iframe{border:0 none;}
+img{-ms-interpolation-mode:bicubic;border:0 none;}  //for ie7 image zoom
+
+//html5 elements style for ie
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}
 audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
-blockquote,q {quotes:none;}
-//table & list
-table {border-collapse:collapse;border-spacing:0;}
-table td{border:1px solid #ddd;padding:2px 5px;font-size:12px;line-height: 24px;}
-ul,ol{list-style:none outside none;}
-//img & frame
-fieldset,iframe{border:0 none;}
-img{vertical-align:middle;-ms-interpolation-mode:bicubic;border:0 none;}
-//form
-legend{padding:0;white-space:normal;border:0;*margin-left:-7px;}
-button,input,select,textarea{font-family:inherit;font-size:100%;vertical-align:baseline;*vertical-align:middle;}
-button,input[type=button],input[type=submit],input[type='reset']{cursor:pointer;-webkit-appearance:button;*overflow:visible;}
-button[disabled],input[disabled]{cursor:default;}
-button::-moz-focus-inner,button::-moz-focus-outer,input::-moz-focus-inner,input::-moz-focus-outer{margin:0;padding:0;border:0 none;}
+
+//Unity the form style
+button[disabled],input[disabled]{cursor: default;}
+textarea{overflow:auto;resize:vertical;vertical-align:top;} //you can also delete this line
+//*for ie7 button align
+button,input,select,textarea{font-family:inherit;font-size:100%;vertical-align:baseline;*vertical-align:middle;} 
+//*for safari button,you can change the 'button' with 'none'
+button,input[type=button],input[type=submit],input[type='reset']{
+cursor:pointer;*overflow:visible;
+-webkit-appearance:button;} 
+//*for firefox button style
+button::-moz-focus-inner,button::-moz-focus-outer,input::-moz-focus-inner,input::-moz-focus-outer{margin:0;padding:0;border:0 none;} 
+//*for chrome search input type style
 input[type=search]{box-sizing: content-box;-webkit-appearance:textfield;}
 input[type='search']::-webkit-search-cancel-button,input[type='search']::-webkit-search-decoration{-webkit-appearance:none;}
-textarea{overflow:auto;resize:vertical;vertical-align:top;}
-//font
+
+//Unity the font style
 a{text-decoration:none;}
 a:hover,a:active,:focus{outline:0;}
-button,input,select,textarea{font:12px/1.5 'Trebuchet MS',Tahoma,Helvetica,Arial,'\5FAE\8F6F\96C5\9ED1',sans-serif;}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
 strong{font-weight:normal;}
 address,cite,dfn,em,var,i{font-style:normal;}
@@ -37,18 +53,20 @@ sub,sup{font-size: 75%;line-height:0;position:relative;vertical-align:baseline;}
 sup{top:-.5em;}
 sub{bottom:-.25em;}
 abbr[title],acronym[title]{cursor:help;border-bottom: 1px dotted;}
-mark{color:#000;background:#E55B00;}
-//clear
-.clearfix:after {content:"\200B";display:block;height:0;clear:both;}
-.clearfix{*zoom:1;}
+mark{color:#000;background:#E55B00;} //you can change the focus color
 
 //=LESS
 //--------------------------------------------------------------
+
+//Package
+//which box you contain the float box
 .clear{
     *zoom:1;
     &:after {content:"\200B"; display:block; height:0; clear:both; }}
+//font write mode
 .nobreak{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 .break{word-wrap:break-word;word-break:break-all;}
+//ie hack
 .dbi{display:inline-block;*display:inline;*zoom:1;}
 .hidden{overflow:hidden;*zoom: 1;}
 .fl{display: inline;float: left;}
@@ -56,7 +74,54 @@ mark{color:#000;background:#E55B00;}
 .pr{position: relative;*zoom: 1;}
 .pa{position: absolute;}
 .ps{position: static !important;}
-.tm(@tm){@alpha:@tm*100;filter:alpha(opacity=@alpha);opacity:@tm;}
+//*for ie6 position fixed
+.fixed(lt,@fix){
+    position: fixed;
+    left:0px;
+    top:0px;
+    z-index: 999;
+    _position:absolute;
+    _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+    overflow:hidden; 
+    *zoom:1;
+}
+.fixed(rt,@fix){
+    position: fixed;
+    right:0px;
+    top:0px;
+    z-index: 999;
+    _position:absolute;
+    _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+    overflow:hidden; 
+    *zoom:1;
+}
+.fixed(lb,@fix){
+    position: fixed;
+    left:0px;
+    bottom:0px;
+    z-index: 999;
+    _position:absolute;
+    _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+    overflow:hidden; 
+    *zoom:1;
+}
+.fixed(rb,@fix){
+    position: fixed;
+    right:0px;
+    bottom:0px;
+    z-index: 999;
+    _position:absolute;
+    _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+    overflow:hidden; 
+    *zoom:1;
+}
+//*for ie6 transparent
+.tm(@tm){
+    @alpha:@tm*100;
+    opacity:@tm; //ie9 webkit etc.
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{alpha})"; //ie8
+    filter:alpha(opacity=@alpha); //ie5-ie7
+}
 .rgba(@r,@g,@b,@tm){
     @rgba:rgba(@r,@g,@b,@tm);
     @ietm:argb(@rgba);
@@ -64,19 +129,31 @@ mark{color:#000;background:#E55B00;}
     _background: rgb(@r,@g,@b);
     _filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
 }
-.tm-png(@url){ //!add a absolute path
+.tm-png(@url){ 
+    //please and a url like 'img/images.png' , dont's lose the quotes
+    //you should let this css file are the same path with html file
+    //or you should add a absolute path
     background:url(@url) no-repeat;
     _background:none;
     _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
-    a{_position:relative;}
+    a{_position:relative;} //maybe you can delete this line
 }
-.max-width(@max-width){max-width:@max-width;_width:@max-width;}
-.min-width(@min-width){min-width:@min-width;_width:@min-width;}
-.max-height(@max-height){max-height:@max-height;_height:@max-height;}
-.min-height(@min-height){min-height:@min-height;_height:@min-height;}
-.x-align(@text-align){text-align:@text-align;}
-.y-align(@vertical-align){vertical-align:@vertical-align;}
+//*for ie6 size
+.min-height(@min-height){
+    min-height:@min-height px;
+    _height:@min-height px;
+}
 
+.min-width(@min-width){
+    min-width:@min-width px;
+    _width: ~'expression(eval(document.documentElement.clientWidth||document.body.clientWidth)< @{min-width} ? @{min-width}px : "")';
+}
+
+//other quick style
+.x-align(@text-align:center){text-align:@text-align;}
+.y-align(@vertical-align:middle){vertical-align:@vertical-align;}
+
+//*the item style
 .items(fk){list-style:square;}
 .items(dian){list-style:disc;}
 .items(quan){list-style:circle;}
@@ -86,32 +163,48 @@ mark{color:#000;background:#E55B00;}
 .items(I){list-style:upper-roman;}
 .items(a){list-style:lower-alpha;}
 .items(A){list-style:upper-alpha;}
-.items(@_){padding-left:40px;}
+.items(@_){padding-left:40px;} //you can change the number here,but if the num is zero,and the item style will be no effect
 
+//*the simple gradient
+//*more complex css3 style you can make it on http://iruxu.com/to-be-css/
 .gr-l(@point,@colorA,@colorB){background-image:linear-gradient(@point,@colorA,@colorB)}
 .gr-c(@center,@colorA,@colorB){background-image:radial-gradient(@center,@colorA,@colorB)}
+
 //Base var for path or color
 @color:#333;
+@linkcolor:#369;
+@hovercolor:#ff0000;
+@activecolor:#00ccff;
 @bgcolor:#f1f1f1;
 @url:"img";
 
-
-// =Style
+// =Common
 //--------------------------------------------------------------
-html,body{width:100%;background:@bgcolor;
-    font-size:12px;line-height: 180%;color:@color;
+.clearfix:after {content:"\200B";display:block;height:0;clear:both;}
+.clearfix{*zoom:1;}
+
+//base style
+html,body{color:@color;background:@bgcolor;
+    font-size:12px;line-height: 180%;
     font-family: Consolas,'Trebuchet MS',Verdana,Helvetica,Arial,sans-serif;}
-a{}
-a:hover{}
-a:active{}
+a{color:@linkcolor;}
+a:hover{color:@hovercolor;}
+a:active{color:@activecolor;}
+table td{border:1px solid #ddd;padding:2px 5px;font-size:12px;line-height: 24px;}
+legend{padding:0;white-space:normal;border:0;*margin-left:-7px;}
+
+//your style
+
 
 
 // =Responsive
 //--------------------------------------------------------------
 //iPad
-@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:landscape){}
 @media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:portrait){}
+@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:landscape){}
+
 //phone
-@media only screen and (max-device-width:960px) and (orientation:landscape){}
 @media only screen and (min-device-width:320px) and (max-device-width:720px) and (orientation:portrait){}
+@media only screen and (max-device-width:960px) and (orientation:landscape){}
+
 
