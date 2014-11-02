@@ -27,35 +27,51 @@
         </ul>
       </header>
       <section>
-        <div class="highlight highlight-less"><pre><span class="o">//</span> <span class="o">=</span><span class="nt">Reset</span>
+        <div class="highlight highlight-less"><pre><span class="c">/*</span>
+<span class="c">iRuxu's Base Css File</span>
+<span class="c">https://github.com/iRuxu/resetcss</span>
+<span class="c">2014.11.2</span>
+<span class="c">*/</span>
+
+
+<span class="o">//</span> <span class="o">=</span><span class="nt">Reset</span>
 <span class="o">//</span><span class="nt">--------------------------------------------------------------</span>
 <span class="k">@charset</span> <span class="s2">"utf-8"</span><span class="p">;</span>
+
+<span class="o">//</span><span class="nt">quick</span> <span class="nt">regional</span> <span class="nt">rollback</span> <span class="nt">for</span> <span class="nt">mac</span><span class="o">,</span><span class="nt">google</span> <span class="nt">base</span> <span class="nt">font</span>
 <span class="nt">html</span><span class="p">{</span><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">overflow</span><span class="o">-</span><span class="n">scrolling</span><span class="o">:</span><span class="n">touch</span><span class="p">;</span><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">text</span><span class="o">-</span><span class="k">size</span><span class="o">-</span><span class="n">adjust</span><span class="o">:</span><span class="m">100%</span><span class="p">;</span><span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="k">text</span><span class="o">-</span><span class="k">size</span><span class="o">-</span><span class="n">adjust</span><span class="o">:</span><span class="m">100%</span><span class="p">;}</span>
+
+<span class="o">//</span><span class="nt">clear</span> <span class="nt">the</span> <span class="nt">padding</span> <span class="o">&amp;</span> <span class="nt">margin</span><span class="o">,</span><span class="nt">browser</span> <span class="nt">default</span> <span class="nt">style</span>
 <span class="nt">body</span><span class="o">,</span><span class="nt">header</span><span class="o">,</span><span class="nt">footer</span><span class="o">,</span><span class="nt">hgroup</span><span class="o">,</span><span class="nt">menu</span><span class="o">,</span><span class="nt">nav</span><span class="o">,</span><span class="nt">section</span><span class="o">,</span><span class="nt">article</span><span class="o">,</span><span class="nt">aside</span><span class="o">,</span><span class="nt">details</span><span class="o">,</span><span class="nt">figcaption</span><span class="o">,</span><span class="nt">figure</span><span class="o">,</span><span class="nt">div</span><span class="o">,</span><span class="nt">h1</span><span class="o">,</span><span class="nt">h2</span><span class="o">,</span><span class="nt">h3</span><span class="o">,</span><span class="nt">h4</span><span class="o">,</span><span class="nt">h5</span><span class="o">,</span><span class="nt">h6</span><span class="o">,</span><span class="nt">hr</span><span class="o">,</span><span class="nt">p</span><span class="o">,</span><span class="nt">blockquote</span><span class="o">,</span><span class="nt">dl</span><span class="o">,</span><span class="nt">dt</span><span class="o">,</span><span class="nt">dd</span><span class="o">,</span><span class="nt">ul</span><span class="o">,</span><span class="nt">ol</span><span class="o">,</span><span class="nt">li</span><span class="o">,</span><span class="nt">pre</span><span class="o">,</span><span class="nt">fieldset</span><span class="o">,</span><span class="nt">legend</span><span class="o">,</span><span class="nt">button</span><span class="o">,</span><span class="nt">input</span><span class="o">,</span><span class="nt">textarea</span><span class="o">,</span><span class="nt">form</span><span class="o">,</span><span class="nt">th</span><span class="o">,</span><span class="nt">td</span>
 <span class="p">{</span><span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">vertical-align</span><span class="o">:</span><span class="k">baseline</span><span class="p">;}</span>
+<span class="nt">blockquote</span><span class="o">,</span><span class="nt">q</span> <span class="p">{</span><span class="k">quotes</span><span class="o">:</span><span class="k">none</span><span class="p">;}</span>
+<span class="nt">table</span> <span class="p">{</span><span class="k">border-collapse</span><span class="o">:</span><span class="k">collapse</span><span class="p">;</span><span class="k">border-spacing</span><span class="o">:</span><span class="m">0</span><span class="p">;}</span>
+<span class="nt">ul</span><span class="o">,</span><span class="nt">ol</span><span class="p">{</span><span class="k">list-style</span><span class="o">:</span><span class="k">none</span> <span class="k">outside</span> <span class="k">none</span><span class="p">;}</span>
+<span class="nt">fieldset</span><span class="o">,</span><span class="nt">iframe</span><span class="p">{</span><span class="k">border</span><span class="o">:</span><span class="m">0</span> <span class="k">none</span><span class="p">;}</span>
+<span class="nt">img</span><span class="p">{</span><span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">interpolation</span><span class="o">-</span><span class="n">mode</span><span class="o">:</span><span class="n">bicubic</span><span class="p">;</span><span class="k">border</span><span class="o">:</span><span class="m">0</span> <span class="k">none</span><span class="p">;}</span>  <span class="o">//</span><span class="nt">for</span> <span class="nt">ie7</span> <span class="nt">image</span> <span class="nt">zoom</span>
+
+<span class="o">//</span><span class="nt">html5</span> <span class="nt">elements</span> <span class="nt">style</span> <span class="nt">for</span> <span class="nt">ie</span>
 <span class="nt">article</span><span class="o">,</span><span class="nt">aside</span><span class="o">,</span><span class="nt">details</span><span class="o">,</span><span class="nt">figcaption</span><span class="o">,</span><span class="nt">figure</span><span class="o">,</span><span class="nt">footer</span><span class="o">,</span><span class="nt">header</span><span class="o">,</span><span class="nt">hgroup</span><span class="o">,</span><span class="nt">nav</span><span class="o">,</span><span class="nt">section</span><span class="o">,</span><span class="nt">summary</span><span class="p">{</span><span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;}</span>
 <span class="nt">audio</span><span class="o">,</span><span class="nt">canvas</span><span class="o">,</span><span class="nt">video</span><span class="p">{</span><span class="k">display</span><span class="o">:</span><span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span><span class="o">*</span><span class="k">display</span><span class="o">:</span><span class="k">inline</span><span class="p">;</span><span class="o">*</span><span class="n">zoom</span><span class="o">:</span><span class="m">1</span><span class="p">;}</span>
-<span class="nt">blockquote</span><span class="o">,</span><span class="nt">q</span> <span class="p">{</span><span class="k">quotes</span><span class="o">:</span><span class="k">none</span><span class="p">;}</span>
-<span class="o">//</span><span class="nt">table</span> <span class="o">&amp;</span> <span class="nt">list</span>
-<span class="nt">table</span> <span class="p">{</span><span class="k">border-collapse</span><span class="o">:</span><span class="k">collapse</span><span class="p">;</span><span class="k">border-spacing</span><span class="o">:</span><span class="m">0</span><span class="p">;}</span>
-<span class="nt">table</span> <span class="nt">td</span><span class="p">{</span><span class="k">border</span><span class="o">:</span><span class="m">1px</span> <span class="k">solid</span> <span class="m">#ddd</span><span class="p">;</span><span class="k">padding</span><span class="o">:</span><span class="m">2px</span> <span class="m">5px</span><span class="p">;</span><span class="k">font-size</span><span class="o">:</span><span class="m">12px</span><span class="p">;</span><span class="k">line-height</span><span class="o">:</span> <span class="m">24px</span><span class="p">;}</span>
-<span class="nt">ul</span><span class="o">,</span><span class="nt">ol</span><span class="p">{</span><span class="k">list-style</span><span class="o">:</span><span class="k">none</span> <span class="k">outside</span> <span class="k">none</span><span class="p">;}</span>
-<span class="o">//</span><span class="nt">img</span> <span class="o">&amp;</span> <span class="nt">frame</span>
-<span class="nt">fieldset</span><span class="o">,</span><span class="nt">iframe</span><span class="p">{</span><span class="k">border</span><span class="o">:</span><span class="m">0</span> <span class="k">none</span><span class="p">;}</span>
-<span class="nt">img</span><span class="p">{</span><span class="k">vertical-align</span><span class="o">:</span><span class="k">middle</span><span class="p">;</span><span class="o">-</span><span class="n">ms</span><span class="o">-</span><span class="n">interpolation</span><span class="o">-</span><span class="n">mode</span><span class="o">:</span><span class="n">bicubic</span><span class="p">;</span><span class="k">border</span><span class="o">:</span><span class="m">0</span> <span class="k">none</span><span class="p">;}</span>
-<span class="o">//</span><span class="nt">form</span>
-<span class="nt">legend</span><span class="p">{</span><span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">white-space</span><span class="o">:</span><span class="k">normal</span><span class="p">;</span><span class="k">border</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="o">*</span><span class="k">margin-left</span><span class="o">:-</span><span class="m">7px</span><span class="p">;}</span>
-<span class="nt">button</span><span class="o">,</span><span class="nt">input</span><span class="o">,</span><span class="nt">select</span><span class="o">,</span><span class="nt">textarea</span><span class="p">{</span><span class="k">font-family</span><span class="o">:</span><span class="k">inherit</span><span class="p">;</span><span class="k">font-size</span><span class="o">:</span><span class="m">100%</span><span class="p">;</span><span class="k">vertical-align</span><span class="o">:</span><span class="k">baseline</span><span class="p">;</span><span class="o">*</span><span class="k">vertical-align</span><span class="o">:</span><span class="k">middle</span><span class="p">;}</span>
-<span class="nt">button</span><span class="o">,</span><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">button</span><span class="o">],</span><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">submit</span><span class="o">],</span><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s1">'reset'</span><span class="o">]</span><span class="p">{</span><span class="k">cursor</span><span class="o">:</span><span class="k">pointer</span><span class="p">;</span><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">appearance</span><span class="o">:</span><span class="n">button</span><span class="p">;</span><span class="o">*</span><span class="k">overflow</span><span class="o">:</span><span class="k">visible</span><span class="p">;}</span>
-<span class="nt">button</span><span class="o">[</span><span class="nt">disabled</span><span class="o">],</span><span class="nt">input</span><span class="o">[</span><span class="nt">disabled</span><span class="o">]</span><span class="p">{</span><span class="k">cursor</span><span class="o">:</span><span class="k">default</span><span class="p">;}</span>
-<span class="nt">button</span><span class="o">:</span><span class="nd">:-moz-focus-inner</span><span class="o">,</span><span class="nt">button</span><span class="o">:</span><span class="nd">:-moz-focus-outer</span><span class="o">,</span><span class="nt">input</span><span class="o">:</span><span class="nd">:-moz-focus-inner</span><span class="o">,</span><span class="nt">input</span><span class="o">:</span><span class="nd">:-moz-focus-outer</span><span class="p">{</span><span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">border</span><span class="o">:</span><span class="m">0</span> <span class="k">none</span><span class="p">;}</span>
+
+<span class="o">//</span><span class="nt">Unity</span> <span class="nt">the</span> <span class="nt">form</span> <span class="nt">style</span>
+<span class="nt">button</span><span class="o">[</span><span class="nt">disabled</span><span class="o">],</span><span class="nt">input</span><span class="o">[</span><span class="nt">disabled</span><span class="o">]</span><span class="p">{</span><span class="k">cursor</span><span class="o">:</span> <span class="k">default</span><span class="p">;}</span>
+<span class="nt">textarea</span><span class="p">{</span><span class="k">overflow</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span><span class="n">resize</span><span class="o">:</span><span class="n">vertical</span><span class="p">;</span><span class="k">vertical-align</span><span class="o">:</span><span class="k">top</span><span class="p">;}</span> <span class="o">//</span><span class="nt">you</span> <span class="nt">can</span> <span class="nt">also</span> <span class="nt">delete</span> <span class="nt">this</span> <span class="nt">line</span>
+<span class="o">//*</span><span class="nt">for</span> <span class="nt">ie7</span> <span class="nt">button</span> <span class="nt">align</span>
+<span class="nt">button</span><span class="o">,</span><span class="nt">input</span><span class="o">,</span><span class="nt">select</span><span class="o">,</span><span class="nt">textarea</span><span class="p">{</span><span class="k">font-family</span><span class="o">:</span><span class="k">inherit</span><span class="p">;</span><span class="k">font-size</span><span class="o">:</span><span class="m">100%</span><span class="p">;</span><span class="k">vertical-align</span><span class="o">:</span><span class="k">baseline</span><span class="p">;</span><span class="o">*</span><span class="k">vertical-align</span><span class="o">:</span><span class="k">middle</span><span class="p">;}</span> 
+<span class="o">//*</span><span class="nt">for</span> <span class="nt">safari</span> <span class="nt">button</span><span class="o">,</span><span class="nt">you</span> <span class="nt">can</span> <span class="nt">change</span> <span class="nt">the</span> <span class="s1">'button'</span> <span class="nt">with</span> <span class="s1">'none'</span>
+<span class="nt">button</span><span class="o">,</span><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">button</span><span class="o">],</span><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">submit</span><span class="o">],</span><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s1">'reset'</span><span class="o">]</span><span class="p">{</span>
+<span class="k">cursor</span><span class="o">:</span><span class="k">pointer</span><span class="p">;</span><span class="o">*</span><span class="k">overflow</span><span class="o">:</span><span class="k">visible</span><span class="p">;</span>
+<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">appearance</span><span class="o">:</span><span class="n">button</span><span class="p">;}</span> 
+<span class="o">//*</span><span class="nt">for</span> <span class="nt">firefox</span> <span class="nt">button</span> <span class="nt">style</span>
+<span class="nt">button</span><span class="o">:</span><span class="nd">:-moz-focus-inner</span><span class="o">,</span><span class="nt">button</span><span class="o">:</span><span class="nd">:-moz-focus-outer</span><span class="o">,</span><span class="nt">input</span><span class="o">:</span><span class="nd">:-moz-focus-inner</span><span class="o">,</span><span class="nt">input</span><span class="o">:</span><span class="nd">:-moz-focus-outer</span><span class="p">{</span><span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">border</span><span class="o">:</span><span class="m">0</span> <span class="k">none</span><span class="p">;}</span> 
+<span class="o">//*</span><span class="nt">for</span> <span class="nt">chrome</span> <span class="nt">search</span> <span class="nt">input</span> <span class="nt">type</span> <span class="nt">style</span>
 <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">search</span><span class="o">]</span><span class="p">{</span><span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">content</span><span class="o">-</span><span class="n">box</span><span class="p">;</span><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">appearance</span><span class="o">:</span><span class="n">textfield</span><span class="p">;}</span>
 <span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s1">'search'</span><span class="o">]:</span><span class="nd">:-webkit-search-cancel-button</span><span class="o">,</span><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s1">'search'</span><span class="o">]:</span><span class="nd">:-webkit-search-decoration</span><span class="p">{</span><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">appearance</span><span class="o">:</span><span class="k">none</span><span class="p">;}</span>
-<span class="nt">textarea</span><span class="p">{</span><span class="k">overflow</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span><span class="n">resize</span><span class="o">:</span><span class="n">vertical</span><span class="p">;</span><span class="k">vertical-align</span><span class="o">:</span><span class="k">top</span><span class="p">;}</span>
-<span class="o">//</span><span class="nt">font</span>
+
+<span class="o">//</span><span class="nt">Unity</span> <span class="nt">the</span> <span class="nt">font</span> <span class="nt">style</span>
 <span class="nt">a</span><span class="p">{</span><span class="k">text-decoration</span><span class="o">:</span><span class="k">none</span><span class="p">;}</span>
 <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span><span class="nt">a</span><span class="nd">:active</span><span class="o">,</span><span class="nd">:focus</span><span class="p">{</span><span class="k">outline</span><span class="o">:</span><span class="m">0</span><span class="p">;}</span>
-<span class="nt">button</span><span class="o">,</span><span class="nt">input</span><span class="o">,</span><span class="nt">select</span><span class="o">,</span><span class="nt">textarea</span><span class="p">{</span><span class="k">font</span><span class="o">:</span><span class="m">12px</span><span class="o">/</span><span class="m">1</span><span class="o">.</span><span class="m">5</span> <span class="s1">'Trebuchet MS'</span><span class="o">,</span><span class="n">Tahoma</span><span class="o">,</span><span class="n">Helvetica</span><span class="o">,</span><span class="n">Arial</span><span class="o">,</span><span class="s1">'\5FAE\8F6F\96C5\9ED1'</span><span class="o">,</span><span class="k">sans-serif</span><span class="p">;}</span>
 <span class="nt">h1</span><span class="o">,</span><span class="nt">h2</span><span class="o">,</span><span class="nt">h3</span><span class="o">,</span><span class="nt">h4</span><span class="o">,</span><span class="nt">h5</span><span class="o">,</span><span class="nt">h6</span><span class="p">{</span><span class="k">font-size</span><span class="o">:</span><span class="m">100%</span><span class="p">;</span><span class="k">font-weight</span><span class="o">:</span><span class="k">normal</span><span class="p">;}</span>
 <span class="nt">strong</span><span class="p">{</span><span class="k">font-weight</span><span class="o">:</span><span class="k">normal</span><span class="p">;}</span>
 <span class="nt">address</span><span class="o">,</span><span class="nt">cite</span><span class="o">,</span><span class="nt">dfn</span><span class="o">,</span><span class="nt">em</span><span class="o">,</span><span class="nt">var</span><span class="o">,</span><span class="nt">i</span><span class="p">{</span><span class="k">font-style</span><span class="o">:</span><span class="k">normal</span><span class="p">;}</span>
@@ -66,18 +82,20 @@
 <span class="nt">sup</span><span class="p">{</span><span class="k">top</span><span class="o">:-.</span><span class="m">5em</span><span class="p">;}</span>
 <span class="nt">sub</span><span class="p">{</span><span class="k">bottom</span><span class="o">:-.</span><span class="m">25em</span><span class="p">;}</span>
 <span class="nt">abbr</span><span class="o">[</span><span class="nt">title</span><span class="o">],</span><span class="nt">acronym</span><span class="o">[</span><span class="nt">title</span><span class="o">]</span><span class="p">{</span><span class="k">cursor</span><span class="o">:</span><span class="k">help</span><span class="p">;</span><span class="k">border-bottom</span><span class="o">:</span> <span class="m">1px</span> <span class="k">dotted</span><span class="p">;}</span>
-<span class="nt">mark</span><span class="p">{</span><span class="k">color</span><span class="o">:</span><span class="m">#000</span><span class="p">;</span><span class="k">background</span><span class="o">:</span><span class="m">#E55B00</span><span class="p">;}</span>
-<span class="o">//</span><span class="nt">clear</span>
-<span class="nc">.clearfix</span><span class="nd">:after</span> <span class="p">{</span><span class="k">content</span><span class="o">:</span><span class="s2">"\200B"</span><span class="p">;</span><span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span><span class="k">height</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;}</span>
-<span class="nc">.clearfix</span><span class="p">{</span><span class="o">*</span><span class="n">zoom</span><span class="o">:</span><span class="m">1</span><span class="p">;}</span>
+<span class="nt">mark</span><span class="p">{</span><span class="k">color</span><span class="o">:</span><span class="m">#000</span><span class="p">;</span><span class="k">background</span><span class="o">:</span><span class="m">#E55B00</span><span class="p">;}</span> <span class="o">//</span><span class="nt">you</span> <span class="nt">can</span> <span class="nt">change</span> <span class="nt">the</span> <span class="nt">focus</span> <span class="nt">color</span>
 
 <span class="o">//=</span><span class="nt">LESS</span>
 <span class="o">//</span><span class="nt">--------------------------------------------------------------</span>
+
+<span class="o">//</span><span class="nt">Package</span>
+<span class="o">//</span><span class="nt">which</span> <span class="nt">box</span> <span class="nt">you</span> <span class="nt">contain</span> <span class="nt">the</span> <span class="nt">float</span> <span class="nt">box</span>
 <span class="nc">.clear</span><span class="p">{</span>
     <span class="o">*</span><span class="n">zoom</span><span class="o">:</span><span class="m">1</span><span class="p">;</span>
     <span class="o">&amp;:</span><span class="n">after</span> <span class="err">{</span><span class="k">content</span><span class="o">:</span><span class="s2">"\200B"</span><span class="p">;</span> <span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span><span class="m">0</span><span class="p">;</span> <span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span> <span class="p">}</span><span class="err">}</span>
+<span class="o">//</span><span class="nt">font</span> <span class="nt">write</span> <span class="nt">mode</span>
 <span class="nc">.nobreak</span><span class="p">{</span><span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span><span class="k">white-space</span><span class="o">:</span><span class="k">nowrap</span><span class="p">;</span><span class="k">text</span><span class="o">-</span><span class="k">overflow</span><span class="o">:</span><span class="n">ellipsis</span><span class="p">;}</span>
 <span class="nc">.break</span><span class="p">{</span><span class="n">word</span><span class="o">-</span><span class="n">wrap</span><span class="o">:</span><span class="n">break</span><span class="o">-</span><span class="n">word</span><span class="p">;</span><span class="n">word</span><span class="o">-</span><span class="n">break</span><span class="o">:</span><span class="n">break</span><span class="o">-</span><span class="n">all</span><span class="p">;}</span>
+<span class="o">//</span><span class="nt">ie</span> <span class="nt">hack</span>
 <span class="nc">.dbi</span><span class="p">{</span><span class="k">display</span><span class="o">:</span><span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span><span class="o">*</span><span class="k">display</span><span class="o">:</span><span class="k">inline</span><span class="p">;</span><span class="o">*</span><span class="n">zoom</span><span class="o">:</span><span class="m">1</span><span class="p">;}</span>
 <span class="nc">.hidden</span><span class="p">{</span><span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span><span class="o">*</span><span class="n">zoom</span><span class="o">:</span> <span class="m">1</span><span class="p">;}</span>
 <span class="nc">.fl</span><span class="p">{</span><span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="p">;</span><span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;}</span>
@@ -85,7 +103,54 @@
 <span class="nc">.pr</span><span class="p">{</span><span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span><span class="o">*</span><span class="n">zoom</span><span class="o">:</span> <span class="m">1</span><span class="p">;}</span>
 <span class="nc">.pa</span><span class="p">{</span><span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;}</span>
 <span class="nc">.ps</span><span class="p">{</span><span class="k">position</span><span class="o">:</span> <span class="k">static</span> <span class="cp">!important</span><span class="p">;}</span>
-<span class="nc">.tm</span><span class="o">(</span><span class="k">@tm</span><span class="o">)</span><span class="p">{</span><span class="k">@alpha</span><span class="o">:</span><span class="k">@tm</span><span class="o">*</span><span class="nt">100</span><span class="p">;</span><span class="nt">filter</span><span class="nd">:alpha</span><span class="o">(</span><span class="nt">opacity</span><span class="o">=</span><span class="k">@alpha</span><span class="o">)</span><span class="p">;</span><span class="nt">opacity</span><span class="o">:</span><span class="k">@tm</span><span class="p">;</span><span class="err">}</span>
+<span class="o">//*</span><span class="nt">for</span> <span class="nt">ie6</span> <span class="nt">position</span> <span class="nt">fixed</span>
+<span class="nc">.fixed</span><span class="o">(</span><span class="nt">lt</span><span class="o">,</span><span class="k">@fix</span><span class="o">)</span><span class="p">{</span>
+    <span class="nt">position</span><span class="o">:</span> <span class="nt">fixed</span><span class="o">;</span>
+    <span class="nt">left</span><span class="nd">:0px</span><span class="o">;</span>
+    <span class="nt">top</span><span class="nd">:0px</span><span class="o">;</span>
+    <span class="nt">z-index</span><span class="o">:</span> <span class="nt">999</span><span class="o">;</span>
+    <span class="nt">_position</span><span class="nd">:absolute</span><span class="o">;</span>
+    <span class="nt">_top</span><span class="o">:~</span><span class="s1">'expression(eval(document.documentElement.scrollTop + @{fix}))'</span><span class="o">;</span>
+    <span class="nt">overflow</span><span class="nd">:hidden</span><span class="o">;</span> 
+    <span class="o">*</span><span class="nt">zoom</span><span class="nd">:1</span><span class="o">;</span>
+<span class="p">}</span>
+<span class="nc">.fixed</span><span class="o">(</span><span class="nt">rt</span><span class="o">,</span><span class="k">@fix</span><span class="o">)</span><span class="p">{</span>
+    <span class="nt">position</span><span class="o">:</span> <span class="nt">fixed</span><span class="o">;</span>
+    <span class="nt">right</span><span class="nd">:0px</span><span class="o">;</span>
+    <span class="nt">top</span><span class="nd">:0px</span><span class="o">;</span>
+    <span class="nt">z-index</span><span class="o">:</span> <span class="nt">999</span><span class="o">;</span>
+    <span class="nt">_position</span><span class="nd">:absolute</span><span class="o">;</span>
+    <span class="nt">_top</span><span class="o">:~</span><span class="s1">'expression(eval(document.documentElement.scrollTop + @{fix}))'</span><span class="o">;</span>
+    <span class="nt">overflow</span><span class="nd">:hidden</span><span class="o">;</span> 
+    <span class="o">*</span><span class="nt">zoom</span><span class="nd">:1</span><span class="o">;</span>
+<span class="p">}</span>
+<span class="nc">.fixed</span><span class="o">(</span><span class="nt">lb</span><span class="o">,</span><span class="k">@fix</span><span class="o">)</span><span class="p">{</span>
+    <span class="nt">position</span><span class="o">:</span> <span class="nt">fixed</span><span class="o">;</span>
+    <span class="nt">left</span><span class="nd">:0px</span><span class="o">;</span>
+    <span class="nt">bottom</span><span class="nd">:0px</span><span class="o">;</span>
+    <span class="nt">z-index</span><span class="o">:</span> <span class="nt">999</span><span class="o">;</span>
+    <span class="nt">_position</span><span class="nd">:absolute</span><span class="o">;</span>
+    <span class="nt">_top</span><span class="o">:~</span><span class="s1">'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))'</span><span class="o">;</span>
+    <span class="nt">overflow</span><span class="nd">:hidden</span><span class="o">;</span> 
+    <span class="o">*</span><span class="nt">zoom</span><span class="nd">:1</span><span class="o">;</span>
+<span class="p">}</span>
+<span class="nc">.fixed</span><span class="o">(</span><span class="nt">rb</span><span class="o">,</span><span class="k">@fix</span><span class="o">)</span><span class="p">{</span>
+    <span class="nt">position</span><span class="o">:</span> <span class="nt">fixed</span><span class="o">;</span>
+    <span class="nt">right</span><span class="nd">:0px</span><span class="o">;</span>
+    <span class="nt">bottom</span><span class="nd">:0px</span><span class="o">;</span>
+    <span class="nt">z-index</span><span class="o">:</span> <span class="nt">999</span><span class="o">;</span>
+    <span class="nt">_position</span><span class="nd">:absolute</span><span class="o">;</span>
+    <span class="nt">_top</span><span class="o">:~</span><span class="s1">'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))'</span><span class="o">;</span>
+    <span class="nt">overflow</span><span class="nd">:hidden</span><span class="o">;</span> 
+    <span class="o">*</span><span class="nt">zoom</span><span class="nd">:1</span><span class="o">;</span>
+<span class="p">}</span>
+<span class="o">//*</span><span class="nt">for</span> <span class="nt">ie6</span> <span class="nt">transparent</span>
+<span class="nc">.tm</span><span class="o">(</span><span class="k">@tm</span><span class="o">)</span><span class="p">{</span>
+    <span class="k">@alpha</span><span class="o">:</span><span class="k">@tm</span><span class="o">*</span><span class="nt">100</span><span class="p">;</span>
+    <span class="nt">opacity</span><span class="o">:</span><span class="k">@tm</span><span class="p">;</span> <span class="o">//</span><span class="nt">ie9</span> <span class="nt">webkit</span> <span class="nt">etc</span><span class="o">.</span>
+    <span class="nt">-ms-filter</span><span class="o">:</span> <span class="s2">"progid:DXImageTransform.Microsoft.Alpha(Opacity=@{alpha})"</span><span class="p">;</span> <span class="o">//</span><span class="nt">ie8</span>
+    <span class="nt">filter</span><span class="nd">:alpha</span><span class="o">(</span><span class="nt">opacity</span><span class="o">=</span><span class="k">@alpha</span><span class="o">)</span><span class="p">;</span> <span class="o">//</span><span class="nt">ie5-ie7</span>
+<span class="p">}</span>
 <span class="nc">.rgba</span><span class="o">(</span><span class="k">@r</span><span class="o">,</span><span class="k">@g</span><span class="o">,</span><span class="k">@b</span><span class="o">,</span><span class="k">@tm</span><span class="o">)</span><span class="p">{</span>
     <span class="k">@rgba</span><span class="nd">:rgba</span><span class="o">(</span><span class="k">@r</span><span class="o">,</span><span class="k">@g</span><span class="o">,</span><span class="k">@b</span><span class="o">,</span><span class="k">@tm</span><span class="o">)</span><span class="p">;</span>
     <span class="k">@ietm</span><span class="nd">:argb</span><span class="o">(</span><span class="k">@rgba</span><span class="o">)</span><span class="p">;</span>
@@ -93,57 +158,83 @@
     <span class="nt">_background</span><span class="o">:</span> <span class="nt">rgb</span><span class="o">(</span><span class="k">@r</span><span class="o">,</span><span class="k">@g</span><span class="o">,</span><span class="k">@b</span><span class="o">)</span><span class="p">;</span>
     <span class="nt">_filter</span><span class="nd">:progid:DXImageTransform</span><span class="nc">.Microsoft.gradient</span><span class="o">(</span><span class="nt">enabled</span><span class="o">=</span><span class="s1">'true'</span><span class="o">,</span> <span class="nt">startColorstr</span><span class="o">=</span><span class="k">@ietm</span><span class="o">,</span> <span class="nt">endColorstr</span><span class="o">=</span><span class="k">@ietm</span><span class="o">)</span><span class="p">;</span>
 <span class="err">}</span>
-<span class="nc">.tm-png</span><span class="o">(</span><span class="k">@url</span><span class="o">)</span><span class="p">{</span> <span class="o">//!</span><span class="nt">add</span> <span class="nt">a</span> <span class="nt">absolute</span> <span class="nt">path</span>
-    <span class="nt">background</span><span class="nd">:url</span><span class="o">(</span><span class="k">@url</span><span class="o">)</span> <span class="nt">no-repeat</span><span class="p">;</span>
-    <span class="nt">_background</span><span class="nd">:none</span><span class="o">;</span>
-    <span class="nt">_filter</span><span class="nd">:progid:DXImageTransform</span><span class="nc">.Microsoft.AlphaImageLoader</span><span class="o">(</span><span class="nt">src</span><span class="o">=</span><span class="k">@url</span><span class="o">)</span><span class="p">;</span>
-    <span class="nt">a</span><span class="p">{</span><span class="n">_position</span><span class="o">:</span><span class="k">relative</span><span class="p">;}</span>
-<span class="p">}</span>
-<span class="nc">.max-width</span><span class="o">(</span><span class="k">@max-width</span><span class="o">)</span><span class="p">{</span><span class="nt">max-width</span><span class="o">:</span><span class="k">@max-width</span><span class="p">;</span><span class="nt">_width</span><span class="o">:</span><span class="k">@max-width</span><span class="p">;}</span>
-<span class="nc">.min-width</span><span class="o">(</span><span class="k">@min-width</span><span class="o">)</span><span class="p">{</span><span class="nt">min-width</span><span class="o">:</span><span class="k">@min-width</span><span class="p">;</span><span class="nt">_width</span><span class="o">:</span><span class="k">@min-width</span><span class="p">;}</span>
-<span class="nc">.max-height</span><span class="o">(</span><span class="k">@max-height</span><span class="o">)</span><span class="p">{</span><span class="nt">max-height</span><span class="o">:</span><span class="k">@max-height</span><span class="p">;</span><span class="nt">_height</span><span class="o">:</span><span class="k">@max-height</span><span class="p">;}</span>
-<span class="nc">.min-height</span><span class="o">(</span><span class="k">@min-height</span><span class="o">)</span><span class="p">{</span><span class="nt">min-height</span><span class="o">:</span><span class="k">@min-height</span><span class="p">;</span><span class="nt">_height</span><span class="o">:</span><span class="k">@min-height</span><span class="p">;}</span>
-<span class="nc">.x-align</span><span class="o">(</span><span class="k">@text-align</span><span class="o">)</span><span class="p">{</span><span class="nt">text-align</span><span class="o">:</span><span class="k">@text-align</span><span class="p">;}</span>
-<span class="nc">.y-align</span><span class="o">(</span><span class="k">@vertical-align</span><span class="o">)</span><span class="p">{</span><span class="nt">vertical-align</span><span class="o">:</span><span class="k">@vertical-align</span><span class="p">;}</span>
+<span class="nc">.tm-png</span><span class="o">(</span><span class="k">@url</span><span class="o">)</span><span class="p">{</span> 
+    <span class="o">//</span><span class="nt">please</span> <span class="nt">and</span> <span class="nt">a</span> <span class="nt">url</span> <span class="nt">like</span> <span class="s1">'img/images.png'</span> <span class="o">,</span> <span class="nt">dont</span><span class="s1">'s lose the quotes</span>
+<span class="s1">    //you should let this css file are the same path with html file</span>
+<span class="s1">    //or you should add a absolute path</span>
+<span class="s1">    background:url(@url) no-repeat;</span>
+<span class="s1">    _background:none;</span>
+<span class="s1">    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);</span>
+<span class="s1">    a{_position:relative;} //maybe you can delete this line</span>
+<span class="s1">}</span>
+<span class="s1">//*for ie6 size</span>
+<span class="s1">.min-height(@min-height){</span>
+<span class="s1">    min-height:@min-height px;</span>
+<span class="s1">    _height:@min-height px;</span>
+<span class="s1">}</span>
 
-<span class="nc">.items</span><span class="o">(</span><span class="nt">fk</span><span class="o">)</span><span class="p">{</span><span class="nt">list-style</span><span class="nd">:square</span><span class="o">;</span><span class="p">}</span>
-<span class="nc">.items</span><span class="o">(</span><span class="nt">dian</span><span class="o">)</span><span class="p">{</span><span class="nt">list-style</span><span class="nd">:disc</span><span class="o">;</span><span class="p">}</span>
-<span class="nc">.items</span><span class="o">(</span><span class="nt">quan</span><span class="o">)</span><span class="p">{</span><span class="nt">list-style</span><span class="nd">:circle</span><span class="o">;</span><span class="p">}</span>
-<span class="nc">.items</span><span class="o">(</span><span class="nt">num</span><span class="o">)</span><span class="p">{</span><span class="nt">list-style</span><span class="nd">:decimal</span><span class="o">;</span><span class="p">}</span>
-<span class="nc">.items</span><span class="o">(</span><span class="nt">01</span><span class="o">)</span><span class="p">{</span><span class="nt">list-style</span><span class="nd">:decimal-leading-zero</span><span class="o">;</span><span class="p">}</span>
-<span class="nc">.items</span><span class="o">(</span><span class="nt">i</span><span class="o">)</span><span class="p">{</span><span class="nt">list-style</span><span class="nd">:lower-roman</span><span class="o">;</span><span class="p">}</span>
-<span class="nc">.items</span><span class="o">(</span><span class="nt">I</span><span class="o">)</span><span class="p">{</span><span class="nt">list-style</span><span class="nd">:upper-roman</span><span class="o">;</span><span class="p">}</span>
-<span class="nc">.items</span><span class="o">(</span><span class="nt">a</span><span class="o">)</span><span class="p">{</span><span class="nt">list-style</span><span class="nd">:lower-alpha</span><span class="o">;</span><span class="p">}</span>
-<span class="nc">.items</span><span class="o">(</span><span class="nt">A</span><span class="o">)</span><span class="p">{</span><span class="k">list-style</span><span class="o">:</span><span class="k">upper-alpha</span><span class="p">;}</span>
-<span class="nc">.items</span><span class="o">(</span><span class="k">@_</span><span class="o">)</span><span class="p">{</span><span class="nt">padding-left</span><span class="nd">:40px</span><span class="o">;</span><span class="p">}</span>
+<span class="s1">.min-width(@min-width){</span>
+<span class="s1">    min-width:@min-width px;</span>
+<span class="s1">    _width: ~'</span><span class="nt">expression</span><span class="o">(</span><span class="nt">eval</span><span class="o">(</span><span class="nt">document</span><span class="nc">.documentElement.clientWidth</span><span class="o">||</span><span class="nt">document</span><span class="nc">.body.clientWidth</span><span class="o">)&lt;</span> <span class="o">@</span><span class="p">{</span><span class="k">min-width</span><span class="p">}</span> <span class="o">?</span> <span class="o">@</span><span class="p">{</span><span class="k">min-width</span><span class="p">}</span><span class="nt">px</span> <span class="o">:</span> <span class="s2">""</span><span class="o">)</span><span class="s1">';</span>
+<span class="s1">}</span>
 
-<span class="nc">.gr-l</span><span class="o">(</span><span class="k">@point</span><span class="o">,</span><span class="k">@colorA</span><span class="o">,</span><span class="k">@colorB</span><span class="o">)</span><span class="p">{</span><span class="nt">background-image</span><span class="nd">:linear-gradient</span><span class="o">(</span><span class="k">@point</span><span class="o">,</span><span class="k">@colorA</span><span class="o">,</span><span class="k">@colorB</span><span class="o">)</span><span class="err">}</span>
-<span class="nc">.gr-c</span><span class="o">(</span><span class="k">@center</span><span class="o">,</span><span class="k">@colorA</span><span class="o">,</span><span class="k">@colorB</span><span class="o">)</span><span class="p">{</span><span class="nt">background-image</span><span class="nd">:radial-gradient</span><span class="o">(</span><span class="k">@center</span><span class="o">,</span><span class="k">@colorA</span><span class="o">,</span><span class="k">@colorB</span><span class="o">)</span><span class="err">}</span>
-<span class="o">//</span><span class="nt">Base</span> <span class="nt">var</span> <span class="nt">for</span> <span class="nt">path</span> <span class="nt">or</span> <span class="nt">color</span>
-<span class="k">@color</span><span class="o">:</span><span class="nf">#333</span><span class="p">;</span>
-<span class="k">@bgcolor</span><span class="o">:</span><span class="nf">#f1f1f1</span><span class="p">;</span>
-<span class="k">@url</span><span class="o">:</span><span class="s2">"img"</span><span class="p">;</span>
+<span class="s1">//other quick style</span>
+<span class="s1">.x-align(@text-align:center){text-align:@text-align;}</span>
+<span class="s1">.y-align(@vertical-align:middle){vertical-align:@vertical-align;}</span>
 
+<span class="s1">//*the item style</span>
+<span class="s1">.items(fk){list-style:square;}</span>
+<span class="s1">.items(dian){list-style:disc;}</span>
+<span class="s1">.items(quan){list-style:circle;}</span>
+<span class="s1">.items(num){list-style:decimal;}</span>
+<span class="s1">.items(01){list-style:decimal-leading-zero;}</span>
+<span class="s1">.items(i){list-style:lower-roman;}</span>
+<span class="s1">.items(I){list-style:upper-roman;}</span>
+<span class="s1">.items(a){list-style:lower-alpha;}</span>
+<span class="s1">.items(A){list-style:upper-alpha;}</span>
+<span class="s1">.items(@_){padding-left:40px;} //you can change the number here,but if the num is zero,and the item style will be no effect</span>
 
-<span class="o">//</span> <span class="o">=</span><span class="nt">Style</span>
-<span class="o">//</span><span class="nt">--------------------------------------------------------------</span>
-<span class="nt">html</span><span class="o">,</span><span class="nt">body</span><span class="p">{</span><span class="nt">width</span><span class="nd">:100</span><span class="o">%;</span><span class="nt">background</span><span class="o">:</span><span class="k">@bgcolor</span><span class="p">;</span>
-    <span class="nt">font-size</span><span class="nd">:12px</span><span class="o">;</span><span class="nt">line-height</span><span class="o">:</span> <span class="nt">180</span><span class="o">%;</span><span class="nt">color</span><span class="o">:</span><span class="k">@color</span><span class="p">;</span>
-    <span class="nt">font-family</span><span class="o">:</span> <span class="nt">Consolas</span><span class="o">,</span><span class="s1">'Trebuchet MS'</span><span class="o">,</span><span class="nt">Verdana</span><span class="o">,</span><span class="nt">Helvetica</span><span class="o">,</span><span class="nt">Arial</span><span class="o">,</span><span class="nt">sans-serif</span><span class="o">;</span><span class="p">}</span>
-<span class="nt">a</span><span class="p">{}</span>
-<span class="nt">a</span><span class="nd">:hover</span><span class="p">{}</span>
-<span class="nt">a</span><span class="nd">:active</span><span class="p">{}</span>
+<span class="s1">//*the simple gradient</span>
+<span class="s1">//*more complex css3 style you can make it on http://iruxu.com/to-be-css/</span>
+<span class="s1">.gr-l(@point,@colorA,@colorB){background-image:linear-gradient(@point,@colorA,@colorB)}</span>
+<span class="s1">.gr-c(@center,@colorA,@colorB){background-image:radial-gradient(@center,@colorA,@colorB)}</span>
+
+<span class="s1">//Base var for path or color</span>
+<span class="s1">@color:#333;</span>
+<span class="s1">@linkcolor:#369;</span>
+<span class="s1">@hovercolor:#ff0000;</span>
+<span class="s1">@activecolor:#00ccff;</span>
+<span class="s1">@bgcolor:#f1f1f1;</span>
+<span class="s1">@url:"img";</span>
+
+<span class="s1">// =Common</span>
+<span class="s1">//--------------------------------------------------------------</span>
+<span class="s1">.clearfix:after {content:"\200B";display:block;height:0;clear:both;}</span>
+<span class="s1">.clearfix{*zoom:1;}</span>
+
+<span class="s1">//base style</span>
+<span class="s1">html,body{color:@color;background:@bgcolor;</span>
+<span class="s1">    font-size:12px;line-height: 180%;</span>
+<span class="s1">    font-family: Consolas,'</span><span class="nt">Trebuchet</span> <span class="nt">MS</span><span class="err">'</span><span class="o">,</span><span class="nt">Verdana</span><span class="o">,</span><span class="nt">Helvetica</span><span class="o">,</span><span class="nt">Arial</span><span class="o">,</span><span class="nt">sans-serif</span><span class="o">;</span><span class="p">}</span>
+<span class="nt">a</span><span class="p">{</span><span class="nt">color</span><span class="o">:</span><span class="k">@linkcolor</span><span class="p">;}</span>
+<span class="nt">a</span><span class="nd">:hover</span><span class="p">{</span><span class="nt">color</span><span class="o">:</span><span class="k">@hovercolor</span><span class="p">;}</span>
+<span class="nt">a</span><span class="nd">:active</span><span class="p">{</span><span class="nt">color</span><span class="o">:</span><span class="k">@activecolor</span><span class="p">;}</span>
+<span class="nt">table</span> <span class="nt">td</span><span class="p">{</span><span class="nt">border</span><span class="nd">:1px</span> <span class="nt">solid</span> <span class="nf">#ddd</span><span class="o">;</span><span class="nt">padding</span><span class="nd">:2px</span> <span class="nt">5px</span><span class="o">;</span><span class="nt">font-size</span><span class="nd">:12px</span><span class="o">;</span><span class="nt">line-height</span><span class="o">:</span> <span class="nt">24px</span><span class="o">;</span><span class="p">}</span>
+<span class="nt">legend</span><span class="p">{</span><span class="nt">padding</span><span class="nd">:0</span><span class="o">;</span><span class="nt">white-space</span><span class="nd">:normal</span><span class="o">;</span><span class="nt">border</span><span class="nd">:0</span><span class="o">;*</span><span class="nt">margin-left</span><span class="nd">:-7px</span><span class="o">;</span><span class="p">}</span>
+
+<span class="o">//</span><span class="nt">your</span> <span class="nt">style</span>
+
 
 
 <span class="o">//</span> <span class="o">=</span><span class="nt">Responsive</span>
 <span class="o">//</span><span class="nt">--------------------------------------------------------------</span>
 <span class="o">//</span><span class="nt">iPad</span>
-<span class="k">@media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-device-width</span><span class="nd">:768px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-device-width</span><span class="nd">:1024px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">orientation</span><span class="nd">:landscape</span><span class="o">)</span><span class="p">{}</span>
 <span class="k">@media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-device-width</span><span class="nd">:768px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-device-width</span><span class="nd">:1024px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">orientation</span><span class="nd">:portrait</span><span class="o">)</span><span class="p">{}</span>
-<span class="o">//</span><span class="nt">phone</span>
-<span class="k">@media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-device-width</span><span class="nd">:960px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">orientation</span><span class="nd">:landscape</span><span class="o">)</span><span class="p">{}</span>
-<span class="k">@media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-device-width</span><span class="nd">:320px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-device-width</span><span class="nd">:720px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">orientation</span><span class="nd">:portrait</span><span class="o">)</span><span class="p">{}</span>
+<span class="k">@media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-device-width</span><span class="nd">:768px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-device-width</span><span class="nd">:1024px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">orientation</span><span class="nd">:landscape</span><span class="o">)</span><span class="p">{}</span>
 
+<span class="o">//</span><span class="nt">phone</span>
+<span class="k">@media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-device-width</span><span class="nd">:320px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-device-width</span><span class="nd">:720px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">orientation</span><span class="nd">:portrait</span><span class="o">)</span><span class="p">{}</span>
+<span class="k">@media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-device-width</span><span class="nd">:960px</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">orientation</span><span class="nd">:landscape</span><span class="o">)</span><span class="p">{}</span>
 
 </pre></div>
       </section>
