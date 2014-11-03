@@ -5,7 +5,8 @@ CSS重置模板,并包含常用兼容,可通过继承引用。
 封装部分IE常见HACK方案（带参数）。
 
 示例：
-//在对应的样式内继承此样式，则此盒子将总是闭合。如.a{.clear;其他样式...}
+
++在对应的样式内继承此样式，则此盒子将总是闭合。如.a{.clear;其他样式...}
 ```less
 .clear{
     *zoom:1;
@@ -13,13 +14,13 @@ CSS重置模板,并包含常用兼容,可通过继承引用。
 }
 ```
 
-//常见的IE兼容举例，继承引用
++常见的IE兼容举例，继承引用
 ```less
 .fl{display: inline;float: left;}
 .dbi{display:inline-block;*display:inline;*zoom:1;}
 ```
 
-//IE6的绝对定位片段，fix为距离值，lt为左上
++IE6的绝对定位片段，fix为距离值，lt为左上
 ```less
 .fixed(lt,@fix){
     position: fixed;
@@ -33,7 +34,7 @@ CSS重置模板,并包含常用兼容,可通过继承引用。
 }
 ```
 
-//IE6-8透明
++IE6-8透明
 ```less
 .tm(@tm){
     @alpha:@tm*100;
@@ -56,10 +57,8 @@ CSS重置模板,并包含常用兼容,可通过继承引用。
 }
 ```
 
-其他具体见注释。
-
-方便的可视化前端编译器koala： http://koala-app.com/index-zh.html
-
-LESS快速入门： http://www.bootcss.com/p/lesscss/
++其他具体见注释。
++方便的可视化前端编译器koala： http://koala-app.com/index-zh.html
++LESS快速入门： http://www.bootcss.com/p/lesscss/
 
 
