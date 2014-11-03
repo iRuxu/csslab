@@ -6,16 +6,21 @@ CSS重置模板,并包含常用兼容,可通过继承引用。
 
 示例：
 //在对应的样式内继承此样式，则此盒子将总是闭合。如.a{.clear;其他样式...}
+```less
 .clear{
     *zoom:1;
     &:after {content:"\200B"; display:block; height:0; clear:both;}
 }
+```
 
 //常见的IE兼容举例，继承引用
+```less
 .fl{display: inline;float: left;}
 .dbi{display:inline-block;*display:inline;*zoom:1;}
+```
 
 //IE6的绝对定位片段，fix为距离值，lt为左上
+```less
 .fixed(lt,@fix){
     position: fixed;
     left:0px;
@@ -26,8 +31,10 @@ CSS重置模板,并包含常用兼容,可通过继承引用。
     overflow:hidden; 
     *zoom:1;
 }
+```
 
 //IE6-8透明
+```less
 .tm(@tm){
     @alpha:@tm*100;
     opacity:@tm; //ie9 webkit etc.
@@ -47,10 +54,12 @@ CSS重置模板,并包含常用兼容,可通过继承引用。
     _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
     // a{_position:relative;} maybe you can delete this line
 }
+```
 
 其他具体见注释。
 
 方便的可视化前端编译器koala： http://koala-app.com/index-zh.html
+
 LESS快速入门： http://www.bootcss.com/p/lesscss/
 
 
