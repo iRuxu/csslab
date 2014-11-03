@@ -62,7 +62,8 @@ mark{color:#000;background:#E55B00;} //you can change the focus color
 //which box you contain the float box
 .clear{
     *zoom:1;
-    &:after {content:"\200B"; display:block; height:0; clear:both; }}
+    &:after {content:"\200B"; display:block; height:0; clear:both;}
+}
 //font write mode
 .nobreak{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 .break{word-wrap:break-word;word-break:break-all;}
@@ -74,6 +75,7 @@ mark{color:#000;background:#E55B00;} //you can change the focus color
 .pr{position: relative;*zoom: 1;}
 .pa{position: absolute;}
 .ps{position: static !important;}
+.ct{position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
 //+for ie6 position fixed
 .fixed(lt,@fix){
     position: fixed;
@@ -115,28 +117,25 @@ mark{color:#000;background:#E55B00;} //you can change the focus color
     overflow:hidden; 
     *zoom:1;
 }
-//+for ie6 transparent
+//+for ie transparent
 .tm(@tm){
     @alpha:@tm*100;
     opacity:@tm; //ie9 webkit etc.
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{alpha})"; //ie8
     filter:alpha(opacity=@alpha); //ie5-ie7
 }
 .rgba(@r,@g,@b,@tm){
     @rgba:rgba(@r,@g,@b,@tm);
     @ietm:argb(@rgba);
     background: @rgba;
-    _background: rgb(@r,@g,@b);
-    _filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
 }
-.tm-png(@url){ 
+.tmpng(@url){ 
     //please and a url like 'img/images.png' , dont's lose the quotes
     //you should let this css file are the same path with html file
     //or you should add a absolute path
-    background:url(@url) no-repeat;
-    _background:none;
+    background-image:url(@url);
     _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
-    a{_position:relative;} //maybe you can delete this line
+    // a{_position:relative;} maybe you can delete this line
 }
 //+for ie6 size
 .min-height(@min-height){
@@ -194,6 +193,7 @@ table td{border:1px solid #ddd;padding:2px 5px;font-size:12px;line-height: 24px;
 legend{padding:0;white-space:normal;border:0;*margin-left:-7px;}
 
 //your style
+//...
 
 
 
