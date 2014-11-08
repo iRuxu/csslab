@@ -5,6 +5,7 @@ https://github.com/iRuxu/resetcss
 */
 
 
+
 // =Reset
 //--------------------------------------------------------------
 @charset "utf-8";
@@ -26,10 +27,11 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
 
 //Unity the form style
+input{padding:0;margin:0;}
 button[disabled],input[disabled]{cursor: default;}
 textarea{overflow:auto;resize:vertical;vertical-align:top;} //you can also delete this line
-//+for ie7 button align
-button,input,select,textarea{font-family:inherit;font-size:100%;vertical-align:baseline;*vertical-align:middle;} 
+//+for button align
+button,input,select,textarea{font-family:inherit;font-size:100%;vertical-align:middle;} 
 //+for safari button,you can change the 'button' with 'none'
 button,input[type=button],input[type=submit],input[type='reset']{
 cursor:pointer;*overflow:visible;
@@ -66,7 +68,7 @@ mark{color:#000;background:#E55B00;} //you can change the focus color
 }
 //font write mode
 .nobreak{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
-.break{word-wrap:break-word;word-break:break-all;}
+.break{word-wrap:break-word;word-break:break-all;white-space:normal !important;}
 //ie hack
 .dbi{display:inline-block;*display:inline;*zoom:1;}
 .hidden{overflow:hidden;*zoom: 1;}
@@ -169,7 +171,27 @@ mark{color:#000;background:#E55B00;} //you can change the focus color
 .gr-l(@point,@colorA,@colorB){background-image:linear-gradient(@point,@colorA,@colorB)}
 .gr-c(@center,@colorA,@colorB){background-image:radial-gradient(@center,@colorA,@colorB)}
 
+//placeholder style
+.tips(@color,@size:12px,@align:left){
+    &:-moz-placeholder {
+        color: @color;
+        font-size:@size;
+        text-align:@align;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+        font-size:@size;
+        text-align:@align;
+    }
+    &::-webkit-input-placeholder {
+        color: @color;
+        font-size:@size;
+        text-align:@align;
+    }
+}
+
 //Base var for path or color
+@basecolor:#ff3399;
 @color:#333;
 @linkcolor:#369;
 @hovercolor:#ff0000;
@@ -182,6 +204,7 @@ mark{color:#000;background:#E55B00;} //you can change the focus color
 .clearfix:after {content:"\200B";display:block;height:0;clear:both;}
 .clearfix{*zoom:1;}
 
+
 //base style
 html,body{color:@color;background:@bgcolor;
     font-size:12px;line-height: 180%;
@@ -191,8 +214,8 @@ a:hover{color:@hovercolor;}
 a:active{color:@activecolor;}
 table td{border:1px solid #ddd;padding:2px 5px;font-size:12px;line-height: 24px;}
 legend{padding:0;white-space:normal;border:0;*margin-left:-7px;}
-
-//your style
+::selection{background-color:@basecolor;color:@color;}
+//your style here
 //...
 
 
