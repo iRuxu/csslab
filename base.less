@@ -1,0 +1,139 @@
+/*
+Base.less v0.5 - [2014.11.13]
+https://github.com/iRuxu/iruxucss
+*/
+
+// =Package
+//--------------------------------------------------------------
+//font write mode
+.nobreak{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.break{word-wrap:break-word;word-break:break-all;white-space:normal !important;}
+
+//ie hack
+.db{display:block;}
+.dbi{display:inline-block;*display:inline;*zoom:1;}
+.none{display:none;}
+.hide{visibility: hidden;}
+.clip{overflow:hidden;*zoom: 1;}
+.fl{float: left;_display: inline;}
+.fr{float: right;_display: inline;}
+.pr{position: relative;*zoom: 1;}
+.pa{position: absolute;}
+.ps{position: static !important;}
+.ct{position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
+
+//for clear float
+.clear{
+    *zoom:1;
+    &:after {content:"\200B"; .db; height:0; clear:both;}
+}
+.hr{clear:both;}
+
+//for ie6 position fixed
+.fixed(lt,@fix){
+    position: fixed;
+    left:0px;
+    top:0px;
+    z-index: 999;
+    _position:absolute;
+    _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+    overflow:hidden; 
+    *zoom:1;
+}
+.fixed(rt,@fix){
+    position: fixed;
+    right:0px;
+    top:0px;
+    z-index: 999;
+    _position:absolute;
+    _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+    overflow:hidden; 
+    *zoom:1;
+}
+.fixed(lb,@fix){
+    position: fixed;
+    left:0px;
+    bottom:0px;
+    z-index: 999;
+    _position:absolute;
+    _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+    overflow:hidden; 
+    *zoom:1;
+}
+.fixed(rb,@fix){
+    position: fixed;
+    right:0px;
+    bottom:0px;
+    z-index: 999;
+    _position:absolute;
+    _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+    overflow:hidden; 
+    *zoom:1;
+}
+
+//for ie transparent
+.tm(@tm){
+    @alpha:@tm*100;
+    opacity:@tm; //ie9 webkit etc.
+    filter:alpha(opacity=@alpha); //ie5-ie7
+}
+.rgba(@r,@g,@b,@tm){
+    @rgba:rgba(@r,@g,@b,@tm);
+    @ietm:argb(@rgba);
+    background: @rgba;
+    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
+}
+.tmpng(@url){ 
+    //please and a url like 'img/images.png' , dont's lose the quotes
+    //you should let this css file are the same path with html file
+    //or you should add a absolute path
+    background-image:url(@url);
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
+    // a{_position:relative;} maybe you can delete this line
+}
+
+//for ie6 size
+.min-height(@min-height){
+    min-height:@min-height;
+    _height:@min-height;
+}
+
+//align style
+.x(@text-align:center){text-align:@text-align;}
+.y(@vertical-align:middle){vertical-align:@vertical-align;}
+.z(@index:1){z-index:@index;}
+
+//the item style
+.items(fk){list-style:square;}
+.items(dian){list-style:disc;}
+.items(quan){list-style:circle;}
+.items(num){list-style:decimal;}
+.items(01){list-style:decimal-leading-zero;}
+.items(i){list-style:lower-roman;}
+.items(I){list-style:upper-roman;}
+.items(a){list-style:lower-alpha;}
+.items(A){list-style:upper-alpha;}
+.items(@_){padding-left:40px;}
+
+//the simple gradient
+.gr-l(@point,@colorA,@colorB){background-image:linear-gradient(@point,@colorA,@colorB)}
+.gr-c(@center,@colorA,@colorB){background-image:radial-gradient(@center,@colorA,@colorB)}
+
+//placeholder style
+.tips(@color,@size:12px,@align:left){
+    &:-moz-placeholder {
+        color: @color;
+        font-size:@size;
+        text-align:@align;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+        font-size:@size;
+        text-align:@align;
+    }
+    &::-webkit-input-placeholder {
+        color: @color;
+        font-size:@size;
+        text-align:@align;
+    }
+}

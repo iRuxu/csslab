@@ -1,0 +1,22 @@
+/*
+iconfont.css v0.1 - [2014.11.15]
+check the icon frome http://iconfont.cn/showProject
+*/
+@font-face {
+  font-family: 'iconfont';
+  src: url('http://at.alicdn.com/t/font_1415709444_5735674.eot');
+  src: url('http://at.alicdn.com/t/font_1415709444_5735674.eot?#iefix') format('embedded-opentype'), 
+       url('http://at.alicdn.com/t/font_1415709444_5735674.woff') format('woff'), 
+       url('http://at.alicdn.com/t/font_1415709444_5735674.ttf') format('truetype'), 
+       url('http://at.alicdn.com/t/font_1415709444_5735674.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-stroke-width: 0.2px;
+}
