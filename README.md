@@ -1,11 +1,11 @@
 iruxucss
 ========
-1.reset.css 浏览器样式重置,含移动端部分webkit属性
-2.base.less 组合常用的IE6-IE8各类HACK,以及部分属性更简洁的命名
-3.animation.less 一个自用整理和写的小清新CSS3动画库
-4.booticon.css Bootstrap使用的Glyphicons图标库，图标索引http://v3.bootcss.com/components/ 对应用图标的span给对应样式名
-5.iconfont.css 自用的iconfont图标库
-6.common.less 基础元素的一些样式声明与响应式设计框架
++1.reset.css 浏览器样式重置,含移动端部分webkit属性
++2.base.less 组合常用的IE6-IE8各类HACK,以及部分属性更简洁的命名
++3.animation.less 一个自用整理和写的小清新CSS3动画库
++4.booticon.css Bootstrap使用的Glyphicons图标库，图标索引http://v3.bootcss.com/components/ 对应用图标的span给对应样式名
++5.iconfont.css 自用的iconfont图标库
++6.common.less 基础元素的一些样式声明与响应式设计框架
 
 ================================================
 [base.less示例]
@@ -61,8 +61,8 @@ iruxucss
 }
 ```
 
-> 其他具体见注释。
-> 方便的可视化前端编译器koala： http://koala-app.com/index-zh.html
-> LESS快速入门： http://www.bootcss.com/p/lesscss/
+> +其他具体见注释。
+> +方便的可视化前端编译器koala： http://koala-app.com/index-zh.html
+> +LESS快速入门： http://www.bootcss.com/p/lesscss/
 
 
