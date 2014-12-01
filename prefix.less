@@ -1,0 +1,42 @@
+/*
+prefix.less v0.1 - [2014.12.1]
+https://github.com/iRuxu/iruxucss
+*/
+
+// =Extend for iruxu base file
+//--------------------------------------------------------------
+
+//::selection
+.selection(@ftcolor,@bgcolor){
+	::selection,::-moz-selection{color:@ftcolor;background-color: @bgcolor;}
+}
+
+//reflect
+.reflect(@direction,@offset,@mask){
+	-webkit-box-reflect:@direction @offset @mask;
+}
+
+//filter
+.filter(@filters){
+	filter:@filters;
+	-webkit-filter:@filters;
+}
+
+//columns
+.col(@cols){
+	-webkit-columns:@cols;
+	-moz-columns:@cols;
+	columns:@cols;
+}
+
+//transform
+.bx(@transform){
+	-webkit-transform:@transform;
+	transform:@transform;
+}
+
+
+
+
+
+
