@@ -1,5 +1,5 @@
 /*
-Common.less v0.1 - [2014.11.15]
+Common.less v0.2 - [2014.12.1]
 https://github.com/iRuxu/iruxucss
 */
 
@@ -8,8 +8,7 @@ https://github.com/iRuxu/iruxucss
     @import url('reset.less');
     @import url('base.less');
     @import url('animation.less');
-    @import url('booticon.css');
-    @import url('iconfont.css');
+    @import url('prefix.less');
 
     //Base var
         @basecolor:#ff3399;
@@ -24,15 +23,15 @@ https://github.com/iRuxu/iruxucss
         @fonturl:"font";
 
     //General
-        html,body{color:@color;background:@bgcolor;
-            font-size:12px;line-height: 180%;
+        html{font-size:62.5%;}
+        body{color:@color;background:@bgcolor;
+            line-height: 180%;font-size:1.2rem;font-size:12px;
             font-family: "\5FAE\8F6F\96C5\9ED1",Consolas,'Trebuchet MS',Verdana,Helvetica,Arial,Sans-serif;}
         a:link{color:@link;}
         a:visited{color:@visited;}
         a:hover{color:@hover;}
         a:active{color:@active;}
-        mark{background:@basecolor;color:@color;}
-        ::selection{background-color:@basecolor;color:@color;}
+        ::selection,::-moz-selection,mark{color:#fff;background-color:@basecolor;}
 
     //For Test
         .test{&:hover{outline: 1px dashed #4AFFFF;.rgba(0,204,255,.2);}_border:1px dashed #4AFFFF;}
