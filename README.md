@@ -5,13 +5,17 @@ iruxucss
 1. reset.css 浏览器样式重置,含移动端部分webkit属性
 2. base.less 组合常用的IE6-IE8各类HACK,以及部分属性更简洁的命名
 3. animation.less 一个自用整理和写的小清新CSS3动画库
-4. booticon.css Bootstrap使用的Glyphicons图标库，图标索引http://v3.bootcss.com/components/ 对应用图标的span给对应样式名
-5. iconfont.css 自用的iconfont图标库
-6. common.less 基础元素的一些样式声明与响应式设计框架
+4. ui.less 一些css界面绘制功能
+5. grandient.less 自用渐变库
+6. common.less 全局变量声明,根元素及默认样式定义
+7. main.less 主体css文件与响应式设计框架
+P.S.
++ booticon.css Bootstrap使用的Glyphicons图标库，图标索引http://v3.bootcss.com/components/ 对应用图标的span给对应样式名
++ iconfont.css 自用的iconfont图标库
 
 
 # [base.less示例]
-+ 在对应的样式内继承此样式，则此盒子将总是闭合。如.a{.clear;其他样式...}
++ 在对应的样式内继承此样式,则此盒子将总是闭合,避免污染HTML。如.a{.clear;其他样式...}
 ```less
 .clear{
     *zoom:1;
@@ -39,26 +43,13 @@ iruxucss
 }
 ```
 
-+ IE6-8透明
++ IE6-8 rgba透明
 ```less
-.tm(@tm){
-    @alpha:@tm*100;
-    opacity:@tm; //ie9 webkit etc.
-    filter:alpha(opacity=@alpha); //ie5-ie7
-}
 .rgba(@r,@g,@b,@tm){
     @rgba:rgba(@r,@g,@b,@tm);
     @ietm:argb(@rgba);
     background: @rgba;
     filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
-}
-.tmpng(@url){ 
-    //please and a url like 'img/images.png' , dont's lose the quotes
-    //you should let this css file are the same path with html file
-    //or you should add a absolute path
-    background-image:url(@url);
-    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
-    // a{_position:relative;} maybe you can delete this line
 }
 ```
 
@@ -66,6 +57,6 @@ iruxucss
 1. [iRuxu的CSS手册] http://iruxu.com/notebook
 2. [koala] 一款方便的可视化前端编译器 http://koala-app.com/index-zh.html
 3. [LESS] 快速入门中文手册 http://www.bootcss.com/p/lesscss/
-4. 其他具体见注释。
+4. 其他具体见文件内注释。
 
 
