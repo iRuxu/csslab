@@ -5,10 +5,6 @@ https://github.com/iRuxu/iruxucss
 
 // =Common
 //--------------------------------------------------------------
-    @import url('reset.less');
-    @import url('base.less');
-    @import url('animation.less');
-    @import url('prefix.less');
 
     //Base var
         @basecolor:#ff3399;
@@ -31,28 +27,10 @@ https://github.com/iRuxu/iruxucss
         a:visited{color:@visited;}
         a:hover{color:@hover;}
         a:active{color:@active;}
-        ::selection,::-moz-selection,mark{color:#fff;background-color:@basecolor;}
+        ::selection{color:#fff;background-color:@basecolor;}
+
 
     //For Test
         .test{&:hover{outline: 1px dashed #4AFFFF;.rgba(0,204,255,.2);}_border:1px dashed #4AFFFF;}
         .test2{outline: 1px dashed #4AFFFF;_border:1px dashed #4AFFFF;}
     
-
-// =Page
-//--------------------------------------------------------------
-
-    
-
-// =Responsive
-//--------------------------------------------------------------
-    //iPad
-    @media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:portrait){}
-    @media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:landscape){}
-
-    //phone
-    @media only screen and (min-device-width:320px) and (max-device-width:720px){}
-
-    //other
-    @media only screen and (max-device-width:1080px) {}  //change the 1080 to be the max-width of the page content
-
-

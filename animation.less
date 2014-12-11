@@ -17,8 +17,40 @@ https://github.com/iRuxu/iruxucss
 	100%{transform:scale(1);color:#333;}
 }
 
+@keyframes close{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(180deg);}
+
+}
+
+@keyframes zoomit{
+    from{transform:scale(1);}
+    to{transform:scale(1.2);}
+}
+
+//------------3D y轴翻转
+@keyframes flip {
+    0% { opacity: 0;
+        transform: perspective(500px) rotateY(0);
+        animation-timing-function: ease-out; }
+    40% {
+        transform: perspective(500px) translateZ(150px) rotateY(170deg);
+        animation-timing-function: ease-out; }
+    50% {
+        transform: perspective(500px) translateZ(150px) rotateY(190deg) scale(1);
+        animation-timing-function: ease-in; }
+    80% {
+        transform: perspective(500px) rotateY(360deg) scale(.95);
+        animation-timing-function: ease-in; }
+    100% {
+        opacity: 1;
+        transform: perspective(500px) scale(1);
+        animation-timing-function: ease-in; }
+}
+
+//-------------掠光动画
 .shark{
-    .pr;.clip;
+    position:relative;overflow:hidden;
     &:hover i{
         left: 100%;
         transition: .5s;
@@ -37,6 +69,33 @@ https://github.com/iRuxu/iruxucss
         -webkit-transform: skewx(-25deg);
         background-image: -webkit-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,.5),rgba(255,255,255,0));
     }
+}
+
+//--------------边框动画
+.bordershow{
+    &:before,&:after{content:'';display:block;width:8px;height:0;background-color:#fff;position: absolute;}
+    &:before{left:0;bottom:0;}
+    &:after{right:0;top:0;}
+    a{
+        &:before,&:after{content:'';display:block;width:0;height:8px;background-color:#fff;position: absolute;}
+        &:before{top:0;left:0;}
+        &:after{right:0;bottom:0;}
+    }
+    &:hover{
+        &:before{animation:paizhaoLR 0.6s forwards;}
+        &:after{animation:paizhaoLR 0.6s forwards;}
+        a:before{animation:paizhaoTB 0.6s forwards;}
+        a:after{animation:paizhaoTB 0.6s forwards;}
+    }
+}
+@keyframes borderLR {
+    from {}
+    to {height:100%;}
+}
+
+@keyframes borderTB {
+    from {}
+    to {width:100%;}
 }
 
 
