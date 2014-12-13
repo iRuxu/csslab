@@ -140,11 +140,13 @@ h1 {
   display: none;
 }
 .a {
-  width: 100%;
-  height: 100%;
-  background: url('img/layout-ms.png') repeat 0 0;
-  _background: none;
-  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/layout-ms.png');
+  background-color: #ff3399;
+  width: 200px;
+  height: 200px;
+  display: table-cell;
+  *margin-bottom: -5000px;
+  *padding-bottom: 5000px;
+  *float: left;
   position: relative;
   *zoom: 1;
   z-index: 10;
@@ -159,9 +161,10 @@ h1 {
   background-color: #00ccff;
   height: 300px;
   width: 300px;
-  position: relative;
-  *zoom: 1;
-  top: -50px;
+  display: table-cell;
+  *margin-bottom: -5000px;
+  *padding-bottom: 5000px;
+  *float: left;
 }
 .c {
   line-height: 40px;
