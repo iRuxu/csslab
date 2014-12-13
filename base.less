@@ -1,240 +1,208 @@
 /*
-Base.less v0.6 - [2014.12.1]
+Base.less v1.0 - [2014.12.12]
 https://github.com/iRuxu/iruxucss
 */
 
-// =Package
+//=Font
 //--------------------------------------------------------------
-//font write mode
-.nobreak{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
-.break{word-wrap:break-word;word-break:break-all;white-space:normal !important;}
-.refont{direction:rtl;unicode-bidi:bidi-override;}
-
-//align style
-.x(@text-align:center){text-align:@text-align;}
-.y(@vertical-align:middle){vertical-align:@vertical-align;}
-.z(@index:1){z-index:@index;}
-
-//ie hack
-.db{display:block;}
-.dbi{display:inline-block;*display:inline;*zoom:1;}
-.none{display:none;}
-.hide{visibility: hidden;}
-.clip{overflow:hidden;*zoom: 1;}
-.fl{float: left;_display: inline;}
-.fr{float: right;_display: inline;}
-.pr{position: relative;*zoom: 1;}
-.pa{position: absolute;}
-.ps{position: static !important;}
-.ct{position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
-
-//for clear float
-.clear{
-    *zoom:1;
-    &:after {content:"\200B"; .db; height:0; clear:both;}
-}
-.hr{clear:both;}
-
-//for ie6 position fixed
-.fixed(lt,@fix){
-    position: fixed;
-    left:0px;
-    top:0px;
-    z-index: 999;
-    _position:absolute;
-    _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
-    overflow:hidden; 
-    *zoom:1;
-}
-.fixed(rt,@fix){
-    position: fixed;
-    right:0px;
-    top:0px;
-    z-index: 999;
-    _position:absolute;
-    _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
-    overflow:hidden; 
-    *zoom:1;
-}
-.fixed(lb,@fix){
-    position: fixed;
-    left:0px;
-    bottom:0px;
-    z-index: 999;
-    _position:absolute;
-    _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
-    overflow:hidden; 
-    *zoom:1;
-}
-.fixed(rb,@fix){
-    position: fixed;
-    right:0px;
-    bottom:0px;
-    z-index: 999;
-    _position:absolute;
-    _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
-    overflow:hidden; 
-    *zoom:1;
-}
-
-//for ie transparent
-.tm(@tm){
-    @alpha:@tm*100;
-    opacity:@tm; //ie9 webkit etc.
-    filter:alpha(opacity=@alpha); //ie5-ie7
-}
-.rgba(@r,@g,@b,@tm){
-    @rgba:rgba(@r,@g,@b,@tm);
-    @ietm:argb(@rgba);
-    background: @rgba;
-    filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
-}
-.tmpng(@url){ 
-    //please and a url like 'img/images.png' , dont's lose the quotes
-    //you should let this css file are the same path with html file
-    //or you should add a absolute path
-    background-image:url(@url);
-    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
-    // a{_position:relative;} maybe you can delete this line
-}
-
-//for ie6 size
-.min-height(@min-height){
-    min-height:@min-height;
-    _height:@min-height;
-}
+    //font write mode
+        .nobreak{white-space:nowrap;word-break:keep-all;text-overflow:ellipsis;overflow:hidden;}
+        .break{white-space:normal;word-wrap:break-word;word-break:break-all;}
+        .refont{direction:rtl;unicode-bidi:bidi-override;}
 
 
-//radius
-.radius(@lt,@rt,@lb,@rb){
-    border-top-left-radius: @lt;
-    border-top-right-radius: @rt;
-    border-bottom-left-radius: @lb;
-    border-bottom-right-radius: @rb;
-}
+//=Layout
+//--------------------------------------------------------------
+    //Need unit! px/em/%/1.x
+        .fz(@size,@line){font-size:@size;line-height:@line;}
+        .size(@width,@height){width:@width;height:@height;}
+        .full{width:100%;height:100%;}
 
-//reflect
-.dy(t){-webkit-box-reflect: above;}
-.dy(b){-webkit-box-reflect: below;}
-.dy(l){-webkit-box-reflect: left;}
-.dy(r){-webkit-box-reflect: right;}
+    //ie hack
+        .db{display:block;}
+        .dbi{display:inline-block;*display:inline;*zoom:1;}
+        .none{display:none;}
+        .hide{visibility: hidden;}
+        .clip{overflow:hidden;*zoom:1;}
+        .fl{float: left;*display: inline;}
+        .fr{float: right;*display: inline;}
+        .pr{position: relative;*zoom:1;}
+        .pa{position: absolute;}
+        .ps{position: static;}
 
-//filter
-.blur(@blur){
-    filter:blur(@blur);
-    -webkit-filter:blur(@blur);
-}
-.filter(heibai,@arg:1){filter:grayscale(@arg);-webkit-filter:grayscale(@arg);}
-.filter(pojiu,@arg:1){filter:sepia(@arg);-webkit-filter:sepia(@arg);}
-.filter(baohe,@arg:1){filter:saturate(@arg);-webkit-filter:saturate(@arg);}
-.filter(liangdu,@arg:1){filter:brightness(@arg);-webkit-filter:brightness(@arg);}
-.filter(duibi,@arg:1){filter:contrast(@arg);-webkit-filter:contrast(@arg);}
+    //align and auto
+        .x(@text-align:center){text-align:@text-align;}
+        .y(@vertical-align:middle){vertical-align:@vertical-align;}
+        .z(@index:1){z-index:@index;}
+        
+        .ct{position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;} //x ie6 x
+        .ct(x){position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;} //x ie6 x
+        .ct(y){position:absolute;margin-top:auto;margin-bottom:auto;top:0;bottom:0;} //x ie6 x
 
-//the item style
-.items(fk){list-style:square;}
-.items(dian){list-style:disc;}
-.items(quan){list-style:circle;}
-.items(num){list-style:decimal;}
-.items(01){list-style:decimal-leading-zero;}
-.items(i){list-style:lower-roman;}
-.items(I){list-style:upper-roman;}
-.items(a){list-style:lower-alpha;}
-.items(A){list-style:upper-alpha;}
-.items(@_){padding-left:40px;}
+        .ct(x,@width){position:absolute;left:50%;@xmargin:unit(@width/2,px);margin-left:-@xmargin;}
+        .ct(y,@height){position:absolute;top:50%;@ymargin:unit(@height/2,px);margin-top:-@ymargin;}
+        .ct(o,@width,@height){position:absolute;left:50%;top:50%;@xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);margin-left:-@xmargin;margin-top:-@ymargin;}
+    
+        .cell{display:table-cell;*display:inline-block;} //table-cell content + auto side*2
+        .cell(x){display:table-cell;width:5000px;*width:auto;*zoom:1;} //table-cell box + auto full
+        .cell(y){display:table-cell;*margin-bottom:-5000px;*padding-bottom:5000px;*float:left;}
+        
+        .auto(x){margin-left:auto;margin-right:auto;}
+        .auto(y){display:table-cell;vertical-align:middle;} //x ie6 x
+        .auto(w,@margin){
+            @margins:unit(@margin,px);
+            width:~'calc(100% - @{margins})';
+            *width:~'expression(eval(document.documentElement.clientWidth - @{margin}))';   //IE8-js
+        }
+        .auto(h,@top){
+            position: absolute;
+            top:unit(@top,px);
+            bottom:0;_height:100%;  //ie6 parent add { overflow-y:hidden; }
+        }
 
+    //inline-block
+        .iblock{font-size:0;white-space:nowrap;
+            li{.dbi;.y(top);font-size:12px;white-space:normal;}
+        }
 
-//::placeholder
-.tips(@color,@size:12px,@align:left){
-    &:-moz-placeholder {
-        color: @color;
-        font-size:@size;
-        text-align:@align;
+    //clear float
+        .clear{*zoom:1;&:after {content:"\200B"; .db; height:0; clear:both;}}
+        .hr{clear:both;}
+
+    //Min Size
+        .min-height(@min-height){min-height:unit(@min-height,px);_height:unit(@min-height,px);.clip;}
+        .min-width(@min-width){min-width:unit(@min-width,px);_width:unit(@min-width,px);.clip;}
+
+    //for ie6 position fixed
+        .fixed(@_,@side:0,@fix:0){
+            position: fixed;
+            _position:absolute;
+            overflow:hidden;
+            *zoom:1; 
+        }
+        .fixed(lt,@side:0,@fix:0){
+            left:unit(@side,px);
+            top:unit(@fix,px);
+            _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+        }
+        .fixed(rt,@side:0,@fix:0){
+            right:unit(@side,px);
+            top:unit(@fix,px);
+            _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
+        }
+        .fixed(lb,@side:0,@fix:0){
+            left:unit(@side,px);
+            bottom:unit(@fix,px);
+            _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+        }
+        .fixed(rb,@side:0,@fix:0){
+            right:unit(@side,px);
+            bottom:unit(@fix,px);
+            _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
+        }
+        .fixed(ct,@width,@height){
+            left:50%;
+            @xmargin:unit(@width/2,px);
+            margin-left:-@xmargin;
+            top:50%;
+            @ymargin:unit(@height/2,px);
+            margin-top:-@ymargin;
+        }
+    
+
+//Transparent
+//--------------------------------------------------------------
+    //opacity elements
+    .tm(@tm){
+        @alpha:@tm*100;
+        opacity:@tm; //ie9 webkit etc.
+        filter:alpha(opacity=@alpha); //ie5-ie7
     }
-    &:-ms-input-placeholder {
-        color: @color;
-        font-size:@size;
-        text-align:@align;
+    //rgba alpha color
+    .rgba(@r,@g,@b,@tm){
+        @rgba:rgba(@r,@g,@b,@tm);
+        @ietm:argb(@rgba);
+        background: @rgba;
+        filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
     }
-    &::-webkit-input-placeholder {
-        color: @color;
-        font-size:@size;
-        text-align:@align;
+    //ie6 png image
+    .tmpng(@url){ 
+        //you should add a absolute path
+        _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
     }
-}
-
-//colums
-.col(@cols){
-    -webkit-columns:@cols;
-    -moz-columns:@cols;
-    -ms-columns:@cols;
-    -o-columns:@cols;
-    columns:@cols;
-}
-
-//transform
-.translate(@x,@y){
-    -webkit-transform:translate(@x,@y);
-    -moz-transform:translate(@x,@y);
-    -o-transform:translate(@x,@y);
-    -ms-transform:translate(@x,@y);
-    transform:translate(@x,@y);
-}
-
-.translate(@x,@y,@z){
-    -webkit-transform:translate3D(@x,@y,@z);
-    -moz-transform:translate3D(@x,@y,@z);
-    -o-transform:translate3D(@x,@y,@z);
-    -ms-transform:translate3D(@x,@y,@z);
-    transform:translate3D(@x,@y,@z);
-}
-
-.rotate(@rotate){
-    -webkit-transform:rotate(@rotate);
-    -o-transform:rotate(@rotate);
-    -moz-transform:rotate(@rotate);
-    -ms-transform:rotate(@rotate);
-    transform:rotate(@rotate);
-}
-
-.rotate(@x,@y,@z){
-    -webkit-transform:rotate3D(@x,@y,@z);
-    -moz-transform:rotate3D(@x,@y,@z);
-    -ms-transform:rotate3D(@x,@y,@z);
-    -o-transform:rotate3D(@x,@y,@z);
-    transform:rotate3D(@x,@y,@z);
-}
-
-.scale(@x,@y){
-    -webkit-transform:scale(@x,@y);
-    -moz-transform:scale(@x,@y);
-    -ms-transform:scale(@x,@y);
-    -o-transform:scale(@x,@y);
-    transform:scale(@x,@y);
-}
-
-.scale(@x,@y,@z){
-    -webkit-transform:scale3D(@x,@y,@z);
-    -moz-transform:scale3D(@x,@y,@z);
-    -ms-transform:scale3D(@x,@y,@z);
-    -o-transform:scale3D(@x,@y,@z);
-    transform:scale3D(@x,@y,@z);
-}
-
-.skew(@skew){
-    -webkit-transform:skew(@skew);
-    -moz-transform:skew(@skew);
-    -ms-transform:skew(@skew);
-    -o-transform:skew(@skew);
-    transform:skew(@skew);
-}
-
-.skew(@x,@y){
-    -webkit-transform:skew(@x,@y);
-    -moz-transform:skew(@x,@y);
-    -ms-transform:skew(@x,@y);
-    -o-transform:skew(@x,@y);
-    transform:skew(@x,@y);
-}
+    //ie6 border transparent -2014.12.9
+    .ts(@width,@style:solid,@color:transparent){
+        border-width:unit(@width,px);
+        border-style:@style;
+        border-color:@color;
+        _border-color: #000000; 
+        _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='#000000')";
+    }
 
 
+//Interface
+//--------------------------------------------------------------
+    //cursor
+        .pointer{&:hover{cursor:pointer;}}
 
+
+//Effect
+//--------------------------------------------------------------
+    //reflect
+        .dy(t){-webkit-box-reflect: above;}
+        .dy(b){-webkit-box-reflect: below;}
+        .dy(l){-webkit-box-reflect: left;}
+        .dy(r){-webkit-box-reflect: right;}
+
+    //filter
+        .blur(@blur){
+            filter:blur(@blur);
+            -webkit-filter:blur(@blur);
+        }
+        .filter(heibai,@arg:1){filter:grayscale(@arg);-webkit-filter:grayscale(@arg);}
+        .filter(pojiu,@arg:1){filter:sepia(@arg);-webkit-filter:sepia(@arg);}
+        .filter(baohe,@arg:1){filter:saturate(@arg);-webkit-filter:saturate(@arg);}
+        .filter(liangdu,@arg:1){filter:brightness(@arg);-webkit-filter:brightness(@arg);}
+        .filter(duibi,@arg:1){filter:contrast(@arg);-webkit-filter:contrast(@arg);}
+
+    //the item style
+        .items(fk){list-style:square;}
+        .items(dian){list-style:disc;}
+        .items(quan){list-style:circle;}
+        .items(num){list-style:decimal;}
+        .items(01){list-style:decimal-leading-zero;}
+        .items(i){list-style:lower-roman;}
+        .items(I){list-style:upper-roman;}
+        .items(a){list-style:lower-alpha;}
+        .items(A){list-style:upper-alpha;}
+        .items(@_){padding-left:40px;}
+
+//Other
+//--------------------------------------------------------------
+    //::placeholder
+        .tips(@color,@size:12px,@align:left){
+            &:-moz-placeholder {
+                color: @color;
+                font-size:@size;
+                text-align:@align;
+            }
+            &:-ms-input-placeholder {
+                color: @color;
+                font-size:@size;
+                text-align:@align;
+            }
+            &::-webkit-input-placeholder {
+                color: @color;
+                font-size:@size;
+                text-align:@align;
+            }
+        }
+
+    //colums
+        .col(@cols){
+            -webkit-columns:@cols;
+            -moz-columns:@cols;
+            -ms-columns:@cols;
+            -o-columns:@cols;
+            columns:@cols;
+        }
