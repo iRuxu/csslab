@@ -1,5 +1,5 @@
 /*
-Base.less v1.0 - [2014.12.12]
+Base.less v1.1 - [2014.12.13]
 https://github.com/iRuxu/iruxucss
 */
 .nobreak {
@@ -105,14 +105,14 @@ https://github.com/iRuxu/iruxucss
 }
 html,
 body {
+  width: 100%;
   height: 100%;
   font-size: 30px;
 }
 .box {
-  background-color: #FFFF00;
-  /*width:50%;height:50%;margin:0 auto;position: relative;*/
-  width: 800px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
+  background: url('img/5.png') no-repeat 0 0;
 }
 .w {
   display: inline-block;
@@ -147,6 +147,9 @@ h1 {
   *margin-bottom: -5000px;
   *padding-bottom: 5000px;
   *float: left;
+  position: relative;
+  *zoom: 1;
+  z-index: 10;
 }
 .x {
   background-color: #000;

@@ -1,5 +1,5 @@
 /*
-Base.less v1.0 - [2014.12.12]
+Base.less v1.1 - [2014.12.13]
 https://github.com/iRuxu/iruxucss
 */
 
@@ -14,7 +14,7 @@ https://github.com/iRuxu/iruxucss
 //=Layout
 //--------------------------------------------------------------
     //Need unit! px/em/%/1.x
-        .fz(@size,@line){font-size:@size;line-height:@line;}
+        .fz(@size,@line:1){font-size:@size;line-height:@line;}
         .size(@width,@height){width:@width;height:@height;}
         .full{width:100%;height:100%;}
 
@@ -23,10 +23,10 @@ https://github.com/iRuxu/iruxucss
         .dbi{display:inline-block;*display:inline;*zoom:1;}
         .none{display:none;}
         .hide{visibility: hidden;}
-        .clip{overflow:hidden;*zoom: 1;}
+        .clip{overflow:hidden;*zoom:1;}
         .fl{float: left;*display: inline;}
         .fr{float: right;*display: inline;}
-        .pr{position: relative;*zoom: 1;}
+        .pr{position: relative;*zoom:1;}
         .pa{position: absolute;}
         .ps{position: static;}
 
@@ -70,8 +70,8 @@ https://github.com/iRuxu/iruxucss
         .hr{clear:both;}
 
     //Min Size
-        .min-height(@min-height){min-height:unit(@min-height,px);_height:unit(@min-height,px);.clip;}
-        .min-width(@min-width){min-width:unit(@min-width,px);_width:unit(@min-width,px);.clip;}
+        .min-height(@min-height){min-height:unit(@min-height,px);_height:unit(@min-height,px);}
+        .min-width(@min-width){min-width:unit(@min-width,px);_width:unit(@min-width,px);}
 
     //for ie6 position fixed
         .fixed(@_,@side:0,@fix:0){
@@ -121,14 +121,16 @@ https://github.com/iRuxu/iruxucss
     //rgba alpha color
     .rgba(@r,@g,@b,@tm){
         @rgba:rgba(@r,@g,@b,@tm);
+        @rgb:rgb(@r,@g,@b);
         @ietm:argb(@rgba);
-        background: @rgba;
+        background-color: @rgb;
+        background-color: @rgba;
+        _background-color: @rgb;
         filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
     }
     //ie6 png image
     .tmpng(@url){ 
         //you should add a absolute path
-        background-image:url(@url);
         _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
     }
     //ie6 border transparent -2014.12.9
