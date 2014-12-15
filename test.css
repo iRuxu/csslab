@@ -1,0 +1,184 @@
+/*
+Base.less v1.1 - [2014.12.13]
+https://github.com/iRuxu/iruxucss
+*/
+.nobreak {
+  white-space: nowrap;
+  word-break: keep-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.break {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.refont {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+.full {
+  width: 100%;
+  height: 100%;
+}
+.db {
+  display: block;
+}
+.dbi {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.none {
+  display: none;
+}
+.hide {
+  visibility: hidden;
+}
+.clip {
+  overflow: hidden;
+  *zoom: 1;
+}
+.fl {
+  float: left;
+  *display: inline;
+}
+.fr {
+  float: right;
+  *display: inline;
+}
+.pr {
+  position: relative;
+  *zoom: 1;
+}
+.pa {
+  position: absolute;
+}
+.ps {
+  position: static;
+}
+.ct {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.cell {
+  display: table-cell;
+  *display: inline-block;
+}
+.iblock {
+  font-size: 0;
+  white-space: nowrap;
+}
+.iblock li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: top;
+  font-size: 12px;
+  white-space: normal;
+}
+.clear {
+  *zoom: 1;
+}
+.clear:after {
+  content: "\200B";
+  display: block;
+  height: 0;
+  clear: both;
+}
+.hr {
+  clear: both;
+}
+.pointer:hover {
+  cursor: pointer;
+}
+/*@import url('animation.less');*/
+/*@import url('ui.less');*/
+/*@import url('grandient.less');*/
+* {
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+}
+.box {
+  width: 100%;
+  height: 100%;
+  background: url('img/5.png') no-repeat 0 0;
+}
+.w {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  text-indent: 50px;
+  display: none;
+}
+h1 {
+  color: #ff3399;
+  display: none;
+}
+.q {
+  color: #00ccff;
+  display: none;
+}
+.span {
+  display: none;
+}
+.po {
+  background-color: #000;
+  color: #fff;
+  height: 200px;
+  position: absolute;
+  display: none;
+}
+.a {
+  background-color: #ff3399;
+  width: 200px;
+  height: 200px;
+  display: table-cell;
+  *margin-bottom: -5000px;
+  *padding-bottom: 5000px;
+  *float: left;
+  position: relative;
+  *zoom: 1;
+  z-index: 10;
+}
+.x {
+  background-color: #000;
+  width: 100px;
+  height: 100px;
+  clear: both;
+}
+.b {
+  background-color: #00ccff;
+  height: 300px;
+  width: 300px;
+  display: table-cell;
+  *margin-bottom: -5000px;
+  *padding-bottom: 5000px;
+  *float: left;
+}
+.c {
+  line-height: 40px;
+  vertical-align: middle;
+  display: none;
+}
+.d {
+  vertical-align: middle;
+  display: none;
+}
+.e {
+  display: none;
+  vertical-align: middle;
+}
+.f {
+  display: none;
+}
