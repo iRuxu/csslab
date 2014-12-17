@@ -1,5 +1,5 @@
 /*
-Base.less v1.1 - [2014.12.13]
+Base.less v1.2 - [2014.12.16]
 https://github.com/iRuxu/iruxucss
 */
 
@@ -23,6 +23,7 @@ https://github.com/iRuxu/iruxucss
         .dbi{display:inline-block;*display:inline;*zoom:1;}
         .none{display:none;}
         .hide{visibility: hidden;}
+        .show{visibility: visible;}
         .clip{overflow:hidden;*zoom:1;}
         .fl{float: left;*display: inline;}
         .fr{float: right;*display: inline;}
@@ -123,14 +124,12 @@ https://github.com/iRuxu/iruxucss
         @rgba:rgba(@r,@g,@b,@tm);
         @rgb:rgb(@r,@g,@b);
         @ietm:argb(@rgba);
-        background-color: @rgb;
         background-color: @rgba;
-        _background-color: @rgb;
         filter:progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@ietm, endColorstr=@ietm);
     }
     //ie6 png image
     .tmpng(@url){ 
-        //you should add a absolute path
+        //you should add a absolute path , no support repeat img
         _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@url);
     }
     //ie6 border transparent -2014.12.9
