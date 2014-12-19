@@ -7,7 +7,7 @@ https://github.com/iRuxu/iruxucss
 //--------------------------------------------------------------
     //使用伪对象创建arrow,after为上浮层,before为边框层
     .arrow(t,@width,@color){
-        .pr;
+        position:relative;
         background-color: @color;
         &:before{
             bottom: 100%;
@@ -28,7 +28,7 @@ https://github.com/iRuxu/iruxucss
 
 
     .arrow(b,@width,@color){
-        .pr;
+        position:relative;
         background-color: @color;
         &:before{
             top: 100%;
@@ -48,7 +48,7 @@ https://github.com/iRuxu/iruxucss
     }
 
     .arrow(l,@width,@color){
-        .pr;
+        position:relative;
         background-color: @color;
         &:before{
             right: 100%;
@@ -69,7 +69,7 @@ https://github.com/iRuxu/iruxucss
 
 
     .arrow(r,@width,@color){
-        .pr;
+        position:relative;
         background-color: @color;
         &:before{
             left: 100%;
@@ -91,7 +91,7 @@ https://github.com/iRuxu/iruxucss
 //Border Arrow
 //--------------------------------------------------------------
     .arrows(t,@width,@color,@bo-width,@bo-color){
-        .pr;
+        position:relative;
         background-color: @color;
         border:unit(@bo-width,px) solid @bo-color;
         &:before,&:after{
@@ -121,7 +121,7 @@ https://github.com/iRuxu/iruxucss
     }
 
     .arrows(b,@width,@color,@bo-width,@bo-color){
-        .pr;
+        position:relative;
         background-color: @color;
         border:unit(@bo-width,px) solid @bo-color;
         &:before,&:after{
@@ -151,7 +151,7 @@ https://github.com/iRuxu/iruxucss
     }
 
     .arrows(l,@width,@color,@bo-width,@bo-color){
-        .pr;
+        position:relative;
         background-color: @color;
         border:unit(@bo-width,px) solid @bo-color;
         &:before,&:after{
@@ -181,7 +181,7 @@ https://github.com/iRuxu/iruxucss
     }
 
     .arrows(r,@width,@color,@bo-width,@bo-color){
-        .pr;
+        position:relative;
         background-color: @color;
         border:unit(@bo-width,px) solid @bo-color;
         &:before,&:after{
@@ -212,9 +212,9 @@ https://github.com/iRuxu/iruxucss
 
 //Radius 
 //--------------------------------------------------------------
-    //圆·Circle
+    //圆·Disc
     //圆角等于高度/宽度的一半，半圆宽度/高度等于另外的一半，设置侧边圆角
-    .circle(@r,@color){
+    .disc(@r,@color){
         width:unit(@r,px);
         height:unit(@r,px);
         @radius:@r/2;
@@ -222,7 +222,7 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-    .circle(@r,@color,l){
+    .disc(@r,@color,l){
         width:unit(@r/2,px);
         height:unit(@r,px);
         @radius:unit(@r/2,px);
@@ -231,7 +231,7 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-    .circle(@r,@color,r){
+    .disc(@r,@color,r){
         width:unit(@r/2,px);
         height:unit(@r,px);
         @radius:unit(@r/2,px);
@@ -240,7 +240,7 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-    .circle(@r,@color,t){
+    .disc(@r,@color,t){
         width:unit(@r,px);
         height:unit(@r/2,px);
         @radius:unit(@r/2,px);
@@ -249,7 +249,7 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-    .circle(@r,@color,b){
+    .disc(@r,@color,b){
         width:unit(@r,px);
         height:unit(@r/2,px);
         @radius:unit(@r/2,px);
@@ -258,8 +258,8 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-    //圈·Disc
-    .disc(@r,@border){
+    //圈·Circle
+    .circle(@r,@border){
         width:unit(@r,px);
         height:unit(@r,px);
         @radius:@r/2;
@@ -267,7 +267,7 @@ https://github.com/iRuxu/iruxucss
         border:@border;
     }
 
-    .disc(@r,@border,l){
+    .circle(@r,@border,l){
         width:unit(@r/2,px);
         height:unit(@r,px);
         @radius:unit(@r/2,px);
@@ -276,7 +276,7 @@ https://github.com/iRuxu/iruxucss
         border:@border;
     }
 
-    .disc(@r,@border,r){
+    .circle(@r,@border,r){
         width:unit(@r/2,px);
         height:unit(@r,px);
         @radius:unit(@r/2,px);
@@ -285,7 +285,7 @@ https://github.com/iRuxu/iruxucss
         border:@border;
     }
 
-    .disc(@r,@border,t){
+    .circle(@r,@border,t){
         width:unit(@r,px);
         height:unit(@r/2,px);
         @radius:unit(@r/2,px);
@@ -294,7 +294,7 @@ https://github.com/iRuxu/iruxucss
         border:@border;
     }
 
-    .disc(@r,@border,b){
+    .circle(@r,@border,b){
         width:unit(@r,px);
         height:unit(@r/2,px);
         @radius:unit(@r/2,px);
@@ -383,13 +383,8 @@ https://github.com/iRuxu/iruxucss
         width: 0;
         height: 0;
         _line-height: 0px;
-<<<<<<< HEAD
         _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='#000000')";
         _border-color: #000000;
-=======
-        _border-color: #000000;
-        _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='#000000')";
->>>>>>> 45305a981b73418b69def8224aabfb80ebc596cf
     }
 
     .tg(t,@width,@color,@equilateral:0){

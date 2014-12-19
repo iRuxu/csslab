@@ -3,10 +3,12 @@
 	//Base File
 	@import url('reset.less');
 	@import url('base.less');
+	@import url('common.less');
+
+	//UI File
 	@import url('ui.less');
 	@import url('grandient.less');
 	@import url('animation.less');
-	@import url('common.less');
 
 	//Modules
 
@@ -14,7 +16,28 @@
 // =Page
 //--------------------------------------------------------------
 
-   
+  
+
+// =Compatible
+//--------------------------------------------------------------
+	//其他IE HACK均在Page部分（IE6 _prop / IE6+7 *prop / IE6-10 val\9）
+
+	//IE6-9公共兼容处理
+	.ie6-9{
+
+	}
+
+	//IE6-8公共兼容处理
+	.ie6-8{
+
+	}
+
+	//IE7单独特殊bug
+	.ie-7{
+
+	}
+
+
 // =responsive
 //-------------------------------------------------------------- 
 	@import url('responsive.less');
