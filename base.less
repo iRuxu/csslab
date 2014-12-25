@@ -1,5 +1,5 @@
 /*
-Base.less v1.2 - [2014.12.16]
+Base.less v1.4 - [2014.12.25]
 https://github.com/iRuxu/iruxucss
 */
 
@@ -9,6 +9,8 @@ https://github.com/iRuxu/iruxucss
         .nobreak{white-space:nowrap;word-break:keep-all;text-overflow:ellipsis;overflow:hidden;}
         .break{white-space:normal;word-wrap:break-word;word-break:break-all;}
         .refont{direction:rtl;unicode-bidi:bidi-override;}
+        .acolor(@acolor,@ahovercolor){a{color:@acolor;}a:hover{color:@ahovercolor;}}
+        .indent{text-indent:-100%;overflow:hidden;}
 
 
 //=Layout
@@ -105,6 +107,7 @@ https://github.com/iRuxu/iruxucss
             @xmargin:unit(@width/2,px);
             margin-left:-@xmargin;
             top:50%;
+            _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight/2))';
             @ymargin:unit(@height/2,px);
             margin-top:-@ymargin;
         }
