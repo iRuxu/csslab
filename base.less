@@ -1,5 +1,5 @@
 /*
-Base.less v1.4 - [2014.12.25]
+Base.less v1.6 - [2015.1.4]
 https://github.com/iRuxu/iruxucss
 */
 
@@ -19,6 +19,7 @@ https://github.com/iRuxu/iruxucss
         .fz(@size,@line:1){font-size:@size;line-height:@line;}
         .size(@width,@height){width:@width;height:@height;}
         .full{width:100%;height:100%;}
+        .half{width:50%;height:50%;}
 
     //ie hack
         .db{display:block;}
@@ -70,7 +71,7 @@ https://github.com/iRuxu/iruxucss
 
     //clear float
         .clear{*zoom:1;&:after {content:"\200B"; .db; height:0; clear:both;}}
-        .hr{clear:both;}
+        .hr(@clear:both){clear:@clear;}
 
     //Min Size
         .min-height(@min-height){min-height:unit(@min-height,px);_height:unit(@min-height,px);}
@@ -102,7 +103,7 @@ https://github.com/iRuxu/iruxucss
             bottom:unit(@fix,px);
             _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
         }
-        .fixed(ct,@width,@height){
+        .fixed(o,@width,@height){
             left:50%;
             @xmargin:unit(@width/2,px);
             margin-left:-@xmargin;
