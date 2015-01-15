@@ -1,5 +1,5 @@
 /*
-Mobile.less v0.1 - [2014.12.19]
+Mobile.less v0.2 - [2015.1.15]
 https://github.com/iRuxu/iruxucss
 */
 
@@ -13,10 +13,12 @@ https://github.com/iRuxu/iruxucss
 //Global
 	@charset "utf-8";
 	html{font-size:62.5%;}
-	*{margin:0;padding:0;font-size:1.4rem;line-height:1;}
-	ul,ol{list-style:none;}
-	img{border:none;}
-	body{background-color:@bgcolor;color:@color;}
+	*{margin:0;padding:0;border:0;outline:0;font-size:1.4rem;line-height:1;}
+	ul{list-style:none;}
+	body{background-color:@bgcolor;color:@color;
+	font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+	-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;text-size-adjust: 100%;
+	-webkit-touch-callout: none;}
 	a{color:@link;}
 	a:hover{color:@hover;}
 
