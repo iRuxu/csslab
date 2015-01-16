@@ -1,0 +1,11 @@
+<!-- 手机页面一定要加这个，因为手机不走代理的话，访问的honey地址是有问题的！ -->
+{{#ifEqual silky.env 'development'}}
+<script>
+honey.config({
+    'DEV': false,
+    'ROOT': '/js/',
+    'PUBROOT': 'http://honey.hunantv.com/honey-2.0/',
+    'CSS': '/css/'
+})
+</script>
+{{/ifEqual}}
