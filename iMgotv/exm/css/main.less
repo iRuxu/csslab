@@ -9,13 +9,13 @@ https://github.com/iRuxu/iruxucss
 	@bgcolor:#f2f2f2;
 	@link:#369;
 	@hover:#93f;
-	@url:'../img';
+	@url:"../../image";
 
 //Global
 	@charset "utf-8";
 	html{font-size:62.5%;}
 	body{-webkit-touch-callout: none;-webkit-text-size-adjust: none;background-color:@bgcolor;color:@color;}
-	*{margin:0;padding:0;border:0;outline:0;font-size:1.4rem;line-height:1;}
+	*{margin:0;padding:0;border:0;outline:0;font-size:1.4rem;line-height:1;-webkit-backface-visibility: hidden; -webkit-transform-style: preserve-3d;}
 	ul{list-style:none;}
 	a{color:@link;}
 	a:hover{color:@hover;}
