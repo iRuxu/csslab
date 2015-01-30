@@ -7,8 +7,6 @@ https://github.com/iRuxu/iruxucss
 //--------------------------------------------------------------
     //使用伪对象创建arrow,after为上浮层,before为边框层
     .arrow(t,@width,@color){
-        position:relative;
-        background-color: @color;
         &:before{
             bottom: 100%;
             left: 50%;
@@ -28,8 +26,6 @@ https://github.com/iRuxu/iruxucss
 
 
     .arrow(b,@width,@color){
-        position:relative;
-        background-color: @color;
         &:before{
             top: 100%;
             left: 50%;
@@ -48,8 +44,6 @@ https://github.com/iRuxu/iruxucss
     }
 
     .arrow(l,@width,@color){
-        position:relative;
-        background-color: @color;
         &:before{
             right: 100%;
             top: 50%;
@@ -69,8 +63,6 @@ https://github.com/iRuxu/iruxucss
 
 
     .arrow(r,@width,@color){
-        position:relative;
-        background-color: @color;
         &:before{
             left: 100%;
             top: 50%;
@@ -91,9 +83,6 @@ https://github.com/iRuxu/iruxucss
 //Border Arrow
 //--------------------------------------------------------------
     .arrows(t,@width,@color,@bo-width,@bo-color){
-        position:relative;
-        background-color: @color;
-        border:unit(@bo-width,px) solid @bo-color;
         &:before,&:after{
             bottom: 100%;
             left: 50%;
@@ -121,9 +110,6 @@ https://github.com/iRuxu/iruxucss
     }
 
     .arrows(b,@width,@color,@bo-width,@bo-color){
-        position:relative;
-        background-color: @color;
-        border:unit(@bo-width,px) solid @bo-color;
         &:before,&:after{
             top: 100%;
             left: 50%;
@@ -151,9 +137,6 @@ https://github.com/iRuxu/iruxucss
     }
 
     .arrows(l,@width,@color,@bo-width,@bo-color){
-        position:relative;
-        background-color: @color;
-        border:unit(@bo-width,px) solid @bo-color;
         &:before,&:after{
             top: 50%;
             right: 100%;
@@ -181,9 +164,6 @@ https://github.com/iRuxu/iruxucss
     }
 
     .arrows(r,@width,@color,@bo-width,@bo-color){
-        position:relative;
-        background-color: @color;
-        border:unit(@bo-width,px) solid @bo-color;
         &:before,&:after{
             top: 50%;
             left: 100%;
