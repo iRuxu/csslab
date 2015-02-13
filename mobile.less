@@ -1,39 +1,40 @@
 /*
-Mobile.less v0.3 - [2015.2.5]
+Mobile.less v0.4 - [2015.2.13]
 https://github.com/iRuxu/iruxucss
 */
 
-//Var
-	@basecolor:#f39;
-	@color:#333;
-	@bgcolor:#f2f2f2;
-	@link:#369;
-	@hover:#93f;
-	@url:'img';
-
-//Global
+//Import
 	@charset "utf-8";
-	html{font-size:62.5%;}
-	*{margin:0;padding:0;border:0;outline:0;font-size:1.4rem;line-height:1;
-		-webkit-backface-visibility: hidden; 
-		-webkit-transform-style: preserve-3d;
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	@import url('module/base.less');
+
+//Var
+	@basecolor:#EA6D19;
+	@color:#fff;
+	@bgcolor:#980002;
+	@url:"../../image";
+
+//Global & Reset
+	html{
+		font-size:62.5%;
+		-webkit-overflow-scrolling:touch;}
+	body{
+		background-color:@bgcolor;color:@color;
+		-webkit-touch-callout:none;-webkit-text-size-adjust:none;
 	}
-	ul{list-style:none;}
-	body{background-color:@bgcolor;color:@color;
-	font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
-	-webkit-text-size-adjust:none;-ms-text-size-adjust: 100%;text-size-adjust: 100%;
-	-webkit-touch-callout: none;}
-	a{color:@link;}
-	a:hover{color:@hover;}
-
-//Pad
-
-
-
-
-//Phone
-	@media only screen and (max-device-width:720px){
-
-		
+	input[type="submit"],input[type="reset"],input[type="button"],button {
+		-webkit-appearance:none;
 	}
+	*{
+		margin:0;padding:0;border:0;outline:0;
+		font-size:1.4rem;line-height:1;
+		-webkit-backface-visibility:hidden; -webkit-transform-style:preserve-3d;
+		-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+	}
+	ul{
+		list-style:none;
+	}
+
+
+//Responsive
+ @media only screen and (orientation:portrait){}
+ @media only screen and (orientation:landscape){}
