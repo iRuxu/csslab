@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<title>Base - Function</title>
+<title>Base - LessLab</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -17,13 +17,6 @@
 <!--将href中的文件，以及component/css，合并到/css/global.css-->
 <link rel="stylesheet" href="css/imgotv-pub/global.css" type="text/css" data-merge="true">
 <script src="http://honey.hunantv.com/honey-2.0/honey.hunantv.imgo.js"></script>
-<script>
-    honey.config({
-        'DEV': false,
-        'ROOT': '/js/',
-        'PUBROOT': 'http://honey.hunantv.com/honey-2.0/'
-    })
-</script>
 <!--[if IE 9]>
 <style>
 .mask{filter:none !important;} /*IE9滤镜重叠hack*/
@@ -39,22 +32,15 @@
 }
 </style>
 <![endif]-->
-
-
 <script>
     honey.ready('lib:jquery', function() {
         var w = $(window)
         window.RESIZEINTERVAL = 100
         var resetLayout = function() {
             var width = ~~w.width(),
-                $wp = $(".c-header .wp"),
                 $body = $('body');
-            $body.removeClass('main1280 screen-xs screen-s screen-m screen-l screen-xl')
+            $body.removeClass('screen-xs screen-s screen-m screen-l screen-xl')
 
-
-            if (width <= 1300){
-                $body.addClass('main1280');
-            }
             var screenSize = {
                 "screen-xs": [0, 940],
                 'screen-s': [940, 1180],
@@ -78,21 +64,10 @@
             }
 
             $body.addClass(bodyClazz);
-            $wp.width($(".guides").width())
         };
         resetLayout()
         w.bind('onResizeEx', resetLayout);
 
-        window.USER = false
-        $.getJSON('http://u.api.hunantv.com/user/get_login_user?callback=?', function(_data) {
-            var d = $(document)
-            if (~~_data.code === 200) {
-                window.USER = _data
-                d.trigger('HONEY-LOGIN-DONE')  
-            } else {
-                d.trigger('HONEY-LOGIN-ERR')  
-            }
-        })
     })
 </script>
 
@@ -157,6 +132,7 @@ honey.go("lib:jquery",function(){
 	<a href="shape.html" target="_self">Shape</a> | 
 	<a href="iconfont.html" target="_self">Iconfont</a> | 
 	<a href="animation.html" target="_self">Animation</a>
+	
 </p>
 <script>
 honey.go("lib:jquery",function(){
@@ -191,7 +167,7 @@ honey.go("lib:jquery",function(){
 	})
 });
 </script>
-		<span class="goback"><a href="https://github.com/iRuxu/LessLab" target="_target">返回项目 - <i>iRuxu - LessLab</i></a></span>
+		<span class="goback"><a href="https://github.com/iRuxu/LessLab" target="_self">返回项目 - <i>LessLab</i></a></span>
 	</header>
 
 	<aside>

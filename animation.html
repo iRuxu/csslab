@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>Animation - LessLab</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui">
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telphone=no,email=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telphone=no,email=no">
+<!--将href中的文件，以及component/css，合并到/css/global.css-->
+<link rel="stylesheet" href="css/imgotv-pub/global.css" type="text/css" data-merge="true">
+<script src="http://honey.hunantv.com/honey-2.0/honey.hunantv.imgo.js"></script>
+<!--[if IE 9]>
+<style>
+.mask{filter:none !important;} /*IE9滤镜重叠hack*/
+.c-header .c-header-user .extend{filter:none !important;}
+</style>
+<![endif]-->
+<!--[if IE 8]>
+<style>
+.c-header-lv1 .c-header-menu-a .extend:before,
+.c-header .c-header-record .extend:before,
+.c-header .c-header-user .extend:before{
+	border-bottom-color:#000 !important;
+}
+</style>
+<![endif]-->
+<script>
+    honey.ready('lib:jquery', function() {
+        var w = $(window)
+        window.RESIZEINTERVAL = 100
+        var resetLayout = function() {
+            var width = ~~w.width(),
+                $body = $('body');
+            $body.removeClass('screen-xs screen-s screen-m screen-l screen-xl')
+
+            var screenSize = {
+                "screen-xs": [0, 940],
+                'screen-s': [940, 1180],
+                "screen-m": [1180, 1400],
+                "screen-l": [1400, 1580],
+                "screen-xl": [1580]
+            };
+            var bodyClazz = ""
+            for(var clazz in screenSize){
+                
+                var min = screenSize[clazz][0];
+                var max = screenSize[clazz][1];
+                if(width >= min && width < max){
+                    bodyClazz = clazz;
+                    break;
+                }
+                if(screenSize[clazz].length == 1){
+                    bodyClazz = clazz;
+                    break;
+                }
+            }
+
+            $body.addClass(bodyClazz);
+        };
+        resetLayout()
+        w.bind('onResizeEx', resetLayout);
+
+    })
+</script>
+
+
+<!--[if lt IE 9]>
+<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="css/imgotv-pub/global.css" type="text/css" data-merge="true">
+<link rel="stylesheet" href="css/jquery-ui.css" type="text/css">
+<link rel="stylesheet" href="css/monokai.css" type="text/css">
+<link rel="stylesheet" href="css/index.css" type="text/css">
+<!-- <script src="js/jquery-1-10-2.min.js"></script> -->
+<!-- <script src="js/jquery-ui.js"></script> -->
+<script src="js/rainbow.min.js"></script>
+<script>
+honey.go("lib:jquery",function(){
+
+	//侧边栏
+	$("aside h2").on('click',function(){
+		$(this).find('i').toggleClass('collapse')
+		$(this).next('div').slideToggle()
+	})
+
+	//切换class
+	$(".preview .function li").click(function(){
+		$(this).addClass('current').siblings('li').removeClass('current')
+	})
+
+	//切换版本
+	$("#preview-version li").click(function() {
+		var index = $(this).index('#preview-version li')
+		$("#preview-box .preview-item")
+			.hide()
+			.eq(index)
+			.show();
+	})
+	
+	//切换位置
+	$("#preview-position li").click(function(){
+		var pos = $(this).attr('data-pos')
+		$('#preview-box')
+			.children('.preview-item')
+			.removeClass('l r m')
+			.addClass(pos)
+	})
+		
+	//api
+	$("#api-tg").click(function(event) {
+		$("#api-ct").slideToggle();
+	});
+
+});
+</script>
+
+<link rel="stylesheet" href="css/page/function.css" type="text/css">
+</head>
+<body>
+	<header>
+		<h1>LessLab</h1>
+<p>
+	<a href="index.html" target="_self">Base</a> | 
+	<a href="shape.html" target="_self">Shape</a> | 
+	<a href="iconfont.html" target="_self">Iconfont</a> | 
+	<a href="animation.html" target="_self">Animation</a>
+	
+</p>
+<script>
+honey.go("lib:jquery",function(){
+	//手册锚点跳转
+	var fnbook_i = $("#function-aside li"),
+		fnbook_c = $("#function-content .fn-ct");
+
+	fnbook_i.each(function(){
+		if($(this).children('a').length == 0){
+			$(this)
+			.wrapInner('<a></a>')
+			.find('a')
+			.attr('href',function(){return "#"+$(this).text()})
+			.attr('target','_self')
+		}
+	})
+	fnbook_c
+		.attr('id',function(){
+			return $(this).find('h3').children('b').text()
+		})
+	fnbook_i.on('click',function(){
+		//自身样式
+		fnbook_i.removeClass('current')
+		$(this).addClass('current')
+		//目标样式
+		var index = $(this).index('#function-aside li')
+		fnbook_c.eq(index).addClass('active')
+		var t = setTimeout(function(){
+			fnbook_c.eq(index).removeClass('active')
+			clearTimeout(t)
+		},1000)
+	})
+});
+</script>
+		<span class="goback"><a href="https://github.com/iRuxu/LessLab" target="_self">返回项目 - <i>LessLab</i></a></span>
+	</header>
+
+	<aside>
+		<h2>Animation</h2>
+		<ul class="function-contents">
+			Building...
+		</ul>
+	</aside>
+
+	<article>
+		
+	</article>
+
+</body>
+</html>
