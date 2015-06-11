@@ -1,15 +1,28 @@
 /*
-UI.less v0.1 - [2014.12.6]
-https://github.com/iRuxu/iruxucss
-*/
+ * Shape.less v1.0 
+ * Author:iRuxu
+ * Creat:2014.8
+ * Update:2015.6.10
+ * https://github.com/iRuxu/LessLab
+ */
 
-//Single Arrow
-//--------------------------------------------------------------
+
+/*Effect
+--------------------------------------------------------------*/
+	//Reflect 倒影 (just webkit)
+    .dy(t){-webkit-box-reflect: above;}
+    .dy(b){-webkit-box-reflect: below;}
+    .dy(l){-webkit-box-reflect: left;}
+    .dy(r){-webkit-box-reflect: right;}
+
+/*Single Arrow
+--------------------------------------------------------------*/
+	//添加arrow的元素需要自行设置非静态定位属性！
     //使用伪对象创建arrow,after为上浮层,before为边框层
-    .arrow(t,@width,@color){
+    .arrow(t,@width,@color,@x:50%){
         &:before{
             bottom: 100%;
-            left: 50%;
+            left: @x;         
             content: " ";
             height: 0;
             width: 0;
@@ -25,10 +38,10 @@ https://github.com/iRuxu/iruxucss
     }
 
 
-    .arrow(b,@width,@color){
+    .arrow(b,@width,@color,@x:50%){
         &:before{
             top: 100%;
-            left: 50%;
+            left: @x;
             content: " ";
             height: 0;
             width: 0;
@@ -43,10 +56,10 @@ https://github.com/iRuxu/iruxucss
         }
     }
 
-    .arrow(l,@width,@color){
+    .arrow(l,@width,@color,@y:50%){
         &:before{
             right: 100%;
-            top: 50%;
+            top: @y;
             content: " ";
             height: 0;
             width: 0;
@@ -62,10 +75,10 @@ https://github.com/iRuxu/iruxucss
     }
 
 
-    .arrow(r,@width,@color){
+    .arrow(r,@width,@color,@y:50%){
         &:before{
             left: 100%;
-            top: 50%;
+            top: @y;
             content: " ";
             height: 0;
             width: 0;
@@ -80,12 +93,12 @@ https://github.com/iRuxu/iruxucss
         }
     }
 
-//Border Arrow
-//--------------------------------------------------------------
-    .arrows(t,@width,@color,@bo-width,@bo-color){
+/*Border Arrow
+--------------------------------------------------------------*/
+    .arrows(t,@width,@color,@bo-width,@bo-color,@x:50%){
         &:before,&:after{
             bottom: 100%;
-            left: 50%;
+            left: @x;
             content: " ";
             height: 0;
             width: 0;
@@ -109,10 +122,10 @@ https://github.com/iRuxu/iruxucss
         }
     }
 
-    .arrows(b,@width,@color,@bo-width,@bo-color){
+    .arrows(b,@width,@color,@bo-width,@bo-color,@x:50%){
         &:before,&:after{
             top: 100%;
-            left: 50%;
+            left: @x;
             content: " ";
             height: 0;
             width: 0;
@@ -136,9 +149,9 @@ https://github.com/iRuxu/iruxucss
         }
     }
 
-    .arrows(l,@width,@color,@bo-width,@bo-color){
+    .arrows(l,@width,@color,@bo-width,@bo-color,@y:50%){
         &:before,&:after{
-            top: 50%;
+            top: @y;
             right: 100%;
             content: " ";
             height: 0;
@@ -163,9 +176,9 @@ https://github.com/iRuxu/iruxucss
         }
     }
 
-    .arrows(r,@width,@color,@bo-width,@bo-color){
+    .arrows(r,@width,@color,@bo-width,@bo-color,@y:50%){
         &:before,&:after{
-            top: 50%;
+            top: @y;
             left: 100%;
             content: " ";
             height: 0;
@@ -190,11 +203,71 @@ https://github.com/iRuxu/iruxucss
         }
     }
 
-//Radius 
-//--------------------------------------------------------------
-    //圆·Disc
+/*Triangle
+--------------------------------------------------------------*/
+    //创建三角形
+    //需要独立设置可参考 http://apps.eky.hk/css-triangle-generator/zh-hant
+    .tg(...){
+        width: 0;
+        height: 0;
+        _line-height: 0px;
+        _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='#000000')";
+        _border-color: #000000;
+    }
+
+    .tg(t,@width,@color,@equilateral:0){
+        @sidewidth: unit(@width) * ( 1+( tan(60deg)-1 )*@equilateral);
+        border: unit(@width,px) solid transparent;
+        border-bottom: unit(@sidewidth,px) solid @color;
+    }
+
+    .tg(b,@width,@color,@equilateral:0){
+        @sidewidth:  unit(@width) * ( 1+( tan(60deg)-1 )*@equilateral );
+        border: unit(@width,px) solid transparent;
+        border-top: unit(@sidewidth,px) solid @color;
+    }
+
+    .tg(l,@width,@color,@equilateral:0){
+        @sidewidth:  unit(@width) * ( 1+( tan(60deg)-1 )*@equilateral );
+        border: unit(@width,px) solid transparent;
+        border-right: unit(@sidewidth,px) solid @color;
+    }
+
+    .tg(r,@width,@color,@equilateral:0){
+        @sidewidth:  unit(@width) * ( 1+( tan(60deg)-1 )*@equilateral );
+        border: unit(@width,px) solid transparent;
+        border-left: unit(@sidewidth,px) solid @color;
+    }
+
+    .tg(lt,@width,@color){
+        border: unit(@width,px) solid transparent;
+        border-top-color:@color;
+        border-left-color:@color;
+    }
+
+    .tg(rt,@width,@color){
+        border: unit(@width,px) solid transparent;
+        border-top-color:@color;
+        border-right-color:@color;
+    }
+
+    .tg(lb,@width,@color){
+        border: unit(@width,px) solid transparent;
+        border-bottom-color:@color;
+        border-left-color:@color;
+    }
+
+    .tg(rb,@width,@color){
+        border: unit(@width,px) solid transparent;
+        border-bottom-color:@color;
+        border-right-color:@color;
+    }
+
+/*Radius 
+--------------------------------------------------------------*/
+//圆·Disc
     //圆角等于高度/宽度的一半，半圆宽度/高度等于另外的一半，设置侧边圆角
-    .disc(@r,@color){
+    .disc(o,@r,@color){
         width:unit(@r,px);
         height:unit(@r,px);
         @radius:@r/2;
@@ -202,7 +275,7 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-    .disc(@r,@color,l){
+    .disc(l,@r,@color){
         width:unit(@r/2,px);
         height:unit(@r,px);
         @radius:unit(@r/2,px);
@@ -211,7 +284,7 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-    .disc(@r,@color,r){
+    .disc(r,@r,@color){
         width:unit(@r/2,px);
         height:unit(@r,px);
         @radius:unit(@r/2,px);
@@ -220,7 +293,7 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-    .disc(@r,@color,t){
+    .disc(t,@r,@color){
         width:unit(@r,px);
         height:unit(@r/2,px);
         @radius:unit(@r/2,px);
@@ -229,7 +302,7 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-    .disc(@r,@color,b){
+    .disc(b,@r,@color){
         width:unit(@r,px);
         height:unit(@r/2,px);
         @radius:unit(@r/2,px);
@@ -238,8 +311,8 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-    //圈·Circle
-    .circle(@r,@border){
+//圈·Circle
+    .circle(o,@r,@border){
         width:unit(@r,px);
         height:unit(@r,px);
         @radius:@r/2;
@@ -247,7 +320,7 @@ https://github.com/iRuxu/iruxucss
         border:@border;
     }
 
-    .circle(@r,@border,l){
+    .circle(l,@r,@border){
         width:unit(@r/2,px);
         height:unit(@r,px);
         @radius:unit(@r/2,px);
@@ -256,7 +329,7 @@ https://github.com/iRuxu/iruxucss
         border:@border;
     }
 
-    .circle(@r,@border,r){
+    .circle(r,@r,@border){
         width:unit(@r/2,px);
         height:unit(@r,px);
         @radius:unit(@r/2,px);
@@ -265,7 +338,7 @@ https://github.com/iRuxu/iruxucss
         border:@border;
     }
 
-    .circle(@r,@border,t){
+    .circle(t,@r,@border){
         width:unit(@r,px);
         height:unit(@r/2,px);
         @radius:unit(@r/2,px);
@@ -274,7 +347,7 @@ https://github.com/iRuxu/iruxucss
         border:@border;
     }
 
-    .circle(@r,@border,b){
+    .circle(b,@r,@border){
         width:unit(@r,px);
         height:unit(@r/2,px);
         @radius:unit(@r/2,px);
@@ -283,7 +356,7 @@ https://github.com/iRuxu/iruxucss
         border:@border;
     }
 
-    //饼·Pie
+//饼·Pie
     //宽高一致，且只设置1个角度的圆角，设满
     .pie(lt,@r,@color){
         width:unit(@r,px);
@@ -317,7 +390,7 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-    //叶·Leaf
+//叶·Leaf
     .leaf(l,@r,@color){
         width:unit(@r,px);
         height:unit(@r,px);
@@ -354,82 +427,10 @@ https://github.com/iRuxu/iruxucss
         background-color:@color;
     }
 
-//Triangle
-//--------------------------------------------------------------
-    //创建三角形
-    //需要独立设置可参考 http://apps.eky.hk/css-triangle-generator/zh-hant
-    .tg(@_,@width,@color,@equilateral:0){
-        @sidewidth:  @width * ( 1+( tan(60deg)-1 )*@equilateral );
-        width: 0;
-        height: 0;
-        _line-height: 0px;
-        _filter: ~"progid:DXImageTransform.Microsoft.Chroma(color='#000000')";
-        _border-color: #000000;
-    }
-
-    .tg(t,@width,@color,@equilateral:0){
-        border: unit(@width,px) solid transparent;
-        border-bottom: unit(@sidewidth,px) solid @color;
-    }
-
-    .tg(b,@width,@color,@equilateral:0){
-        border: unit(@width,px) solid transparent;
-        border-top: unit(@sidewidth,px) solid @color;
-    }
-
-    .tg(l,@width,@color,@equilateral:0){
-        border: unit(@width,px) solid transparent;
-        border-right: unit(@sidewidth,px) solid @color;
-    }
-
-    .tg(r,@width,@color,@equilateral:0){
-        border: unit(@width,px) solid transparent;
-        border-left: unit(@sidewidth,px) solid @color;
-    }
-
-    .tg(lt,@width,@color){
-        border: unit(@width,px) solid transparent;
-        border-top-color:@color;
-        border-left-color:@color;
-    }
-
-    .tg(rt,@width,@color){
-        border: unit(@width,px) solid transparent;
-        border-top-color:@color;
-        border-right-color:@color;
-    }
-
-    .tg(lb,@width,@color){
-        border: unit(@width,px) solid transparent;
-        border-bottom-color:@color;
-        border-left-color:@color;
-    }
-
-    .tg(rb,@width,@color){
-        border: unit(@width,px) solid transparent;
-        border-bottom-color:@color;
-        border-right-color:@color;
-    }
-
-//Ribbon
-//--------------------------------------------------------------
-
-
-
-
-//Boreder Image
-//--------------------------------------------------------------
-//      http://iruxu.com/to-be-css/borderimage/index.htm
-
-
-//Shadows
-//--------------------------------------------------------------
-//Drop shadow
-//      http://css3-drop-shadows.herokuapp.com/app
-//3D 
-//Long shadows 
-//      http://iruxu.com/to-be-css/shadow_longshadows.html
-//3D text 
-//      http://www.3dcsstext.com/
-
-
+/*More tools
+--------------------------------------------------------------
+Boreder Image    http://iruxu.com/to-be-css/borderimage/index.htm
+Drop shadow      http://css3-drop-shadows.herokuapp.com/app
+Long shadows     http://iruxu.com/to-be-css/shadow_longshadows.html
+3D text          http://www.3dcsstext.com/
+--------------------------------------------------------------*/

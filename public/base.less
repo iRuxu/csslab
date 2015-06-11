@@ -1,9 +1,9 @@
 /*
- * Name: base.less
- * Description: function,ie hack
- * Creator: iRuxu
- * Modify: iRuxu
- * Update: 2015-6-1
+ * Base.less v3.0 
+ * Author:iRuxu
+ * Creat:2014.8
+ * Update:2015.6.11
+ * https://github.com/iRuxu/LessLab
  */
 
 //FONT 字体
@@ -38,13 +38,13 @@
 
     //字体颜色
     .color(@color){
-        color:@color;
+        color:@color;   //自身颜色，包括链接与非链接
     }
-    .color(@color;@acolor){
-        color:@color;
-        a{color:@acolor;}
+    .color(@color,@hovercolor){
+        color:@color;   //自身颜色，包括链接与非链接
+        &:hover{color:@hovercolor;} //自身Hover时
     }
-    .color(@color;@acolor;@hovercolor){
+    .color(@color,@acolor,@hovercolor){
         color:@color;
         a{color:@acolor;}
         a:hover{color:@hovercolor;}
@@ -213,33 +213,34 @@
     .fixed(lt,@side:0,@fix:0){
         left:unit(@side,px);
         top:unit(@fix,px);
+        @fixs:unit(@fix);
         _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
     }
     .fixed(rt,@side:0,@fix:0){
         right:unit(@side,px);
         top:unit(@fix,px);
+        @fixs:unit(@fix);
         _top:~'expression(eval(document.documentElement.scrollTop + @{fix}))';
     }
     .fixed(lb,@side:0,@fix:0){
         left:unit(@side,px);
         bottom:unit(@fix,px);
+        @fixs:unit(@fix);
         _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
     }
     .fixed(rb,@side:0,@fix:0){
         right:unit(@side,px);
         bottom:unit(@fix,px);
+        @fixs:unit(@fix);
         _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight - this.offsetHeight + @{fix}))';
     }
     .fixed(o,@width,@height){
         width:unit(@width,px);
         height:unit(@height,px);
-        left:50%;
-        @xmargin:unit(@width/2,px);
-        margin-left:-@xmargin;
-        top:50%;
+        left:50%;top:50%;
+        @xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);
+        margin-left:-@xmargin;margin-top:-@ymargin;
         _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight/2))';
-        @ymargin:unit(@height/2,px);
-        margin-top:-@ymargin;
     }
 
 //Layout
@@ -255,36 +256,50 @@
     .ct(y){position:absolute;margin-top:auto;margin-bottom:auto;top:0;bottom:0;}
 
     //居中定位·绝对定位方式（已知元素尺寸时,兼容IE6）
-    .ct(x,@width) when (isnumber(@width)) {
+    .ct(x,@width) when (ispixel(@width)){
+        position:absolute;
+        left:50%;
+        margin-left:-@width/2;
+    }
+    .ct(x,@width) when (ispercentage(@width)){
+        position:absolute;
+        left:50%;
+        margin-left:-@width/2;
+    }
+    .ct(x,@width) when (default()) {
         position:absolute;
         left:50%;
         @xmargin:unit(@width/2,px);
         margin-left:-@xmargin;
     }
-    .ct(x,@width) when (default()){
+    .ct(y,@height) when (ispixel(@height)){
         position:absolute;
-        left:50%;
-        margin-left:-@width/2;
+        top:50%;
+        margin-top:-@height/2;
     }
-    .ct(y,@height) when (isnumber(@height)){
+    .ct(y,@height) when (ispercentage(@height)){
+        position:absolute;
+        top:50%;
+        margin-top:-@height/2;
+    }
+    .ct(y,@height) when (default()){
         position:absolute;
         top:50%;
         @ymargin:unit(@height/2,px);
         margin-top:-@ymargin;
     }
-    .ct(y,@height) when (default()){
-        position:absolute;
-        top:50%;
-        margin-top:-@height/2;
-    }
-    .ct(o,@width,@height:@width) when (isnumber(@width)){
+    .ct(o,@width,@height:@width) when (ispixel(@width)){
         position:absolute;left:50%;top:50%;
-        @xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);
-        margin-left:-@xmargin;margin-top:-@ymargin;
+        margin-left:-@width/2;margin-top:-@height/2;
+    }
+    .ct(o,@width,@height:@width) when (ispercentage(@width)){
+        position:absolute;left:50%;top:50%;
+        margin-left:-@width/2;margin-top:-@height/2;
     }
     .ct(o,@width,@height:@width) when (default()){
         position:absolute;left:50%;top:50%;
-        margin-left:-@width/2;margin-top:-@height/2;
+        @xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);
+        margin-left:-@xmargin;margin-top:-@ymargin;
     }
 
 
