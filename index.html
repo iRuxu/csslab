@@ -232,7 +232,9 @@ honey.go("lib:jquery",function(){
 			<li>.tm</li>
 			<li>.tb</li>
 			<li>.ts</li>
+			<h4>图片</h4>
 			<li>.tmpng</li>
+			<li class="new">.sprite</li>
 			<h4>界面</h4>
 			<li>.pointer</li>
 			<li>.btn-reset</li>
@@ -631,6 +633,51 @@ honey.go("lib:jquery",function(){
 			2.当图片是半透明时，图片命名test-ie6.png，背景色取实际叠加后相近实色；<br>
 			3.当两者都不适用时，直接设置为无背景图。</span>
 			</p>
+		</div>
+		<div class="fn-ct">
+			<h3><b>.sprite</b><span>(@n,@unit-width)</span><i>雪碧图</i></h3>
+			<p>快速生成雪碧图位置。雪碧图不宜过大，建议将相关的放置在一起即可。<br>
+			雪碧图制图时请使用横向阵列，此函数仅用于等宽子图时情景。<br>
+			参数说明：第一个参数传入所含子元素个数，第二个参数传入每个子元素的宽度。<br>
+			当不传入第3个参数时默认指定class为sprite-n，否则为classname-n。</p>
+			<pre><code data-language="css">
+				//假设html部分如下
+				div.test>(div.sprite.sprite-$)*12
+				//使用方法：定义公共雪碧图,公共class,调用函数
+				.test{
+					.sprite{background:url('@{__img}sprite.png') no-repeat;}
+					.sprite(12,65px); //不指定class
+					.sprite(12,65px,unit); //指定class
+				} 		
+				//生成内容：
+				.test{
+					//不指定class时
+					.sprite-1{background-position:0 0;}
+					.sprite-2{background-position:-65px 0;}
+					...
+					//指定class时
+					.unit-1{background-position:0 0;}
+					.unit-2{background-position:-65px 0;}
+					...
+				}	
+			</code></pre>
+			<h4>效果演示</h4>
+			<div class="sprite-test">
+				<ul>
+					<li class="sprite sprite-1"></li>
+					<li class="sprite sprite-2"></li>
+					<li class="sprite sprite-3"></li>
+					<li class="sprite sprite-4"></li>
+					<li class="sprite sprite-5"></li>
+					<li class="sprite sprite-6"></li>
+					<li class="sprite sprite-7"></li>
+					<li class="sprite sprite-8"></li>
+					<li class="sprite sprite-9"></li>
+					<li class="sprite sprite-10"></li>
+					<li class="sprite sprite-11"></li>
+					<li class="sprite sprite-12"></li>
+				</ul>
+			</div>
 		</div>
 		<div class="fn-ct">
 			<h3><b>.pointer</b><span></span><i>手形指针</i></h3>
