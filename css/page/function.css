@@ -12,8 +12,6 @@ body {
 	background-color: #f06000
 }
 body {
-	overflow: hidden;
-	*zoom: 1
 }
 .logotest {
 	background: url(../../image/imgotv-pub/logo/logo-170-45.png) no-repeat;
