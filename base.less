@@ -3,8 +3,8 @@
  * Description: function,ie hack
  * Creator: iRuxu,Dora
  * Modify: iRuxu
- * Update: 2015-6-2
- * API: http://help.lab.hunantv.com/page/function/base.html
+ * Update: 2015-6-27
+ * API: http://iruxu.com/LessLab/
  */
 
 //FONT 字体
@@ -318,7 +318,7 @@
         @rgb:rgb(@r,@g,@b);
         @ietm:argb(@rgba);
         background-color: @rgba;    //webkit,moz,ms10+
-        filter:~"progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@{ietm}, endColorstr=@{ietm}) \0";  //ie7-8
+        filter:~"progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@{ietm}, endColorstr=@{ietm}) \9";  //ie7-8
         _background-color: @rgb;    //ie6
     }
     //透明边框（兼容IE6 慎用）
