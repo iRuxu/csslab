@@ -1,0 +1,64 @@
+<div class="m-top">
+	<div class="m-rainbow"></div>
+	<div class="m-header">
+		<h1 class="m-logo">
+			<a class="u-name" href="/index.html">Csslab</a>
+			<em class="u-domain"><span>.CC</span></em>
+			<a class="u-type" href="http://www.mgtv.com" target="_blank"><i></i>MGTV</a>
+		</h1>
+		<div class="m-author">
+			<a class="u-version" href="/log.html">Ver 1.0</a>
+			<a class="u-github" href="https://github.com/iRuxu/CssLab" target="_blank">Github</a>
+			<a class="u-weibo" href="http://weibo.com/yuanzi0512" target="_blank">Author</a>
+		</div>
+		<div class="m-menu">
+			<ul>
+				<li>
+					<a class="m-menu-item" href="/index.html">Index</a>
+					<ul class="m-submenu">
+						<li><a class="m-submenu-item" href="/index.html">Quick Guide</a></li>
+						<li><a class="m-submenu-item" href="/log.html">Logs</a></li>
+						<li><a class="m-submenu-item" href="/about.html">About</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="m-menu-item" href="/base.html">Package</a>
+					<ul class="m-submenu">
+						<li><a class="m-submenu-item" href="/base.html">Base</a></li>
+						<li><a class="m-submenu-item" href="/shape.html">Shape</a></li>
+						<li><a class="m-submenu-item" href="/animation.html">Animation</a></li>
+						<li><a class="m-submenu-item" href="/twinkle.html">Twinkle</a></li>
+						<li><a class="m-submenu-item" href="/gradient.html">Gradient</a></li>
+						<li><a class="m-submenu-item" href="/reset.html">Reset</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="m-menu-item" href="/style.html">Awesome</a>
+					<ul class="m-submenu">
+						<li><a class="m-submenu-item" href="/style.html">Style</a></li>
+						<li><a class="m-submenu-item" href="/font.html">Font</a></li>
+						<li><a class="m-submenu-item" href="/color.html">Color</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="m-menu-item" href="/notebook.html">Manual</a>
+					<ul class="m-submenu">
+						<li><a class="m-submenu-item" href="/notebook.html">Notebook</a></li>
+						<li><a class="m-submenu-item" href="/snippet.html">Snippet</a></li>
+						<li><a class="m-submenu-item" href="/bookmark.html">Bookmark</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="m-submenu-bg"></div>
+</div>
+<script>
+	var pathname = location.pathname;
+	$('.m-submenu-item, m-menu-item').map(function(index, item){
+		var $item = $(this);
+		if($item.attr('href') == pathname) {
+			$item.parents('li').addClass('on');
+		}
+	})
+</script>

@@ -1,0 +1,268 @@
+{{import "module/head"}}
+{{import "module/header"}}
+
+{{import "module/vi"}}
+<div class="m-sidebar">
+	<ul class="m-sdlist">
+		<li><a href="#global-color" title="配色"><img style="width:22px;" src="{{global.__img}}icon/pantone.svg" alt=""></a></li>
+		<li><a href="#global-fontsize" title="字号"><img src="{{global.__img}}icon/font-size.svg" alt=""></a></li>
+		<li><a href="#global-fontfamily" title="字体"><img style="width:16px;" src="{{global.__img}}icon/font-family.svg" alt=""></a></li>
+		<li><a href="#global-size" title="尺寸"><img style="width:19px;" src="{{global.__img}}icon/ruler.svg" alt=""></a></li>
+		<li><a href="#global-zindex" title="Z-index"><img style="width:22px;" src="{{global.__img}}icon/stack.svg" alt=""></a></li>
+	</ul>
+	<div class="m-importway">
+		<code>@import vi.global</code>
+		<p class="m-tips">此模块全局变量无需引入依赖</p>
+		<div class="m-changelog">
+			<h3>Change Log</h3>
+			<p><em>2017.1.19</em>新增字体/尺寸/Z-index</p>
+			<p><em>2017.1.18</em>提交基本配色/字号规范</p>
+		</div>
+	</div>
+</div>
+<div class="m-content">
+	<div class="m-ex" id="global-color">
+		<div class="m-title" >
+			<h2>配色</h2>
+			<span>应用于全站的VI基色</span>
+		</div>
+		<table class="m-table m-table-var-color">
+			<tr>
+				<th>变量名</th>
+				<th>类名</th>
+				<th>预览</th>
+				<th>变量值</th>
+				<th>描述</th>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-color-base</b></td>
+				<td><b class="u-class">.g-color-base</b></td>
+				<td><i style="background-color:#ff5f00"></i><span class="g-color-base">看见好时光</span></td>
+				<td><em>#ff5f00</em></td>
+				<td><span>基准色</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-color-hover</b></td>
+				<td><b class="u-class">.g-color-hover</b></td>
+				<td><i style="background-color:#ff7624"></i><span class="g-color-hover">看见好时光</span></td>
+				<td><em>#ff7624</em></td>
+				<td><span>基准色的触发颜色</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-color-title</b></td>
+				<td><b class="u-class">.g-color-title</b></td>
+				<td><i style="background-color:#333"></i><span class="g-color-title">看见好时光</span></td>
+				<td><em>#333333</em></td>
+				<td><span>默认链接标题色</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-color</b></td>
+				<td><b class="u-class">.g-color</b></td>
+				<td><i style="background-color:#666"></i><span class="g-color">看见好时光</span></td>
+				<td><em>#666666</em></td>
+				<td><span>默认文字颜色</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-color-desc</b></td>
+				<td><b class="u-class">.g-color-desc</b></td>
+				<td><i style="background-color:#999"></i><span class="g-color-desc">看见好时光</span></td>
+				<td><em>#999999</em></td>
+				<td><span>默认描述颜色</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-color-border</b></td>
+				<td><b class="u-class">.g-color-border</b></td>
+				<td><i style="background-color:#ddd"></i><span class="g-color-border">看见好时光</span></td>
+				<td><em>#dddddd</em></td>
+				<td><span>默认边框色</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-color-bg</b></td>
+				<td><b class="u-class">.g-color-bg</b></td>
+				<td><i style="background-color:#f1f1f1"></i><span class="g-color-bg">看见好时光</span></td>
+				<td><em>#f1f1f1</em></td>
+				<td><span>默认背景色</span></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="m-ex" id="global-fontsize">
+		<div class="m-title" >
+			<h2>字号</h2>
+			<span>全站规范字号</span>
+		</div>
+		<table class="m-table">
+			<tr>
+				<th>变量名</th>
+				<th>类名</th>
+				<th>预览</th>
+				<th>变量值</th>
+				<th>描述</th>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fz-26</b></td>
+				<td><b class="u-class">.g-fz-26</b></td>
+				<td><em class="g-fz-26">看见好时光</em></td>
+				<td><em>26px</em></td>
+				<td><span>播放底层主标题</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fz-24</b></td>
+				<td><b class="u-class">.g-fz-24</b></td>
+				<td><em class="g-fz-24">看见好时光</em></td>
+				<td><em>24px</em></td>
+				<td><span>首页、频道模块标题</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fz-22</b></td>
+				<td><b class="u-class">.g-fz-22</b></td>
+				<td><em class="g-fz-22">看见好时光</em></td>
+				<td><em>22px</em></td>
+				<td><span>播放器底层模块标题</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fz-18</b></td>
+				<td><b class="u-class">.g-fz-18</b></td>
+				<td><em class="g-fz-18">看见好时光</em></td>
+				<td><em>18px</em></td>
+				<td><span>首页、频道侧边模块标题；按钮文字</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fz-16</b></td>
+				<td><b class="u-class">.g-fz-16</b></td>
+				<td><em class="g-fz-16">看见好时光</em></td>
+				<td><em>16px</em></td>
+				<td><span>播放底层-播放器右侧节目主标题</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fz-14</b></td>
+				<td><b class="u-class">.g-fz-14</b></td>
+				<td><em class="g-fz-14">看见好时光</em></td>
+				<td><em>14px</em></td>
+				<td><span>首页、频道内容主标题、焦点图标题；主导航文字；播放底层-播放器右侧选择数字；评论内容</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fz-12</b></td>
+				<td><b class="u-class">.g-fz-12</b></td>
+				<td><em class="g-fz-12">看见好时光</em></td>
+				<td><em>12px</em></td>
+				<td><span>其它</span></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="m-ex" id="global-fontfamily">
+		<div class="m-title" >
+			<h2>字体</h2>
+			<span>全站常用字体使用场景</span>
+		</div>
+		<table class="m-table">
+			<tr>
+				<th>变量名</th>
+				<th>类名</th>
+				<th>预览（中文/英文/数字）</th>
+				<th>变量值</th>
+				<th>描述</th>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fm-default</b></td>
+				<td><b class="u-class">.g-fm-default</b></td>
+				<td><em class="u-preview g-fm-default">看见好时光 MGTV 2018</em></td>
+				<td><em>MacOS:苹方/Windows:微软雅黑</em></td>
+				<td><span>全站默认字体</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fm-digital</b></td>
+				<td><b class="u-class">.g-fm-digital</b></td>
+				<td><em class="u-preview  g-fm-digital">看见好时光 MGTV 2018</em></td>
+				<td><em>MacOS:Arial/Windows:Arial</em></td>
+				<td><span>数字/计时器等</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fm-roman</b></td>
+				<td><b class="u-class">.g-fm-roman</b></td>
+				<td><em class="u-preview g-fm-roman">看见好时光 MGTV 2018</em></td>
+				<td><em>MacOS/Windows:Times New Roman,Georgia</em></td>
+				<td><span>英文衬线体（专题）</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fm-st</b></td>
+				<td><b class="u-class">.g-fm-st</b></td>
+				<td><em class="u-preview g-fm-st">看见好时光 MGTV 2018</em></td>
+				<td><em>MacOS:苹方/Windows:宋体</em></td>
+				<td><span>中文衬线体（宋体）</span></td>
+			</tr>
+			<tr>
+				<td><b class="u-var">@g-fm-code</b></td>
+				<td><b class="u-class">.g-fm-code</b></td>
+				<td><em class="u-preview g-fm-code">看见好时光 MGTV 2018</em></td>
+				<td><em>MacOS:Consolas,Monaco/Windows:Consolas,Lucida Console</em></td>
+				<td><span>代码等宽字体</span></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="m-ex" id="global-size">
+		<div class="m-title" >
+			<h2>尺寸</h2>
+			<span>公共模块影响全站的尺寸</span>
+		</div>
+		<table class="m-table">
+			<tr>
+				<th>变量名</th>
+				<th>变量值</th>
+				<th>描述</th>
+			</tr>
+			<tr>
+				<td><b>@c-header-height-lv1</b></td>
+				<td><em>70px</em></td>
+				<td><span>Lv1公共头的Fix高度</span></td>
+			</tr>
+			<tr>
+				<td><b>@c-header-height-lv2</b></td>
+				<td><em>60px</em></td>
+				<td><span>Lv2公共头的Fix高度</span></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="m-ex" id="global-zindex">
+		<div class="m-title">
+			<h2>Z-index</h2>
+			<span>规范于全站的层级显示，包含但不限于全局弹层及局部弹层等</span>
+		</div>
+		<table class="m-table">
+			<tr>
+				<th>变量名</th>
+				<th>变量值</th>
+				<th>描述</th>
+			</tr>
+			<tr>
+				<td><b>@c-header-zindex</b></td>
+				<td><em>100</em></td>
+				<td><span>公共头部的Fix状态</span></td>
+			</tr>
+			<tr>
+				<td><b>@c-header-floatbox-zindex</b></td>
+				<td><em>300</em></td>
+				<td><span>公共头部的悬浮模块</span></td>
+			</tr>
+			<tr>
+				<td><b>@c-player-mask-zindex</b></td>
+				<td><em>900</em></td>
+				<td><span>播放器剧场模式遮罩层</span></td>
+			</tr>
+			<tr>
+				<td><b>@c-header-zindex</b></td>
+				<td><em>998</em></td>
+				<td><span>登录遮罩层</span></td>
+			</tr>
+			<tr>
+				<td><b>@c-header-floatbox-zindex</b></td>
+				<td><em>999</em></td>
+				<td><span>登录层</span></td>
+			</tr>
+		</table>
+	</div>
+</div>
+{{import "module/footer"}}
