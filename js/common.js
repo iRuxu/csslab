@@ -1,4 +1,6 @@
 jQuery(function($){
+
+	//侧边栏
 	var fnbook_i = $("#m-sidebar-list li"),
 		fnbook_c = $("#m-content-list .m-content-list-item");
 
@@ -27,4 +29,5 @@ jQuery(function($){
 			clearTimeout(t)
 		},1000)
 	})
+
 });

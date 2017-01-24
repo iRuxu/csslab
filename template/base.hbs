@@ -4,13 +4,12 @@
 	<h2 class="m-sidebar-title">Base v3.2 <span>(2017.1.22)</span></h2>
 	<ul class="m-sidebar-list" id="m-sidebar-list">
 		<h4>字体</h4>
-		<li class="current">.bold</li>
+		<li class="current new">.fz</li>
+		<li>.lh</li>
+		<li>.bold</li>
 		<li>.italic</li>
 		<li>.normal</li>
-		<li>.fz</li>
-		<li>.lh</li>
-		<li>.fzlh</li>
-		<li class="new">.color</li>
+		<li>.color</li>
 		<li class="new">.tip</li>
 		<h4>文本</h4>
 		<li>.break</li>
@@ -76,11 +75,30 @@
 <div class="m-content" id="m-content-list">
 
 <div class="m-content-list-item">
+	<h3><b>.fz</b><span>(@font-size,[@line-height],[@height])</span><i>字体大小、行高、高度</i></h3>
+	<p>定义字体大小与行高和高度。<br>
+	<pre><code data-language="css">
+		.test{.fz(12px);} 			//font-size:12px;
+		.test{.fz(12px,20px);}  		//font-size:12px;line-height:20px;
+		.test{.fz(12px,20px,40px);} 	//font-size:12px;line-height:20px;height:40px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.lh</b><span>(@line-height,[@height]:@line-height)</span><i>字体行高与容器高度(相等)</i></h3>
+	<p>定义字体行高与容器高度，常用作高度与行高相等时（列表项较为美观）。行高此处不能定义为乘积因子。<br>
+	<pre><code data-language="css">
+		.test{.lh(24px);} 		//line-height:24px;height:24px; （行高与高度相等）
+		.test{.lh(24px,20px);}  	//line-height:24px;height:20px; （高度与行高不相等时，特殊处理时）
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
 	<h3><b>.bold</b><span>([@bold])</span><i>粗体</i></h3>
 	<p>字体表现为粗体。<br>
 	<pre><code data-language="css">
-		.test{.bold;} 		/*font-weight:bold;*/
-		.test{.bold(900);} 	/*font-weight:900;*/
+		.test{.bold;} 		//font-weight:bold;
+		.test{.bold(900);} 	//font-weight:900;
 	</code></pre>
 	</p>
 </div>
@@ -88,7 +106,7 @@
 	<h3><b>.italic</b><span></span><i>斜体</i></h3>
 	<p>字体表现为斜体。<br>
 	<pre><code data-language="css">
-		.test{.italic;} 	//font-style:italic;
+		.test{.italic;} 		//font-style:italic;
 	</code></pre>
 	</p>
 </div>
@@ -96,54 +114,27 @@
 	<h3><b>.normal</b><span></span><i>正常字体</i></h3>
 	<p>去除从长辈元素继承的粗体与斜体样式。<br>
 	<pre><code data-language="css">
-		.test{.normal;} 	//font-style:normal;font-weight:normal;
+		.test{.normal;} 		//font-style:normal;font-weight:normal;
 	</code></pre>
 	</p>
 </div>
-<div class="m-content-list-item">
-	<h3><b>.fz</b><span>(@fz,[@lh])</span><i>字体大小与行高</i></h3>
-	<p>定义字体大小与行高。行高为参数非必须参数，留空表示继承父级行高，定义时推荐使用乘积因子。<br>
-	<pre><code data-language="css">
-		.test{.fz(12px);} 	//font-size:12px;（行高则继承父级）
-		.test{.fz(12px,20px);}  //font-size:12px;line-height:20px;
-		.test{.fz(12px,2);}  	//font-size:12px;line-height:2;（等价于行高12px*2=24px）
-	</code></pre>
-	</p>
-</div>
-<div class="m-content-list-item">
-	<h3><b>.lh</b><span>(@lh,[@height])</span><i>字体行高与容器高度(相等)</i></h3>
-	<p>定义字体行高与容器高度，常用作高度与行高相等时（列表项较为美观）。行高此处不能定义为乘积因子。<br>
-	<pre><code data-language="css">
-		.test{.lh(24px);} 	//line-height:24px;height:24px; （行高与高度相等）
-		.test{.lh(24px,20px);}  //line-height:24px;height:20px; （高度与行高不相等时，特殊处理时）
-	</code></pre>
-	</p>
-</div>
-<div class="m-content-list-item">
-	<h3><b>.fzlh</b><span>(@fz,@lh,[@height])</span><i>字体大小、行高与容器高度</i></h3>
-	<p>定义字体大小，行高与容器高度，不传入高度时则高度与行高相等（此时行高不能为乘积因子）。<br>
-	<pre><code data-language="css">
-		.test{.fzlh(12px,24px);} 	//font-size:12px;line-height:24px;height:24px; （行高与高度相等）
-		.test{.fzlh(24px,24px,32px);}   //font-size:12px;line-height:24px;height:32px; （如行高传入的为乘积因子时，高度不可缺省）
-	</code></pre>
-	</p>
-</div>
+
 <div class="m-content-list-item">
 	<h3><b>.color</b><span>(@color,[@acolor],[@hovercolor])</span><i>字体颜色</i></h3>
 	<p>定义字体，链接颜色，链接悬浮颜色。<br>
 	<pre><code data-language="css">
-		.test{.color(#0cf);} 		//color:#0cf; （自身颜色,可作用与a或非a）
-		.test{.color(#0cf,#f39);}   	//color:#0cf;&amp;:hover{color:#f39;} （自身颜色+hover时颜色,主要作用于a）
-		.test{.color(#0cf,#f39,#93f);}  //color:#0cf;a{color:#f39;}a:hover{color:#93f;} （默认文本颜色+链接颜色+链接hover颜色,作用有a元素的元素）
+		.test{.color(#0cf);} 			 //color:#0cf; （自身颜色,可作用与a或非a）
+		.test{.color(#0cf,#f39);}   		//color:#0cf;&amp;:hover{color:#f39;} （自身颜色+hover时颜色,主要作用于a）
+		.test{.color(#0cf,#f39,#93f);}    //color:#0cf;a{color:#f39;}a:hover{color:#93f;} （默认文本颜色+链接颜色+链接hover颜色,作用有a标签的元素）
 	</code></pre>
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.tip</b><span>(@fz,@color,[@align])</span>/<span>(custom,@property,@value)</span><i>定义placeholder样式</i></h3>
+	<h3><b>.tip</b><span>(@font-size,@color,[@text-align:left])</span>/<span>(custom,@property,@value)</span><i>定义placeholder样式</i></h3>
 	<p>设置placeholder占位提醒字符样式。默认函数接受3个传值，分别为字体大小、字体颜色、对齐方式，对齐方式默认为左可缺省。<br>
 	<pre><code data-language="css">
-		.test{.tip(12px,#999);} 	//占位符12px，颜色#999
-		.test{.tip(12px,#999,right);}   //占位符12px，颜色#999，在右侧
+		.test{.tip(12px,#999);} 		//占位符12px，颜色#999
+		.test{.tip(12px,#999,right);}   	//占位符12px，颜色#999，在右侧
 	</code></pre>
 	</p><p>你也可以定义更多需要的属性，此时首参数“custom”是必传的。</p>
 	<pre><code data-language="css">

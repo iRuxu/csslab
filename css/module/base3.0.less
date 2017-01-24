@@ -1,43 +1,14 @@
 /*
- * Base.less
- * Version: 3.2
- * Author: iRuxu
- * Creat: 2014/08
- * Update: 2017/01/22
- * Description: Base function,ie hack,quick layout
- * Manual: http://csslab.cc
+ * Name: base.less v3.1
+ * Description: function,ie hack
+ * Creator: iRuxu,Dora
+ * Modify: iRuxu
+ * Update: 2015-8-13
+ * API: http://help.lab.hunantv.com/page/function/base.html
  */
 
-
-
-    /*-------------------------------------
-    ├   Font                              ┆
-    └------------------------------------*/
-
-    //字体大小
-    .fz(@font-size){
-        font-size:@font-size;
-    }
-
-    //字体大小与行高
-    .fz(@font-size,@line-height){
-        font-size:@font-size;
-        line-height:@line-height;
-    }
-
-    //字体大小、行高、高度
-    .fz(@font-size,@line-height,@height){
-        font-size:@font-size;
-        line-height:@line-height;
-        height:@height;
-    }
-
-    //字体行高与高度
-    .lh(@line-height,@height:@line-height){
-        line-height:@line-height;
-        height:@height;
-    }
-   
+//FONT 字体
+//--------------------------------------------------------------
     //字体样式：粗体
     .bold(@bold:bold){font-weight:@bold;}
 
@@ -46,6 +17,25 @@
 
     //字体样式：正常
     .normal(){font-weight:normal;font-style:normal;}
+
+    //字体大小与行高
+    .fz(@size,@lh:inherit){
+        font-size:@size;    //此处需要自行定义单位
+        line-height:@lh;  //建议使用乘积因子
+    }
+
+    //字体行高
+    .lh(@lh,@height:@lh){
+        line-height:@lh;  //行高等于高度,此处不能传乘积因子
+        height:@height;
+    }
+
+    //字体大小，行高，高度
+    .fzlh(@size,@lh,@height:@lh){
+        font-size:@size;
+        line-height:@lh;
+        height:@height;
+    }
 
     //字体颜色
     .color(@color){
@@ -61,40 +51,39 @@
         a:hover{color:@hovercolor;}
     }
 
-    //占位符placeholder样式
-    .tip(@font-size,@color,@text-align:left){
+    //占位字符样式placeholder
+    .tip(@fz,@color,@align:left){
         &:-moz-placeholder {
-            font-size:@font-size;
+            font-size:@fz;
             color: @color;
-            text-align:@text-align;
+            text-align:@align;
         }
         &:-ms-input-placeholder {
-            font-size:@font-size;
+            font-size:@fz;
             color: @color;
-            text-align:@text-align;
+            text-align:@align;
         }
         &::-webkit-input-placeholder {
-            font-size:@font-size;
+            font-size:@fz;
             color: @color;
-            text-align:@text-align;
+            text-align:@align;
         }
     }
-
-    .tip(custom,@property,@value){
+    .tip(custom,@tip-property,@tip-value){
         &:-moz-placeholder {
-            @{property}:@value;
+            @{tip-property}:@tip-value;
         }
         &:-ms-input-placeholder {
-            @{property}:@value;
+            @{tip-property}:@tip-value;
         }
         &::-webkit-input-placeholder {
-            @{property}:@value;
+            @{tip-property}:@tip-value;
         }
     }
 
 //TEXT 文本
 //--------------------------------------------------------------
-    .r(@radius){border-radius:@radius;}
+   
     //文本折行处理
     .break(){
         white-space:normal; //恢复正常折行
@@ -162,6 +151,7 @@
     .fr(){float:right;*display:inline;}
     .fr(7){*float:right;*display:inline;} //只在IE6-7应用
     .fr(6){_float:right;_display:inline;} //只在IE6应用
+
     //清除浮动塌陷
     .clearfix(){
         *zoom:1;
@@ -212,6 +202,11 @@
     .rt(@r,@t:@r){right:@r;top:@t;}
     .lb(@l,@b:@l){left:@l;bottom:@b;}
     .rb(@r,@b:@r){right:@r;bottom:@b;}
+
+    //IE8无背景bug fix
+    .bgfix(){
+        background:url('@{__pub_img}common/blank.png') no-repeat 0 0;
+    }
 
     //在含有fix顶等元素时，在页面less文件的开头添加如下以防止闪动
     .hasfixed(){
@@ -315,14 +310,13 @@
         margin-left:-@xmargin;margin-top:-@ymargin;
     }
 
-
 //Color
 //--------------------------------------------------------------
     //元素透明度
-    .tm(@tm){
-        @alpha:@tm*100;
+    .tm(@tm,@ietm:@tm*100){
+        //@alpha:@tm*100;
         opacity:@tm; //ie9 webkit etc.
-        filter:alpha(opacity=@alpha); //ie5-ie7
+        filter:alpha(opacity=@ietm); //ie5-ie7
     }
     //背景色半透明
     .tb(@r,@g,@b,@tm){
@@ -332,6 +326,14 @@
         background-color: @rgba;    //webkit,moz,ms10+
         filter:~"progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@{ietm}, endColorstr=@{ietm}) \9";  //ie7-8
         _background-color: @rgb;    //ie6
+    }
+    .rgba(@prop,@r,@g,@b,@tm){
+        @rgba:rgba(@r,@g,@b,@tm);
+        @rgb:rgb(@r,@g,@b);
+        @ietm:argb(@rgba);
+        @{prop}: @rgba;    //webkit,moz,ms10+
+        filter:~"progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=@{ietm}, endColorstr=@{ietm}) \9";  //ie7-8
+        _@{prop}: @rgb;    //ie6
     }
     //透明边框（兼容IE6 慎用）
     .ts(@width,@setcolor:#333300){
@@ -349,7 +351,6 @@
         _filter:~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@{__img})";
     }
 
-
 //Interface
 //--------------------------------------------------------------
     
@@ -358,15 +359,28 @@
 
     //Form
     .btn-reset(){background:none;border:none;}
-    
 
+    //radius
+    .r(@radius){border-radius:@radius;}
 
 //Image
 //--------------------------------------------------------------
+    //IE6透明图
     .tmpng(@url){ 
         //只能用于背景图，需要使用相对html文档的相对路径或绝对路径，不支持fix状态
         _background:none;
         _filter:~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src=@{__img})";
+    }
+
+    //雪碧图背景位置
+    .bgp(@default){
+        background-position:@default;
+    }
+    .bgp(@default,@hover){
+        background-position:@default;
+        &:hover{
+            background-position:@hover;
+        }
     }
 
     //雪碧图·横向阵列，传入个数，单元宽度
@@ -390,6 +404,7 @@
         .sprite-generate(0);
     }
 
+
 //Effect
 //--------------------------------------------------------------
 
@@ -408,185 +423,3 @@
         -webkit-backface-visibility:hidden;
         -webkit-transform-style:preserve-3d;
     }
-
-//颜色
-
-    //局部定义a状态及a:hover时颜色
-    .acolor(@acolor,@ahovercolor:@acolor){
-        a{color:@acolor;}
-        a:hover{color:@ahovercolor;}
-    }
-    .acolors(@color,@acolor:@color,@ahovercolor:@acolor){
-        color:@color;
-        a{color:@acolor;}
-        a:hover{color:@ahovercolor;}
-    }
-
-    .nowrap(){//总是显示文字
-        white-space:nowrap;word-break:keep-all;overflow:visible; 
-    }
-
-    //inline-block布局替代float - 不确定元素（IE9+）
-    .iblocks(){font-size:0;white-space:nowrap;overflow:visible;
-        &>*{.dbi;.y(top);font-size:12px;white-space:normal;}
-    }
-
-
-//table-cell布局（不兼容IE6）
-    .cell(){display:table-cell;*display:inline-block;}
-    .cell(x){display:table-cell;width:5000px;*width:auto;*zoom:1;} //自适应宽
-    .cell(y){display:table-cell;*margin-bottom:-5000px;*padding-bottom:5000px;*float:left;} //等高布局
-
- //字体修饰
-    .line(){text-decoration:underline;}
-    .line(no){text-decoration:none;}
-
-//通用排列 - 顶部
-    .ib(){.dbi;.y(top);}
-    //icon排列 - 文字底部
-    .icons(){.dbi;.y(text-bottom);}
-    //混合排列 - 居中
-    .im(){.dbi;.y(middle);}
-
-    .ct(m){display:-webkit-box;-webkit-box-align:center;}
-    .ct(x,pr,@width){width:unit(@width,px);position:relative;left:50%;@xmargin:unit(@width/2,px);margin-left:-@xmargin;} //占位居中移动
-
-    
-//多列
-    .cols(@width; @count; @gap) {
-      -webkit-column-width: @width;
-         -moz-column-width: @width;
-              column-width: @width;
-      -webkit-column-count: @count;
-         -moz-column-count: @count;
-              column-count: @count;
-      -webkit-column-gap: @gap;
-         -moz-column-gap: @gap;
-              column-gap: @gap;
-    }
-
-.ts3d(){
-        -webkit-backface-visibility:hidden;
-        -webkit-transform-style:preserve-3d;
-    }
-
-
-//Image
-//--------------------------------------------------------------
-
-    //满屏背景 - 添加到html元素上,背景图请作为body的第一个元素。
-        .fullscreen(){.full;overflow:hidden;}
-        .fix-bg(...){
-            .fullscreen;
-            body,.bg{.fullscreen;}
-            .bg{.fullscreen;.pa;.z(-100);}
-        }
-        .fix-bg(auto,x){
-            .bg img{width:100%;height:auto;}
-        }
-        .fix-bg(auto,y){
-            .bg img{height:100%;width:auto;}
-        }
-        .fix-bg(full){
-            .bg img{.full;}
-        }
-
-
-    //背景属性补充简写
-    .bgc(@background-color){background-color:@background-color;}
-    .bgs(@background-size){background-size:@background-size;}
-    .bgr(){background-repeat:repeat;}
-    .bgr(no){background-repeat:no-repeat;}
-    .bgr(x){background-repeat:repeat-x;}
-    .bgr(y){background-repeat:repeat-y;}
-
-//Other
-//--------------------------------------------------------------
-
-    //border 上下边框
-    .bo(x,@x){border-top:@x;border-bottom:@x;}
-    .bo(y,@y){border-left:@y;border-right:@y;}
-    .bo(l,@l){border-left:@l;}
-    .bo(r,@r){border-right:@r;}
-    .bo(t,@t){border-top:@t;}
-    .bo(b,@b){border-bottom:@b;}
-    .bo(o,@o){border:@o;}
-
-    //margin 外边距
-    .ml(@ml){margin-left:@ml;}
-    .mr(@mr){margin-right:@mr;}
-    .mt(@mt){margin-top:@mt;}
-    .mb(@mb){margin-bottom:@mb;}
-
-    .m(o,@num){margin:@num;}
-    .m(x,@num){margin-left:@num;margin-right:@num;}
-    .m(y,@num){margin-top:@num;margin-bottom:@num;}
-    .m(l,@num){margin-left:@num;}
-    .m(r,@num){margin-right:@num;}
-    .m(t,@num){margin-top:@num;}
-    .m(b,@num){margin-bottom:@num;}
-
-    //padding 内边距
-    .p(o,@num){padding:@num;}
-    .p(x,@num){padding-left:@num;padding-right:@num;}
-    .p(y,@num){padding-top:@num;padding-bottom:@num;}
-    .p(l,@num){padding-left:@num;}
-    .p(r,@num){padding-right:@num;}
-    .p(t,@num){padding-top:@num;}
-    .p(b,@num){padding-bottom:@num;}
-
-    //圆角
-    .r(lt,@radius){border-top-left-radius:@radius;}
-    .r(rt,@radius){border-top-right-radius:@radius;}
-    .r(lb,@radius){border-bottom-left-radius:@radius;}
-    .r(rb,@radius){border-bottom-right-radius:@radius;}
-
-
-//占位符提示文字
-    .tips(@color,@fz,@lh:1,@align:left){
-        &:-moz-placeholder {
-            color: @color;
-            font-size:@fz;
-            line-height:@lh;
-            text-align:@align;
-        }
-        &:-ms-input-placeholder {
-            color: @color;
-            font-size:@fz;
-            line-height:@lh;
-            text-align:@align;
-        }
-        &::-webkit-input-placeholder {
-            color: @color;
-            font-size:@fz;
-            line-height:@lh;
-            text-align:@align;
-        }
-    }
-
-    //input text 占位符提示组合，第一个值为默认颜色，第二个值为焦点色，第三个值为输入文字的颜色
-    .txt-tips(@a,@b,@c){
-        &:-moz-placeholder {
-            color: @a;
-        }
-        &:-ms-input-placeholder {
-            color: @a;
-        }
-        &::-webkit-input-placeholder {
-            color: @a;
-        }
-
-        &:focus{
-            &:-moz-placeholder {
-                color: @b;
-            }
-            &:-ms-input-placeholder {
-                color: @b;
-            }
-            &::-webkit-input-placeholder {
-                color: @b;
-            }
-        }
-        color:@c;
-    }
-

@@ -13,6 +13,22 @@
     &::-webkit-scrollbar-thumb{background-color:#d8d8d8;.r(4px);.w(4px);}
 }
 
+.m-sidebar-download{
+	margin-bottom:10px;
+	background-color:@basecolor;
+	color:#fff;
+	.db;.x;.r(3px);.fz(20px,22px);
+	padding:5px 0;
+	span{
+		.db;.fz(12px);letter-spacing:1px;
+		//text-transform:uppercase;color:#eee;
+	}
+	&:hover{
+		background-color:lighten(@basecolor, 10%);
+		color:#fff;
+	}
+}
+
 .m-sidebar code{
 	background-color:#333;
 	color:#eee;
