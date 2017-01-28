@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+	<form action="" method="" name="" autocomplete="on">
+		<fieldset>
+		<legend> </legend>
+		<input type="radio" name="" value="">
+		<input type="checkbox" name="" value="" checked="checked">
+		<select name="">
+		<option value="" selected></option>
+		</select>
+		<textarea rows="" cols=""></textarea>
+		<input type="button" value="">
+		<input type="text" value="">
+		</fieldset>
+	</form>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>formdemo</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

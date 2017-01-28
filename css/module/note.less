@@ -86,7 +86,7 @@
     .m-box{
         color:#ccc;overflow-y:auto;
 
-        height:320px;padding:10px 0;
+        height:320px;margin:10px 0;
         .fz(12px,2);
 
         b{color:#ffff00;}
@@ -104,4 +104,10 @@
         table{}
         td,th{border:1px solid #555;padding:2px 5px;}
     }
+}
+
+.sprite-test{
+    ul{.clearfix;}
+    li{background:url('@{__img}base/const-sprite.png') no-repeat;.size(65px);.fl;}
+    .sprite(12,65px);
 }

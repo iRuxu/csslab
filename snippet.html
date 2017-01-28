@@ -68,14 +68,87 @@
 	<div class="m-submenu-bg"></div>
 </div>
 <script>var pathname=location.pathname;$(".m-submenu-item, m-menu-item").map(function(a,t){var m=$(this);m.attr("href")==pathname&&m.parents("li").addClass("on")});</script>
-<link rel="stylesheet" href="css/page/animation.css?" type="text/css">
 <div class="m-sidebar">
-	
+	<a class="m-sidebar-download" href="snippet.7z">
+		Download
+		<span>Sublime Snippet</span>
+	</a>
+	<h2 class="m-sidebar-title">Snippet v1.2 <span>(2017.1.22)</span></h2>
+	<ul class="m-sidebar-list" id="m-sidebar-list">
+		<h4>CSS</h4>
+		<li class="current">fontface</li>
+		<li>iconfont</li>
+		<li>keys</li>
+		<li>ifie</li>
+		<li>htmldemo</li>
+	</ul>
 </div>
-<div class="m-content">
-	<div class="test-box test-box-fadeIn"></div>
+<div class="m-content" id="m-content-list">
 
-	pen&#x6F14;&#x793A;
+<div class="m-content-list-item">
+	<h3><b>fontface</b> <i>&#x81EA;&#x5B9A;&#x4E49;&#x5B57;&#x4F53;&#x5B9A;&#x4E49;</i></h3>
+	<pre><code class="less">
+		@font-face{ 
+		    font-family:&apos;diyfont&apos;; 
+		    src: url(&apos;diyfont.eot&apos;);
+		    src: url(&apos;diyfont.eot?#iefix&apos;) format(&apos;embedded-opentype&apos;),
+		    url(&apos;diyfont.woff&apos;) format(&apos;woff&apos;),
+		    url(&apos;diyfont.ttf&apos;) format(&apos;truetype&apos;),
+		    url(&apos;diyfont.svg#diyfont&apos;) format(&apos;svg&apos;);
+		} 
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>iconfont</b> <i>&#x56FE;&#x6807;&#x5B57;&#x4F53;</i></h3>
+	<pre><code class="less">
+		font-family:&quot;iconfont&quot;;
+		font-style:normal;
+		display:block;
+		-webkit-font-smoothing: antialiased;
+		-webkit-text-stroke-width: 0.2px;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>keys</b> <i>&#x52A8;&#x753B;&#x5E27;</i></h3>
+	<pre><code class="less">
+		@keyframes {
+		    from{}
+		    to{}
+		}
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>ifie</b> <i>IE&#x6761;&#x4EF6;&#x5224;&#x65AD;</i></h3>
+	<pre><code class="html">
+		&lt;!--[if lt IE 9]&gt;
+		&lt;![endif]--&gt;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>htmldemo</b> <i>HTML&#x7A7A;&#x767D;&#x9875;</i></h3>
+	<pre><code class="html">
+		&lt;!DOCTYPE html&gt;
+		&lt;html lang=&quot;zh-CN&quot;&gt;
+		&lt;head&gt;
+		&lt;title&gt;
+		&lt;meta charset=&quot;utf-8&quot;/&gt;
+		&lt;meta name=&quot;keywords&quot; content=&quot;&quot; /&gt;
+		&lt;meta name=&quot;description&quot; content=&quot;&quot; /&gt;
+		&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;
+		&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;
+		&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-siteapp&quot;/&gt;
+		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui&quot;/&gt;
+		&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;img/favicon.ico&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;&quot; type=&quot;text/css&quot;/&gt;
+		&lt;script src=&quot;&quot;&gt;
+		&lt;script src=&quot;http://libs.baidu.com/jquery/1.10.2/jquery.min.js&quot;&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+
+		&lt;/body&gt;
+		&lt;/html&gt;
+	</code></pre>
+</div>
 </div>
 </body>
 </html>

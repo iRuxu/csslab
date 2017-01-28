@@ -1,0 +1,19 @@
+/*
+ * Animation.less
+ * Version: 2.0
+ * Author: iRuxu
+ * Creat: 2014/11/15
+ * Update: 2017/01/22
+ * Description: Base animate
+ * Manual: http://csslab.cc
+ */
+
+
+//淡入
+.fadeIn(@time){
+	@keyframes fadeIn{
+	    0%{opacity:0;}
+	    100%{opacity:1;}
+	}
+	animation:fadeIn @time ease-out backwards;
+}

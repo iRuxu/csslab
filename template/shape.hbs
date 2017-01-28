@@ -1,9 +1,169 @@
 {{import "module/head"}}
 {{import "module/header"}}
+<link rel="stylesheet" href="css/page/shape.css" type="text/css"/>
 <div class="m-sidebar">
-	
+	<h2 class="m-sidebar-title">Shape v1.0 <span>(2015.6.10)</span></h2>
+	<ul class="m-sidebar-list" id="m-sidebar-list">
+		<h4>Arrow</h4>
+		<li>.arrow</li>
+		<li>.arrows</li>
+		<li>.tg</li>
+		<h4>Radius</h4>
+		<li>.disc</li>
+		<li>.circle</li>
+		<li>.pie</li>
+		<li>.leaf</li>
+		<h4>Iconfont</h4>
+		<li>.iconfont</li>
+		<li>.iconfont</li>
+		<li>.iconfonts</li>
+	</ul>
 </div>
-<div class="m-content">
+<div class="m-content" id="m-content-list">
 
+<div class="m-content-list-item">
+	<h3><b>.arrow</b><span>(t/b/l/r,@width,@color,[@position])</span><i>箭头</i></h3>
+	<p>可用于添加气泡效果（仅ie6-7无表现）。<br>
+	参数说明：第一个参数传入箭头所在的方位，分别t上方,b下方,l左侧,r右侧。<br>
+	第二个参数传入箭头的宽度，例如10px。<br>
+	第三个参数传入箭头的颜色。<br>
+	第四个参数传入位置偏移，默认箭头位置在所在方位的居中(50%)，如果不居中，则以坐标轴进行偏移，水平从左开始计算，垂直从上开始计算。<br>
+	<span class="important">需要注意的是，你需要保证添加箭头的元素上有非静态的定位属性，pr/pa/fix，不能为ps。元素自身的背景颜色需要自行设置。</span></p>
+	<pre><code class="less">
+		.test{.pr;.arrow(l,10px,#333);background-color:#333;}
+	</code></pre>
+	<h4>效果预览：</h4>
+	<div class="arrow-test">欢迎演示.arrow(l,10px,#333);</div>
+	<p>需要指定偏移位置时：</p>
+	<pre><code class="less">
+		.test{.pr;.arrow(t,10px,#333,80%);}
+	</code></pre>
+	<h4>效果预览：</h4>
+	<div class="arrow-test2">欢迎演示.arrow(t,10px,#333,80%);</div>
+	<p>颜色可以传入半透明：</p>
+	<pre><code class="less">
+		.test{.pr;.arrow(r,10px,rgba(0,0,0,0.5));}
+	</code></pre>
+	<h4>效果预览：</h4>
+	<div class="arrow-test3">欢迎演示.arrow(r,10px,rgba(0,0,0,0.5));</div>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.arrows</b><span>(t/b/l/r,@width,@color,@bo-width,@bo-color,[@position])</span><i>带边框箭头</i></h3>
+	<p>注意命名多个"s"。同上，当默认元素有边框时，箭头需要同时表现为有边框时。<br>
+	需要多传2个参数，边框的宽度与边框的颜色，由于视差的原因，边框的颜色可能要比元素边框的颜色略深一点darken(@color,5%)<br>
+	元素自身的颜色及边框需要自行定义。</p>
+	<pre><code class="less">
+		.test{.pr;.arrows(b,10px,#74e2fe,1px,#09f);background-color:#74e2fe;border:1px solid #09f;}
+	</code></pre>
+	<h4>效果预览：</h4>
+	<div class="arrow-test4">欢迎演示.arrow(b,10px,#74e2fe,1px,#09f);</div>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.tg</b><span>(t/b/l/r/lt/rt/lb/rb,@width,@color,[0/1])</span><i>三角形</i></h3>
+	<p>参数说明：三角形的方向，大小，颜色。<br>
+	t/b/l/r：当为等边三角形时，最后一个参数传入1。<br>
+	<a href="http://apps.eky.hk/css-triangle-generator/zh-hant">更多自定义点击这里</a>。</p>
+	<pre><code class="less">
+		.test{.tg(t,100px,#f39);}
+	</code></pre>
+	<h4>效果预览：</h4>
+	<div class="tg-test">
+		<div class="tg-test1">L</div>
+		<div class="tg-test2">T</div>
+		<div class="tg-test3">B</div>
+		<div class="tg-test4">R</div>
+		<div class="tg-test5">LT</div>
+		<div class="tg-test6">RT</div>
+		<div class="tg-test7">LB</div>
+		<div class="tg-test8">RB</div>
+	</div>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.disc</b><span>(o/t/b/l/r,@r,@color)</span><i>圆</i></h3>
+	<p>参数说明：类型，直径，颜色。<br>
+	<pre><code class="less">
+		.test{.disc(o,80px,#93f);}
+	</code></pre>
+	</p>
+	<h4>效果预览：</h4>
+	<div class="disc-test">
+		<div class="disc-test1">O</div>
+		<div class="disc-test2">L</div>
+		<div class="disc-test3">T</div>
+		<div class="disc-test4">B</div>
+		<div class="disc-test5">R</div>
+	</div>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.circle</b><span>(o/t/b/l/r,@r,@border)</span><i>圈</i></h3>
+	<p>参数说明：类型，直径，边框样式。<br>
+	<pre><code class="less">
+		.test{.circle(o,80px,#f39);}
+	</code></pre>
+	</p>
+	<h4>效果预览：</h4>
+	<div class="circle-test">
+		<div class="circle-test1">O</div>
+		<div class="circle-test2">L</div>
+		<div class="circle-test3">T</div>
+		<div class="circle-test4">B</div>
+		<div class="circle-test5">R</div>
+	</div>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.pie</b><span>(lt/lb/rt/rb,@r,@color)</span><i>饼</i></h3>
+	<p>参数说明：方向，直径，颜色。<br>
+	<pre><code class="less">
+		.test{.pie(lt,80px,#f39);}
+	</code></pre>
+	</p>
+	<h4>效果预览：</h4>
+	<div class="pie-test">
+		<div class="pie-test1">LT</div>
+		<div class="pie-test2">RT</div>
+		<div class="pie-test3">LB</div>
+		<div class="pie-test4">RB</div>
+	</div>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.leaf</b><span>(l/r/lr/rl,@r,@color)</span><i>叶</i></h3>
+	<p>参数说明：方向，直径，颜色。<br>
+	<pre><code class="less">
+		.test{.leaf(l,80px,#f39);}
+	</code></pre>
+	</p>
+	<h4>效果预览：</h4>
+	<div class="leaf-test">
+		<div class="leaf-test1">L</div>
+		<div class="leaf-test2">R</div>
+		<div class="leaf-test3">LR</div>
+		<div class="leaf-test4">RL</div>
+	</div>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.iconfont</b><span></span><i>图标字体</i></h3>
+	<p>*需提前自行设置iconfont字体的fontface。</p>
+	<p>字体图标目前有两种引入形式，一种为html内的unicode码（以下简称“实体形式”），一种为在伪元素中引用（以下简称“伪元素形式”）。</p>
+	<p>1.当必须保证IE6-7的兼容性和可见性时，使用实体形式。</p>
+	<p>2.当可以不用考虑IE6-7的可见性或影响不大时（即只是字符前图标非单个图标），使用伪元素形式。</p>
+	<pre><code class="html">
+		<span>\</span>e600  伪元素形式
+		<span>&#x</span>e600<span>;</span> 实体形式
+	</code></pre>
+	<h4>实体方式</h4>
+	<p>在HTML写入对应实体，添加.iconfont类。</p>
+	<pre><code class="html"><span>&lt;i class="iconfont">&amp;#xe600;</i> 立刻下载&lt;/span></code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.iconfont</b><span>(@iconfont;@fz:inherit;@color:inherit;@y:middle)</span><i>图标字体</i></h3>
+	<pre><code class="html"><span> &lt;i class="myClass"></i>立刻下载&lt;/span></code></pre>
+	<p>在该元素自定myClass上应用对应函数</p>
+	<pre><code data-language="css">.myClass{.iconfont(字符编码,图标大小,图标颜色,图标对齐方式)}</code></pre>
+	<p>默认图标大小继承字体大小，颜色继承，对齐方式默认居中</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.iconfonts</b><span>(@iconfont,@fz:inherit,@color-a,@color-b,@y:middle)</span><i>图标字体</i></h3>
+	<p>简单的涂色动画，你可以通过下面的函数与传值调用它</p>
+	<pre><code data-language="css">.myClass{.iconfonts(字符编码,图标大小,默认颜色,翻转颜色,图标对齐方式)}</code></pre>
 </div>
 {{import "module/footer"}}
