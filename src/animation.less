@@ -3,17 +3,435 @@
  * Version: 2.0
  * Author: iRuxu
  * Creat: 2014/11/15
- * Update: 2017/01/22
+ * Update: 2017/02/02
  * Description: Base animate
  * Manual: http://csslab.cc
  */
 
+//位移
+	.goTop(@time:1s,@position:-100%){
+		@keyframes goTop{
+		    from{transform:translateY(0);}
+		    to{transform:translateY(@position);}
+		}
+		animation-name:goTop;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:forwards;
+	}
+	.goBottom(@time:1s,@position:100%){
+		@keyframes goBottom{
+		    from{transform:translateY(0);}
+		    to{transform:translateY(@position);}
+		}
+		animation-name:goBottom;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:forwards;
+	}
+	.goLeft(@time:1s,@position:-100%){
+		@keyframes goLeft{
+		    from{transform:translateX(0);}
+		    to{transform:translateX(@position);}
+		}
+		animation-name:goLeft;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:forwards;
+	}
+	.goRight(@time:1s,@position:100%){
+		@keyframes goRight{
+		    from{transform:translateX(0);}
+		    to{transform:translateX(@position);}
+		}
+		animation-name:goRight;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:forwards;
+	}
 
 //淡入
-.fadeIn(@time){
-	@keyframes fadeIn{
-	    0%{opacity:0;}
-	    100%{opacity:1;}
+	.fadeIn(@time:1s){
+		@keyframes fadeIn{
+		    0%{opacity:0;}
+		    100%{opacity:1;}
+		}
+		animation-name:fadeIn;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:backwards;
 	}
-	animation:fadeIn @time ease-out backwards;
-}
+	.fadeInTop(@time:1s){
+		@keyframes fadeInTop{
+		    0%{opacity:0;transform:translateY(-100%);}
+	    	100%{opacity:1;transform:translateY(0);}
+		}
+		animation-name:fadeInTop;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:backwards;
+	}
+	.fadeInBottom(@time:1s){
+		@keyframes fadeInBottom{
+		    0%{opacity:0;transform:translateY(100%);}
+	    	100%{opacity:1;transform:translateY(0);}
+		}
+		animation-name:fadeInBottom;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:backwards;
+	}
+	.fadeInLeft(@time:1s){
+		@keyframes fadeInLeft{
+		    0%{opacity:0;transform:translateX(-100%);}
+	    	100%{opacity:1;transform:translateX(0);}
+		}
+		animation-name:fadeInLeft;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:backwards;
+	}
+	.fadeInRight(@time:1s){
+		@keyframes fadeInRight{
+		    0%{opacity:0;transform:translateX(100%);}
+	    	100%{opacity:1;transform:translateX(0);}
+		}
+		animation-name:fadeInRight;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:backwards;
+	}
+
+//淡出
+	.fadeOut(@time:1s){
+		@keyframes fadeOut{
+		    0%{opacity:1;}
+		    100%{opacity:0;}
+		}
+		animation-name:fadeOut;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:forwards;
+	}
+	.fadeOutTop(@time:1s){
+		@keyframes fadeOutTop{
+		    0%{opacity:1;transform:translateY(0);}
+	    	100%{opacity:0;transform:translateY(-100%);}
+		}
+		animation-name:fadeOutTop;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:forwards;
+	}
+	.fadeOutBottom(@time:1s){
+		@keyframes fadeOutBottom{
+		    0%{opacity:1;transform:translateY(0);}
+	    	100%{opacity:0;transform:translateY(100%);}
+		}
+		animation-name:fadeOutBottom;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:forwards;
+	}
+	.fadeOutLeft(@time:1s){
+		@keyframes fadeOutLeft{
+		    0%{opacity:1;transform:translateX(0);}
+	    	100%{opacity:0;transform:translateX(-100%);}
+		}
+		animation-name:fadeOutLeft;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:forwards;
+	}
+	.fadeOutRight(@time:1s){
+		@keyframes fadeOutRight{
+		    0%{opacity:1;transform:translateX(0);}
+	    	100%{opacity:0;transform:translateX(100%);}
+		}
+		animation-name:fadeOutRight;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:forwards;
+	}
+
+//舞台
+	.lightSpeedIn(@time:1s,@offset:100%){
+		@keyframes lightSpeedIn {
+		  from {
+		    -webkit-transform: translate3d(@offset, 0, 0) skewX(-30deg);
+		    transform: translate3d(@offset, 0, 0) skewX(-30deg);
+		    opacity: 0;
+		  }
+
+		  60% {
+		    -webkit-transform: skewX(20deg);
+		    transform: skewX(20deg);
+		    opacity: 1;
+		  }
+
+		  80% {
+		    -webkit-transform: skewX(-5deg);
+		    transform: skewX(-5deg);
+		    opacity: 1;
+		  }
+
+		  to {
+		    -webkit-transform: none;
+		    transform: none;
+		    opacity: 1;
+		  }
+		}
+		animation-name:lightSpeedIn;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:both;
+	}
+
+	.lightSpeedOut(@time:1s,@offset:100%){
+		@keyframes lightSpeedOut {
+		  from {
+		    opacity: 1;
+		  }
+
+		  to {
+		    -webkit-transform: translate3d(@offset, 0, 0) skewX(30deg);
+		    transform: translate3d(@offset, 0, 0) skewX(30deg);
+		    opacity: 0;
+		  }
+		}
+		animation-name:lightSpeedOut;
+		animation-duration:@time;
+		animation-timing-function:ease-out;
+		animation-fill-mode:both;
+	}
+	
+//尺寸
+	.widthTo(@time:1s,@from:0,@to:100%){
+		@keyframes widthTo{
+		    from{width:@from;}
+		    to{width:@to;}
+		}
+		animation-name:widthTo;
+		animation-duration:@time;
+		animation-timing-function:ease;
+		animation-fill-mode:forwards;
+	}
+
+	.heightTo(@time:1s,@from:0,@to:100%){
+		@keyframes heightTo{
+		    from{height:@from;}
+		    to{height:@to;}
+		}
+		animation-name:heightTo;
+		animation-duration:@time;
+		animation-timing-function:ease;
+		animation-fill-mode:forwards;
+	}
+
+//缩放
+	.zoomTo(@time:1s,@from:1,@to:1.5){
+		@keyframes zoomTo{
+		    from{transform:scale(@from);}
+		    to{transform:scale(@to);}
+		}
+		animation-name:zoomTo;
+		animation-duration:@time;
+		animation-timing-function:ease;
+		animation-fill-mode:forwards;
+	}
+
+	.zoomIn(@time:1s){
+		@keyframes zoomIn {
+		  from {
+		    opacity: 0;
+		    -webkit-transform: scale3d(.3, .3, .3);
+		    transform: scale3d(.3, .3, .3);
+		  }
+
+		  50% {
+		    opacity: 1;
+		  }
+		}
+		animation-name:zoomIn;
+		animation-duration:@time;
+		animation-timing-function:ease-in-out;
+		animation-fill-mode:forwards;
+	}
+
+	.zoomOut(@time:1s,@sacle:1.8){
+		@keyframes zoomOut {
+		  from {
+		    opacity: 1;
+		    -webkit-transform: scale3d(1, 1, 1);
+		    transform: scale3d(1, 1, 1);
+		  }
+
+		  to {
+		    opacity: 0;
+		    -webkit-transform: scale3d(@sacle,@sacle,@sacle);
+		    transform: scale3d(@sacle,@sacle,@sacle);
+		  }
+		}
+		animation-name:zoomOut;
+		animation-duration:@time;
+		animation-timing-function:ease-in-out;
+		animation-fill-mode:forwards;
+	}
+
+//旋转
+	.rotateTo(@time:1s,@from:0,@to:180deg){
+		@keyframes rotateTo{
+		    from{transform:rotate(@from);}
+		    to{transform:rotate(@to);}
+		}
+		animation-name:rotateTo;
+		animation-duration:@time;
+		animation-timing-function:ease-in-out;
+		animation-fill-mode:forwards;
+	}
+	.rotateRound(@time:1s,@count:1){
+		@keyframes rotateRound{
+		    from{transform:rotate(0);}
+		    to{transform:rotate(360deg);}
+		}
+		animation-name:rotateRound;
+		animation-duration:@time;
+		animation-timing-function:ease-in-out;
+		animation-fill-mode:forwards;
+	  	animation-iteration-count:@count;
+	}
+
+//翻转
+	.flipInX(@time:1s){
+		@keyframes flipInX {
+		  from {
+		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		    -webkit-animation-timing-function: ease-in;
+		    animation-timing-function: ease-in;
+		    opacity: 0;
+		  }
+
+		  40% {
+		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		    -webkit-animation-timing-function: ease-in;
+		    animation-timing-function: ease-in;
+		  }
+
+		  60% {
+		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		    opacity: 1;
+		  }
+
+		  80% {
+		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+		    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+		  }
+
+		  to {
+		    -webkit-transform: perspective(400px);
+		    transform: perspective(400px);
+		  }
+		}
+		animation-name:flipInX;
+		animation-duration:@time;
+		animation-fill-mode: both;
+  		backface-visibility: visible !important;
+	}
+
+	.flipInY(@time:1s){
+		@keyframes flipInY {
+		  from {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		    -webkit-animation-timing-function: ease-in;
+		    animation-timing-function: ease-in;
+		    opacity: 0;
+		  }
+
+		  40% {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		    -webkit-animation-timing-function: ease-in;
+		    animation-timing-function: ease-in;
+		  }
+
+		  60% {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		    opacity: 1;
+		  }
+
+		  80% {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+		  }
+
+		  to {
+		    -webkit-transform: perspective(400px);
+		    transform: perspective(400px);
+		  }
+		}
+		animation-name:flipInY;
+		animation-duration:@time;
+		animation-fill-mode: both;
+  		backface-visibility: visible !important;
+	}
+
+	.flipOutX(@time:0.75s){
+		@keyframes flipOutX {
+		  from {
+		    -webkit-transform: perspective(400px);
+		    transform: perspective(400px);
+		  }
+
+		  30% {
+		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		    opacity: 1;
+		  }
+
+		  to {
+		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		    opacity: 0;
+		  }
+		}
+		animation-name:flipOutX;
+		animation-duration:@time;
+		animation-fill-mode: both;
+  		backface-visibility: visible !important;
+	}
+
+	.flipOutY(@time:0.75s){
+		@keyframes flipOutY {
+		  from {
+		    -webkit-transform: perspective(400px);
+		    transform: perspective(400px);
+		  }
+
+		  30% {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
+		    opacity: 1;
+		  }
+
+		  to {
+		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		    opacity: 0;
+		  }
+		}
+		animation-name:flipOutY;
+		animation-duration:@time;
+		animation-fill-mode: both;
+  		backface-visibility: visible !important;
+	}
+
+
+
+
+
+

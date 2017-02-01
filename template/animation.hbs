@@ -2,11 +2,118 @@
 {{import "module/header"}}
 <link rel="stylesheet" href="css/page/animation.css" type="text/css"/>
 <div class="m-sidebar">
-	
+	<!-- <a class="m-sidebar-download" href="https://daneden.github.io/animate.css/" target="_blank">
+		Animate.css
+		<span>动画预览</span>
+	</a> -->
+	<h2 class="m-sidebar-title">Animation v2.0 <span>(2017.2.2)</span></h2>
+	<ul class="m-sidebar-list" id="m-sidebar-list">
+		<h4>位移</h4>
+		<li>.goTop</li>
+		<li>.goBottom</li>
+		<li>.goLeft</li>
+		<li>.goRight</li>
+		<h4>渐入</h4>
+		<li>.fadeIn</li>
+		<li>.fadeInTop</li>
+		<li>.fadeInBottom</li>
+		<li>.fadeInLeft</li>
+		<li>.fadeInRight</li>
+		<h4>渐出</h4>
+		<li>.fadeOut</li>
+		<li>.fadeOutTop</li>
+		<li>.fadeOutBottom</li>
+		<li>.fadeOutLeft</li>
+		<li>.fadeOutRight</li>
+		<h4>舞台</h4>
+		<li>.lightSpeedIn</li>
+		<li>.lightSpeedOut</li>
+		<h4>尺寸</h4>
+		<li>.widthTo</li>
+		<li>.heightTo</li>
+		<h4>缩放</h4>
+		<li>.zoomTo</li>
+		<li>.zoomIn</li>
+		<li>.zoomOut</li>
+		<h4>旋转</h4>
+		<li>.rotateTo</li>
+		<li>.rotateRound</li>
+		<h4>翻转</h4>
+		<li>.flipInX</li>
+		<li>.flipInY</li>
+		<li>.flipOutX</li>
+		<li>.flipOutY</li>
+	</ul>
 </div>
-<div class="m-content">
-	<div class="test-box test-box-fadeIn"></div>
+<div class="m-content" id="m-content-list">
 
-	pen演示
+<p class="m-tips">
+	1.默认第一个参数即动画时间，不传值时使用默认预设参数值。<br>
+	2.需要覆盖缓动函数、执行次数时可自行覆写相关属性值。<br>
+	3.每次调用该函数时，只生成所使用动画的对应keyframes。
+</p>
+
+<div class="m-content-list-item">
+	<h3><b>.goTop</b> / <b>.goBottom</b> / <b>.goLeft</b> / <b>.goRight</b><span>(@time:1s,@position:-100%~100%)</span><i>位移</i></h3>
+	<p>位移变化，无渐隐，可用作菜单（less版本中由于没有随机函数），一个样式表中只能使用该函数一次。</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="wgmBrK" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="wgmBrK" class="codepen">See the Pen <a href="https://codepen.io/iRuxu/pen/wgmBrK/">wgmBrK</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<div class="m-content-list-item">
+	<h3><b>.fadeIn</b> / <b>.fadeInTop</b> / <b>.fadeInBottom</b> / <b>.fadeInLeft</b> / <b>.fadeInRight</b><span>(@time:1s)</span><i>渐入</i></h3>
+	<p>渐入动画，位移100%自身位置。</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="OWQeja" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="Animation Test for CssLab" class="codepen">See the Pen <a href="https://codepen.io/iRuxu/pen/OWQeja/">Animation Test for CssLab</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<div class="m-content-list-item">
+	<h3><b>.fadeOut</b> / <b>.fadeOutTop</b> / <b>.fadeOutBottom</b> / <b>.fadeOutLeft</b> / <b>.fadeOutRight</b><span>(@time:1s)</span><i>渐出</i></h3>
+	<p>渐出动画，位移100%自身位置。</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="EZQqER" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="EZQqER" class="codepen">See the Pen <a href="https://codepen.io/iRuxu/pen/EZQqER/">EZQqER</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<div class="m-content-list-item">
+	<h3><b>.lightSpeedIn</b> / <b>.lightSpeedOut</b><span>(@time:1s,@offset:100%)</span><i>舞台</i></h3>
+	<p>入场出场动画，默认位移100%自身位置。</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="WRzbWj" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="WRzbWj" class="codepen">See the Pen <a href="http://codepen.io/iRuxu/pen/WRzbWj/">WRzbWj</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<div class="m-content-list-item">
+	<h3><b>.widthTo</b><span>(@time:1s,@from:0,@to:100%)</span><i>宽度</i></h3>
+	<p>宽度变化，（less版本中由于没有随机函数），一个样式表中只能使用该函数一次。</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="NdYKZL" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="NdYKZL" class="codepen">See the Pen <a href="https://codepen.io/iRuxu/pen/NdYKZL/">NdYKZL</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<div class="m-content-list-item">
+	<h3><b>.heightTo</b><span>(@time:1s,@from:0,@to:100%)</span><i>高度</i></h3>
+	<p>高度变化，（less版本中由于没有随机函数），一个样式表中只能使用该函数一次。当没有定义父级高度时，请勿使用百分比作为末尾高度。</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="wgmvZL" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="wgmvZL" class="codepen">See the Pen <a href="https://codepen.io/iRuxu/pen/wgmvZL/">wgmvZL</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<div class="m-content-list-item">
+	<h3><b>.zoomTo</b><span>(@time:1s,@from:1,@to:1.5)</span><i>缩放</i></h3>
+	<p>缩放变化，（less版本中由于没有随机函数），一个样式表中只能使用该函数一次。</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="LxdVOV" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="zoomTo" class="codepen">See the Pen <a href="http://codepen.io/iRuxu/pen/LxdVOV/">zoomTo</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<div class="m-content-list-item">
+	<h3><b>.zoomIn</b> / <b>.zoomOut</b><span>(@time:1s,@scale:1.8)</span><i>放大进入/离开</i></h3>
+	<p>放大进入/离开，（less版本中由于没有随机函数），一个样式表中只能使用该函数一次。</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="vgROMm" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="zoomIn/zoomOut" class="codepen">See the Pen <a href="http://codepen.io/iRuxu/pen/vgROMm/">zoomIn/zoomOut</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<div class="m-content-list-item">
+	<h3><b>.rotateTo</b><span>(@time:1s,@from:0,@to:180deg)</span> / <b>.rotateRound</b><span>(@time:1s,@count:1)</span><i>旋转</i></h3>
+	<p>旋转角度，默认180度；旋转次数（360度），默认1次。（less版本中由于没有随机函数），一个样式表中只能使用该函数一次。</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="apYvdN" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="rotateTo" class="codepen">See the Pen <a href="http://codepen.io/iRuxu/pen/apYvdN/">rotateTo</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<div class="m-content-list-item">
+	<h3><b>.flipInX</b> / <b>.flipInY</b> / <b>.flipOutX</b> / <b>.flipOutY</b><span>(@time:1s)</span><i>翻转</i></h3>
+	<p>沿X或Y轴翻转进入离开。</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="vgRNpR" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="flip" class="codepen">See the Pen <a href="http://codepen.io/iRuxu/pen/vgRNpR/">flip</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 </div>
 {{import "module/footer"}}

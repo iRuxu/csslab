@@ -71,13 +71,19 @@
 		<li>.tm</li>
 		<li>.tb</li>
 		<li>.blur</li>
-		<li>.effix</li>
+		<li>.tsfix</li>
 		<h4>其它</h4>
 		<li>.r</li>
 		<li>.pointer</li>
 	</ul>
 </div>
 <div class="m-content" id="m-content-list">
+
+<p class="m-tips">
+	1.[]表示非必须参数<br>
+	2.调用空参数函数时不需要写括号。<br>
+	3.调用函数时，后面的分号不可缺省。<br>
+</p>
 
 <div class="m-content-list-item">
 	<h3><b>.fz</b><span>(@font-size,[@line-height],[@height])</span><i>字体大小、行高、高度</i></h3>
@@ -568,9 +574,9 @@
 	</code></pre>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.effix</b><span></span><i>三维闪动bug处理</i></h3>
+	<h3><b>.tsfix</b><span></span><i>三维闪动bug处理</i></h3>
 	<pre><code class="less">
-		.test{.effix;}      //-webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d;
+		.test{.tsfix;}      //-webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d;
 	</code></pre>
 </div>
 <div class="m-content-list-item">
