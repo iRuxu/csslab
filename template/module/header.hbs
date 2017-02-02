@@ -46,10 +46,12 @@
 </div>
 <script>
 	var pathname = location.pathname;
-	$('.m-submenu-item, m-menu-item').map(function(index, item){
-		var $item = $(this);
-		if($item.attr('href') == pathname) {
-			$item.parents('li').addClass('on');
-		}
-	})
+	if(pathname != '/'){
+		$('.m-submenu-item, m-menu-item').map(function(index, item){
+			var $item = $(this);
+			if($item.attr('href') == pathname) {
+				$item.parents('li').addClass('on');
+			}
+		})
+	}
 </script>
