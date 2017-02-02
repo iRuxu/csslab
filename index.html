@@ -66,7 +66,17 @@
 	</div>
 	<div class="m-submenu-bg"></div>
 </div>
-<script>var pathname=location.pathname;"/"!=pathname&&$(".m-submenu-item, m-menu-item").map(function(a,t){var m=$(this);m.attr("href")==pathname&&m.parents("li").addClass("on")});</script>
+<script>var pathname = location.pathname;
+var $menu = $('.m-submenu-item, .m-menu-item')
+if(pathname != '/'){
+	$menu.parents('li').removeClass('on');
+	$menu.map(function(index, item){
+		var $item = $(this);
+		if($item.attr('href') == pathname) {
+			$item.parents('li').addClass('on');
+		}
+	})
+}</script>
 
 <div class="m-sidebar">
 	<a class="u-btn u-btn-download" href="https://github.com/iRuxu/CssLab/releases" target="_blank"><b>Download</b><span>version 1.1</span></a>

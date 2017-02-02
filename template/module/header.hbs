@@ -14,7 +14,7 @@
 			<ul>
 				<li class="on">
 					<a class="m-menu-item" href="/index.html">Index</a>
-					<ul class="m-submenu" style="display:block;">
+					<ul class="m-submenu">
 						<li class="on"><a class="m-submenu-item" href="/index.html">Quick Guide</a></li>
 						<li><a class="m-submenu-item" href="/log.html">Logs</a></li>
 					</ul>
@@ -46,8 +46,10 @@
 </div>
 <script>
 	var pathname = location.pathname;
+	var $menu = $('.m-submenu-item, .m-menu-item')
 	if(pathname != '/'){
-		$('.m-submenu-item, m-menu-item').map(function(index, item){
+		$menu.parents('li').removeClass('on');
+		$menu.map(function(index, item){
 			var $item = $(this);
 			if($item.attr('href') == pathname) {
 				$item.parents('li').addClass('on');
