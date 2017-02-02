@@ -1,13 +1,48 @@
 {{import "module/head"}}
 {{import "module/header"}}
 <div class="m-sidebar">
-	<!-- 下载 -->
-	<!-- fork -->
+	<a class="u-btn u-btn-download" href="https://github.com/iRuxu/CssLab/releases" target="_blank"><b>Download</b><span>version 1.1</span></a>
+	<a class="u-btn u-btn-source" href="https://github.com/iRuxu/CssLab" target="_blank"><b>Source Code</b><span>Github</span></a>
 </div>
 <div class="m-content m-index">
-	<h3><b>获取方式</b></h3>
-	<h3><b>用途简介</b></h3>
-	<h3><b>使用事项</b></h3>
-	<h3><b>参考说明</b></h3>
+	<h2>项目简介</h2>
+	<ol>
+		<li>这是一个css依赖库，由一些less/sass自定义函数组成，用于快速完成一些常用的css片段，以便能更快捷高效地完成网页重构工作。</li>
+		<li>它需要在less/sass预编译环境下使用，你可以在需要使用的文件中提前引用或自定义为插件默认引用。</li>
+		<li>绝大多数功能均以函数存在（除个别说明可直接作为class使用外），不调用该函数时，其它内容不会被编译输出在最终css文件中，能有效减少冗余代码加载。</li>
+		<li>它原先作为芒果TV（www.mgtv.com）PC Web前端公共库1.0中的一部分，现在它独立作为一个项目在进行。</li>
+	</ol>
+
+	<h2>使用方法</h2>
+	<ol>
+		<li>在less文件中引入</li>
+		<pre><code class="less">@import url('base.less')</code></pre>
+	</ol>
+
+	<h2>注意事项</h2>
+	<ol>
+		<li>你需要使用autoprefix或其它类似插件来进行自动补全浏览器前缀以便兼容低版本。</li>
+		<li>动画库的less版本不支持同一个函数被传入不同参数多次调用。</li>
+	</ol>
+
+	<h2>文件索引</h2>
+	<ol>
+		<li>base - 组合常用的IE6-IE8各类HACK，部分CSS快捷的书写方式</li>
+		<li>shape - 使用CSS绘制常用的图形</li>
+		<li>animation - 基础动画库，提供常见的动画</li>
+		<li>twinkle - 扩展动画库</li>
+		<li>reset - 浏览器样式重置，含部分移动端webkit属性</li>
+	</ol>
+
+	<h2>参考资料</h2>
+	<ol>
+		<li>使用手册 - <a href="http://csslab.cc" target="_blank">http://csslab.cc</a></li>
+		<li>CSS笔记 - <a href="http://iruxu.com/notebook" target="_blank">http://iruxu.com/notebook</a></li>
+		<li>LESS中文手册 <a href="http://less.bootcss.com/features/" target="_blank">http://less.bootcss.com/features/</a></li>
+		<li>SASS中文手册 <a href="http://sass.bootcss.com/docs/sass-reference/" target="_blank">http://sass.bootcss.com/docs/sass-reference/</a></li>
+		<li>Koala，一款方便的可视化前端编译器 <a href="http://koala-app.com/index-zh.html" target="_blank">http://koala-app.com/index-zh.html</a></li>
+		<li>Silky，芒果TV使用的前端开发集成工具 <a href="http://silky.wvv8oo.com" target="_blank">http://silky.wvv8oo.com</a></li>
+	</ol>
+
 </div>
 {{import "module/footer"}}
