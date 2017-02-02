@@ -36,7 +36,7 @@
 			<ul>
 				<li class="on">
 					<a class="m-menu-item" href="/index.html">Index</a>
-					<ul class="m-submenu" style="display:block;">
+					<ul class="m-submenu">
 						<li class="on"><a class="m-submenu-item" href="/index.html">Quick Guide</a></li>
 						<li><a class="m-submenu-item" href="/log.html">Logs</a></li>
 					</ul>
@@ -66,7 +66,7 @@
 	</div>
 	<div class="m-submenu-bg"></div>
 </div>
-<script>var pathname=location.pathname;"/"!=pathname&&$(".m-submenu-item, m-menu-item").map(function(a,t){var m=$(this);m.attr("href")==pathname&&m.parents("li").addClass("on")});</script>
+<script>var pathname=location.pathname;"/"!=pathname&&($(".m-menu, .m-submenu").children("li").removeClass("on"),$(".m-submenu-item, .m-menu-item").map(function(a,m){var e=$(this);e.attr("href")==pathname&&e.parents("li").addClass("on")}));</script>
 
 <div class="m-sidebar">
 	<h2 class="m-sidebar-title">Base v3.2 <span>(2017.1.22)</span></h2>

@@ -46,10 +46,9 @@
 </div>
 <script>
 	var pathname = location.pathname;
-	var $menu = $('.m-submenu-item, .m-menu-item')
 	if(pathname != '/'){
-		$menu.parents('li').removeClass('on');
-		$menu.map(function(index, item){
+		$('.m-menu, .m-submenu').children('li').removeClass('on');
+		$('.m-submenu-item, .m-menu-item').map(function(index, item){
 			var $item = $(this);
 			if($item.attr('href') == pathname) {
 				$item.parents('li').addClass('on');
