@@ -158,25 +158,21 @@
 	.lightSpeedIn(@time:1s,@offset:100%){
 		@keyframes lightSpeedIn {
 		  from {
-		    -webkit-transform: translate3d(@offset, 0, 0) skewX(-30deg);
 		    transform: translate3d(@offset, 0, 0) skewX(-30deg);
 		    opacity: 0;
 		  }
 
 		  60% {
-		    -webkit-transform: skewX(20deg);
 		    transform: skewX(20deg);
 		    opacity: 1;
 		  }
 
 		  80% {
-		    -webkit-transform: skewX(-5deg);
 		    transform: skewX(-5deg);
 		    opacity: 1;
 		  }
 
 		  to {
-		    -webkit-transform: none;
 		    transform: none;
 		    opacity: 1;
 		  }
@@ -194,7 +190,6 @@
 		  }
 
 		  to {
-		    -webkit-transform: translate3d(@offset, 0, 0) skewX(30deg);
 		    transform: translate3d(@offset, 0, 0) skewX(30deg);
 		    opacity: 0;
 		  }
@@ -244,7 +239,6 @@
 		@keyframes zoomIn {
 		  from {
 		    opacity: 0;
-		    -webkit-transform: scale3d(.3, .3, .3);
 		    transform: scale3d(.3, .3, .3);
 		  }
 
@@ -262,13 +256,11 @@
 		@keyframes zoomOut {
 		  from {
 		    opacity: 1;
-		    -webkit-transform: scale3d(1, 1, 1);
 		    transform: scale3d(1, 1, 1);
 		  }
 
 		  to {
 		    opacity: 0;
-		    -webkit-transform: scale3d(@sacle,@sacle,@sacle);
 		    transform: scale3d(@sacle,@sacle,@sacle);
 		  }
 		}
@@ -305,33 +297,26 @@
 	.flipInX(@time:1s){
 		@keyframes flipInX {
 		  from {
-		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
 		    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-		    -webkit-animation-timing-function: ease-in;
 		    animation-timing-function: ease-in;
 		    opacity: 0;
 		  }
 
 		  40% {
-		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
 		    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-		    -webkit-animation-timing-function: ease-in;
 		    animation-timing-function: ease-in;
 		  }
 
 		  60% {
-		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
 		    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
 		    opacity: 1;
 		  }
 
 		  80% {
-		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
 		    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
 		  }
 
 		  to {
-		    -webkit-transform: perspective(400px);
 		    transform: perspective(400px);
 		  }
 		}
@@ -344,33 +329,26 @@
 	.flipInY(@time:1s){
 		@keyframes flipInY {
 		  from {
-		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
 		    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
-		    -webkit-animation-timing-function: ease-in;
 		    animation-timing-function: ease-in;
 		    opacity: 0;
 		  }
 
 		  40% {
-		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
 		    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
-		    -webkit-animation-timing-function: ease-in;
 		    animation-timing-function: ease-in;
 		  }
 
 		  60% {
-		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
 		    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
 		    opacity: 1;
 		  }
 
 		  80% {
-		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
 		    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
 		  }
 
 		  to {
-		    -webkit-transform: perspective(400px);
 		    transform: perspective(400px);
 		  }
 		}
@@ -383,18 +361,15 @@
 	.flipOutX(@time:0.75s){
 		@keyframes flipOutX {
 		  from {
-		    -webkit-transform: perspective(400px);
 		    transform: perspective(400px);
 		  }
 
 		  30% {
-		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
 		    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
 		    opacity: 1;
 		  }
 
 		  to {
-		    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
 		    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
 		    opacity: 0;
 		  }
@@ -408,18 +383,15 @@
 	.flipOutY(@time:0.75s){
 		@keyframes flipOutY {
 		  from {
-		    -webkit-transform: perspective(400px);
 		    transform: perspective(400px);
 		  }
 
 		  30% {
-		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
 		    transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
 		    opacity: 1;
 		  }
 
 		  to {
-		    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
 		    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
 		    opacity: 0;
 		  }
