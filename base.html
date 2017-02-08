@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>CssLab - A css function package for creating styles quickly</title>
+<meta charset="utf-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui">
+<link rel="shortcut icon" href="http://www.hunantv.com/favicon.ico?" type="image/x-icon">
+<!-- <link rel="stylesheet" href='css/monokai.css?' type="text/css"> -->
+<link rel="stylesheet" href="css/github.css?" type="text/css">
+<link rel="stylesheet" href="css/common.css?" type="text/css">
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js?"></script>
+<!-- <script src='js/rainbow.min.js?'></script> -->
+<script src="js/highlight.pack.js?"></script>
+<script src="js/common.js?"></script>
+<script src="js/notebook.js?"></script>
+</head>
+<body>
+<div class="m-top">
+	<div class="m-rainbow"></div>
+	<div class="m-header">
+		<h1 class="m-logo">
+			<a class="u-name" href="/index.html">Csslab</a>
+			<em class="u-domain"><span>.CC</span></em>
+			<a class="u-type" href="http://www.mgtv.com" target="_blank"><i></i>MGTV</a>
+		</h1>
+		<div class="m-author">
+			<a class="u-github" href="https://github.com/iRuxu/CssLab/issues" target="_blank">issues</a>
+			<a class="u-weibo" href="http://iRuxu.com" target="_blank">Author</a>
+		</div>
+		<div class="m-menu">
+			<ul>
+				<li class="on">
+					<a class="m-menu-item" href="/index.html">Index</a>
+					<ul class="m-submenu">
+						<li class="on"><a class="m-submenu-item" href="/index.html">Quick Guide</a></li>
+						<li><a class="m-submenu-item" href="/log.html">Logs</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="m-menu-item" href="/base.html">Reference</a>
+					<ul class="m-submenu">
+						<li><a class="m-submenu-item" href="/base.html">Base</a></li>
+						<li><a class="m-submenu-item" href="/shape.html">Shape</a></li>
+						<li><a class="m-submenu-item" href="/animation.html">Animation</a></li>
+						<li><a class="m-submenu-item" href="/twinkle.html">Twinkle</a></li>
+						<!-- <li><a class="m-submenu-item" href="/gradient.html">Gradient</a></li> -->
+						<li><a class="m-submenu-item" href="/reset.html">Reset</a></li>
+					</ul>
+				</li>
+				<!-- <li>
+					<a class="m-menu-item" href="/notebook.html">Notebook</a>
+					<ul class="m-submenu">
+						<li><a class="m-submenu-item" href="/notebook.html">Notebook</a></li>
+						<li><a class="m-submenu-item" href="/snippet.html">Snippet</a></li>
+						<li><a class="m-submenu-item" href="/awesome.html">Tool</a></li>
+						<li><a class="m-submenu-item" href="/doc.html">Bookmark</a></li>
+					</ul>
+				</li> -->
+			</ul>
+		</div>
+	</div>
+	<div class="m-submenu-bg"></div>
+</div>
+<script>var pathname=location.pathname;"/"!=pathname&&($(".m-menu li, .m-submenu li").removeClass("on"),$(".m-submenu-item, .m-menu-item").map(function(a,m){var e=$(this);e.attr("href")==pathname&&e.parents("li").addClass("on")}));</script>
+
+<div class="m-sidebar">
+	<h2 class="m-sidebar-title">Base v3.2 <span>(2017.1.22)</span></h2>
+	<ul class="m-sidebar-list" id="m-sidebar-list">
+		<h4>&#x5B57;&#x4F53;</h4>
+		<li class="current new">.fz</li>
+		<li>.lh</li>
+		<li>.bold</li>
+		<li>.italic</li>
+		<li>.normal</li>
+		<li>.color</li>
+		<li>.tip</li>
+		<h4>&#x6587;&#x672C;</h4>
+		<li>.break</li>
+		<li>.nobreak</li>
+		<li>.indent</li>
+		<li class="new">.retext</li>
+		<h4>&#x5BF9;&#x9F50;</h4>
+		<li>.x</li>
+		<li>.y</li>
+		<li>.z</li>
+		<h4>&#x5C3A;&#x5BF8;</h4>
+		<li>.w</li>
+		<li>.h</li>
+		<li>.size</li>
+		<li>.full</li>
+		<li>.half</li>
+		<li>.min-width</li>
+		<li>.min-height</li>
+		<h4>&#x8868;&#x73B0;</h4>
+		<li>.db</li>
+		<li>.dbi</li>
+		<li>.di</li>
+		<li>.df</li>
+		<li>.dfi</li>
+		<li>.dg</li>
+		<li>.dgi</li>
+		<li>.dgsub</li>
+		<li>.none</li>
+		<li>.hide</li>
+		<li>.show</li>
+		<li>.clip</li>
+		<li>.noclip</li>
+		<h4>&#x5E03;&#x5C40;</h4>
+		<li>.fl</li>
+		<li>.fr</li>
+		<li>.clearfix</li>
+		<li>.clear</li>
+		<li>.iblock</li>
+		<li>.flex</li>
+		<li>.cols</li>
+		<h4>&#x5B9A;&#x4F4D;</h4>
+		<li>.ps</li>
+		<li>.pr</li>
+		<li>.pa</li>
+		<li>.pf</li>
+		<li>.po</li>
+		<li>.lt</li>
+		<li>.rt</li>
+		<li>.lb</li>
+		<li>.rb</li>
+		<li>.auto</li>
+		<li>.ct</li>
+		<li>.fixed</li>
+		<li>.hasfixed</li>
+		<h4>&#x56FE;&#x50CF;</h4>
+		<li class="new">.gradient</li>
+		<li>.sprite</li>
+		<h4>&#x6548;&#x679C;</h4>
+		<li>.tm</li>
+		<li>.tb</li>
+		<li>.blur</li>
+		<li>.tsfix</li>
+		<h4>&#x5176;&#x5B83;</h4>
+		<li>.r</li>
+		<li>.pointer</li>
+	</ul>
+</div>
+<div class="m-content" id="m-content-list">
+
+<p class="m-tips">
+	1.[]&#x8868;&#x793A;&#x975E;&#x5FC5;&#x987B;&#x53C2;&#x6570;<br>
+	2.&#x8C03;&#x7528;&#x7A7A;&#x53C2;&#x6570;&#x51FD;&#x6570;&#x65F6;&#x4E0D;&#x9700;&#x8981;&#x5199;&#x62EC;&#x53F7;&#x3002;<br>
+	3.&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x5206;&#x53F7;&#x4E0D;&#x53EF;&#x7F3A;&#x7701;&#x3002;<br>
+</p>
+
+<div class="m-content-list-item">
+	<h3><b>.fz</b><span>(@font-size,[@line-height],[@height])</span><i>&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x3001;&#x884C;&#x9AD8;&#x3001;&#x9AD8;&#x5EA6;</i></h3>
+	<p>&#x5B9A;&#x4E49;&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x4E0E;&#x884C;&#x9AD8;&#x548C;&#x9AD8;&#x5EA6;&#x3002;<br>
+	<pre><code class="less">
+		.test{.fz(12px);} 		//font-size:12px;
+		.test{.fz(12px,20px);} 	//font-size:12px;line-height:20px;
+		.test{.fz(12px,20px,40px);} //font-size:12px;line-height:20px;height:40px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.lh</b><span>(@line-height,[@height]:@line-height)</span><i>&#x5B57;&#x4F53;&#x884C;&#x9AD8;&#x4E0E;&#x5BB9;&#x5668;&#x9AD8;&#x5EA6;(&#x76F8;&#x7B49;)</i></h3>
+	<p>&#x5B9A;&#x4E49;&#x5B57;&#x4F53;&#x884C;&#x9AD8;&#x4E0E;&#x5BB9;&#x5668;&#x9AD8;&#x5EA6;&#xFF0C;&#x5E38;&#x7528;&#x4F5C;&#x9AD8;&#x5EA6;&#x4E0E;&#x884C;&#x9AD8;&#x76F8;&#x7B49;&#x65F6;&#xFF08;&#x5217;&#x8868;&#x9879;&#x8F83;&#x4E3A;&#x7F8E;&#x89C2;&#xFF09;&#x3002;&#x884C;&#x9AD8;&#x6B64;&#x5904;&#x4E0D;&#x80FD;&#x5B9A;&#x4E49;&#x4E3A;&#x4E58;&#x79EF;&#x56E0;&#x5B50;&#x3002;<br>
+	<pre><code class="less">
+		.test{.lh(24px);}       //line-height:24px;height:24px; &#xFF08;&#x884C;&#x9AD8;&#x4E0E;&#x9AD8;&#x5EA6;&#x76F8;&#x7B49;&#xFF09;
+		.test{.lh(24px,20px);}      //line-height:24px;height:20px; &#xFF08;&#x9AD8;&#x5EA6;&#x4E0E;&#x884C;&#x9AD8;&#x4E0D;&#x76F8;&#x7B49;&#x65F6;&#xFF0C;&#x7279;&#x6B8A;&#x5904;&#x7406;&#x65F6;&#xFF09;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.bold</b><span>([@bold])</span><i>&#x7C97;&#x4F53;</i></h3>
+	<p>&#x5B57;&#x4F53;&#x8868;&#x73B0;&#x4E3A;&#x7C97;&#x4F53;&#x3002;<br>
+	<pre><code class="less">
+		.test{.bold;}       //font-weight:bold;
+		.test{.bold(900);}  //font-weight:900;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.italic</b><span></span><i>&#x659C;&#x4F53;</i></h3>
+	<p>&#x5B57;&#x4F53;&#x8868;&#x73B0;&#x4E3A;&#x659C;&#x4F53;&#x3002;<br>
+	<pre><code class="less">
+		.test{.italic;}         //font-style:italic;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.normal</b><span></span><i>&#x6B63;&#x5E38;&#x5B57;&#x4F53;</i></h3>
+	<p>&#x53BB;&#x9664;&#x4ECE;&#x957F;&#x8F88;&#x5143;&#x7D20;&#x7EE7;&#x627F;&#x7684;&#x7C97;&#x4F53;&#x4E0E;&#x659C;&#x4F53;&#x6837;&#x5F0F;&#x3002;<br>
+	<pre><code class="less">
+		.test{.normal;}         //font-style:normal;font-weight:normal;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.color</b><span>(@color,[@acolor],[@hovercolor])</span><i>&#x5B57;&#x4F53;&#x989C;&#x8272;</i></h3>
+	<p>&#x5B9A;&#x4E49;&#x5B57;&#x4F53;&#xFF0C;&#x94FE;&#x63A5;&#x989C;&#x8272;&#xFF0C;&#x94FE;&#x63A5;&#x60AC;&#x6D6E;&#x989C;&#x8272;&#x3002;<br>
+	<pre><code class="less">
+		.test{.color(#0cf);}             //color:#0cf; &#xFF08;&#x81EA;&#x8EAB;&#x989C;&#x8272;,&#x53EF;&#x4F5C;&#x7528;&#x4E0E;a&#x6216;&#x975E;a&#xFF09;
+		.test{.color(#0cf,#f39);}           //color:#0cf;&amp;:hover{color:#f39;} &#xFF08;&#x81EA;&#x8EAB;&#x989C;&#x8272;+hover&#x65F6;&#x989C;&#x8272;,&#x4E3B;&#x8981;&#x4F5C;&#x7528;&#x4E8E;a&#xFF09;
+		.test{.color(#0cf,#f39,#93f);}    //color:#0cf;a{color:#f39;}a:hover{color:#93f;} &#xFF08;&#x9ED8;&#x8BA4;&#x6587;&#x672C;&#x989C;&#x8272;+&#x94FE;&#x63A5;&#x989C;&#x8272;+&#x94FE;&#x63A5;hover&#x989C;&#x8272;,&#x4F5C;&#x7528;&#x6709;a&#x6807;&#x7B7E;&#x7684;&#x5143;&#x7D20;&#xFF09;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.tip</b><span>(@font-size,@color,[@text-align:left])</span>/<span>(custom,@property,@value)</span><i>&#x5B9A;&#x4E49;placeholder&#x6837;&#x5F0F;</i></h3>
+	<p>&#x8BBE;&#x7F6E;placeholder&#x5360;&#x4F4D;&#x63D0;&#x9192;&#x5B57;&#x7B26;&#x6837;&#x5F0F;&#x3002;&#x9ED8;&#x8BA4;&#x51FD;&#x6570;&#x63A5;&#x53D7;3&#x4E2A;&#x4F20;&#x503C;&#xFF0C;&#x5206;&#x522B;&#x4E3A;&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x3001;&#x5B57;&#x4F53;&#x989C;&#x8272;&#x3001;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;&#xFF0C;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;&#x9ED8;&#x8BA4;&#x4E3A;&#x5DE6;&#x53EF;&#x7F3A;&#x7701;&#x3002;<br>
+	<pre><code class="less">
+		.test{.tip(12px,#999);}         //&#x5360;&#x4F4D;&#x7B26;12px&#xFF0C;&#x989C;&#x8272;#999
+		.test{.tip(12px,#999,right);}       //&#x5360;&#x4F4D;&#x7B26;12px&#xFF0C;&#x989C;&#x8272;#999&#xFF0C;&#x5728;&#x53F3;&#x4FA7;
+	</code></pre>
+	</p><p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x66F4;&#x591A;&#x9700;&#x8981;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x6B64;&#x65F6;&#x9996;&#x53C2;&#x6570;&#x201C;custom&#x201D;&#x662F;&#x5FC5;&#x4F20;&#x7684;&#x3002;</p>
+	<pre><code class="less">
+		.test{.tip(custom,font-family,&apos;Verdana&apos;);}  //&#x5B9A;&#x4E49;&#x5360;&#x4F4D;&#x7B26;&#x4F7F;&#x7528;Verdana&#x5B57;&#x4F53;
+	</code></pre>
+	<p></p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.break</b><span>([]/@lines)</span><i>&#x6587;&#x672C;&#x6298;&#x884C;&#x6216;&#x591A;&#x884C;&#x7701;&#x7565;</i></h3>
+	<p>&#x65E0;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x9047;&#x5230;&#x6587;&#x672C;&#x6EA2;&#x51FA;&#x5BB9;&#x5668;&#x65F6;&#xFF0C;&#x603B;&#x662F;&#x8FDB;&#x884C;&#x65AD;&#x8BCD;&#x6298;&#x884C;&#xFF1B;&#x6709;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x5F53;&#x6BB5;&#x843D;&#x6587;&#x5B57;&#x8D85;&#x51FA;&#x6307;&#x5B9A;&#x884C;&#x6570;&#x65F6;&#xFF0C;&#x663E;&#x793A;&#x4E3A;&#x201C;...&#x201D;&#x6765;&#x7701;&#x7565;&#xFF0C;&#x4EC5;webkit&#x6709;&#x6548;&#xFF0C;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x6307;&#x5B9A;&#x884C;&#x6570;&#x3002;<br>
+	<pre><code class="less">
+		.test{.break;}      //&#x5F53;&#x6587;&#x672C;&#x9047;&#x5230;&#x6807;&#x70B9;&#x7B26;&#x53F7;&#x6216;&#x957F;&#x5355;&#x8BCD;&#x5728;&#x884C;&#x5C3E;&#x65F6;&#xFF0C;&#x4F9D;&#x65E7;&#x65AD;&#x8BCD;&#x6298;&#x884C;
+		.test{.break(2);}   //&#x5F53;&#x8D85;&#x8FC7;2&#x884C;&#x65F6;&#xFF0C;2&#x884C;&#x672B;&#x5C3E;&#x5904;&#x6587;&#x672C;&#x663E;&#x793A;&#x4E3A;&#x201C;...&#x201D;&#x6765;&#x7701;&#x7565;
+	</code></pre>
+</p></div>
+<div class="m-content-list-item">
+	<h3><b>.nobreak</b><span>([]/clip/visible)</span><i>&#x7981;&#x6B62;&#x6587;&#x672C;&#x6298;&#x884C;</i></h3>
+	<p>&#x9047;&#x5230;&#x6587;&#x672C;&#x6EA2;&#x51FA;&#x5BB9;&#x5668;&#x65F6;&#xFF0C;&#x7981;&#x6B62;&#x6298;&#x884C;&#x3002;&#x53EF;&#x76F4;&#x63A5;&#x4F5C;&#x4E3A;class&#x7528;&#x4E8E;&#x5143;&#x7D20;&#x3002;<br>
+	<pre><code class="less">
+		.test{.nobreak;}        //&#x5F53;&#x4E0D;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;ellipsis&#xFF0C;&#x6EA2;&#x51FA;&#x6587;&#x672C;&#x5904;&#x7531;&#x201C;...&#x201D;&#x66FF;&#x6362;
+		.test{.nobreak(clip);}      //&#x5F53;&#x6EA2;&#x51FA;&#x6587;&#x672C;&#xFF0C;&#x76F4;&#x63A5;&#x5BF9;&#x6587;&#x672C;&#x8FDB;&#x884C;&#x526A;&#x88C1;
+		.test{.nobreak(visible);}   //&#x603B;&#x662F;&#x663E;&#x793A;&#x6EA2;&#x51FA;&#x7684;&#x90E8;&#x5206;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.indent</b><span>(@indent)</span><i>&#x6587;&#x672C;&#x7F29;&#x8FDB;</i></h3>
+	<p>&#x5E94;&#x7528;&#x4E8E;&#x5E38;&#x89C1;&#x7684;&#x201C;&#x4EE5;&#x56FE;&#x6362;&#x5B57;&#x201D;&#xFF0C;&#x53EF;&#x5E94;&#x7528;&#x4E8E;&#x6309;&#x94AE;&#x3001;banner&#x7B49;&#x4F4D;&#x7F6E;&#x80CC;&#x666F;&#x56FE;&#xFF0C;&#x4FDD;&#x7559;&#x6587;&#x5B57;&#x4F5C;SEO&#x4F18;&#x5316;&#xFF0C;&#x4F46;&#x5C06;&#x6587;&#x5B57;&#x7F29;&#x8FDB;&#x4E3A;&#x4E0D;&#x53EF;&#x89C1;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F20;&#x5165;&#x8FC7;&#x5927;&#x7684;&#x503C;&#x589E;&#x52A0;&#x79FB;&#x52A8;&#x7AEF;&#x91CD;&#x7ED8;&#x80FD;&#x8017;&#x3002;<br>
+	<pre><code class="less">
+		.test{.indent;}             //&#x53C2;&#x6570;&#x7F3A;&#x7701;&#x65F6;&#x7B49;&#x4EF7;&#x4E8E;text-indent:-200%;overflow:hidden;
+		.test{.indent(-500%);}
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.retext</b><span>(x/y)</span><i>&#x6587;&#x5B57;&#x6392;&#x7248;</i></h3>
+	<p>.retext(x)&#x724C;&#x533E;&#x4ECE;&#x53F3;&#x81F3;&#x5DE6;&#x6C34;&#x5E73;&#x5355;&#x884C;&#x6392;&#x7248;&#x6548;&#x679C;&#xFF1B;.retext(y)&#x6587;&#x7B3A;&#x4ECE;&#x53F3;&#x81F3;&#x5DE6;&#x3001;&#x4ECE;&#x4E0A;&#x81F3;&#x4E0B;&#x6392;&#x7248;&#x6548;&#x679C;&#x3002;<br>
+	<pre><code class="less">
+		.test{.retext(x);}      //{direction:rtl;unicode-bidi:bidi-override;}
+		.test{.retext(y);}      //{writing-mode:tb-rl;writing-mode:vertical-rl;}
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.x</b><span>(@text-align)</span><i>&#x6C34;&#x5E73;x&#x8F74;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;</i></h3>
+	<p>&#x6587;&#x672C;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;&#xFF0C;&#x5BF9;&#x5E94;&#x4F20;&#x5165;text-align&#x7684;&#x503C;&#xFF0C;&#x53C2;&#x6570;&#x7F3A;&#x7701;&#x65F6;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;center&#x3002;<br>
+	<pre><code class="less">
+		.test{.x;}          //text-align:center;
+		.test{.x(left);}        //text-align:left;
+		.test{.x(right);}       //text-align:right;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.y</b><span>(@vertical-align)</span><i>&#x5782;&#x76F4;y&#x8F74;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;</i></h3>
+	<p>&#x5782;&#x76F4;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;&#xFF0C;&#x5BF9;&#x5E94;&#x4F20;&#x5165;vertical-align&#x7684;&#x503C;&#xFF0C;&#x53C2;&#x6570;&#x7F3A;&#x7701;&#x65F6;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;middle&#x3002;<br>
+	<pre><code class="less">
+		.test{.y;}          //vertical-align:middle;
+		.test{.y(top);}         //vertical-align:top;
+		.test{.y(-3px);}        //vertical-align:-3px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.z</b><span>(@z-index)</span><i>&#x4E09;&#x7EF4;z&#x8F74;&#x5C42;&#x53E0;&#x7A7A;&#x95F4;</i></h3>
+	<p>&#x7EB5;&#x8F74;&#x7EA7;&#x522B;&#x503C;&#xFF0C;&#x5BF9;&#x5E94;&#x4F20;&#x5165;z-index&#x7684;&#x503C;&#xFF0C;&#x53C2;&#x6570;&#x7F3A;&#x7701;&#x65F6;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;1&#x3002;<br>
+	<pre><code class="less">
+		.test{.z(100);}         //z-index:100;
+		.test{.z(-1);}      //z-index:-1;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.w</b><span>(@width)</span><i>&#x5BBD;&#x5EA6;</i></h3>
+	<p>&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x5BBD;&#x5EA6;&#x3002;<br>
+	<pre><code class="less">
+		.test{.w(100px);}       //width:100px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.h</b><span>(@height)</span><i>&#x9AD8;&#x5EA6;</i></h3>
+	<p>&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x9AD8;&#x5EA6;&#x3002;<br>
+	<pre><code class="less">
+		.test{.h(100px);}       //height:100px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.size</b><span>(@width,[@height])</span><i>&#x5C3A;&#x5BF8;</i></h3>
+	<p>&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#xFF0C;&#x9AD8;&#x5EA6;&#x7F3A;&#x7701;&#x65F6;&#x5219;&#x4E0E;&#x5BBD;&#x5EA6;&#x76F8;&#x7B49;&#x3002;<br>
+	<pre><code class="less">
+		.test{.size(100px);}        //width:100px;height:100px;
+		.test{.size(100px,200px);}  //width:100px;height:200px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.full</b><span>([x]/[y])</span><i>&#x6EE1;&#x5BBD;/&#x9AD8;</i></h3>
+	<p>&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x6EE1;&#x5BBD;&#x6216;&#x6EE1;&#x9AD8;&#xFF0C;&#x6216;&#x4E8C;&#x8005;&#x7686;100%&#x3002;&#x53EF;&#x76F4;&#x63A5;&#x4F5C;&#x7528;&#x4E8E;&#x5143;&#x7D20;class&#x3002;<br>
+	<pre><code class="less">
+		.test{.full;}       //width:100%;height:100%;
+		.test{.full(x);}        //width:100%;
+		.test{.full(y);}        //height:100%;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.half</b><span>([x]/[y])</span><i>&#x534A;&#x5BBD;/&#x9AD8;</i></h3>
+	<p>&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x6EE1;&#x5BBD;&#x6216;&#x6EE1;&#x9AD8;&#xFF0C;&#x6216;&#x4E8C;&#x8005;&#x7686;100%&#x3002;<br>
+	<pre><code class="less">
+		.test{.half;}       //width:50%;height:50%;
+		.test{.half(x);}        //width:50%;
+		.test{.half(y);}        //height:50%;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.min-width</b><span>(@min-width)</span><i>&#x6700;&#x5C0F;&#x5BBD;&#x5EA6;</i></h3>
+	<p>&#x8BBE;&#x7F6E;&#x6700;&#x5C0F;&#x5BBD;&#x5EA6;&#x3002;<br>
+	<pre><code class="less">
+		.test{.min-width(200px);}   //min-width:200px;_width:200px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.min-height</b><span>(@min-height)</span><i>&#x6700;&#x5C0F;&#x9AD8;&#x5EA6;</i></h3>
+	<p>&#x8BBE;&#x7F6E;&#x6700;&#x5C0F;&#x9AD8;&#x5EA6;&#x3002;<br>
+	<pre><code class="less">
+		.test{.min-height(200px);}  //min-height:200px;_height:200px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.db</b><span></span><i>&#x8868;&#x73B0;&#x4E3A;&#x5757;&#x7EA7;&#x5143;&#x7D20;</i></h3>
+	<p>display:block&#x7B80;&#x5199;&#x3002;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.dbi</b><span></span><i>&#x8868;&#x73B0;&#x4E3A;&#x5185;&#x8054;&#x5757;&#x7EA7;&#x5143;&#x7D20;</i></h3>
+	<p>display:inline-block&#x7B80;&#x5199;&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x4F5C;.dib;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.di</b><span></span><i>&#x8868;&#x73B0;&#x4E3A;&#x5185;&#x8054;&#x5143;&#x7D20;</i></h3>
+	<p>display:inline&#x7B80;&#x5199;&#x3002;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.df</b><span></span><i>&#x8868;&#x73B0;&#x4E3A;&#x4F38;&#x7F29;&#x76D2;</i></h3>
+	<p>display:flex&#x7B80;&#x5199;&#x3002;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.dfi</b><span></span><i>&#x8868;&#x73B0;&#x4E3A;&#x5185;&#x8054;&#x4F38;&#x7F29;&#x76D2;</i></h3>
+	<p>display:inline-flex&#x7B80;&#x5199;&#x3002;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.dg</b><span></span><i>&#x8868;&#x73B0;&#x4E3A;&#x7F51;&#x683C;</i></h3>
+	<p>display:grid&#x7B80;&#x5199;&#x3002;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.dgi</b><span></span><i>&#x8868;&#x73B0;&#x4E3A;&#x5185;&#x8054;&#x7F51;&#x683C;</i></h3>
+	<p>display:inline-grid&#x7B80;&#x5199;&#x3002;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.dgsub</b><span></span><i>&#x8868;&#x73B0;&#x4E3A;&#x5B50;&#x7F51;&#x683C;</i></h3>
+	<p>display:subgrid&#x7B80;&#x5199;&#x3002;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.none</b><span></span><i>&#x5143;&#x7D20;&#x4E0D;&#x53EF;&#x89C1;&#xFF08;&#x79FB;&#x9664;&#x5360;&#x4F4D;&#xFF09;</i></h3>
+	<p>display:none&#x7B80;&#x5199;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x5143;&#x7D20;&#x4E0A;&#x6DFB;&#x52A0;.none&#x7C7B;&#xFF0C;&#x8FBE;&#x5230;&#x4E00;&#x81F4;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.hide</b><span></span><i>&#x5143;&#x7D20;&#x9690;&#x85CF;&#xFF08;&#x4E0D;&#x79FB;&#x9664;&#x5360;&#x4F4D;&#xFF09;</i></h3>
+	<p>visibility:hidden&#x7B80;&#x5199;&#x3002;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.show</b><span></span><i>&#x5143;&#x7D20;&#x663E;&#x793A;</i></h3>
+	<p>visibility:visible&#x7B80;&#x5199;&#x3002;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.clip</b><span></span><i>&#x6EA2;&#x51FA;&#x9690;&#x85CF;</i></h3>
+	<p>overflow:hidden;*zoom:1;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.noclip</b><span></span><i>&#x6EA2;&#x51FA;&#x663E;&#x793A;</i></h3>
+	<p>overflow:visible;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.fl</b><span></span><i>&#x5DE6;&#x6D6E;&#x52A8;</i></h3>
+	<p>ie6-7 &#x53CC;&#x500D;margin hack&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x4F5C;&#x4E3A;class&#x4F7F;&#x7528;&#x3002;<br>
+	<pre><code class="less">
+		.test{.fl;}     //float:left;*display:inline;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.fr</b><span></span><i>&#x53F3;&#x6D6E;&#x52A8;</i></h3>
+	<p>ie6-7 &#x53CC;&#x500D;margin hack&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x4F5C;&#x4E3A;class&#x4F7F;&#x7528;&#x3002;</p>
+	<pre><code class="less">
+		.test{.fl;}     //float:right;*display:inline;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.clearfix</b><span></span><i>&#x95ED;&#x5408;&#x6D6E;&#x52A8;&#x584C;&#x9677;</i></h3>
+	<p>&#x5E94;&#x7528;&#x5728;&#x95ED;&#x5408;&#x6D6E;&#x52A8;&#x5143;&#x7D20;&#x7684;&#x7236;&#x7EA7;&#x5143;&#x7D20;&#x4E0A;&#xFF0C;&#x5F53;&#x6D6E;&#x52A8;&#x5143;&#x7D20;&#x7236;&#x7EA7;&#x6709;BFC&#x65F6;&#x65E0;&#x9700;&#x8BBE;&#x7F6E;&#x3002;&#x53EF;&#x76F4;&#x63A5;&#x4F5C;&#x4E3A;class&#x4F7F;&#x7528;&#x3002;</p>
+	<pre><code class="less">
+		.test{.clearfix;}   
+		//.test{*zoom:1;}
+		//.test:after{content:&quot;\200B&quot;;display:block;height:0;clear:both;}
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.clear</b><span>([both]/left/right)</span><i>&#x6E05;&#x9664;&#x6D6E;&#x52A8;</i></h3>
+	<p>&#x53C2;&#x6570;&#x7F3A;&#x7701;&#x65F6;&#x7B49;&#x4EF7;&#x4E8E;clear:both;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.iblock</b><span>([]/@selector)</span><i>inline-block&#x5E03;&#x5C40;&#x66FF;&#x4EE3;&#x6D6E;&#x52A8;&#x5E03;&#x5C40;</i></h3>
+	<p>&#x4E0D;&#x5141;&#x8BB8;&#x6298;&#x884C;&#xFF0C;&#x8FDB;&#x884C;&#x5BB9;&#x5668;&#x6C34;&#x5E73;&#x6392;&#x5217;&#xFF0C;&#x9ED8;&#x8BA4;&#x51FD;&#x6570;&#x5E94;&#x7528;&#x5728;ul&#x4E0A;&#xFF0C;&#x5B50;&#x5BF9;&#x8C61;&#x4E3A;li&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x5B50;&#x9009;&#x62E9;&#x5668;&#x7C7B;&#x3002;<br>
+	<pre><code class="less">
+		.test{.iblock;}         //ul.test &gt; li 
+		.test{.iblock(loop);}   //ul.test &gt; li.loop
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.flex</b><span>(x/y)</span><i>Flex&#x4F38;&#x7F29;&#x76D2;</i></h3>
+	<pre><code class="less">
+		.flex-box{.flex(x);}        //justify-content:center;
+		.flex-box{.flex(y);}        //align-items:center;align-content:center;
+	</code></pre>
+	<p></p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.cols</b><span>(@width,[@count],[@gap])</span><i>&#x591A;&#x5217;</i></h3>
+	<p>&#x5FEB;&#x901F;&#x591A;&#x5217;&#x5E03;&#x5C40;&#xFF0C;&#x7B2C;2&#x548C;&#x7B2C;3&#x4E2A;&#x53C2;&#x6570;&#x975E;&#x5FC5;&#x987B;<br>
+	<pre><code class="less">
+		.test{.cols(200px,5,20px);}         //&#x56FA;&#x5B9A;5&#x5217;&#xFF0C;&#x6BCF;&#x5217;&#x5BBD;&#x5EA6;200px,&#x95F4;&#x8DDD;20px
+		.test{.cols(200px,3);}          //&#x56FA;&#x5B9A;3&#x5217;&#xFF0C;&#x6BCF;&#x5217;200px&#xFF0C;&#x5BBD;&#x5EA6;&#x4F7F;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x9ED8;&#x8BA4;
+		.test{.cols(200px);}            //&#x56FA;&#x5B9A;&#x6BCF;&#x5217;200px&#xFF0C;&#x5217;&#x6570;&#x6D4F;&#x89C8;&#x5668;&#x6839;&#x636E;&#x5BB9;&#x5668;&#x5BBD;&#x5EA6;&#x81EA;&#x52A8;&#x5206;&#x914D;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.ps</b><span></span><i>&#x9ED8;&#x8BA4;&#x5B9A;&#x4F4D;</i></h3>
+	<p>position:static;&#x7B80;&#x5199;<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.pr</b><span></span><i>&#x76F8;&#x5BF9;&#x5B9A;&#x4F4D;</i></h3>
+	<p>position:relative;*zoom:1;&#x7B80;&#x5199;<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.pa</b><span></span><i>&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;</i></h3>
+	<p>position:absolute;&#x7B80;&#x5199;<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.pf</b><span></span><i>&#x7A97;&#x53E3;&#x5B9A;&#x4F4D;</i></h3>
+	<p>position:fixed;&#x7B80;&#x5199;<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.po</b><span></span><i>&#x590D;&#x4F4D;</i></h3>
+	<p>.ps;margin:0;&#x590D;&#x4F4D;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;&#x53D1;&#x751F;&#x7684;&#x4F4D;&#x79FB;&#x3002;<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.lt</b><span>(@l,@t)</span><i>&#x5DE6;&#x4E0A;&#x89D2;</i></h3>
+	<p>&#x914D;&#x5408;&#x5B9A;&#x4F4D;&#x4E66;&#x5199;&#x5B9A;&#x4F4D;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5F53;&#x7B2C;2&#x4E2A;&#x53C2;&#x6570;&#x7F3A;&#x7701;&#x65F6;&#xFF0C;&#x5219;&#x4E0E;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E00;&#x81F4;&#x3002;&#x5747;&#x4E3A;&#x5148;&#x4F20;&#x5165;&#x6C34;&#x5E73;&#x65B9;&#x5411;&#xFF0C;&#x540E;&#x4F20;&#x5165;&#x5782;&#x76F4;&#x65B9;&#x5411;&#x3002;<br>
+	<pre><code class="less">
+		.test{.lt(10px,20px);}  //left:10px;top:20px;
+		.test{.lt(15px);}       //left:15px;top:15px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.rt</b><span>(@r,@t)</span><i>&#x53F3;&#x4E0A;&#x89D2;</i></h3>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.lb</b><span>(@l,@b)</span><i>&#x5DE6;&#x4E0B;&#x89D2;</i></h3>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.rb</b><span>(@r,@b)</span><i>&#x53F3;&#x4E0B;&#x89D2;</i></h3>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.auto</b><span>(x)</span><i>&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;</i></h3>
+	<p>&#x4F20;&#x5165;x&#x6C34;&#x5E73;&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;
+	<pre><code class="less">
+		.test{.auto(x);}    //margin-left:auto;margin-right:auto; &#x4F5C;&#x7528;&#x4E8E;&#x81EA;&#x8EAB;
+	</code></pre>
+	<!-- .test{.auto(y);}   //display:table-cell;vertical-align:middle; 作用于自身内部元素 -->
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.ct</b><span>([]/x,[@width]/y,[@height]/o,@width,@height/m)</span><i>&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;</i></h3>
+	<p>&#x4F20;&#x5165;x&#x6C34;&#x5E73;&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;&#xFF0C;&#x4F20;&#x5165;y&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;<br>
+	<span class="important">&#x65B0;&#x7684;ct&#x51FD;&#x6570;&#x5BF9;&#x4E8E;&#x4F20;&#x53C2;&#x7C7B;&#x578B;&#x6709;&#x4E24;&#x70B9;&#x6539;&#x52A8;&#xFF1A;<br>
+	1.&#x4E0D;&#x518D;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x5C3A;&#x5BF8;&#x4E86;&#xFF0C;&#x8003;&#x8651;&#x5230;&#x6709;padding&#x7B49;&#x56E0;&#x7D20;&#x5F71;&#x54CD;&#xFF0C;&#x8BF7;&#x81EA;&#x884C;&#x5B9A;&#x4E49;&#x5C3A;&#x5BF8;&#x3002;<br>
+	2.&#x4E3A;&#x4E86;&#x517C;&#x5BB9;&#x65E7;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5F53;&#x4F20;&#x5165;&#x6CA1;&#x6709;&#x5E26;&#x5355;&#x4F4D;&#x7684;&#x503C;&#xFF08;&#x7EAF;&#x6570;&#x5B57;&#x65F6;&#xFF09;&#x5219;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x50CF;&#x7D20;&#x8BA1;&#x7B97;&#x3002;&#x5426;&#x5219;&#x76F4;&#x63A5;&#x4EE5;&#x5F53;&#x524D;&#x5355;&#x4F4D;&#x8BA1;&#x7B97;&#x3002;
+	</span>
+	<pre><code class="less">
+		//IE7+&#xFF0C;&#x81EA;&#x52A8;&#x81A8;&#x80C0;&#xFF0C;&#x65E0;&#x9700;&#x4F20;&#x5165;&#x5143;&#x7D20;&#x5C3A;&#x5BF8;
+		.test{.ct;}                 //position:absolute;left:50%;margin-left:&#x8D1F;&#x81EA;&#x8EAB;&#x4E00;&#x534A;;
+		.test{.ct(x);}          //&#x6C34;&#x5E73;&#x65B9;&#x5411;
+		.test{.ct(y);}          //&#x5782;&#x76F4;&#x65B9;&#x5411;
+		//IE6&#x652F;&#x6301;&#xFF0C;&#x9700;&#x4F20;&#x5165;&#x5143;&#x7D20;&#x5C3A;&#x5BF8;
+		.test{.ct(o,220px,110px);}  //&#x5C45;&#x4E2D;&#xFF0C;&#x9AD8;&#x5EA6;&#x4E0D;&#x4F20;&#x503C;&#x65F6;&#x5219;&#x7B49;&#x4E8E;&#x5BBD;&#x5EA6;
+		.test{.ct(x,220px);}        //&#x6C34;&#x5E73;&#x5C45;&#x4E2D;
+		.test{.ct(y,110px);}        //&#x5782;&#x76F4;&#x5C45;&#x4E2D;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.fixed</b><span>(@direction,@x,@y)/(o,@width,@height)</span><i>&#x7A97;&#x53E3;&#x5B9A;&#x4F4D;&#xFF08;&#x542B;IE6&#x517C;&#x5BB9;&#xFF09;</i></h3>
+	<p>&#x53C2;&#x6570;&#x5148;&#x6C34;&#x5E73;&#xFF0C;&#x540E;&#x5782;&#x76F4;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x4F20;&#x5165;&#x65B9;&#x4F4D;&#xFF0C;&#x5F53;&#x4E3A;&#x6B63;&#x4E2D;&#x95F4;&#x65F6;&#x5219;&#x4F20;&#x5165;o&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x5143;&#x7D20;&#x7684;&#x5BBD;&#x9AD8;&#x3002;&#xFF08;&#x662F;&#x5426;&#x4F20;&#x5165;&#x5355;&#x4F4D;&#x5747;&#x53EF;&#xFF0C;&#x4F46;&#x90FD;&#x4F1A;&#x8F6C;&#x5316;&#x4E3A;&#x50CF;&#x7D20;&#xFF09;
+	<pre><code class="less">
+		.test{.fixed(lt,10px,20px);}        //&#x7A97;&#x53E3;&#x5B9A;&#x4F4D;&#x5DE6;&#x4E0A;&#x89D2;&#xFF0C;&#x8DDD;&#x5DE6;10px&#xFF0C;&#x8DDD;&#x4E0A;20px
+		.test{.fixed(o,400px,300px);}   //&#x7A97;&#x53E3;&#x6B63;&#x4E2D;&#x95F4;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.hasfixed</b><span></span><i>&#x9875;&#x9762;&#x6709;&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;&#x65F6;</i></h3>
+	<p>&#x5F53;&#x9875;&#x9762;&#x6709;&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x65F6;&#xFF0C;&#x5728;less&#x9876;&#x7EA7;&#x8FD0;&#x884C;&#x8BE5;&#x51FD;&#x6570;&#xFF0C;&#x9632;&#x6B62;&#x6EDA;&#x52A8;&#x95EA;&#x52A8;&#xFF0C;&#x6BD4;&#x5982;&#x76EE;&#x524D;&#x7684;&#x516C;&#x5171;&#x5934;&#xFF08;&#x516C;&#x5171;&#x5934;&#x4E2D;&#x5DF2;&#x7ECF;&#x8BBE;&#x7F6E;&#xFF0C;&#x76F8;&#x5173;&#x9875;&#x9762;&#x65E0;&#x9700;&#x518D;&#x8BBE;&#x7F6E;&#xFF09;<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.gradient</b><span>([l/r/t/b/o],@color-start,@color-stop)</span><i>&#x6E10;&#x53D8;</i></h3>
+	<p>&#x7B80;&#x5355;&#x5FEB;&#x901F;&#x5730;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x53CC;&#x8272;&#x6E10;&#x53D8;&#xFF0C;l&#x6E10;&#x53D8;&#x4ECE;&#x53F3;&#x81F3;&#x5DE6;&#xFF0C;r&#x6E10;&#x53D8;&#x4ECE;&#x5DE6;&#x81F3;&#x53F3;&#xFF0C;t&#x6E10;&#x53D8;&#x4ECE;&#x4E0B;&#x81F3;&#x4E0A;&#xFF0C;b&#x6E10;&#x53D8;&#x4ECE;&#x4E0A;&#x81F3;&#x4E0B;&#xFF0C;o&#x6E10;&#x53D8;&#x4ECE;&#x4E2D;&#x5FC3;&#x81F3;&#x5916;&#x5708;<br>
+	<pre><code class="less">
+		.test{.gradient(r,#fff,#000);}      //&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6C34;&#x5E73;&#x4ECE;&#x5DE6;&#x5411;&#x53F3;&#x7684;&#x4ECE;&#x767D;&#x8272;&#x8FC7;&#x6E21;&#x5230;&#x9ED1;&#x8272;&#x7684;&#x6E10;&#x53D8;&#x56FE;&#x50CF;
+		.test{.gradient(o,#fff,#000);}      //&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5F84;&#x5411;&#x4ECE;&#x5185;&#x5411;&#x5916;&#x7684;&#x4ECE;&#x767D;&#x8272;&#x8FC7;&#x6E21;&#x5230;&#x9ED1;&#x8272;&#x7684;&#x6E10;&#x53D8;&#x56FE;&#x50CF;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.sprite</b><span>(@n,@unit-width)</span><i>&#x96EA;&#x78A7;&#x56FE;</i></h3>
+	<p>&#x5FEB;&#x901F;&#x751F;&#x6210;&#x96EA;&#x78A7;&#x56FE;&#x4F4D;&#x7F6E;&#x3002;&#x96EA;&#x78A7;&#x56FE;&#x4E0D;&#x5B9C;&#x8FC7;&#x5927;&#xFF0C;&#x5EFA;&#x8BAE;&#x5C06;&#x76F8;&#x5173;&#x7684;&#x653E;&#x7F6E;&#x5728;&#x4E00;&#x8D77;&#x5373;&#x53EF;&#x3002;<br>
+	&#x96EA;&#x78A7;&#x56FE;&#x5236;&#x56FE;&#x65F6;&#x8BF7;&#x4F7F;&#x7528;&#x6A2A;&#x5411;&#x9635;&#x5217;&#xFF0C;&#x6B64;&#x51FD;&#x6570;&#x4EC5;&#x7528;&#x4E8E;&#x7B49;&#x5BBD;&#x5B50;&#x56FE;&#x65F6;&#x60C5;&#x666F;&#x3002;<br>
+	&#x53C2;&#x6570;&#x8BF4;&#x660E;&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x6240;&#x542B;&#x5B50;&#x5143;&#x7D20;&#x4E2A;&#x6570;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x6BCF;&#x4E2A;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x5BBD;&#x5EA6;&#x3002;<br>
+	&#x5F53;&#x4E0D;&#x4F20;&#x5165;&#x7B2C;3&#x4E2A;&#x53C2;&#x6570;&#x65F6;&#x9ED8;&#x8BA4;&#x6307;&#x5B9A;class&#x4E3A;sprite-n&#xFF0C;&#x5426;&#x5219;&#x4E3A;classname-n&#x3002;</p>
+	<pre><code class="less">
+		//&#x5047;&#x8BBE;html&#x90E8;&#x5206;&#x5982;&#x4E0B;
+		ul.test &gt; (li.sprite-$)*12
+		//&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;&#x5B9A;&#x4E49;&#x516C;&#x5171;&#x96EA;&#x78A7;&#x56FE;,&#x516C;&#x5171;class,&#x8C03;&#x7528;&#x51FD;&#x6570;
+		.test{
+			li{background:url(&apos;@{__img}sprite.png&apos;) no-repeat;}
+			.sprite(12,65px); //&#x4E0D;&#x6307;&#x5B9A;class
+			.sprite(12,65px,unit); //&#x6307;&#x5B9A;class
+		}       
+		//&#x751F;&#x6210;&#x5185;&#x5BB9;&#xFF1A;
+		.test{
+			//&#x4E0D;&#x6307;&#x5B9A;class&#x65F6;
+			.sprite-1{background-position:0 0;}
+			.sprite-2{background-position:-65px 0;}
+			...
+			//&#x6307;&#x5B9A;class&#x65F6;
+			.unit-1{background-position:0 0;}
+			.unit-2{background-position:-65px 0;}
+			...
+		}   
+	</code></pre>
+	<h4>&#x6548;&#x679C;&#x6F14;&#x793A;</h4>
+	<div class="sprite-test">
+		<ul>
+			<li class="sprite sprite-1"></li>
+			<li class="sprite sprite-2"></li>
+			<li class="sprite sprite-3"></li>
+			<li class="sprite sprite-4"></li>
+			<li class="sprite sprite-5"></li>
+			<li class="sprite sprite-6"></li>
+			<li class="sprite sprite-7"></li>
+			<li class="sprite sprite-8"></li>
+			<li class="sprite sprite-9"></li>
+			<li class="sprite sprite-10"></li>
+			<li class="sprite sprite-11"></li>
+			<li class="sprite sprite-12"></li>
+		</ul>
+	</div>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.tm</b><span>(@alpha)</span><i>&#x900F;&#x660E;&#x5EA6;</i></h3>
+	<p>&#x5143;&#x7D20;&#x900F;&#x660E;&#x5EA6;&#xFF0C;&#x5B50;&#x5143;&#x7D20;&#x5747;&#x4F1A;&#x53D7;&#x5F71;&#x54CD;&#xFF0C;&#x53D6;&#x503C;0-1.<br>
+	<pre><code class="less">
+		.test{.tm(0.5);}            //opacity:0.5;filter:alpha(opacity=50);
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.tb</b><span>(@r,@g,@b,@alpha)</span><i>&#x534A;&#x900F;&#x660E;&#x80CC;&#x666F;</i></h3>
+	<p>&#x5E26;aplha&#x901A;&#x9053;&#x7684;&#x989C;&#x8272;&#xFF0C;&#x6B64;&#x5904;&#x51FD;&#x6570;&#x53EA;&#x662F;&#x5E94;&#x7528;&#x4E8E;&#x80CC;&#x666F;&#xFF0C;&#x5FEB;&#x901F;&#x4E66;&#x5199;&#x534A;&#x900F;&#x660E;&#x80CC;&#x666F;&#x7B49;&#xFF0C;&#x5373;&#x5C5E;&#x6027;&#x662F;&#x88AB;&#x6307;&#x5B9A;&#x7684;&#xFF0C;&#x4F20;&#x5165;&#x53C2;&#x6570;rgb&#x4E09;&#x901A;&#x9053;&#x6570;&#x503C;&#x4E0E;0-1&#x53D6;&#x503C;&#x7684;&#x900F;&#x660E;&#x5EA6;&#x3002;<br>
+	1.&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;&#x6709;background&#x7B80;&#x5199;&#xFF0C;&#x5B83;&#x5E94;&#x8BE5;&#x8981;&#x5199;&#x5728;&#x7B80;&#x5199;&#x4E4B;&#x540E;&#x3002;<br>
+	2.IE6&#x9ED8;&#x8BA4;&#x517C;&#x5BB9;&#x7684;&#x662F;&#x7EAF;&#x8272;&#xFF0C;&#x5982;&#x9700;&#x8981;&#x66F4;&#x6362;&#x66FF;&#x4EE3;&#x8272;&#xFF0C;&#x8BF7;&#x590D;&#x5199;&#x3002;<br>
+	<span class="important">&#x6CE8;&#x610F;&#x79FB;&#x9664;IE9&#x7684;filter&#xFF0C;&#x9632;&#x6B62;IE9&#x6EE4;&#x955C;&#x91CD;&#x53E0;&#x5BFC;&#x81F4;&#x7684;&#x52A0;&#x6DF1;&#x6548;&#x679C;&#x3002;</span>
+	<pre><code class="less">
+		.test{.tb(0,0,0,0.5);}      //50%&#x900F;&#x660E;&#x5EA6;&#x7684;&#x9ED1;&#x8272;&#x80CC;&#x666F;&#xFF0C;IE6&#x8868;&#x73B0;&#x4E3A;&#x7EAF;&#x9ED1;&#x8272;
+		//background-color:rgba(0,0,0,0.5);
+		//filter:~&quot;progid:DXImageTransform.Microsoft.gradient(enabled=&apos;true&apos;, startColorstr=#80000000, endColorstr=#80000000) \9&quot;;
+		//_background-color:rgb(0,0,0);
+	</code></pre>
+	</p>
+</div>
+<!-- <div class="m-content-list-item">
+	<h3><b>.ts</b><span>(@width,[@setcolor])</span><i>透明边框</i></h3>
+	<p>慎用！首参数传入边框宽度，默认设置为镂空#333300，如需要可以手动传入。<br>
+	<pre><code class="less">
+		.test{.ts(3px);}            //3px透明边框（如不需要考虑IE6时，请勿使用）
+	</code></pre>
+	</p>
+</div> -->
+<!-- <div class="m-content-list-item">
+	<h3><b>.tmpng</b><span>(@url)</span><i>透明PNG图</i></h3>
+	<p>慎用！<br>
+	1.只能用于背景图，且不能为雪碧图，且不支持fix状态。<br>
+	2.需要使用相对html文档的相对路径或绝对路径。<br>
+	3.本地图片路径应撰写。此处函数仅是做filter处理。<br>
+	<span class="important">芒果TV项目中请总是额外做一张图，使用_background来引入<br>
+	1.当图片是纯透明时，图片命名test-png8.png；<br>
+	2.当图片是半透明时，图片命名test-ie6.png，背景色取实际叠加后相近实色；<br>
+	3.当两者都不适用时，直接设置为无背景图。</span>
+	</p>
+</div> -->
+<div class="m-content-list-item">
+	<h3><b>.blur</b><span>(@blur)</span><i>&#x6A21;&#x7CCA;&#x6EE4;&#x955C;</i></h3>
+	<p>&#x4F20;&#x5165;&#x6A21;&#x7CCA;&#x534A;&#x5F84;</p>
+	<pre><code class="less">
+		.test{.blur(5px);}      //filter:blur(5px);filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=&apos;5px&apos;);*zoom: 1;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.tsfix</b><span></span><i>&#x4E09;&#x7EF4;&#x95EA;&#x52A8;bug&#x5904;&#x7406;</i></h3>
+	<pre><code class="less">
+		.test{.tsfix;}      //-webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.r</b><span>(@radius)</span><i>&#x5706;&#x89D2;</i></h3>
+	<pre><code class="less">
+		.test{.r(5px);}         //border-radius:5px;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.pointer</b><span></span><i>&#x624B;&#x5F62;&#x6307;&#x9488;</i></h3>
+	<p>cursor:pointer;&#x7B80;&#x5199;</p>
+</div>
+
+</div>
+</body>
+</html>
