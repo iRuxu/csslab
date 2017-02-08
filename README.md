@@ -1,22 +1,32 @@
 # CssLab 
 ###### Homepage: <http://csslab.cc>
 
-##目录
+## 目录
 + [快速开始](#get-started)
 + [简介说明](#intro)
 + [参考文档](#documentation)
 + [其它链接](#contribute)
 
 ## <a name="get-started"></a> Get Started
-安装nodejs，并使用npm安装less或sass，也可以使用[koala](http://koala-app.com/index-zh.html)等可视化编译器，**同时建议安装autoprefixer插件，通过插件定义前缀版本**。在需要引用的文件中，引入对应模块文件（注意修改对应路径），如：
+### 支持环境
+#####*LESS/SASS*
+安装nodejs，并使用npm安装less或sass，也可以使用[koala](http://koala-app.com/index-zh.html)等可视化编译器。
+
+#####*Autoprefixer*
+同时建议安装autoprefixer插件，通过插件指定浏览器前缀版本。
+
+### 引入模块
+#####*单独引入指定子函数库*
 ```less
-//自行引入需要的模块部分
 @import url('base.less');
 @import url('animation.less');
+```
 
-//引入除reset以外全部函数库
+#####*全部引入（不包含reset）*
+```less
 @import url('csslab.less');
 ```
+
 > 芒果tv silky ver0.3+版本可以直接使用，在.silky文件中进行配置全局加载的模块（默认除reset外将会全部启用），在silky旧版本中需要将内网csslab项目作为git submodule引入。
 
 ## <a name="intro"></a> Introduction
@@ -78,8 +88,7 @@ csslab是一个动态css依赖库，支持less和sass两个版本。它由一些
 }
 ```
 
-绝大多数功能均以函数存在（除个别说明可直接作为class使用外，详见对应手册条目），不调用该函数时，其它内容不会被编译输出在最终css文件中，能有效减少冗余代码加载。  
-
+绝大多数功能均以函数存在（除个别说明可直接作为class使用外，详见对应手册条目），不调用该函数时，其它内容不会被编译输出在最终css文件中，能有效减少冗余代码加载。 
 >csslab，原名Lesslab，是[芒果TV](http://www.mgtv.com) PC Web前端公共库1.0中的一部分，目前它独立作为一个项目在进行。
 
 ## <a name="documentation"></a> Documentation
