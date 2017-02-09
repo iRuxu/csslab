@@ -88,7 +88,25 @@ csslab是一个动态css依赖库，支持less和sass两个版本。它由一些
 }
 ```
 
-绝大多数功能均以函数存在（除个别说明可直接作为class使用外，详见对应手册条目），不调用该函数时，其它内容不会被编译输出在最终css文件中，能有效减少冗余代码加载。 
+绝大多数功能均以函数存在（除个别说明可直接作为class使用外，详见对应手册条目），不调用该函数时，其它内容不会被编译输出在最终css文件中，能有效减少冗余代码加载。
+当多个类需要使用同一个函数组时，可以局部定义一个临时类，其它类继承该类即可。
+```less
+.tempClass{
+    .pa;.lt(0,0);
+}
+.ex1{
+    &:extend(.tempClass);
+}
+...
+.ex2{
+    &:extend(.tempClass);
+}
+//编译后输出为
+.tempClass,.ex1,.ex2{
+    position:abosulte;left:0;top:0;
+}
+```
+
 >csslab，原名Lesslab，是[芒果TV](http://www.mgtv.com) PC Web前端公共库1.0中的一部分，目前它独立作为一个项目在进行。
 
 ## <a name="documentation"></a> Documentation
