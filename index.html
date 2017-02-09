@@ -155,6 +155,23 @@
 	</code></pre>
 
 	<p>&#x7EDD;&#x5927;&#x591A;&#x6570;&#x529F;&#x80FD;&#x5747;&#x4EE5;&#x51FD;&#x6570;&#x5B58;&#x5728;&#xFF08;&#x9664;&#x4E2A;&#x522B;&#x8BF4;&#x660E;&#x53EF;&#x76F4;&#x63A5;&#x4F5C;&#x4E3A;class&#x4F7F;&#x7528;&#x5916;&#xFF0C;&#x8BE6;&#x89C1;&#x5BF9;&#x5E94;&#x624B;&#x518C;&#x6761;&#x76EE;&#xFF09;&#xFF0C;&#x4E0D;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5176;&#x5B83;&#x5185;&#x5BB9;&#x4E0D;&#x4F1A;&#x88AB;&#x7F16;&#x8BD1;&#x8F93;&#x51FA;&#x5728;&#x6700;&#x7EC8;css&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x80FD;&#x6709;&#x6548;&#x51CF;&#x5C11;&#x5197;&#x4F59;&#x4EE3;&#x7801;&#x52A0;&#x8F7D;&#x3002;</p>
+	<p>当多个类需要使用同一个函数组时，可以局部定义一个临时类，其它类继承该类即可。</p>
+	<pre><code class="less">
+		.tempClass{
+		    .pa;.lt(0,0);
+		}
+		.ex1{
+			&:extend(.tempClass);
+		}
+		...
+		.ex2{
+			&:extend(.tempClass);
+		}
+		//编译后输出为
+		.tempClass,.ex1,.ex2{
+			position:abosulte;left:0;top:0;
+		}
+	</code></pre>
 
 	<blockquote>csslab&#xFF0C;&#x539F;&#x540D;Lesslab&#xFF0C;&#x662F;[&#x8292;&#x679C;TV](http://www.mgtv.com) PC Web&#x524D;&#x7AEF;&#x516C;&#x5171;&#x5E93;1.0&#x4E2D;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x76EE;&#x524D;&#x5B83;&#x72EC;&#x7ACB;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x5728;&#x8FDB;&#x884C;&#x3002;</blockquote>
 
