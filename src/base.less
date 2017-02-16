@@ -262,7 +262,7 @@
         @item-width:列表项宽度,@item-spacing:列表项间距,@item-count:每行数目
         @item-padding:内补白总值;@item-border:边框总值
     --------------------------------------------------------*/
-    .v-list(@innerwrapper,@loopelement,@item-width,@item-spacing,@item-count,@item-padding:0,@item-border:0){
+    .v-list(@innerwrapper,@loopelement,@item-width,@item-spacing,@item-count,@item-padding:0,@item-border:0) when(isstring(@item-width)){
         //div宽度等于（列表项宽+列表项间距）×每行项目数 - 列表项间距
         width:(@item-width + @item-spacing)*@item-count - @item-spacing;
         .@{innerwrapper}{
