@@ -217,23 +217,21 @@
     .clear(@clear:both){clear:@clear;}    //清除浮动
 
 
-    //浮动阵列
-    .v-list{
+    /*浮动阵列
+    --------------------------------------------------------
+    1.结构演示：$outer > $inner > $item
+    2.函数应用：$outer
+    3.参数说明：
+        @outer:外层包裹class名,例videobox
+        @inner:内层包裹class名,例videolist
+        @item:循环单元class命,例videoitem
+        @item-width:列表项宽度
+        @item-spacing:列表项间距
+        @item-count:每行数目
+    --------------------------------------------------------*/
+    .flist(@item-width,@item-spacing,@item-count) when(isnumber(@item-width)){
         //默认遮盖溢出显示
         .clip;*position:relative;
-        //默认居中显示
-        .auto(x);
-    }
-
-    /* 指定格式
-    --------------------------------------------------------
-    1.html部分：div>ul>li*N
-    2.函数应用：div
-    3.参数说明：
-        @item-width:列表项宽度,@item-spacing:列表项间距,@item-count:每行数目
-        @item-padding:内补白总值;@item-border:边框总值
-    --------------------------------------------------------*/
-    .v-list(@item-width,@item-spacing,@item-count,@item-padding:0,@item-border:0) when(isnumber(@item-width)){
         //div宽度等于（列表项宽+列表项间距）×每行项目数 - 列表项间距
         width:(@item-width + @item-spacing)*@item-count - @item-spacing;
         ul{
@@ -247,30 +245,22 @@
                 //每个单元浮动
                 .fl;
                 //单元宽度与间距
-                width:@item-width - @item-padding - @item-border;
+                width:@item-width;
                 margin-right:@item-spacing;
             }
         }   
     }
-
-    /*自定义选择器
-    --------------------------------------------------------
-    1.html部分：div(outerwrapper)>自定义元素innerwrapper>自定义元素loopelement
-    2.函数应用：div(outerwrapper)
-    3.参数说明：
-        @innerwrapper:内层包裹class名例如$-ul,@loopelement:循环单元class命例如$-li
-        @item-width:列表项宽度,@item-spacing:列表项间距,@item-count:每行数目
-        @item-padding:内补白总值;@item-border:边框总值
-    --------------------------------------------------------*/
-    .v-list(@innerwrapper,@loopelement,@item-width,@item-spacing,@item-count,@item-padding:0,@item-border:0) when(isstring(@item-width)){
+    .flist(@inner,@item,@item-width,@item-spacing,@item-count) when(isstring(@inner)){
+        //默认遮盖溢出显示
+        .clip;*position:relative;
         //div宽度等于（列表项宽+列表项间距）×每行项目数 - 列表项间距
         width:(@item-width + @item-spacing)*@item-count - @item-spacing;
-        .@{innerwrapper}{
+        .@{inner}{
             //浮动闭合
             .clearfix;
             //ul宽度等于（列表项宽+列表项间距）×每行项目数
             width:(@item-width + @item-spacing)*@item-count;
-            .@{loopelement}{
+            .@{item}{
                 //IE6-7必须控制溢出
                 *overflow:hidden;
                 //每个单元浮动

@@ -28,7 +28,6 @@
         }
     }
 
-
     .arrow(b,@width,@color,@x:50%){
         &:before{
             top: 100%;
@@ -65,7 +64,6 @@
         }
     }
 
-
     .arrow(r,@width,@color,@y:50%){
         &:before{
             left: 100%;
@@ -81,6 +79,18 @@
             border-width: unit(@width,px);
             @margin:-@width;
             margin-top: unit(@margin,px);
+        }
+    }
+
+    //新增快速覆盖定义气泡位置
+    .arrowtg(x,@x:50%){
+        &:before{
+            left:@x;
+        }
+    }
+    .arrowtg(y,@y:50%){
+        &:before{
+            top:@y;
         }
     }
 
@@ -191,6 +201,18 @@
             border-width: unit(@arrbo,px);
             @margin-bo:-@arrbo;
             margin-top: unit(@margin-bo,px);
+        }
+    }
+
+    //新增快速覆盖定义气泡位置
+    .arrowstg(x,@x:50%){
+        &:before,&:after{
+            left:@x;
+        }
+    }
+    .arrowstg(y,@y:50%){
+        &:before,&:after{
+            top:@y;
         }
     }
 
