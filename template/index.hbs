@@ -1,7 +1,7 @@
 {{import "module/head"}}
 {{import "module/header"}}
 <div class="m-sidebar">
-	<a class="u-btn u-btn-download" href="https://github.com/iRuxu/CssLab/releases" target="_blank"><b>Download</b><span>version 1.1</span></a>
+	<a class="u-btn u-btn-download" href="https://github.com/iRuxu/CssLab/releases" target="_blank"><b>Download</b><span>last version</span></a>
 	<a class="u-btn u-btn-source" href="https://github.com/iRuxu/CssLab" target="_blank"><b>Source Code</b><span>Github</span></a>
 </div>
 <div class="m-content m-index">
@@ -14,10 +14,8 @@
 	</ol>
 
 	<h2>使用方法</h2>
-	<ol>
-		<li>在less文件中引入</li>
-		<pre><code class="less">@import url('base.less')</code></pre>
-	</ol>
+	<p>方法一：在less文件中引入某个模块（需自行调整路径）</p>
+	<pre><code class="less">@import url('src/base.less')</code></pre>
 
 	<h2>注意事项</h2>
 	<ol>
@@ -28,6 +26,7 @@
 	<h2>文件索引</h2>
 	<ol>
 		<li>base - 组合常用的IE6-IE8各类HACK，部分CSS快捷的书写方式</li>
+		<li>base-fix - 用于兼容旧版废弃的base less函数</li>
 		<li>shape - 使用CSS绘制常用的图形</li>
 		<li>animation - 基础动画库，提供常见的动画</li>
 		<li>twinkle - 扩展动画库</li>
