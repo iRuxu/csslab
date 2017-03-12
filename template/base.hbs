@@ -372,8 +372,46 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.flist</b><span>()</span><i>浮动阵列布局</i></h3>
+	<h3><b>.flist</b><span>([@inner,@item],@item-width,@item-spacing,@item-count)</span><i>浮动阵列布局</i></h3>
+	<p>假设一个浮动阵列布局的结构为div.$outer > ul.$inner > li.$item，将函数应用于$outer外层元素上，让所有$item全部浮动，并由$inner内层包裹层闭合浮动，且宽度为阵列元素+全部边距，并让$outer外层元素隐藏溢出，即可创建一个完全居中的浮动阵列布局。</p>
+    <p>参数说明：<br>
+        @outer:外层包裹class名,例videobox<br>
+        @inner:内层包裹class名,例videolist<br>
+        @item:循环单元class命,例videoitem<br>
+        @item-width:列表项宽度<br>
+        @item-spacing:列表项间距<br>
+        @item-count:每行数目</p>
+    <p>当不指定内层与单元元素的class名时，默认作为div>ul>li结构处理。如其它情况或元素可指定一个class名。</p>
 	<pre><code class="less">
+		.videobox{
+			.flist(200px,20px,5);
+		}
+		//编译后生成
+		.videobox{
+			//默认遮盖溢出显示
+			.clip;*position:relative;
+			//div宽度等于（列表项宽+列表项间距）×每行项目数 - 列表项间距
+			width:(200px + 20px)*5 - 20px;
+			ul{
+			    //浮动闭合
+			    .clearfix;
+			    //ul宽度等于（列表项宽+列表项间距）×每行项目数
+			    width:(200px + 20px)*5;
+			    li{
+			        //IE6-7必须控制溢出
+			        *overflow:hidden;
+			        //每个单元浮动
+			        .fl;
+			        //单元宽度与间距
+			        width:200px;
+			        margin-right:20px;
+			    }
+			}   
+		}
+		.imagebox{
+			.flist(gallery,pic,120px,10px,8);
+		}
+		//编译后将上例中的ul替换为.gallery，li替换为.pic。
 	</code></pre>
 	</p>
 </div>

@@ -207,18 +207,70 @@
     ├   Layout                             ┆
     └------------------------------------*/
 
-    //浮动简写
+    //浮动
     .fl{float:left;*display:inline;}      //IE6-7双倍margin bug处理
-    
     .fr{float:right;*display:inline;}
-    
-    //清除浮动塌陷
-    .clearfix{
+    .clearfix{                            //清除浮动塌陷
         *zoom:1;
         &:after{content:"\200B";display:block;height:0;clear:both;}
     }
-    //清除浮动
-    .clear(@clear:both){clear:@clear;}
+    .clear(@clear:both){clear:@clear;}    //清除浮动
+
+
+    /*浮动阵列
+    --------------------------------------------------------
+    1.结构演示：$outer > $inner > $item
+    2.函数应用：$outer
+    3.参数说明：
+        @outer:外层包裹class名,例videobox
+        @inner:内层包裹class名,例videolist
+        @item:循环单元class命,例videoitem
+        @item-width:列表项宽度
+        @item-spacing:列表项间距
+        @item-count:每行数目
+    --------------------------------------------------------*/
+    .flist(@item-width,@item-spacing,@item-count) when(isnumber(@item-width)){
+        //默认遮盖溢出显示
+        .clip;*position:relative;
+        //div宽度等于（列表项宽+列表项间距）×每行项目数 - 列表项间距
+        width:(@item-width + @item-spacing)*@item-count - @item-spacing;
+        ul{
+            //浮动闭合
+            .clearfix;
+            //ul宽度等于（列表项宽+列表项间距）×每行项目数
+            width:(@item-width + @item-spacing)*@item-count;
+            li{
+                //IE6-7必须控制溢出
+                *overflow:hidden;
+                //每个单元浮动
+                .fl;
+                //单元宽度与间距
+                width:@item-width;
+                margin-right:@item-spacing;
+            }
+        }   
+    }
+    .flist(@inner,@item,@item-width,@item-spacing,@item-count) when(isstring(@inner)){
+        //默认遮盖溢出显示
+        .clip;*position:relative;
+        //div宽度等于（列表项宽+列表项间距）×每行项目数 - 列表项间距
+        width:(@item-width + @item-spacing)*@item-count - @item-spacing;
+        .@{inner}{
+            //浮动闭合
+            .clearfix;
+            //ul宽度等于（列表项宽+列表项间距）×每行项目数
+            width:(@item-width + @item-spacing)*@item-count;
+            .@{item}{
+                //IE6-7必须控制溢出
+                *overflow:hidden;
+                //每个单元浮动
+                .fl;
+                //单元宽度与间距
+                width:@item-width - @item-padding - @item-border;
+                margin-right:@item-spacing;
+            }
+        }   
+    }
 
     //inline-block布局替代float - 纯列表时
     .iblock(){
