@@ -59,6 +59,14 @@
 	<div class="arrow-test4">欢迎演示.arrow(b,10px,#74e2fe,1px,#09f);</div>
 </div>
 <div class="m-content-list-item">
+	<h3><b>.arrowtg/.arrowstg</b><span>(x/y,@position)</span><i>快速重定义箭头位置</i></h3>
+	<p>对应.arrow/.arrows函数，对箭头位置进行快速重定义。其中上下的箭头使用参数x且重定义起点为左侧，左右的箭头使用参数y且重定义起点为上方。</p>
+	<pre><code class="less">
+		.test{.arrowtg(x,20%);}
+	</code></pre>
+</div>
+
+<div class="m-content-list-item">
 	<h3><b>.tg</b><span>(t/b/l/r/lt/rt/lb/rb,@width,@color,[0/1])</span><i>三角形</i></h3>
 	<p>参数说明：三角形的方向，大小，颜色。<br>
 	t/b/l/r：当为等边三角形时，最后一个参数传入1。<br>

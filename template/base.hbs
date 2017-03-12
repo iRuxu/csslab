@@ -45,10 +45,14 @@
 		<h4>布局</h4>
 		<li>.fl</li>
 		<li>.fr</li>
-		<li>.clearfix</li>
 		<li>.clear</li>
+		<li>.clearfix</li>
+		<li class="new">.flist</li>
 		<li>.iblock</li>
 		<li>.flex</li>
+		<li>.flexs</li>
+		<li>.grid</li>
+		<li>.grids</li>
 		<li>.cols</li>
 		<h4>定位</h4>
 		<li>.ps</li>
@@ -346,6 +350,10 @@
 	</code></pre>
 </div>
 <div class="m-content-list-item">
+	<h3><b>.clear</b><span>([both]/left/right)</span><i>清除浮动</i></h3>
+	<p>参数缺省时等价于clear:both;</p>
+</div>
+<div class="m-content-list-item">
 	<h3><b>.clearfix</b><span></span><i>闭合浮动塌陷</i></h3>
 	<p>应用在闭合浮动元素的父级元素上，当浮动元素父级有BFC时无需设置。可直接作为class使用。</p>
 	<pre><code class="less">
@@ -353,10 +361,6 @@
 		//.test{*zoom:1;}
 		//.test:after{content:"\200B";display:block;height:0;clear:both;}
 	</code></pre>
-</div>
-<div class="m-content-list-item">
-	<h3><b>.clear</b><span>([both]/left/right)</span><i>清除浮动</i></h3>
-	<p>参数缺省时等价于clear:both;</p>
 </div>
 <div class="m-content-list-item">
 	<h3><b>.iblock</b><span>([]/@selector)</span><i>inline-block布局替代浮动布局</i></h3>
@@ -368,10 +372,17 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.flex</b><span>(x/y)</span><i>Flex伸缩盒</i></h3>
+	<h3><b>.flist</b><span>()</span><i>浮动阵列布局</i></h3>
 	<pre><code class="less">
-		.flex-box{.flex(x);}        //justify-content:center;
-		.flex-box{.flex(y);}        //align-items:center;align-content:center;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.iblock</b><span>([]/@selector)</span><i>inline-block布局替代浮动布局</i></h3>
+	<p>不允许折行，进行容器水平排列，默认函数应用在ul上，子对象为li。也可以传入一个子选择器类。<br>
+	<pre><code class="less">
+		.test{.iblock;}         //ul.test > li 
+		.test{.iblock(loop);}   //ul.test > li.loop
 	</code></pre>
 	</p>
 </div>
