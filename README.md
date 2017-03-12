@@ -7,7 +7,7 @@
 + [参考文档](#documentation)
 + [其它链接](#contribute)
 
-## <a name="intro"></a> 简介
+## <a name="intro"></a> 简介说明
 csslab是一个动态css依赖库，支持less和sass两个版本。它由一些less/sass自定义函数组成，可快速书写一些常用的css片段并自动进行计算，同时提供一些IE6/7兼容hack和简写，以便能更快捷高效地完成网页重构工作。
 >csslab，原名Lesslab，是[芒果TV](http://www.mgtv.com) PC Web前端公共库1.0中的一部分，目前它独立作为一个项目在进行。
 
