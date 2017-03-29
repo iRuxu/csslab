@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>CssLab - A css function package for creating styles quickly</title>
+<meta charset="utf-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui">
+<link rel="shortcut icon" href="http://www.hunantv.com/favicon.ico?" type="image/x-icon">
+<!-- <link rel="stylesheet" href='css/monokai.css?' type="text/css"> -->
+<link rel="stylesheet" href="css/markdown.css?" type="text/css">
+<link rel="stylesheet" href="css/github.css?" type="text/css">
+<link rel="stylesheet" href="css/common.css?" type="text/css">
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js?"></script>
+<!-- <script src='js/rainbow.min.js?'></script> -->
+<script src="js/highlight.pack.js?"></script>
+<script src="js/common.js?"></script>
+<script src="js/notebook.js?"></script>
+</head>
+<body>
+<div class="m-top">
+	<div class="m-rainbow"></div>
+	<div class="m-header">
+		<h1 class="m-logo">
+			<a class="u-name" href="/index.html">Csslab</a>
+			<em class="u-domain"><span>.CC</span></em>
+			<a class="u-type" href="http://www.mgtv.com" target="_blank"><i></i>MGTV</a>
+		</h1>
+		<div class="m-author">
+			<a class="u-github" href="https://github.com/iRuxu/CssLab/issues" target="_blank">issues</a>
+			<a class="u-weibo" href="http://iRuxu.com" target="_blank">Author</a>
+		</div>
+		<div class="m-menu">
+			<ul>
+				<li class="on">
+					<a class="m-menu-item" href="/index.html">Index</a>
+					<ul class="m-submenu">
+						<li class="on"><a class="m-submenu-item" href="/index.html">Quick Guide</a></li>
+						<li><a class="m-submenu-item" href="/log.html">Log</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="m-menu-item" href="/base.html">Reference</a>
+					<ul class="m-submenu">
+						<li><a class="m-submenu-item" href="/base.html">Base</a></li>
+						<li><a class="m-submenu-item" href="/shape.html">Shape</a></li>
+						<li><a class="m-submenu-item" href="/animation.html">Animation</a></li>
+						<li><a class="m-submenu-item" href="/twinkle.html">Twinkle</a></li>
+						<!-- <li><a class="m-submenu-item" href="/gradient.html">Gradient</a></li> -->
+						<li><a class="m-submenu-item" href="/reset.html">Reset</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="m-submenu-bg"></div>
+</div>
+<script>var pathname=location.pathname;"/"!=pathname&&($(".m-menu li, .m-submenu li").removeClass("on"),$(".m-submenu-item, .m-menu-item").map(function(a,m){var e=$(this);e.attr("href")==pathname&&e.parents("li").addClass("on")}));</script>
+
+<div class="m-sidebar">
+	<h2 class="m-sidebar-title">Reset<span>(2015.6.11)</span></h2>
+	<ul class="m-sidebar-list" id="m-sidebar-list">
+		<li class="current">Charset</li>
+		<li>Document</li>
+		<li>Sections</li>
+		<li>Embedded</li>
+		<li>Text</li>
+		<li>Form</li>
+	</ul>
+</div>
+<div class="m-content m-content-reset">
+
+<p class="m-tips">
+	1.部分参考自normalize.css。<br>
+	2.默认h1~h6,b/i/em/strong等标签无样式。
+</p>
+
+<pre id="Charset"><code class="less">
+	//Define charset
+	@charset "utf-8";
+</code></pre>
+
+<pre id="Document"><code class="less">
+	//Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS
+	html{
+		-webkit-overflow-scrolling:touch;
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+	}
+</code></pre>
+
+<pre id="Sections"><code class="less">
+	//Remove the margin in all browsers (opinionated).
+	body,
+	h1,h2,h3,h4,h5,h6,
+	hr,p,blockquote,
+	th,td{
+		margin:0;padding:0;
+	}
+
+	//Add the correct display in IE 9-.
+	article,aside,details,figcaption,figure,footer,header,hgroup,nav,menu,section,summary{
+	  display: block;
+	}
+
+	hr{
+	  box-sizing: content-box;height: 0; //Add the correct box sizing in Firefox.
+	  overflow: visible;	//Show the overflow in Edge and IE.
+	}
+
+	//Remove iframe content borders
+	iframe{
+		border:none;
+	}
+
+	//Remove quote style
+	blockquote,q{
+		quotes:none;
+	}
+
+	//collapse table border
+	table{
+		border-collapse:collapse;
+		border-spacing:0;
+	}
+
+	//Reset list style
+	ul,ul li{
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+</code></pre>
+
+<pre id="Embedded"><code class="less">
+	//Add the correct display in IE 9-.
+	audio,video,canvas {
+	  display: inline-block;
+	  *display:inline;
+	  *zoom:1;
+	}
+
+	//Add the correct display in iOS 4-7.
+	audio:not([controls]) {
+	  display: none;
+	  height: 0;
+	}
+
+	//Remove the border on images inside links in IE 10-.
+	img {
+	  border:none;
+	  -ms-interpolation-mode:bicubic;
+	}
+
+	//Hide the overflow in IE.
+	svg:not(:root) {
+	  overflow: hidden;
+	}
+
+	//Add the correct display in IE.
+	template {
+	  display: none;
+	}
+</code></pre>
+
+<pre id="Text"><code class="less">
+	a{
+	  background-color: transparent; //Remove the gray background on active links in IE 10
+	  -webkit-text-decoration-skip: objects; //Remove gaps in links underline in iOS 8+ and Safari 8+.
+	  text-decoration:none;	//Remove the underline effect.
+	}
+
+	//Remove the outline on focused links when they are also active or hovered in all browsers (opinionated).
+	a:active,a:hover {
+	  outline-width:0;
+	}
+
+	//Remove the h1~h6 title style
+	h1,h2,h3,h4,h5,h6{
+		font-size:100%;font-weight:normal;
+	}
+
+	//Remove bold style.
+	b,strong{
+		font-weight:normal;
+	}
+
+	//Remove italic style.
+	i,em{
+		font-style:normal;
+	}
+
+	abbr[title] {
+	  border-bottom: none; //Remove the bottom border in Firefox 39-.
+	  text-decoration: underline;text-decoration: underline dotted; //Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+	}
+
+	code,kbd,samp {
+	  font-family: monospace, monospace; //Correct the inheritance and scaling of font size in all browsers.
+	  font-size: 1em; //Correct the odd `em` font sizing in all browsers.
+	}
+
+	//Add the correct font style in Android 4.3-.
+	dfn {
+	  font-style: italic;
+	}
+
+	//Add the correct background and color in IE 9-.
+	mark {
+	  background-color: #ff0;
+	  color: #000;
+	}
+
+	//Add the correct font size in all browsers.
+	small {
+	  font-size: 80%;
+	}
+
+	//Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+	sub,
+	sup {
+	  font-size: 75%;
+	  line-height: 0;
+	  position: relative;
+	  vertical-align: baseline;
+	}
+	sub {
+	  bottom: -0.25em;
+	}
+	sup {
+	  top: -0.5em;
+	}
+</code></pre>
+
+<pre id="Form"><code class="less">
+	button,input,optgroup,select,textarea{
+		font-size: 100%;line-height: 1.15;	//Change the font styles in all browsers (opinionated).
+		margin: 0;//Remove the margin in Firefox and Safari.
+		color:inherit;
+	}
+
+	button[disabled],input[disabled]{
+		cursor: default;
+	}
+
+	button,//Show the overflow in IE.
+	input{//Show the overflow in Edge.
+	  overflow: visible;
+	}
+
+	button,//Remove the inheritance of text transform in Edge, Firefox, and IE.
+	select{//Remove the inheritance of text transform in Firefox.
+	  text-transform: none;
+	}
+
+	button,
+	html [type="button"],//Prevent a WebKit bug where (2) destroys native `audio` and `video` controls in Android 4.
+	[type="reset"],
+	[type="submit"] {
+	  -webkit-appearance: button; //Correct the inability to style clickable types in iOS and Safari.
+	}
+
+	//Remove the inner border and padding in Firefox.
+	button::-moz-focus-inner,
+	[type="button"]::-moz-focus-inner,
+	[type="reset"]::-moz-focus-inner,
+	[type="submit"]::-moz-focus-inner {
+	  border-style: none;
+	  padding: 0;
+	}
+
+	//Restore the focus styles unset by the previous rule.
+	button:-moz-focusring,
+	[type="button"]:-moz-focusring,
+	[type="reset"]:-moz-focusring,
+	[type="submit"]:-moz-focusring {
+	  outline: 1px dotted ButtonText;
+	}
+
+	//Change the border, margin, and padding in all browsers (opinionated).
+	fieldset{
+	  border: 1px solid #c0c0c0;
+	  margin: 0 2px;
+	  padding: 0.35em 0.625em 0.75em;
+	}
+
+	legend{
+	  display: table;max-width: 100%;box-sizing: border-box;white-space: normal; //Correct the text wrapping in Edge and IE.
+	  color: inherit; //Correct the color inheritance from `fieldset` elements in IE.
+	  padding: 0; //Remove the padding so developers are not caught out when they zero out `fieldset` elements in all browsers.
+	}
+
+	progress {
+	  display: inline-block; //Add the correct display in IE 9-.
+	  vertical-align: baseline; //Add the correct vertical alignment in Chrome, Firefox, and Opera.
+	}
+
+	//Remove the default vertical scrollbar in IE.
+	textarea {
+	  overflow: auto;
+	}
+
+	[type="checkbox"],
+	[type="radio"] {
+	  box-sizing: border-box; //Add the correct box sizing in IE 10-.
+	  padding: 0; //Remove the padding in IE 10-.
+	}
+
+	//Correct the cursor style of increment and decrement buttons in Chrome.
+	[type="number"]::-webkit-inner-spin-button,
+	[type="number"]::-webkit-outer-spin-button {
+	  height: auto;
+	}
+
+	[type="search"] {
+	  -webkit-appearance: textfield; //Correct the odd appearance in Chrome and Safari.
+	  outline-offset: -2px; //Correct the outline style in Safari.
+	}
+
+	//Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+	[type="search"]::-webkit-search-cancel-button,
+	[type="search"]::-webkit-search-decoration {
+	  -webkit-appearance: none;
+	}
+
+	::-webkit-file-upload-button {
+	  -webkit-appearance: button; //Correct the inability to style clickable types in iOS and Safari.
+	  font: inherit; //Change font properties to `inherit` in Safari.
+	}
+
+
+	[hidden] {
+	  display: none;
+	}
+</code></pre>
+
+</div>
+</body>
+</html>

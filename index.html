@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>CssLab - A css function package for creating styles quickly</title>
+<meta charset="utf-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui">
+<link rel="shortcut icon" href="http://www.hunantv.com/favicon.ico?" type="image/x-icon">
+<!-- <link rel="stylesheet" href='css/monokai.css?' type="text/css"> -->
+<link rel="stylesheet" href="css/markdown.css?" type="text/css">
+<link rel="stylesheet" href="css/github.css?" type="text/css">
+<link rel="stylesheet" href="css/common.css?" type="text/css">
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js?"></script>
+<!-- <script src='js/rainbow.min.js?'></script> -->
+<script src="js/highlight.pack.js?"></script>
+<script src="js/common.js?"></script>
+<script src="js/notebook.js?"></script>
+</head>
+<body>
+<div class="m-top">
+	<div class="m-rainbow"></div>
+	<div class="m-header">
+		<h1 class="m-logo">
+			<a class="u-name" href="/index.html">Csslab</a>
+			<em class="u-domain"><span>.CC</span></em>
+			<a class="u-type" href="http://www.mgtv.com" target="_blank"><i></i>MGTV</a>
+		</h1>
+		<div class="m-author">
+			<a class="u-github" href="https://github.com/iRuxu/CssLab/issues" target="_blank">issues</a>
+			<a class="u-weibo" href="http://iRuxu.com" target="_blank">Author</a>
+		</div>
+		<div class="m-menu">
+			<ul>
+				<li class="on">
+					<a class="m-menu-item" href="/index.html">Index</a>
+					<ul class="m-submenu">
+						<li class="on"><a class="m-submenu-item" href="/index.html">Quick Guide</a></li>
+						<li><a class="m-submenu-item" href="/log.html">Log</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="m-menu-item" href="/base.html">Reference</a>
+					<ul class="m-submenu">
+						<li><a class="m-submenu-item" href="/base.html">Base</a></li>
+						<li><a class="m-submenu-item" href="/shape.html">Shape</a></li>
+						<li><a class="m-submenu-item" href="/animation.html">Animation</a></li>
+						<li><a class="m-submenu-item" href="/twinkle.html">Twinkle</a></li>
+						<!-- <li><a class="m-submenu-item" href="/gradient.html">Gradient</a></li> -->
+						<li><a class="m-submenu-item" href="/reset.html">Reset</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="m-submenu-bg"></div>
+</div>
+<script>var pathname=location.pathname;"/"!=pathname&&($(".m-menu li, .m-submenu li").removeClass("on"),$(".m-submenu-item, .m-menu-item").map(function(a,m){var e=$(this);e.attr("href")==pathname&&e.parents("li").addClass("on")}));</script>
+
+<div class="m-sidebar">
+	<a class="u-btn u-btn-download" href="https://github.com/iRuxu/CssLab/releases" target="_blank"><b>Download</b><span>Latest version</span></a>
+	<a class="u-btn u-btn-source" href="https://github.com/iRuxu/CssLab" target="_blank"><b>Source Code</b><span>Github</span></a>
+</div>
+<div class="m-content m-index">
+
+	<article class="markdown-body">
+		<h1 id="csslab"><a name="user-content-csslab" href="#csslab" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CssLab</h1>
+		<h6 id="homepage-httpcsslabcc"><a name="user-content-homepage-httpcsslabcc" href="#homepage-httpcsslabcc" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Homepage: <a href="http://csslab.cc">http://csslab.cc</a></h6>
+		<h2 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>目录</h2>
+		<ul>
+		<li><a href="#intro">简介说明</a></li>
+		<li><a href="#get-started">使用指南</a></li>
+		<li><a href="#documentation">参考文档</a></li>
+		<li><a href="#contribute">其它链接</a></li>
+		</ul>
+		<h2 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><a name="intro"></a> 简介说明</h2>
+		<p>csslab是一个动态css依赖库，支持less和sass两个版本。它由一些less/sass自定义函数组成，可快速书写一些常用的css片段并自动进行计算，同时提供一些IE6/7兼容hack和简写，以便能更快捷高效地完成网页重构工作。</p>
+		<blockquote>
+		<p>csslab，原名Lesslab，是<a href="http://www.mgtv.com">芒果TV</a> PC Web前端公共库1.0中的一部分，目前它独立作为一个项目在进行。</p>
+		</blockquote>
+		<h5 id="example1"><a name="user-content-example1" href="#example1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Example.1 常见片段</h5>
+		<p>例如，常见的让文本禁止换行，溢出的部分处理为显示“&hellip;”：<br>
+<pre><code class="less">.textline{
+    .nobreak;
+}
+
+//编译后输出为
+.textline{
+    white-space:nowrap;
+    word-wrap:normal;
+    word-break:keep-all;
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+</code></pre>
+		</p>
+		<h5 id="example2"><a name="user-content-example2" href="#example2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Example.2 自动计算</h5>
+		<p>例如，让一个已知尺寸的元素总是自动绝对居中定位：<br>
+<pre><code class="less">.fixwindow{
+    .size(400px,300px);
+    .ct(400px,300px);
+}
+
+//编译后输出为
+.fixwindow{
+    width:400px;
+    height:300px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-200px;
+    margin-top:-150px;
+}
+</code></pre>
+		</p>
+		<h5 id="example3"><a name="user-content-example3" href="#example3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Example.3 动画调用</h5>
+		<p>传入参数指定动画的时间，并且只有调用该动画时生成对应keyframes，不会因需使用动画库中一个定义帧而要引入全部内容或繁琐地剪切粘贴：<br>
+<pre><code class="less">.animate-element{
+    .fadeIn(2s);
+}
+//编译后输出为
+@keyframes fadeIn{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+.animate-element{
+    animation-name:fadeIn;
+    animation-duration:2s;
+    animation-timing-function:ease-out;
+    animation-fill-mode:backwards;
+}
+</code></pre>
+		</p>
+		<p>绝大多数功能均以函数存在（除个别说明可直接作为class使用外，详见对应手册条目），不调用该函数时，其它内容不会被编译输出在最终css文件中，能有效减少冗余代码加载。<br>
+		当多个类需要使用同一个函数组时，可以局部定义一个临时类，其它类继承该类即可。<br>
+<pre><code class="less">.tempClass{
+    .pa;.lt(0,0);
+}
+.ex1{
+    &amp;:extend(.tempClass);
+}
+...
+.ex2{
+    &amp;:extend(.tempClass);
+}
+//编译后输出为
+.tempClass,.ex1,.ex2{
+    position:abosulte;left:0;top:0;
+}
+</code></pre>
+		</p>
+		<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><a name="get-started"></a> 使用指南</h2>
+		<h5 id="step1"><a name="user-content-step1" href="#step1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step.1 安装支持环境</h5>
+		<ul>
+		<li>
+		<p><em>LESS/SASS</em><br>
+		安装nodejs，并使用npm安装less或sass，也可以使用<a href="http://koala-app.com/index-zh.html">koala</a>等可视化编译器。</p>
+		</li>
+		<li>
+		<p><em>Autoprefixer</em><br>
+		同时建议安装autoprefixer插件，通过插件指定浏览器前缀版本。</p>
+		</li>
+		</ul>
+		<h5 id="step2"><a name="user-content-step2" href="#step2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Step.2 引入文件</h5>
+		<ul>
+		<li>通用环境</li>
+		</ul>
+		<p>直接下载至工作目录，通过正确的路径引入。<br>
+<pre><code class="less">//单独引入指定子函数库
+@import url('base.less');
+@import url('animation.less');
+</code></pre>
+		</p>
+		<ul>
+		<li>Silky环境 <em>(芒果TV)</em></li>
+		</ul>
+		<p>使用silky命令进行安装 <strong><em>silky install csslab</em></strong>。<br>
+		或直接在项目配置文件中package.json中devDependencies添加键与版本号，使用silky install安装。（如需更新至新版，更新对应版本号重新执行silky install命令即可。）<br>
+<pre><code class="less">//在某个文件中引入某个库
+@import url('@{csslab}/base.less');
+
+//默认作为整个项目所有less文件的支持函数库，在package.json中配置 
+&quot;sp-less&quot;: {
+  &quot;global&quot;: [
+    &quot;csslab&quot;,
+    &quot;csslab/base.less&quot;
+  ]
+}
+//如仍需使用旧的base函数请添加&quot;csslab/base-fix.less&quot;
+</code></pre>
+		</p>
+		<h2 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><a name="documentation"></a> 参考文档</h2>
+		<ul>
+		<li><em><a href="http://csslab.cc/base.html">base</a></em> <br>
+		基础函数库，常用的IE6-IE8各类HACK，快捷书写函数</li>
+		<li><em><a href="http://csslab.cc/shape.html">shape</a></em> <br>
+		使用CSS绘制常用的图形</li>
+		<li><em><a href="http://csslab.cc/animation.html">animation</a></em> <br>
+		基础动画库，提供常见的动画</li>
+		<li><em><a href="http://csslab.cc/twinkle.html">twinkle</a></em> <br>
+		扩展动画库</li>
+		<li><em><a href="http://csslab.cc/reset.html">reset</a></em> <br>
+		浏览器样式重置</li>
+		<li><em>base-fix</em> <br>
+		旧版base废弃函数（芒果TV）</li>
+		</ul>
+		<h2 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><a name="contribute"></a> 其它链接</h2>
+		<ul>
+		<li><em><a href="http://iruxu.com/notebook">CSS笔记</a></em></li>
+		<li><em><a href="http://less.bootcss.com/features/">LESS中文手册</a></em></li>
+		<li><em><a href="http://sass.bootcss.com/docs/sass-reference/">SASS中文手册</a></em></li>
+		<li><em><a href="http://koala-app.com/index-zh.html">Koala</a></em> （一款方便的可视化前端编译器）</li>
+		<li><em><a href="http://silky.wvv8oo.com">Silky</a></em> （芒果TV使用的前端开发集成工具）</li>
+		</ul>
+	</article>
+
+</div>
+</body>
+</html>

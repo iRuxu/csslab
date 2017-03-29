@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>CssLab - A css function package for creating styles quickly</title>
+<meta charset="utf-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui">
+<link rel="shortcut icon" href="http://www.hunantv.com/favicon.ico?" type="image/x-icon">
+<!-- <link rel="stylesheet" href='css/monokai.css?' type="text/css"> -->
+<link rel="stylesheet" href="css/markdown.css?" type="text/css">
+<link rel="stylesheet" href="css/github.css?" type="text/css">
+<link rel="stylesheet" href="css/common.css?" type="text/css">
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js?"></script>
+<!-- <script src='js/rainbow.min.js?'></script> -->
+<script src="js/highlight.pack.js?"></script>
+<script src="js/common.js?"></script>
+<script src="js/notebook.js?"></script>
+</head>
+<body>
+<div class="m-top">
+	<div class="m-rainbow"></div>
+	<div class="m-header">
+		<h1 class="m-logo">
+			<a class="u-name" href="/index.html">Csslab</a>
+			<em class="u-domain"><span>.CC</span></em>
+			<a class="u-type" href="http://www.mgtv.com" target="_blank"><i></i>MGTV</a>
+		</h1>
+		<div class="m-author">
+			<a class="u-github" href="https://github.com/iRuxu/CssLab/issues" target="_blank">issues</a>
+			<a class="u-weibo" href="http://iRuxu.com" target="_blank">Author</a>
+		</div>
+		<div class="m-menu">
+			<ul>
+				<li class="on">
+					<a class="m-menu-item" href="/index.html">Index</a>
+					<ul class="m-submenu">
+						<li class="on"><a class="m-submenu-item" href="/index.html">Quick Guide</a></li>
+						<li><a class="m-submenu-item" href="/log.html">Log</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="m-menu-item" href="/base.html">Reference</a>
+					<ul class="m-submenu">
+						<li><a class="m-submenu-item" href="/base.html">Base</a></li>
+						<li><a class="m-submenu-item" href="/shape.html">Shape</a></li>
+						<li><a class="m-submenu-item" href="/animation.html">Animation</a></li>
+						<li><a class="m-submenu-item" href="/twinkle.html">Twinkle</a></li>
+						<!-- <li><a class="m-submenu-item" href="/gradient.html">Gradient</a></li> -->
+						<li><a class="m-submenu-item" href="/reset.html">Reset</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="m-submenu-bg"></div>
+</div>
+<script>var pathname=location.pathname;"/"!=pathname&&($(".m-menu li, .m-submenu li").removeClass("on"),$(".m-submenu-item, .m-menu-item").map(function(a,m){var e=$(this);e.attr("href")==pathname&&e.parents("li").addClass("on")}));</script>
+
+<div class="m-sidebar">
+	<h2 class="m-sidebar-title">Twinkle<span>(2017.3.9)</span></h2>
+	<ul class="m-sidebar-list" id="m-sidebar-list">
+		<h4>边框效果</h4>
+		<li class="current">.twinkle-border</li>
+		<li>.twinkle-borderTop</li>
+		<li>.twinkle-borderBottom</li>
+		<h4>图像效果</h4>
+		<li>.twinkle-glimpse</li>
+		<h4>文字效果</h4>
+		<li>.twinkle-textGotop</li>
+		<li>.twinkle-textFlip</li>
+	</ul>
+</div>
+<div class="m-content" id="m-content-list">
+
+<div class="m-content-list-item">
+	<h3><b>.twinkle-border</b><span>(@time:0.6s,@width:2px,@color:#fff)</span><i>绘制边框</i></h3>
+	<p>该元素需指定一个子元素（默认为a元素），作用于主元素。</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="dNmMZY" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title=".twinkle-borderdraw" class="codepen">See the Pen <a href="http://codepen.io/iRuxu/pen/dNmMZY/">.twinkle-borderdraw</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<div class="m-content-list-item">
+	<h3><b>.twinkle-borderTop</b><span>(@time:0.2s,@border:2px,@color:#0cf,@length:50%)</span><i>上划线</i></h3>
+	<p data-height="265" data-theme-id="0" data-slug-hash="wgmGLj" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="twinkle-borderTop" class="codepen">See the Pen <a href="http://codepen.io/iRuxu/pen/wgmGLj/">twinkle-borderTop</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<div class="m-content-list-item">
+	<h3><b>.twinkle-borderBottom</b><span>(@time:0.2s,@border:2px,@color:#0cf,@length:50%)</span><i>下划线</i></h3>
+	<p data-height="265" data-theme-id="0" data-slug-hash="VPXjLb" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="twinkle-borderBottom" class="codepen">See the Pen <a href="http://codepen.io/iRuxu/pen/VPXjLb/">twinkle-borderBottom</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.twinkle-glimpse</b><span>(@time:0.5s,@from:-100%,@to:100%)</span><i>一抹阳光</i></h3>
+	<p data-height="265" data-theme-id="0" data-slug-hash="BprKQR" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="twinkle-glimpse" class="codepen">See the Pen <a href="http://codepen.io/iRuxu/pen/BprKQR/">twinkle-glimpse</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.twinkle-textGotop</b><span>(@time:0.2s)</span><i>上浮显示</i></h3>
+	<p>应给上级元素设置overflow:hidden;</p>
+	<p data-height="265" data-theme-id="0" data-slug-hash="QdmEvP" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="QdmEvP" class="codepen">See the Pen <a href="http://codepen.io/iRuxu/pen/QdmEvP/">QdmEvP</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.twinkle-textFlip</b><span>(@time:1s)</span><i>翻转显示</i></h3>
+	<p data-height="265" data-theme-id="0" data-slug-hash="vgRLao" data-default-tab="css,result" data-user="iRuxu" data-embed-version="2" data-pen-title="flip" class="codepen">See the Pen <a href="http://codepen.io/iRuxu/pen/vgRLao/">flip</a> by iRuxu (<a href="http://codepen.io/iRuxu">@iRuxu</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+</div>
+
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js?"></script>
+</div>
+</body>
+</html>

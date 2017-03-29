@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>CssLab - A css function package for creating styles quickly</title>
+<meta charset="utf-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui">
+<link rel="shortcut icon" href="http://www.hunantv.com/favicon.ico?" type="image/x-icon">
+<!-- <link rel="stylesheet" href='css/monokai.css?' type="text/css"> -->
+<link rel="stylesheet" href="css/markdown.css?" type="text/css">
+<link rel="stylesheet" href="css/github.css?" type="text/css">
+<link rel="stylesheet" href="css/common.css?" type="text/css">
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js?"></script>
+<!-- <script src='js/rainbow.min.js?'></script> -->
+<script src="js/highlight.pack.js?"></script>
+<script src="js/common.js?"></script>
+<script src="js/notebook.js?"></script>
+</head>
+<body>
+<div class="m-top">
+	<div class="m-rainbow"></div>
+	<div class="m-header">
+		<h1 class="m-logo">
+			<a class="u-name" href="/index.html">Csslab</a>
+			<em class="u-domain"><span>.CC</span></em>
+			<a class="u-type" href="http://www.mgtv.com" target="_blank"><i></i>MGTV</a>
+		</h1>
+		<div class="m-author">
+			<a class="u-github" href="https://github.com/iRuxu/CssLab/issues" target="_blank">issues</a>
+			<a class="u-weibo" href="http://iRuxu.com" target="_blank">Author</a>
+		</div>
+		<div class="m-menu">
+			<ul>
+				<li class="on">
+					<a class="m-menu-item" href="/index.html">Index</a>
+					<ul class="m-submenu">
+						<li class="on"><a class="m-submenu-item" href="/index.html">Quick Guide</a></li>
+						<li><a class="m-submenu-item" href="/log.html">Log</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="m-menu-item" href="/base.html">Reference</a>
+					<ul class="m-submenu">
+						<li><a class="m-submenu-item" href="/base.html">Base</a></li>
+						<li><a class="m-submenu-item" href="/shape.html">Shape</a></li>
+						<li><a class="m-submenu-item" href="/animation.html">Animation</a></li>
+						<li><a class="m-submenu-item" href="/twinkle.html">Twinkle</a></li>
+						<!-- <li><a class="m-submenu-item" href="/gradient.html">Gradient</a></li> -->
+						<li><a class="m-submenu-item" href="/reset.html">Reset</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="m-submenu-bg"></div>
+</div>
+<script>var pathname=location.pathname;"/"!=pathname&&($(".m-menu li, .m-submenu li").removeClass("on"),$(".m-submenu-item, .m-menu-item").map(function(a,m){var e=$(this);e.attr("href")==pathname&&e.parents("li").addClass("on")}));</script>
+
+<div class="m-sidebar">
+	<h2 class="m-sidebar-title">Base<span>(2017.1.22)</span></h2>
+	<ul class="m-sidebar-list" id="m-sidebar-list">
+		<h4>字体</h4>
+		<li class="current new">.fz</li>
+		<li>.lh</li>
+		<li>.bold</li>
+		<li>.italic</li>
+		<li>.normal</li>
+		<li>.color</li>
+		<li>.tip</li>
+		<h4>文本</h4>
+		<li>.break</li>
+		<li>.nobreak</li>
+		<li>.indent</li>
+		<li class="new">.retext</li>
+		<h4>对齐</h4>
+		<li>.x</li>
+		<li>.y</li>
+		<li>.z</li>
+		<h4>尺寸</h4>
+		<li>.w</li>
+		<li>.h</li>
+		<li>.size</li>
+		<li>.full</li>
+		<li>.half</li>
+		<li>.min-width</li>
+		<li>.min-height</li>
+		<h4>表现</h4>
+		<li>.db</li>
+		<li>.dbi</li>
+		<li>.di</li>
+		<li>.df</li>
+		<li>.dfi</li>
+		<li>.dg</li>
+		<li>.dgi</li>
+		<li>.dgsub</li>
+		<li>.none</li>
+		<li>.hide</li>
+		<li>.show</li>
+		<li>.clip</li>
+		<li>.noclip</li>
+		<h4>布局</h4>
+		<li>.fl</li>
+		<li>.fr</li>
+		<li>.clear</li>
+		<li>.clearfix</li>
+		<li class="new">.flist</li>
+		<li>.iblock</li>
+		<li>.flex</li>
+		<li>.flexs</li>
+		<li>.grid</li>
+		<li>.grids</li>
+		<li>.cols</li>
+		<h4>定位</h4>
+		<li>.ps</li>
+		<li>.pr</li>
+		<li>.pa</li>
+		<li>.pf</li>
+		<li>.po</li>
+		<li>.lt</li>
+		<li>.rt</li>
+		<li>.lb</li>
+		<li>.rb</li>
+		<li>.auto</li>
+		<li>.ct</li>
+		<li>.fixed</li>
+		<li>.hasfixed</li>
+		<h4>图像</h4>
+		<li class="new">.gradient</li>
+		<li>.sprite</li>
+		<h4>效果</h4>
+		<li>.tm</li>
+		<li>.tb</li>
+		<li>.blur</li>
+		<li>.tsfix</li>
+		<h4>其它</h4>
+		<li>.r</li>
+		<li>.pointer</li>
+	</ul>
+</div>
+<div class="m-content" id="m-content-list">
+
+<p class="m-tips">
+	1.[]表示非必须参数<br>
+	2.调用空参数函数时不需要写括号。<br>
+	3.调用函数时，后面的分号不可缺省。<br>
+</p>
+
+<div class="m-content-list-item">
+	<h3><b>.fz</b><span>(@font-size,[@line-height],[@height])</span><i>字体大小、行高、高度</i></h3>
+	<p>定义字体大小与行高和高度。<br>
+	<pre><code class="less">
+		.test{.fz(12px);} 		//font-size:12px;
+		.test{.fz(12px,20px);} 	//font-size:12px;line-height:20px;
+		.test{.fz(12px,20px,40px);} //font-size:12px;line-height:20px;height:40px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.lh</b><span>(@line-height,[@height]:@line-height)</span><i>字体行高与容器高度(相等)</i></h3>
+	<p>定义字体行高与容器高度，常用作高度与行高相等时（列表项较为美观）。行高此处不能定义为乘积因子。<br>
+	<pre><code class="less">
+		.test{.lh(24px);}       //line-height:24px;height:24px; （行高与高度相等）
+		.test{.lh(24px,20px);}      //line-height:24px;height:20px; （高度与行高不相等时，特殊处理时）
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.bold</b><span>([@bold])</span><i>粗体</i></h3>
+	<p>字体表现为粗体。<br>
+	<pre><code class="less">
+		.test{.bold;}       //font-weight:bold;
+		.test{.bold(900);}  //font-weight:900;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.italic</b><span></span><i>斜体</i></h3>
+	<p>字体表现为斜体。<br>
+	<pre><code class="less">
+		.test{.italic;}         //font-style:italic;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.normal</b><span></span><i>正常字体</i></h3>
+	<p>去除从长辈元素继承的粗体与斜体样式。<br>
+	<pre><code class="less">
+		.test{.normal;}         //font-style:normal;font-weight:normal;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.color</b><span>(@color,[@acolor],[@hovercolor])</span><i>字体颜色</i></h3>
+	<p>定义字体，链接颜色，链接悬浮颜色。<br>
+	<pre><code class="less">
+		.test{.color(#0cf);}             //color:#0cf; （自身颜色,可作用与a或非a）
+		.test{.color(#0cf,#f39);}           //color:#0cf;&amp;:hover{color:#f39;} （自身颜色+hover时颜色,主要作用于a）
+		.test{.color(#0cf,#f39,#93f);}    //color:#0cf;a{color:#f39;}a:hover{color:#93f;} （默认文本颜色+链接颜色+链接hover颜色,作用有a标签的元素）
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.tip</b><span>(@font-size,@color,[@text-align:left])</span>/<span>(custom,@property,@value)</span><i>定义placeholder样式</i></h3>
+	<p>设置placeholder占位提醒字符样式。默认函数接受3个传值，分别为字体大小、字体颜色、对齐方式，对齐方式默认为左可缺省。<br>
+	<pre><code class="less">
+		.test{.tip(12px,#999);}         //占位符12px，颜色#999
+		.test{.tip(12px,#999,right);}       //占位符12px，颜色#999，在右侧
+	</code></pre>
+	</p><p>你也可以定义更多需要的属性，此时首参数“custom”是必传的。</p>
+	<pre><code class="less">
+		.test{.tip(custom,font-family,'Verdana');}  //定义占位符使用Verdana字体
+	</code></pre>
+	<p></p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.break</b><span>([]/@lines)</span><i>文本折行或多行省略</i></h3>
+	<p>无参数时，遇到文本溢出容器时，总是进行断词折行；有参数时，当段落文字超出指定行数时，显示为“...”来省略，仅webkit有效，参数传入指定行数。<br>
+	<pre><code class="less">
+		.test{.break;}      //当文本遇到标点符号或长单词在行尾时，依旧断词折行
+		.test{.break(2);}   //当超过2行时，2行末尾处文本显示为“...”来省略
+	</code></pre>
+</p></div>
+<div class="m-content-list-item">
+	<h3><b>.nobreak</b><span>([]/clip/visible)</span><i>禁止文本折行</i></h3>
+	<p>遇到文本溢出容器时，禁止折行。<br>
+	<pre><code class="less">
+		.test{.nobreak;}        //当不传入参数时，相当于ellipsis，溢出文本处由“...”替换
+		.test{.nobreak(clip);}      //当溢出文本，直接对文本进行剪裁
+		.test{.nobreak(visible);}   //总是显示溢出的部分
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.indent</b><span>(@indent)</span><i>文本缩进</i></h3>
+	<p>应用于常见的“以图换字”，可应用于按钮、banner等位置背景图，保留文字作SEO优化，但将文字缩进为不可见，不建议传入过大的值增加移动端重绘能耗。<br>
+	<pre><code class="less">
+		.test{.indent;}             //参数缺省时等价于text-indent:-200%;overflow:hidden;
+		.test{.indent(-500%);}
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.retext</b><span>(x/y)</span><i>文字排版</i></h3>
+	<p>.retext(x)牌匾从右至左水平单行排版效果；.retext(y)文笺从右至左、从上至下排版效果。<br>
+	<pre><code class="less">
+		.test{.retext(x);}      //{direction:rtl;unicode-bidi:bidi-override;}
+		.test{.retext(y);}      //{writing-mode:tb-rl;writing-mode:vertical-rl;}
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.x</b><span>(@text-align)</span><i>水平x轴对齐方式</i></h3>
+	<p>文本对齐方式，对应传入text-align的值，参数缺省时默认值为center。<br>
+	<pre><code class="less">
+		.test{.x;}          //text-align:center;
+		.test{.x(left);}        //text-align:left;
+		.test{.x(right);}       //text-align:right;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.y</b><span>(@vertical-align)</span><i>垂直y轴对齐方式</i></h3>
+	<p>垂直对齐方式，对应传入vertical-align的值，参数缺省时默认值为middle。<br>
+	<pre><code class="less">
+		.test{.y;}          //vertical-align:middle;
+		.test{.y(top);}         //vertical-align:top;
+		.test{.y(-3px);}        //vertical-align:-3px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.z</b><span>(@z-index)</span><i>三维z轴层叠空间</i></h3>
+	<p>纵轴级别值，对应传入z-index的值，参数缺省时默认值为1。<br>
+	<pre><code class="less">
+		.test{.z(100);}         //z-index:100;
+		.test{.z(-1);}      //z-index:-1;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.w</b><span>(@width)</span><i>宽度</i></h3>
+	<p>设置元素宽度。<br>
+	<pre><code class="less">
+		.test{.w(100px);}       //width:100px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.h</b><span>(@height)</span><i>高度</i></h3>
+	<p>设置元素高度。<br>
+	<pre><code class="less">
+		.test{.h(100px);}       //height:100px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.size</b><span>(@width,[@height])</span><i>尺寸</i></h3>
+	<p>设置元素宽度与高度，高度缺省时则与宽度相等。<br>
+	<pre><code class="less">
+		.test{.size(100px);}        //width:100px;height:100px;
+		.test{.size(100px,200px);}  //width:100px;height:200px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.full</b><span>([x]/[y])</span><i>满宽/高</i></h3>
+	<p>设置元素满宽或满高，或二者皆100%。<br>
+	<pre><code class="less">
+		.test{.full;}       //width:100%;height:100%;
+		.test{.full(x);}        //width:100%;
+		.test{.full(y);}        //height:100%;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.half</b><span>([x]/[y])</span><i>半宽/高</i></h3>
+	<p>设置元素满宽或满高，或二者皆100%。<br>
+	<pre><code class="less">
+		.test{.half;}       //width:50%;height:50%;
+		.test{.half(x);}        //width:50%;
+		.test{.half(y);}        //height:50%;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.min-width</b><span>(@min-width)</span><i>最小宽度</i></h3>
+	<p>设置最小宽度。<br>
+	<pre><code class="less">
+		.test{.min-width(200px);}   //min-width:200px;_width:200px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.min-height</b><span>(@min-height)</span><i>最小高度</i></h3>
+	<p>设置最小高度。<br>
+	<pre><code class="less">
+		.test{.min-height(200px);}  //min-height:200px;_height:200px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.db</b><span></span><i>表现为块级元素</i></h3>
+	<p>display:block简写。</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.dbi</b><span></span><i>表现为内联块级元素</i></h3>
+	<p>display:inline-block简写。也可以写作.dib;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.di</b><span></span><i>表现为内联元素</i></h3>
+	<p>display:inline简写。</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.df</b><span></span><i>表现为伸缩盒</i></h3>
+	<p>display:flex简写。</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.dfi</b><span></span><i>表现为内联伸缩盒</i></h3>
+	<p>display:inline-flex简写。</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.dg</b><span></span><i>表现为网格</i></h3>
+	<p>display:grid简写。</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.dgi</b><span></span><i>表现为内联网格</i></h3>
+	<p>display:inline-grid简写。</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.dgsub</b><span></span><i>表现为子网格</i></h3>
+	<p>display:subgrid简写。</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.none</b><span></span><i>元素不可见（移除占位）</i></h3>
+	<p>display:none简写。你也可以直接在元素上添加.none类，达到一致的效果。</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.hide</b><span></span><i>元素隐藏（不移除占位）</i></h3>
+	<p>visibility:hidden简写。</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.show</b><span></span><i>元素显示</i></h3>
+	<p>visibility:visible简写。</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.clip</b><span></span><i>溢出隐藏</i></h3>
+	<p>overflow:hidden;*zoom:1;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.noclip</b><span></span><i>溢出显示</i></h3>
+	<p>overflow:visible;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.fl</b><span></span><i>左浮动</i></h3>
+	<p>ie6-7 双倍margin hack。<br>
+	<pre><code class="less">
+		.test{.fl;}     //float:left;*display:inline;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.fr</b><span></span><i>右浮动</i></h3>
+	<p>ie6-7 双倍margin hack。</p>
+	<pre><code class="less">
+		.test{.fl;}     //float:right;*display:inline;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.clear</b><span>([both]/left/right)</span><i>清除浮动</i></h3>
+	<p>参数缺省时等价于clear:both;</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.clearfix</b><span></span><i>闭合浮动塌陷</i></h3>
+	<p>应用在闭合浮动元素的父级元素上，当浮动元素父级有BFC时无需设置。</p>
+	<pre><code class="less">
+		.test{.clearfix;}   
+		//.test{*zoom:1;}
+		//.test:after{content:"\200B";display:block;height:0;clear:both;}
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.iblock</b><span>([]/@selector)</span><i>inline-block布局替代浮动布局</i></h3>
+	<p>不允许折行，进行容器水平排列，默认函数应用在ul上，子对象为li。也可以传入一个子选择器类。<br>
+	<pre><code class="less">
+		.test{.iblock;}         //ul.test > li 
+		.test{.iblock(loop);}   //ul.test > li.loop
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.flist</b><span>([@inner,@item],@item-width,@item-spacing,@item-count)</span><i>浮动阵列布局</i></h3>
+	<p>假设一个浮动阵列布局的结构为div.$outer > ul.$inner > li.$item，将函数应用于$outer外层元素上，让所有$item全部浮动，并由$inner内层包裹层闭合浮动，且宽度为阵列元素+全部边距，并让$outer外层元素隐藏溢出，即可创建一个完全居中的浮动阵列布局。</p>
+    <p>参数说明：<br>
+        @outer:外层包裹class名,例videobox<br>
+        @inner:内层包裹class名,例videolist<br>
+        @item:循环单元class命,例videoitem<br>
+        @item-width:列表项宽度<br>
+        @item-spacing:列表项间距<br>
+        @item-count:每行数目</p>
+    <p>当不指定内层与单元元素的class名时，默认作为div>ul>li结构处理。如其它情况或元素可指定一个class名。</p>
+	<pre><code class="less">
+		.videobox{
+			.flist(200px,20px,5);
+		}
+		//编译后生成
+		.videobox{
+			//默认遮盖溢出显示
+			.clip;*position:relative;
+			//div宽度等于（列表项宽+列表项间距）×每行项目数 - 列表项间距
+			width:(200px + 20px)*5 - 20px;
+			ul{
+			    //浮动闭合
+			    .clearfix;
+			    margin-right:-20px;
+			    li{
+			        //IE6-7必须控制溢出
+			        *overflow:hidden;
+			        //每个单元浮动
+			        .fl;
+			        //单元宽度与间距
+			        width:200px;
+			        margin-right:20px;
+			    }
+			}   
+		}
+		.imagebox{
+			.flist(gallery,pic,120px,10px,8);
+		}
+		//编译后将上例中的ul替换为.gallery，li替换为.pic。
+	</code></pre>
+	<p></p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.iblock</b><span>([]/@selector)</span><i>inline-block布局替代浮动布局</i></h3>
+	<p>不允许折行，进行容器水平排列，默认函数应用在ul上，子对象为li。也可以传入一个子选择器类。<br>
+	<pre><code class="less">
+		.test{.iblock;}         //ul.test > li 
+		.test{.iblock(loop);}   //ul.test > li.loop
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.cols</b><span>(@width,[@count],[@gap])</span><i>多列</i></h3>
+	<p>快速多列布局，第2和第3个参数非必须<br>
+	<pre><code class="less">
+		.test{.cols(200px,5,20px);}         //固定5列，每列宽度200px,间距20px
+		.test{.cols(200px,3);}          //固定3列，每列200px，宽度使用浏览器默认
+		.test{.cols(200px);}            //固定每列200px，列数浏览器根据容器宽度自动分配
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.ps</b><span></span><i>默认定位</i></h3>
+	<p>position:static;简写<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.pr</b><span></span><i>相对定位</i></h3>
+	<p>position:relative;*zoom:1;简写<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.pa</b><span></span><i>绝对定位</i></h3>
+	<p>position:absolute;简写<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.pf</b><span></span><i>窗口定位</i></h3>
+	<p>position:fixed;简写<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.po</b><span></span><i>复位</i></h3>
+	<p>.ps;margin:0;复位绝对定位发生的位移。<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.lt</b><span>(@l,@t)</span><i>左上角</i></h3>
+	<p>配合定位书写定位的位置，传入两个参数，当第2个参数缺省时，则与第一个参数一致。均为先传入水平方向，后传入垂直方向。<br>
+	<pre><code class="less">
+		.test{.lt(10px,20px);}  //left:10px;top:20px;
+		.test{.lt(15px);}       //left:15px;top:15px;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.rt</b><span>(@r,@t)</span><i>右上角</i></h3>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.lb</b><span>(@l,@b)</span><i>左下角</i></h3>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.rb</b><span>(@r,@b)</span><i>右下角</i></h3>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.auto</b><span>(x)</span><i>居中对齐</i></h3>
+	<p>传入x水平居中对齐
+	<pre><code class="less">
+		.test{.auto(x);}    //margin-left:auto;margin-right:auto; 作用于自身
+	</code></pre>
+	<!-- .test{.auto(y);}   //display:table-cell;vertical-align:middle; 作用于自身内部元素 -->
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.ct</b><span>([]/x,[@width]/y,[@height]/o,@width,@height/m)</span><i>居中对齐</i></h3>
+	<p>传入x水平居中对齐，传入y垂直居中对齐<br>
+	<span class="important">新的ct函数对于传参类型有两点改动：<br>
+	1.不再自动生成尺寸了，考虑到有padding等因素影响，请自行定义尺寸。<br>
+	2.为了兼容旧的代码，当传入没有带单位的值（纯数字时）则自动转换为像素计算。否则直接以当前单位计算。
+	</span>
+	<pre><code class="less">
+		//IE7+，自动膨胀，无需传入元素尺寸
+		.test{.ct;}                 //position:absolute;left:50%;margin-left:负自身一半;
+		.test{.ct(x);}          //水平方向
+		.test{.ct(y);}          //垂直方向
+		//IE6支持，需传入元素尺寸
+		.test{.ct(o,220px,110px);}  //居中，高度不传值时则等于宽度
+		.test{.ct(x,220px);}        //水平居中
+		.test{.ct(y,110px);}        //垂直居中
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.fixed</b><span>(@direction,@x,@y)/(o,@width,@height)</span><i>窗口定位（含IE6兼容）</i></h3>
+	<p>参数先水平，后垂直，第一个参数必须传入方位，当为正中间时则传入o，并传入元素的宽高。（是否传入单位均可，但都会转化为像素）
+	<pre><code class="less">
+		.test{.fixed(lt,10px,20px);}        //窗口定位左上角，距左10px，距上20px
+		.test{.fixed(o,400px,300px);}   //窗口正中间
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.hasfixed</b><span></span><i>页面有固定定位时</i></h3>
+	<p>当页面有固定定位元素时，在less顶级运行该函数，防止滚动闪动，比如目前的公共头（公共头中已经设置，相关页面无需再设置）<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.gradient</b><span>([l/r/t/b/o],@color-start,@color-stop)</span><i>渐变</i></h3>
+	<p>简单快速地生成一个双色渐变，l渐变从右至左，r渐变从左至右，t渐变从下至上，b渐变从上至下，o渐变从中心至外圈<br>
+	<pre><code class="less">
+		.test{.gradient(r,#fff,#000);}      //生成一个水平从左向右的从白色过渡到黑色的渐变图像
+		.test{.gradient(o,#fff,#000);}      //生成一个径向从内向外的从白色过渡到黑色的渐变图像
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.sprite</b><span>(@n,@unit-width)</span><i>雪碧图</i></h3>
+	<p>快速生成雪碧图位置。雪碧图不宜过大，建议将相关的放置在一起即可。<br>
+	雪碧图制图时请使用横向阵列，此函数仅用于等宽子图时情景。<br>
+	参数说明：第一个参数传入所含子元素个数，第二个参数传入每个子元素的宽度。<br>
+	当不传入第3个参数时默认指定class为sprite-n，否则为classname-n。</p>
+	<pre><code class="less">
+		//假设html部分如下
+		ul.test > (li.sprite-$)*12
+		//使用方法：定义公共雪碧图,公共class,调用函数
+		.test{
+			li{background:url('@{__img}sprite.png') no-repeat;}
+			.sprite(12,65px); //不指定class
+			.sprite(12,65px,unit); //指定class
+		}       
+		//生成内容：
+		.test{
+			//不指定class时
+			.sprite-1{background-position:0 0;}
+			.sprite-2{background-position:-65px 0;}
+			...
+			//指定class时
+			.unit-1{background-position:0 0;}
+			.unit-2{background-position:-65px 0;}
+			...
+		}   
+	</code></pre>
+	<h4>效果演示</h4>
+	<div class="sprite-test">
+		<ul>
+			<li class="sprite sprite-1"></li>
+			<li class="sprite sprite-2"></li>
+			<li class="sprite sprite-3"></li>
+			<li class="sprite sprite-4"></li>
+			<li class="sprite sprite-5"></li>
+			<li class="sprite sprite-6"></li>
+			<li class="sprite sprite-7"></li>
+			<li class="sprite sprite-8"></li>
+			<li class="sprite sprite-9"></li>
+			<li class="sprite sprite-10"></li>
+			<li class="sprite sprite-11"></li>
+			<li class="sprite sprite-12"></li>
+		</ul>
+	</div>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.tm</b><span>(@alpha)</span><i>透明度</i></h3>
+	<p>元素透明度，子元素均会受影响，取值0-1.<br>
+	<pre><code class="less">
+		.test{.tm(0.5);}            //opacity:0.5;filter:alpha(opacity=50);
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.tb</b><span>(@r,@g,@b,@alpha)</span><i>半透明背景</i></h3>
+	<p>带aplha通道的颜色，此处函数只是应用于背景，快速书写半透明背景等，即属性是被指定的，传入参数rgb三通道数值与0-1取值的透明度。<br>
+	1.注意：如果有background简写，它应该要写在简写之后。<br>
+	2.IE6默认兼容的是纯色，如需要更换替代色，请复写。<br>
+	<span class="important">注意移除IE9的filter，防止IE9滤镜重叠导致的加深效果。</span>
+	<pre><code class="less">
+		.test{.tb(0,0,0,0.5);}      //50%透明度的黑色背景，IE6表现为纯黑色
+		//background-color:rgba(0,0,0,0.5);
+		//filter:~"progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr=#80000000, endColorstr=#80000000) \9";
+		//_background-color:rgb(0,0,0);
+	</code></pre>
+	</p>
+</div>
+<!-- <div class="m-content-list-item">
+	<h3><b>.ts</b><span>(@width,[@setcolor])</span><i>透明边框</i></h3>
+	<p>慎用！首参数传入边框宽度，默认设置为镂空#333300，如需要可以手动传入。<br>
+	<pre><code class="less">
+		.test{.ts(3px);}            //3px透明边框（如不需要考虑IE6时，请勿使用）
+	</code></pre>
+	</p>
+</div> -->
+<!-- <div class="m-content-list-item">
+	<h3><b>.tmpng</b><span>(@url)</span><i>透明PNG图</i></h3>
+	<p>慎用！<br>
+	1.只能用于背景图，且不能为雪碧图，且不支持fix状态。<br>
+	2.需要使用相对html文档的相对路径或绝对路径。<br>
+	3.本地图片路径应撰写。此处函数仅是做filter处理。<br>
+	<span class="important">芒果TV项目中请总是额外做一张图，使用_background来引入<br>
+	1.当图片是纯透明时，图片命名test-png8.png；<br>
+	2.当图片是半透明时，图片命名test-ie6.png，背景色取实际叠加后相近实色；<br>
+	3.当两者都不适用时，直接设置为无背景图。</span>
+	</p>
+</div> -->
+<div class="m-content-list-item">
+	<h3><b>.blur</b><span>(@blur)</span><i>模糊滤镜</i></h3>
+	<p>传入模糊半径</p>
+	<pre><code class="less">
+		.test{.blur(5px);}      //filter:blur(5px);filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='5px');*zoom: 1;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.tsfix</b><span></span><i>三维闪动bug处理</i></h3>
+	<pre><code class="less">
+		.test{.tsfix;}      //-webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.r</b><span>(@radius)</span><i>圆角</i></h3>
+	<pre><code class="less">
+		.test{.r(5px);}         //border-radius:5px;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.pointer</b><span></span><i>手形指针</i></h3>
+	<p>cursor:pointer;简写</p>
+</div>
+
+</div>
+</body>
+</html>
