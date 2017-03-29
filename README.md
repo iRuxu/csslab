@@ -2,37 +2,16 @@
 ###### Homepage: <http://csslab.cc>
 
 ## 目录
-+ [快速开始](#get-started)
 + [简介说明](#intro)
++ [使用指南](#get-started)
 + [参考文档](#documentation)
 + [其它链接](#contribute)
 
-## <a name="get-started"></a> Get Started
-### 支持环境
-##### *LESS/SASS*
-安装nodejs，并使用npm安装less或sass，也可以使用[koala](http://koala-app.com/index-zh.html)等可视化编译器。
-
-##### *Autoprefixer*
-同时建议安装autoprefixer插件，通过插件指定浏览器前缀版本。
-
-### 引入模块
-##### *单独引入指定子函数库*
-```less
-@import url('base.less');
-@import url('animation.less');
-```
-
-##### *全部引入（不包含reset）*
-```less
-@import url('csslab.less');
-```
-
-> 芒果tv silky ver0.3+版本可以直接使用，在.silky文件中进行配置全局加载的模块（默认除reset外将会全部启用），在silky旧版本中需要将内网csslab项目作为git submodule引入。
-
-## <a name="intro"></a> Introduction
+## <a name="intro"></a> 简介说明
 csslab是一个动态css依赖库，支持less和sass两个版本。它由一些less/sass自定义函数组成，可快速书写一些常用的css片段并自动进行计算，同时提供一些IE6/7兼容hack和简写，以便能更快捷高效地完成网页重构工作。
+>csslab，原名Lesslab，是[芒果TV](http://www.mgtv.com) PC Web前端公共库1.0中的一部分，目前它独立作为一个项目在进行。
 
-#### 常见片段
+##### Example.1 常见片段
 例如，常见的让文本禁止换行，溢出的部分处理为显示“...”：
 ```less
 .textline{
@@ -49,7 +28,7 @@ csslab是一个动态css依赖库，支持less和sass两个版本。它由一些
 }
 ```
 
-#### 自动计算
+##### Example.2 自动计算
 例如，让一个已知尺寸的元素总是自动绝对居中定位：
 ```less
 .fixwindow{
@@ -69,7 +48,7 @@ csslab是一个动态css依赖库，支持less和sass两个版本。它由一些
 }
 ```
 
-#### 动画调用
+##### Example.3 动画调用
 传入参数指定动画的时间，并且只有调用该动画时生成对应keyframes，不会因需使用动画库中一个定义帧而要引入全部内容或繁琐地剪切粘贴：
 ```less
 .animate-element{
@@ -107,18 +86,54 @@ csslab是一个动态css依赖库，支持less和sass两个版本。它由一些
 }
 ```
 
->csslab，原名Lesslab，是[芒果TV](http://www.mgtv.com) PC Web前端公共库1.0中的一部分，目前它独立作为一个项目在进行。
 
-## <a name="documentation"></a> Documentation
-+ [base](http://csslab.cc/base.html) - 基础函数库，常用的IE6-IE8各类HACK，快捷书写函数
-+ [shape](http://csslab.cc/shape.html) - 使用CSS绘制常用的图形
-+ [animation](http://csslab.cc/animation.html) - 基础动画库，提供常见的动画
-+ [twinkle](http://csslab.cc/twinkle.html) - 扩展动画库
-+ [reset](http://csslab.cc/reset.html) - 浏览器样式重置
+## <a name="get-started"></a> 使用指南
+##### Step.1 安装支持环境
++ *LESS/SASS*
+安装nodejs，并使用npm安装less或sass，也可以使用[koala](http://koala-app.com/index-zh.html)等可视化编译器。
 
-## <a name="contribute"></a> Contribute
-+ CSS笔记 - http://iruxu.com/notebook
-+ LESS中文手册 http://less.bootcss.com/features/
-+ SASS中文手册 http://sass.bootcss.com/docs/sass-reference/
-+ Koala，一款方便的可视化前端编译器 http://koala-app.com/index-zh.html
-+ Silky，芒果TV使用的前端开发集成工具 http://silky.wvv8oo.com
++ *Autoprefixer*
+同时建议安装autoprefixer插件，通过插件指定浏览器前缀版本。
+
+##### Step.2 引入文件
++ 通用环境
+直接下载至工作目录，通过正确的路径引入。
+```less
+//单独引入指定子函数库
+@import url('base.less');
+@import url('animation.less');
+```
+
++ Silky环境 *(芒果TV)*
+首先使用silky命令进行安装 **_silky install csslab_**
+```less
+//在某个文件中引入某个库
+@import url('@{csslab}/base.less');
+
+//默认作为整个项目所有less文件的支持函数库
+在package.json中配置 
+"sp-less": {
+  "global": ["csslab"]
+}
+```
+
+## <a name="documentation"></a> 参考文档
++ *[base](http://csslab.cc/base.html)* 
+基础函数库，常用的IE6-IE8各类HACK，快捷书写函数
++ *[shape](http://csslab.cc/shape.html)* 
+使用CSS绘制常用的图形
++ *[animation](http://csslab.cc/animation.html)* 
+基础动画库，提供常见的动画
++ *[twinkle](http://csslab.cc/twinkle.html)* 
+扩展动画库
++ *[reset](http://csslab.cc/reset.html)* 
+浏览器样式重置
++ *base-fix* 
+旧版base废弃函数（芒果TV）
+
+## <a name="contribute"></a> 其它链接
++ *[CSS笔记](http://iruxu.com/notebook)*
++ *[LESS中文手册](http://less.bootcss.com/features/)*
++ *[SASS中文手册](http://sass.bootcss.com/docs/sass-reference/)*
++ *[Koala](http://koala-app.com/index-zh.html)* （一款方便的可视化前端编译器）
++ *[Silky](http://silky.wvv8oo.com)* （芒果TV使用的前端开发集成工具）
