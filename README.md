@@ -97,6 +97,7 @@ csslab是一个动态css依赖库，支持less和sass两个版本。它由一些
 
 ##### Step.2 引入文件
 + 通用环境
+
 直接下载至工作目录，通过正确的路径引入。
 ```less
 //单独引入指定子函数库
@@ -105,15 +106,19 @@ csslab是一个动态css依赖库，支持less和sass两个版本。它由一些
 ```
 
 + Silky环境 *(芒果TV)*
-首先使用silky命令进行安装 **_silky install csslab_**
+
+使用silky命令进行安装 **_silky install csslab_**。
+或直接在项目配置文件中package.json中devDependencies添加键与版本号，使用silky install安装。（如需更新至新版，更新对应版本号重新执行silky install命令即可。）
 ```less
 //在某个文件中引入某个库
 @import url('@{csslab}/base.less');
 
-//默认作为整个项目所有less文件的支持函数库
-在package.json中配置 
+//默认作为整个项目所有less文件的支持函数库，在package.json中配置 
 "sp-less": {
-  "global": ["csslab"]
+  "global": [
+    "csslab",
+    "csslab/base.less"
+  ]
 }
 ```
 
