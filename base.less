@@ -237,8 +237,7 @@
         ul{
             //浮动闭合
             .clearfix;
-            //ul宽度等于（列表项宽+列表项间距）×每行项目数
-            width:(@item-width + @item-spacing)*@item-count;
+            margin-right:-@item-spacing;
             li{
                 //IE6-7必须控制溢出
                 *overflow:hidden;
@@ -258,15 +257,14 @@
         .@{inner}{
             //浮动闭合
             .clearfix;
-            //ul宽度等于（列表项宽+列表项间距）×每行项目数
-            width:(@item-width + @item-spacing)*@item-count;
+            margin-right:-@item-spacing;
             .@{item}{
                 //IE6-7必须控制溢出
                 *overflow:hidden;
                 //每个单元浮动
                 .fl;
                 //单元宽度与间距
-                width:@item-width - @item-padding - @item-border;
+                width:@item-width;
                 margin-right:@item-spacing;
             }
         }   
