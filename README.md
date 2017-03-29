@@ -120,6 +120,7 @@ csslab是一个动态css依赖库，支持less和sass两个版本。它由一些
     "csslab/base.less"
   ]
 }
+//如仍需使用旧的base函数请添加"csslab/base-fix.less"
 ```
 
 ## <a name="documentation"></a> 参考文档
