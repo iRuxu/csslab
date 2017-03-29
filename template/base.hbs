@@ -166,7 +166,7 @@
 </div>
 <div class="m-content-list-item">
 	<h3><b>.nobreak</b><span>([]/clip/visible)</span><i>禁止文本折行</i></h3>
-	<p>遇到文本溢出容器时，禁止折行。可直接作为class用于元素。<br>
+	<p>遇到文本溢出容器时，禁止折行。<br>
 	<pre><code class="less">
 		.test{.nobreak;}        //当不传入参数时，相当于ellipsis，溢出文本处由“...”替换
 		.test{.nobreak(clip);}      //当溢出文本，直接对文本进行剪裁
@@ -248,7 +248,7 @@
 </div>
 <div class="m-content-list-item">
 	<h3><b>.full</b><span>([x]/[y])</span><i>满宽/高</i></h3>
-	<p>设置元素满宽或满高，或二者皆100%。可直接作用于元素class。<br>
+	<p>设置元素满宽或满高，或二者皆100%。<br>
 	<pre><code class="less">
 		.test{.full;}       //width:100%;height:100%;
 		.test{.full(x);}        //width:100%;
@@ -336,7 +336,7 @@
 </div>
 <div class="m-content-list-item">
 	<h3><b>.fl</b><span></span><i>左浮动</i></h3>
-	<p>ie6-7 双倍margin hack，可直接作为class使用。<br>
+	<p>ie6-7 双倍margin hack。<br>
 	<pre><code class="less">
 		.test{.fl;}     //float:left;*display:inline;
 	</code></pre>
@@ -344,7 +344,7 @@
 </div>
 <div class="m-content-list-item">
 	<h3><b>.fr</b><span></span><i>右浮动</i></h3>
-	<p>ie6-7 双倍margin hack，可直接作为class使用。</p>
+	<p>ie6-7 双倍margin hack。</p>
 	<pre><code class="less">
 		.test{.fl;}     //float:right;*display:inline;
 	</code></pre>
@@ -355,7 +355,7 @@
 </div>
 <div class="m-content-list-item">
 	<h3><b>.clearfix</b><span></span><i>闭合浮动塌陷</i></h3>
-	<p>应用在闭合浮动元素的父级元素上，当浮动元素父级有BFC时无需设置。可直接作为class使用。</p>
+	<p>应用在闭合浮动元素的父级元素上，当浮动元素父级有BFC时无需设置。</p>
 	<pre><code class="less">
 		.test{.clearfix;}   
 		//.test{*zoom:1;}
@@ -395,8 +395,7 @@
 			ul{
 			    //浮动闭合
 			    .clearfix;
-			    //ul宽度等于（列表项宽+列表项间距）×每行项目数
-			    width:(200px + 20px)*5;
+			    margin-right:-20px;
 			    li{
 			        //IE6-7必须控制溢出
 			        *overflow:hidden;
