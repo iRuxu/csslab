@@ -488,12 +488,39 @@
         *zoom: 1;
     }
 
+    /*-------------------------------------
+    ├   Transform                          ┆
+    └------------------------------------*/
+
     //三维闪动bug处理
     .tsfix(){
         -webkit-backface-visibility:hidden;
         -webkit-transform-style:preserve-3d;
     }
 
+    /*-------------------------------------
+    ├   Animation                          ┆
+    └------------------------------------*/
+
+    //动画
+    .ani(@name,@time:1s,@ease:ease-in-out,@fillmode:forwards) when (iskeyword(@name)){
+        animation-name:@name;
+        animation-duration:@time;
+        animation-timing-function:@ease;
+        animation-fill-mode:@fillmode;
+    }
+    .ani(@time:1s,@ease:ease-in-out,@fillmode:forwards) when (iskeyword(@time) = false){
+        animation-duration:@time;
+        animation-timing-function:@ease;
+        animation-fill-mode:@fillmode;
+    }
+    .ani-repeat(@count:infinite){
+        animation-iteration-count:@count;
+    }
+
+    .ani-delay(@delay:0){
+        animation-delay:@delay;
+    }
 
     /*-------------------------------------
     ├   Other                              ┆
