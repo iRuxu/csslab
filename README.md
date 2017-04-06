@@ -8,7 +8,7 @@
 + [其它链接](#contribute)
 
 ## <a name="intro"></a> 简介说明
-csslab是一个动态css依赖库，支持less和sass两个版本。它由一些less/sass自定义函数组成，可快速书写一些常用的css片段并自动进行计算，同时提供一些IE6/7兼容hack和简写，以便能更快捷高效地完成网页重构工作。
+csslab是一个动态css依赖库，它由一些less自定义函数组成，可快速书写一些常用的css片段并自动进行计算，同时提供一些IE6/7兼容hack和简写，以便能更快捷高效地完成网页重构工作。
 >csslab，原名Lesslab，是[芒果TV](http://www.mgtv.com) PC Web前端公共库1.0中的一部分，目前它独立作为一个项目在进行。
 
 ##### Example.1 常见片段
@@ -55,19 +55,28 @@ csslab是一个动态css依赖库，支持less和sass两个版本。它由一些
     .fadeIn(2s);
 }
 //编译后输出为
-@keyframes fadeIn{
-    0%{opacity:0;}
-    100%{opacity:1;}
-}
+//94900655为随机数
 .animate-element{
-    animation-name:fadeIn;
-    animation-duration:2s;
-    animation-timing-function:ease-out;
-    animation-fill-mode:backwards;
+  -webkit-animation-name: fadeIn_94900655;
+          animation-name: fadeIn_94900655;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+@keyframes fadeIn_94900655 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 ```
 
-绝大多数功能均以函数存在（除个别说明可直接作为class使用外，详见对应手册条目），不调用该函数时，其它内容不会被编译输出在最终css文件中，能有效减少冗余代码加载。
+所有定义均以函数存在，不调用该函数时，其它内容不会被编译输出在最终css文件中，能有效减少冗余代码加载。
 当多个类需要使用同一个函数组时，可以局部定义一个临时类，其它类继承该类即可。
 ```less
 .tempClass{
@@ -89,8 +98,8 @@ csslab是一个动态css依赖库，支持less和sass两个版本。它由一些
 
 ## <a name="get-started"></a> 使用指南
 ##### Step.1 安装支持环境
-+ *LESS/SASS*
-安装nodejs，并使用npm安装less或sass，也可以使用[koala](http://koala-app.com/index-zh.html)等可视化编译器。
++ *LESS*
+安装nodejs，并使用npm安装less，也可以使用[koala](http://koala-app.com/index-zh.html)等可视化编译器。
 
 + *Autoprefixer*
 同时建议安装autoprefixer插件，通过插件指定浏览器前缀版本。
@@ -134,6 +143,5 @@ csslab是一个动态css依赖库，支持less和sass两个版本。它由一些
 ## <a name="contribute"></a> 其它链接
 + *[CSS笔记](http://iruxu.com/notebook)*
 + *[LESS中文手册](http://less.bootcss.com/features/)*
-+ *[SASS中文手册](http://sass.bootcss.com/docs/sass-reference/)*
 + *[Koala](http://koala-app.com/index-zh.html)* （一款方便的可视化前端编译器）
 + *[Silky](http://silky.wvv8oo.com)* （芒果TV使用的前端开发集成工具）
