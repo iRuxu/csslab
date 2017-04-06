@@ -10,11 +10,12 @@
 
 //位移
 	.goTop(@time:1s,@position:-100%){
-		@keyframes goTop{
+		@random_suffix:`"goTop_" + Math.round(Math.random() * 1.0e8)`;
+		@keyframes @random_suffix{
 		    from{transform:translateY(0);}
 		    to{transform:translateY(@position);}
 		}
-		animation-name:goTop;
+		animation-name:@random_suffix;
 		animation-duration:@time;
 		animation-timing-function:ease-out;
 		animation-fill-mode:forwards;
