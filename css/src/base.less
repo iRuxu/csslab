@@ -124,7 +124,7 @@
         overflow:hidden;
     }
     //文本不折行处理（可应用在inline-block水平排列）
-    .nobreak{
+    .nobreak(){
         white-space:nowrap;
         word-wrap:normal;
         word-break:keep-all;
@@ -166,12 +166,12 @@
     .size(@width,@height:@width){width:@width;height:@height;}
 
     //满容器
-    .full{width:100%;height:100%;}
+    .full(){width:100%;height:100%;}
     .full(x){width:100%;}
     .full(y){height:100%;}
 
     //一半容器
-    .half{width:50%;height:50%;} 
+    .half(){width:50%;height:50%;} 
     .half(x){width:50%;}
     .half(y){height:50%;}
 
@@ -195,7 +195,7 @@
     .dgsub(){display:subgrid;}
 
     //隐藏简写
-    .none{display:none;}
+    .none(){display:none;}
     .hide(){visibility:hidden;}
     .show(){visibility:visible;}
 
@@ -208,9 +208,9 @@
     └------------------------------------*/
 
     //浮动
-    .fl{float:left;*display:inline;}      //IE6-7双倍margin bug处理
-    .fr{float:right;*display:inline;}
-    .clearfix{                            //清除浮动塌陷
+    .fl(){float:left;*display:inline;}      //IE6-7双倍margin bug处理
+    .fr(){float:right;*display:inline;}
+    .clearfix(){                            //清除浮动塌陷
         *zoom:1;
         &:after{content:"\200B";display:block;height:0;clear:both;}
     }
@@ -237,8 +237,7 @@
         ul{
             //浮动闭合
             .clearfix;
-            //ul宽度等于（列表项宽+列表项间距）×每行项目数
-            width:(@item-width + @item-spacing)*@item-count;
+            margin-right:-@item-spacing;
             li{
                 //IE6-7必须控制溢出
                 *overflow:hidden;
@@ -258,15 +257,14 @@
         .@{inner}{
             //浮动闭合
             .clearfix;
-            //ul宽度等于（列表项宽+列表项间距）×每行项目数
-            width:(@item-width + @item-spacing)*@item-count;
+            margin-right:-@item-spacing;
             .@{item}{
                 //IE6-7必须控制溢出
                 *overflow:hidden;
                 //每个单元浮动
                 .fl;
                 //单元宽度与间距
-                width:@item-width - @item-padding - @item-border;
+                width:@item-width;
                 margin-right:@item-spacing;
             }
         }   
@@ -490,12 +488,39 @@
         *zoom: 1;
     }
 
+    /*-------------------------------------
+    ├   Transform                          ┆
+    └------------------------------------*/
+
     //三维闪动bug处理
-    .tsfix{
+    .tsfix(){
         -webkit-backface-visibility:hidden;
         -webkit-transform-style:preserve-3d;
     }
 
+    /*-------------------------------------
+    ├   Animation                          ┆
+    └------------------------------------*/
+
+    //动画
+    .ani(@name,@time:1s,@ease:ease-in-out,@fillmode:forwards) when (iskeyword(@name)){
+        animation-name:@name;
+        animation-duration:@time;
+        animation-timing-function:@ease;
+        animation-fill-mode:@fillmode;
+    }
+    .ani(@time:1s,@ease:ease-in-out,@fillmode:forwards) when (iskeyword(@time) = false){
+        animation-duration:@time;
+        animation-timing-function:@ease;
+        animation-fill-mode:@fillmode;
+    }
+    .ani-repeat(@count:infinite){
+        animation-iteration-count:@count;
+    }
+
+    .ani-delay(@delay:0){
+        animation-delay:@delay;
+    }
 
     /*-------------------------------------
     ├   Other                              ┆

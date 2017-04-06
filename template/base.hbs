@@ -1,7 +1,7 @@
 {{import "module/head"}}
 {{import "module/header"}}
 <div class="m-sidebar">
-	<h2 class="m-sidebar-title">Base<span>(2017.1.22)</span></h2>
+	<h2 class="m-sidebar-title">Base<span>(2017.4.7)</span></h2>
 	<ul class="m-sidebar-list" id="m-sidebar-list">
 		<h4>字体</h4>
 		<li class="current new">.fz</li>
@@ -76,6 +76,10 @@
 		<li>.tb</li>
 		<li>.blur</li>
 		<li>.tsfix</li>
+		<h4>动画</h4>
+		<li class="new">.ani</li>
+		<li class="new">.ani-repeat</li>
+		<li class="new">.ani-delay</li>
 		<h4>其它</h4>
 		<li>.r</li>
 		<li>.pointer</li>
@@ -625,6 +629,26 @@
 	<h3><b>.tsfix</b><span></span><i>三维闪动bug处理</i></h3>
 	<pre><code class="less">
 		.test{.tsfix;}      //-webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.ani</b><span>([@name],@time:1s,@ease:ease-in-out,@fillmode:forwards)</span><i>动画</i></h3>
+	<pre><code class="less">
+		.test{.ani(goTop,1s);}   //指定一个动画;
+		.test{.ani(2s);}         //不指定动画，参数缺省时使用默认值;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.ani-repeat</b><span>(@count:infinite)</span><i>动画循环</i></h3>
+	<pre><code class="less">
+		.test{.ani-repeat(2);}         //重复两次
+		.test{.ani-repeat(infinite);}  //无限循环动画
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.ani-delay</b><span>(@delay:0)</span><i>动画延迟</i></h3>
+	<pre><code class="less">
+		.test{.ani-delay(1.2s);}         //延迟1.2s播放
 	</code></pre>
 </div>
 <div class="m-content-list-item">
