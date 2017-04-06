@@ -3,161 +3,205 @@
  * Version: 2.0
  * Author: iRuxu
  * Creat: 2014/11/15
- * Update: 2017/02/02
+ * Update: 2017/04/07
  * Description: Base animate
  * Manual: http://csslab.cc
  */
 
 //位移
-	.goTop(@time:1s,@position:-100%){
-		@random_suffix:`"goTop_" + Math.round(Math.random() * 1.0e8)`;
-		@keyframes @random_suffix{
+	.goTop(@time:1s,@position:-100%,@ease:ease-out,@fillmode:forwards){
+		.goTopKeyframe(~`'goTop_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.goTopKeyframe(@name){
+		@keyframes @name{
 		    from{transform:translateY(0);}
 		    to{transform:translateY(@position);}
 		}
-		animation-name:@random_suffix;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.goBottom(@time:1s,@position:100%){
-		@keyframes goBottom{
+	.goBottom(@time:1s,@position:100%,@ease:ease-out,@fillmode:forwards){
+		.goBottomKeyframe(~`'goBottom_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.goBottomKeyframe(@name){
+		@keyframes @name{
 		    from{transform:translateY(0);}
 		    to{transform:translateY(@position);}
 		}
-		animation-name:goBottom;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.goLeft(@time:1s,@position:-100%){
-		@keyframes goLeft{
+	.goLeft(@time:1s,@position:-100%,@ease:ease-out,@fillmode:forwards){
+		.goLeftKeyframe(~`'goLeft_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.goLeftKeyframe(@name){
+		@keyframes @name{
 		    from{transform:translateX(0);}
 		    to{transform:translateX(@position);}
 		}
-		animation-name:goLeft;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.goRight(@time:1s,@position:100%){
-		@keyframes goRight{
+	.goRight(@time:1s,@position:100%,@ease:ease-out,@fillmode:forwards){
+		.goRightKeyframe(~`'goRight_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.goRightKeyframe(@name){
+		@keyframes @name{
 		    from{transform:translateX(0);}
 		    to{transform:translateX(@position);}
 		}
-		animation-name:goRight;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
 
 //淡入
-	.fadeIn(@time:1s){
-		@keyframes fadeIn{
+	.fadeIn(@time:1s,@ease:ease-out,@fillmode:backwards){
+		.fadeInKeyframe(~`'fadeIn_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.fadeInKeyframe(@name){
+		@keyframes @name{
 		    0%{opacity:0;}
 		    100%{opacity:1;}
 		}
-		animation-name:fadeIn;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:backwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.fadeInTop(@time:1s){
-		@keyframes fadeInTop{
+	.fadeInTop(@time:1s,@ease:ease-out,@fillmode:backwards){
+		.fadeInTopKeyframe(~`'fadeInTop_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.fadeInTopKeyframe(@name){
+		@keyframes @name{
 		    0%{opacity:0;transform:translateY(-100%);}
 	    	100%{opacity:1;transform:translateY(0);}
 		}
-		animation-name:fadeInTop;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:backwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.fadeInBottom(@time:1s){
-		@keyframes fadeInBottom{
+	.fadeInBottom(@time:1s,@ease:ease-out,@fillmode:backwards){
+		.fadeInBottomKeyframe(~`'fadeInBottom_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.fadeInBottomKeyframe(@name){
+		@keyframes @name{
 		    0%{opacity:0;transform:translateY(100%);}
 	    	100%{opacity:1;transform:translateY(0);}
 		}
-		animation-name:fadeInBottom;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:backwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.fadeInLeft(@time:1s){
-		@keyframes fadeInLeft{
+	.fadeInLeft(@time:1s,@ease:ease-out,@fillmode:backwards){
+		.fadeInLeftKeyframe(~`'fadeInLeft_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.fadeInLeftKeyframe(@name){
+		@keyframes @name{
 		    0%{opacity:0;transform:translateX(-100%);}
 	    	100%{opacity:1;transform:translateX(0);}
 		}
-		animation-name:fadeInLeft;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:backwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.fadeInRight(@time:1s){
-		@keyframes fadeInRight{
+	.fadeInRight(@time:1s,@ease:ease-out,@fillmode:backwards){
+		.fadeInRightKeyframe(~`'fadeInRight_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.fadeInRightKeyframe(@name){
+		@keyframes @name{
 		    0%{opacity:0;transform:translateX(100%);}
 	    	100%{opacity:1;transform:translateX(0);}
 		}
-		animation-name:fadeInRight;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:backwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
 
 //淡出
-	.fadeOut(@time:1s){
-		@keyframes fadeOut{
+	.fadeOut(@time:1s,@ease:ease-out,@fillmode:forwards){
+		.fadeOutKeyframe(~`'fadeOut_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.fadeOutKeyframe(@name){
+		@keyframes @name{
 		    0%{opacity:1;}
 		    100%{opacity:0;}
 		}
-		animation-name:fadeOut;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.fadeOutTop(@time:1s){
-		@keyframes fadeOutTop{
+	.fadeOutTop(@time:1s,@ease:ease-out,@fillmode:forwards){
+		.fadeOutTopKeyframe(~`'fadeOutTop_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.fadeOutTopKeyframe(@name){
+		@keyframes @name{
 		    0%{opacity:1;transform:translateY(0);}
 	    	100%{opacity:0;transform:translateY(-100%);}
 		}
-		animation-name:fadeOutTop;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.fadeOutBottom(@time:1s){
-		@keyframes fadeOutBottom{
+	.fadeOutBottom(@time:1s,@ease:ease-out,@fillmode:forwards){
+		.fadeOutBottomKeyframe(~`'fadeOutBottom_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.fadeOutBottomKeyframe(@name){
+		@keyframes @name{
 		    0%{opacity:1;transform:translateY(0);}
 	    	100%{opacity:0;transform:translateY(100%);}
 		}
-		animation-name:fadeOutBottom;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.fadeOutLeft(@time:1s){
-		@keyframes fadeOutLeft{
+	.fadeOutLeft(@time:1s,@ease:ease-out,@fillmode:forwards){
+		.fadeOutLeftKeyframe(~`'fadeOutLeft_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.fadeOutLeftKeyframe(@name){
+		@keyframes @name{
 		    0%{opacity:1;transform:translateX(0);}
 	    	100%{opacity:0;transform:translateX(-100%);}
 		}
-		animation-name:fadeOutLeft;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.fadeOutRight(@time:1s){
-		@keyframes fadeOutRight{
+	.fadeOutRight(@time:1s,@ease:ease-out,@fillmode:forwards){
+		.fadeOutRightKeyframe(~`'fadeOutRight_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.fadeOutRightKeyframe(@name){
+		@keyframes @name{
 		    0%{opacity:1;transform:translateX(0);}
 	    	100%{opacity:0;transform:translateX(100%);}
 		}
-		animation-name:fadeOutRight;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
 
 //舞台
-	.lightSpeedIn(@time:1s,@offset:100%){
-		@keyframes lightSpeedIn {
+	.lightSpeedIn(@time:1s,@offset:100%,@ease:ease-out,@fillmode:both){
+		.lightSpeedInKeyframe(~`'lightSpeedIn_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.lightSpeedInKeyframe(@name){
+		@keyframes @name {
 		  from {
 		    transform: translate3d(@offset, 0, 0) skewX(-30deg);
 		    opacity: 0;
@@ -178,14 +222,17 @@
 		    opacity: 1;
 		  }
 		}
-		animation-name:lightSpeedIn;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:both;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-
-	.lightSpeedOut(@time:1s,@offset:100%){
-		@keyframes lightSpeedOut {
+	
+	.lightSpeedOut(@time:1s,@offset:100%,@ease:ease-out,@fillmode:both){
+		.lightSpeedOutKeyframe(~`'lightSpeedOut_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.lightSpeedOutKeyframe(@name){
+		@keyframes @name {
 		  from {
 		    opacity: 1;
 		  }
@@ -195,66 +242,82 @@
 		    opacity: 0;
 		  }
 		}
-		animation-name:lightSpeedOut;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-out;
-		animation-fill-mode:both;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
 	
 //尺寸
-	.widthTo(@time:1s,@from:0,@to:100%){
-		@keyframes widthTo{
+	.widthTo(@time:1s,@from:0,@to:100%,@ease:ease,@fillmode:forwards){
+		.widthToKeyframe(~`'widthTo_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.widthToKeyframe(@name){
+		@keyframes @name{
 		    from{width:@from;}
 		    to{width:@to;}
 		}
-		animation-name:widthTo;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
 
-	.heightTo(@time:1s,@from:0,@to:100%){
-		@keyframes heightTo{
+	.heightTo(@time:1s,@from:0,@to:100%,@ease:ease,@fillmode:forwards){
+		.heightToKeyframe(~`'heightTo_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.heightToKeyframe(@name){
+		@keyframes @name{
 		    from{height:@from;}
 		    to{height:@to;}
 		}
-		animation-name:heightTo;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
 
 //缩放
-	.zoomTo(@time:1s,@from:1,@to:1.5){
-		@keyframes zoomTo{
+	.zoomTo(@time:1s,@from:1,@to:1.5,@ease:ease,@fillmode:forwards){
+		.zoomToKeyframe(~`'zoomTo_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.zoomToKeyframe(@name){
+		@keyframes @name{
 		    from{transform:scale(@from);}
 		    to{transform:scale(@to);}
 		}
-		animation-name:zoomTo;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
 
-	.zoomIn(@time:1s){
-		@keyframes zoomIn {
+	.zoomIn(@time:1s,@sacle:.3,@ease:ease-in-out,@fillmode:forwards){
+		.zoomInKeyframe(~`'zoomIn_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.zoomInKeyframe(@name){
+		@keyframes @name {
 		  from {
 		    opacity: 0;
-		    transform: scale3d(.3, .3, .3);
+		    transform: scale3d(@sacle,@sacle,@sacle);
 		  }
 
 		  50% {
 		    opacity: 1;
+		    transform: scale3d(1, 1, 1);
 		  }
 		}
-		animation-name:zoomIn;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-in-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
 
-	.zoomOut(@time:1s,@sacle:1.8){
-		@keyframes zoomOut {
+	.zoomOut(@time:1s,@sacle:1.8,@ease:ease-in-out,@fillmode:forwards){
+		.zoomOutKeyframe(~`'zoomOut_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.zoomOutKeyframe(@name){
+		@keyframes @name {
 		  from {
 		    opacity: 1;
 		    transform: scale3d(1, 1, 1);
@@ -265,38 +328,47 @@
 		    transform: scale3d(@sacle,@sacle,@sacle);
 		  }
 		}
-		animation-name:zoomOut;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-in-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
 
 //旋转
-	.rotateTo(@time:1s,@from:0,@to:180deg){
-		@keyframes rotateTo{
+	.rotateTo(@time:1s,@from:0,@to:180deg,@ease:ease-in-out,@fillmode:forwards){
+		.rotateToKeyframe(~`'rotateTo_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.rotateToKeyframe(@name){
+		@keyframes @name{
 		    from{transform:rotate(@from);}
 		    to{transform:rotate(@to);}
 		}
-		animation-name:rotateTo;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-in-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	}
-	.rotateRound(@time:1s,@count:1){
-		@keyframes rotateRound{
+	.rotateRound(@time:1s,@count:1,@ease:ease-in-out,@fillmode:forwards){
+		.rotateRoundKeyframe(~`'rotateRound_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.rotateRoundKeyframe(@name){
+		@keyframes @name{
 		    from{transform:rotate(0);}
 		    to{transform:rotate(360deg);}
 		}
-		animation-name:rotateRound;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-timing-function:ease-in-out;
-		animation-fill-mode:forwards;
+		animation-timing-function:@ease;
+		animation-fill-mode:@fillmode;
 	  	animation-iteration-count:@count;
 	}
 
 //翻转
 	.flipInX(@time:1s){
-		@keyframes flipInX {
+		.flipInXKeyframe(~`'flipInX_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.flipInXKeyframe(@name){
+		@keyframes @name {
 		  from {
 		    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
 		    animation-timing-function: ease-in;
@@ -321,14 +393,17 @@
 		    transform: perspective(400px);
 		  }
 		}
-		animation-name:flipInX;
+		animation-name:@name;
 		animation-duration:@time;
-		animation-fill-mode: both;
+		animation-fill-mode:both;
   		backface-visibility: visible !important;
 	}
 
 	.flipInY(@time:1s){
-		@keyframes flipInY {
+		.flipInYKeyframe(~`'flipInY_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.flipInYKeyframe(@name){
+		@keyframes @name {
 		  from {
 		    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
 		    animation-timing-function: ease-in;
@@ -353,14 +428,17 @@
 		    transform: perspective(400px);
 		  }
 		}
-		animation-name:flipInY;
+		animation-name:@name;
 		animation-duration:@time;
 		animation-fill-mode: both;
   		backface-visibility: visible !important;
 	}
 
 	.flipOutX(@time:0.75s){
-		@keyframes flipOutX {
+		.flipOutXKeyframe(~`'flipOutX_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.flipOutXKeyframe(@name){
+		@keyframes @name {
 		  from {
 		    transform: perspective(400px);
 		  }
@@ -375,14 +453,17 @@
 		    opacity: 0;
 		  }
 		}
-		animation-name:flipOutX;
+		animation-name:@name;
 		animation-duration:@time;
 		animation-fill-mode: both;
   		backface-visibility: visible !important;
 	}
 
 	.flipOutY(@time:0.75s){
-		@keyframes flipOutY {
+		.flipOutYKeyframe(~`'flipOutY_'+Math.round(Math.random() * 1.0e8)`);
+	}
+	.flipOutYKeyframe(@name){
+		@keyframes @name {
 		  from {
 		    transform: perspective(400px);
 		  }
@@ -397,7 +478,7 @@
 		    opacity: 0;
 		  }
 		}
-		animation-name:flipOutY;
+		animation-name:@name;
 		animation-duration:@time;
 		animation-fill-mode: both;
   		backface-visibility: visible !important;

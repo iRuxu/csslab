@@ -1,15 +1,22 @@
 @import url('src/animation.less');
-@test:`Math.round(Math.random() * 1.0e8)`;
+/*@temp1:goTop_;
+@temp2:@temp1+`Math.round(Math.random() * 1.0e8)`;
+@test:@temp2;*/
+
 .test{
 	background-color:#f39;
 	width:200px;
 	height:200px;
 	margin-top:400px;
-	//color:@test;
-	.goTop();
+	//color: @test;
+	.fadeIn(2s);
 
 	//.goBottom();
 }
+/*@keyframes @test{
+    from{opacity:0;}
+    to{opacity:1;}
+}*/
 
 
 
