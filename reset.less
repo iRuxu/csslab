@@ -68,6 +68,10 @@ ul,ul li{
 	padding:0;
 	list-style:none;
 }
+dl,dd,dt{
+  margin:0;
+  padding: 0;
+}
 
 /*-------------------------------------
 ├   Embedded content                   ┆
@@ -176,6 +180,9 @@ sup{
 /*-------------------------------------
 ├   Forms                  			   ┆
 └------------------------------------*/
+select,input,textarea{
+  outline:none;//Remove webkit outline
+}
 button,input,optgroup,select,textarea{
 	font-size: 100%;line-height: 1.15;	//Change the font styles in all browsers (opinionated).
 	margin: 0;//Remove the margin in Firefox and Safari.
