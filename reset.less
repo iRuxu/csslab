@@ -180,14 +180,22 @@ sup{
 /*-------------------------------------
 ├   Forms                  			   ┆
 └------------------------------------*/
-select,input,textarea{
+button,input,select,textarea{
   outline:none;//Remove webkit outline
-}
-button,input,optgroup,select,textarea{
 	font-size: 100%;line-height: 1.15;	//Change the font styles in all browsers (opinionated).
 	margin: 0;//Remove the margin in Firefox and Safari.
 	color:inherit;
 }
+
+button{
+  box-sizing:content-box; //ie6~8
+  *line-height:normal;  //ie7 text position
+}
+
+select{
+  padding-right:0; //ie arrow
+}
+
 
 button[disabled],input[disabled]{
 	cursor: default;
