@@ -113,6 +113,17 @@
 .bgr(x){background-repeat:repeat-x;}
 .bgr(y){background-repeat:repeat-y;}
 
+//雪碧图背景位置
+.bgp(@default){
+    background-position:@default;
+}
+.bgp(@default,@hover){
+    background-position:@default;
+    &:hover{
+        background-position:@hover;
+    }
+}
+
 
 .fullscreen(){.full;overflow:hidden;} //满屏背景 - 添加到html元素上,背景图请作为body的第一个元素。
 .fix-bg(...){
