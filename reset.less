@@ -1,9 +1,9 @@
 /*
  * Reset.less
- * Version: 1.1 
+ * Version: 1.2 
  * Author: iRuxu
  * Creat: 2014/08
- * Update: 2015/06/11
+ * Update: 2017/09/05
  * Description: reset browser style
  * Manual: http://csslab.cc
  * Reference: github.com/necolas/normalize.css
@@ -180,10 +180,10 @@ sup{
 /*-------------------------------------
 ├   Forms                  			   ┆
 └------------------------------------*/
-button,input,select,textarea{
+input,button,select,textarea{
   outline:none;//Remove webkit outline
-	font-size: 100%;line-height: 1.15;	//Change the font styles in all browsers (opinionated).
 	margin: 0;//Remove the margin in Firefox and Safari.
+  padding: 0;//Remove the padding in different browser.
 	color:inherit;
 }
 
@@ -193,7 +193,7 @@ button{
 }
 
 select{
-  padding-right:0; //ie arrow
+  padding-right:0 !important; //ie arrow
 }
 
 
