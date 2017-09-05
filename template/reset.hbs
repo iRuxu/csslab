@@ -1,7 +1,7 @@
 {{import "module/head"}}
 {{import "module/header"}}
 <div class="m-sidebar">
-	<h2 class="m-sidebar-title">Reset<span>(2015.6.11)</span></h2>
+	<h2 class="m-sidebar-title">Reset<span>(2017.9.5)</span></h2>
 	<ul class="m-sidebar-list" id="m-sidebar-list">
 		<li class="current">Charset</li>
 		<li>Document</li>
@@ -177,8 +177,9 @@
 
 <pre id="Form"><code class="less">
 	button,input,optgroup,select,textarea{
-		font-size: 100%;line-height: 1.15;	//Change the font styles in all browsers (opinionated).
+		outline:none;//Remove webkit outline
 		margin: 0;//Remove the margin in Firefox and Safari.
+		padding: 0;//Remove the padding in different browser.
 		color:inherit;
 	}
 
