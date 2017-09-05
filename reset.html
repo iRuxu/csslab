@@ -30,22 +30,15 @@
 			<a class="u-type" href="http://www.mgtv.com" target="_blank"><i></i>MGTV</a>
 		</h1>
 		<div class="m-author">
-			<a class="u-github" href="https://github.com/iRuxu/CssLab/issues" target="_blank">issues</a>
-			<a class="u-weibo" href="http://iRuxu.com" target="_blank">Author</a>
+			<a class="u-github" href="https://github.com/iRuxu/CssLab" target="_blank">Github</a>
+			<a class="u-log" href="https://github.com/iRuxu/csslab/wiki" target="_blank">Logs</a>
 		</div>
 		<div class="m-menu">
 			<ul>
 				<li class="on">
-					<a class="m-menu-item" href="/index.html">Index</a>
+					<a class="m-menu-item" href="/index.html">Reference</a>
 					<ul class="m-submenu">
-						<li class="on"><a class="m-submenu-item" href="/index.html">Quick Guide</a></li>
-						<li><a class="m-submenu-item" href="/log.html">Log</a></li>
-					</ul>
-				</li>
-				<li>
-					<a class="m-menu-item" href="/base.html">Reference</a>
-					<ul class="m-submenu">
-						<li><a class="m-submenu-item" href="/base.html">Base</a></li>
+						<li class="on"><a class="m-submenu-item" href="/index.html">Base</a></li>
 						<li><a class="m-submenu-item" href="/shape.html">Shape</a></li>
 						<li><a class="m-submenu-item" href="/animation.html">Animation</a></li>
 						<li><a class="m-submenu-item" href="/twinkle.html">Twinkle</a></li>
@@ -61,7 +54,7 @@
 <script>var pathname=location.pathname;"/"!=pathname&&($(".m-menu li, .m-submenu li").removeClass("on"),$(".m-submenu-item, .m-menu-item").map(function(a,m){var e=$(this);e.attr("href")==pathname&&e.parents("li").addClass("on")}));</script>
 
 <div class="m-sidebar">
-	<h2 class="m-sidebar-title">Reset<span>(2015.6.11)</span></h2>
+	<h2 class="m-sidebar-title">Reset<span>(2017.9.5)</span></h2>
 	<ul class="m-sidebar-list" id="m-sidebar-list">
 		<li class="current">Charset</li>
 		<li>Document</li>
@@ -74,13 +67,13 @@
 <div class="m-content m-content-reset">
 
 <p class="m-tips">
-	1.&#x90E8;&#x5206;&#x53C2;&#x8003;&#x81EA;normalize.css&#x3002;<br>
-	2.&#x9ED8;&#x8BA4;h1~h6,b/i/em/strong&#x7B49;&#x6807;&#x7B7E;&#x65E0;&#x6837;&#x5F0F;&#x3002;
+	1.部分参考自normalize.css。<br>
+	2.默认h1~h6,b/i/em/strong等标签无样式。
 </p>
 
 <pre id="Charset"><code class="less">
 	//Define charset
-	@charset &quot;utf-8&quot;;
+	@charset "utf-8";
 </code></pre>
 
 <pre id="Document"><code class="less">
@@ -237,8 +230,9 @@
 
 <pre id="Form"><code class="less">
 	button,input,optgroup,select,textarea{
-		font-size: 100%;line-height: 1.15;	//Change the font styles in all browsers (opinionated).
+		outline:none;//Remove webkit outline
 		margin: 0;//Remove the margin in Firefox and Safari.
+		padding: 0;//Remove the padding in different browser.
 		color:inherit;
 	}
 
@@ -257,26 +251,26 @@
 	}
 
 	button,
-	html [type=&quot;button&quot;],//Prevent a WebKit bug where (2) destroys native `audio` and `video` controls in Android 4.
-	[type=&quot;reset&quot;],
-	[type=&quot;submit&quot;] {
+	html [type="button"],//Prevent a WebKit bug where (2) destroys native `audio` and `video` controls in Android 4.
+	[type="reset"],
+	[type="submit"] {
 	  -webkit-appearance: button; //Correct the inability to style clickable types in iOS and Safari.
 	}
 
 	//Remove the inner border and padding in Firefox.
 	button::-moz-focus-inner,
-	[type=&quot;button&quot;]::-moz-focus-inner,
-	[type=&quot;reset&quot;]::-moz-focus-inner,
-	[type=&quot;submit&quot;]::-moz-focus-inner {
+	[type="button"]::-moz-focus-inner,
+	[type="reset"]::-moz-focus-inner,
+	[type="submit"]::-moz-focus-inner {
 	  border-style: none;
 	  padding: 0;
 	}
 
 	//Restore the focus styles unset by the previous rule.
 	button:-moz-focusring,
-	[type=&quot;button&quot;]:-moz-focusring,
-	[type=&quot;reset&quot;]:-moz-focusring,
-	[type=&quot;submit&quot;]:-moz-focusring {
+	[type="button"]:-moz-focusring,
+	[type="reset"]:-moz-focusring,
+	[type="submit"]:-moz-focusring {
 	  outline: 1px dotted ButtonText;
 	}
 
@@ -303,26 +297,26 @@
 	  overflow: auto;
 	}
 
-	[type=&quot;checkbox&quot;],
-	[type=&quot;radio&quot;] {
+	[type="checkbox"],
+	[type="radio"] {
 	  box-sizing: border-box; //Add the correct box sizing in IE 10-.
 	  padding: 0; //Remove the padding in IE 10-.
 	}
 
 	//Correct the cursor style of increment and decrement buttons in Chrome.
-	[type=&quot;number&quot;]::-webkit-inner-spin-button,
-	[type=&quot;number&quot;]::-webkit-outer-spin-button {
+	[type="number"]::-webkit-inner-spin-button,
+	[type="number"]::-webkit-outer-spin-button {
 	  height: auto;
 	}
 
-	[type=&quot;search&quot;] {
+	[type="search"] {
 	  -webkit-appearance: textfield; //Correct the odd appearance in Chrome and Safari.
 	  outline-offset: -2px; //Correct the outline style in Safari.
 	}
 
 	//Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
-	[type=&quot;search&quot;]::-webkit-search-cancel-button,
-	[type=&quot;search&quot;]::-webkit-search-decoration {
+	[type="search"]::-webkit-search-cancel-button,
+	[type="search"]::-webkit-search-decoration {
 	  -webkit-appearance: none;
 	}
 
