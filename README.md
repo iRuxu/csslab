@@ -133,7 +133,7 @@ csslab是一个动态css依赖库，它由一些less自定义函数组成，可�
 ```
 
 ## <a name="documentation"></a> 参考文档
-+ *[base](http://csslab.cc/base.html)* 
++ *[base](http://csslab.cc/index.html)* 
 基础函数库，常用的IE6-IE8各类HACK，快捷书写函数
 + *[shape](http://csslab.cc/shape.html)* 
 使用CSS绘制常用的图形
