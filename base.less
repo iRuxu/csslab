@@ -1,9 +1,9 @@
 /*
  * Base.less
- * Version: 3.2
+ * Version: 3.3
  * Author: iRuxu
  * Creat: 2014/08
- * Update: 2017/01/22
+ * Update: 2018/03/22
  * Description: Base function,ie hack,quick layout
  * Manual: http://csslab.cc
  */
@@ -117,11 +117,12 @@
         word-break:break-all;
     }
     //段落省略
-    .break(@lines){
+    .break(@lines,@height:auto){
         display: -webkit-box;
         -webkit-line-clamp: @lines; //设定行数，超出行数则省略，只webkit有效
         -webkit-box-orient: vertical;
         overflow:hidden;
+        height:@height;   //兼容FF等,以直接截断显示
     }
     //文本不折行处理（可应用在inline-block水平排列）
     .nobreak(){
@@ -210,6 +211,7 @@
     //浮动
     .fl(){float:left;*display:inline;}      //IE6-7双倍margin bug处理
     .fr(){float:right;*display:inline;}
+    .fn(){float:none;}
     .clearfix(){                            //清除浮动塌陷
         *zoom:1;
         &:after{content:"\200B";display:block;height:0;clear:both;}
@@ -286,16 +288,16 @@
     
     //多列
     .cols(@width,@count,@gap) {
-              column-width: @width;
-              column-count: @count;
-              column-gap: @gap;
+        column-width: @width;
+        column-count: @count;
+        column-gap: @gap;
     }
     .cols(@width,@count) {
-              column-width: @width;
-              column-count: @count;
+        column-width: @width;
+        column-count: @count;
     }
     .cols(@width) {
-              column-width: @width;
+        column-width: @width;
     }
 
     /*-------------------------------------
@@ -317,6 +319,18 @@
 
     //居中对齐
     .auto(x){margin-left:auto;margin-right:auto;}
+
+    //边距
+    .ml(@len){margin-left:@len;}
+    .mr(@len){margin-right:@len;}
+    .mt(@len){margin-top:@len;}
+    .mb(@len){margin-bottom:@len;}
+    .m(@t,@r,@b:@t,@l:@r){margin:@t @r @b @l;}
+    .pl(@len){padding-left:@len;}
+    .pr(@len){padding-right:@len;}
+    .pt(@len){padding-top:@len;}
+    .pb(@len){padding-bottom:@len;}
+    .p(@t,@r,@b:@t,@l:@r){margin:@t @r @b @l;}
     
     //居中定位·绝对定位方式（未定义/不确定尺寸时,不兼容IE6）
     .ct(){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
@@ -324,50 +338,19 @@
     .ct(y){position:absolute;margin-top:auto;margin-bottom:auto;top:0;bottom:0;}
 
     //居中定位·绝对定位方式（已知元素尺寸时,兼容IE6）
-    .ct(x,@width) when (ispixel(@width)){
+    .ct(x,@width,@fix:0){
         position:absolute;
         left:50%;
-        margin-left:-@width/2;
+        margin-left:-@width/2 + @fix;
     }
-    .ct(x,@width) when (ispercentage(@width)){
-        position:absolute;
-        left:50%;
-        margin-left:-@width/2;
-    }
-    .ct(x,@width) when (default()) {
-        position:absolute;
-        left:50%;
-        @xmargin:unit(@width/2,px);
-        margin-left:-@xmargin;
-    }
-    .ct(y,@height) when (ispixel(@height)){
+    .ct(y,@height,@fix:0){
         position:absolute;
         top:50%;
-        margin-top:-@height/2;
+        margin-top:-@height/2 + @fix;
     }
-    .ct(y,@height) when (ispercentage(@height)){
-        position:absolute;
-        top:50%;
-        margin-top:-@height/2;
-    }
-    .ct(y,@height) when (default()){
-        position:absolute;
-        top:50%;
-        @ymargin:unit(@height/2,px);
-        margin-top:-@ymargin;
-    }
-    .ct(o,@width,@height:@width) when (ispixel(@width)){
+    .ct(o,@width,@height:@width,@fix-x:0,@fix-y:0){
         position:absolute;left:50%;top:50%;
-        margin-left:-@width/2;margin-top:-@height/2;
-    }
-    .ct(o,@width,@height:@width) when (ispercentage(@width)){
-        position:absolute;left:50%;top:50%;
-        margin-left:-@width/2;margin-top:-@height/2;
-    }
-    .ct(o,@width,@height:@width) when (default()){
-        position:absolute;left:50%;top:50%;
-        @xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);
-        margin-left:-@xmargin;margin-top:-@ymargin;
+        margin-left:-@width/2 + @fix-x;margin-top:-@height/2 + @fix-y;
     }
     
     //窗口固定（兼容IE6）
@@ -456,7 +439,6 @@
         .sprite-generate(0);
     }
 
-    
     /*-------------------------------------
     ├   Effect                             ┆
     └------------------------------------*/
