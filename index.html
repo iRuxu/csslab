@@ -65,7 +65,7 @@
 		<li>.color</li>
 		<li>.tip</li>
 		<h4>文本</h4>
-		<li>.break</li>
+		<li class="new">.break</li>
 		<li>.nobreak</li>
 		<li>.indent</li>
 		<li class="new">.retext</li>
@@ -118,7 +118,7 @@
 		<li>.lb</li>
 		<li>.rb</li>
 		<li>.auto</li>
-		<li>.ct</li>
+		<li class="new">.ct</li>
 		<li>.fixed</li>
 		<li>.hasfixed</li>
 		<h4>图像</h4>
@@ -214,13 +214,14 @@
 	<p></p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.break</b><span>([]/@lines)</span><i>文本折行或多行省略</i></h3>
-	<p>无参数时，遇到文本溢出容器时，总是进行断词折行；有参数时，当段落文字超出指定行数时，显示为“...”来省略，仅webkit有效，参数传入指定行数。<br>
+	<h3><b>.break</b><span>([]/@lines,[@height])</span><i>文本折行或多行省略</i></h3>
+	<p>无参数时，遇到文本溢出容器时，总是进行断词折行；有参数时，当段落文字超出指定行数时，显示为“...”来省略（仅webkit有效）参数传入指定行数，第2个参数可选，指定高度用于兼容其它浏览器作为直接截断隐藏。<br>
 	<pre><code class="less">
-		.test{.break;}      //当文本遇到标点符号或长单词在行尾时，依旧断词折行
-		.test{.break(2);}   //当超过2行时，2行末尾处文本显示为“...”来省略
+		.test{.break;}      	//当文本遇到标点符号或长单词在行尾时，依旧断词折行
+		.test{.break(2);}   	//当超过2行时，2行末尾处文本显示为“...”来省略
+		.test{.break(2,60px);}  //同上，且指定高度，让其兼容如Firefox等其它浏览器
 	</code></pre>
-</p></div>
+</div>
 <div class="m-content-list-item">
 	<h3><b>.nobreak</b><span>([]/clip/visible)</span><i>禁止文本折行</i></h3>
 	<p>遇到文本溢出容器时，禁止折行。<br>
@@ -543,21 +544,22 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.ct</b><span>([]/x,[@width]/y,[@height]/o,@width,@height/m)</span><i>居中对齐</i></h3>
-	<p>传入x水平居中对齐，传入y垂直居中对齐<br>
-	<span class="important">新的ct函数对于传参类型有两点改动：<br>
-	1.不再自动生成尺寸了，考虑到有padding等因素影响，请自行定义尺寸。<br>
-	2.为了兼容旧的代码，当传入没有带单位的值（纯数字时）则自动转换为像素计算。否则直接以当前单位计算。
-	</span>
+	<h3><b>.ct</b><span>([]/x/y | x/y,@size,[@fix] | o,@width,@height:@width,[@fix])</span><i>居中对齐</i></h3>
+	<p>传入x水平居中对齐，传入y垂直居中对齐，传入o居中对齐。可传入一个修订偏移参数，以修改margin值。<br>
+	<span class="important">3.3版本开始废弃对旧版本的兼容</span>
 	<pre><code class="less">
 		//IE7+，自动膨胀，无需传入元素尺寸
 		.test{.ct;}                 //position:absolute;left:50%;margin-left:负自身一半;
-		.test{.ct(x);}          //水平方向
-		.test{.ct(y);}          //垂直方向
+		.test{.ct(x);}          	//水平方向
+		.test{.ct(y);}          	//垂直方向
 		//IE6支持，需传入元素尺寸
 		.test{.ct(o,220px,110px);}  //居中，高度不传值时则等于宽度
 		.test{.ct(x,220px);}        //水平居中
 		.test{.ct(y,110px);}        //垂直居中
+		//新增偏移修订（v3.3+）
+		.test{.ct(o,220px,110px,10px,-10px);}  //修订水平向右10px,修订垂直向上10px
+		.test{.ct(x,220px,-20px);}       //修订水平向左偏移20px
+		.test{.ct(y,110px,20px);}        //修订垂直向下20px
 	</code></pre>
 	</p>
 </div>
