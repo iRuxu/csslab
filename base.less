@@ -62,7 +62,7 @@
     }
 
     //占位符placeholder样式
-    .tip(@font-size,@color,@text-align:left){
+    .tips(@font-size,@color,@text-align:left){
         &:-moz-placeholder {
             font-size:@font-size;
             color: @color;
@@ -80,7 +80,7 @@
         }
     }
 
-    .tip(custom,@property,@value){
+    .tip(@property,@value){
         &:-moz-placeholder {
             @{property}:@value;
         }
