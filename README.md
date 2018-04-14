@@ -1,5 +1,6 @@
 # CssLab 
 ###### Homepage: <http://csslab.cc>
+###### v3旧版本不再更新，全新在v4上进行开发。2018/4/15
 
 ## 目录
 + [简介说明](#intro)
@@ -8,8 +9,7 @@
 + [其它链接](#contribute)
 
 ## <a name="intro"></a> 简介说明
-csslab是一个动态css依赖库，它由一些less自定义函数组成，可快速书写一些常用的css片段并自动进行计算，同时提供一些IE6/7兼容hack和简写，以便能更快捷高效地完成网页重构工作。
->csslab，原名Lesslab，是[芒果TV](http://www.mgtv.com) PC Web前端公共库1.0中的一部分，目前它独立作为一个项目在进行。
+csslab是一个动态css依赖库，它由一些自定义函数组成，可快速书写一些常用的css片段并自动进行计算，同时提供一些IE6/7兼容hack和简写，以便能更快捷高效地完成网页重构工作。
 
 ##### Example.1 常见片段
 例如，常见的让文本禁止换行，溢出的部分处理为显示“...”：
@@ -78,38 +78,16 @@ csslab是一个动态css依赖库，它由一些less自定义函数组成，可�
 
 ## <a name="get-started"></a> 使用指南
 ##### Step.1 安装支持环境
-+ *LESS*
-安装nodejs，并使用npm安装less；也可以使用[koala](http://koala-app.com/index-zh.html)等可视化编译器。
-
-+ *Autoprefixer*
-同时建议安装autoprefixer插件，通过插件指定浏览器前缀版本。
+安装nodejs，并使用npm安装less/sass；
+也可以使用[koala](http://koala-app.com/index-zh.html)等可视化编译器。
+同时建议安装autoprefixer插件，以生成相应浏览器前缀。
 
 ##### Step.2 引入文件
-+ 通用环境
-
-直接下载至工作目录，通过正确的路径引入。
+将文件下载至指定工作目录，通过正确的路径引入。
 ```less
 //单独引入指定子函数库
 @import url('base.less');
 @import url('animation.less');
-```
-
-+ Silky环境 *(仅限芒果TV)*
-
-使用silky命令进行安装 **_silky install csslab_**。
-或直接在项目配置文件中package.json中devDependencies添加键与版本号，使用silky install安装。（如需更新至新版，更新对应版本号重新执行silky install命令即可。）
-```less
-//在某个文件中引入某个库
-@import url('@{csslab}/shape.less');
-
-//默认作为整个项目所有less文件的支持函数库，在package.json中配置 
-"sp-less": {
-  "global": [
-    "csslab",
-    "csslab/base.less"
-  ]
-}
-//如仍需使用旧的base函数请添加"csslab/base-fix.less"
 ```
 
 ## <a name="documentation"></a> 参考文档
