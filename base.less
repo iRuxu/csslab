@@ -1,14 +1,11 @@
 /*
  * Base.less
- * Version: 3.4
  * Author: iRuxu
  * Creat: 2014/08
  * Update: 2018/04/14
  * Description: Base function,ie hack,quick layout
  * Manual: http://csslab.cc
  */
-
-
 
     /*-------------------------------------
     ├   Font                              ┆
@@ -165,16 +162,7 @@
     .w(@width){width:@width;}
     .h(@height){height:@height;} 
     .size(@width,@height:@width){width:@width;height:@height;}
-
-    //满容器
     .full(){width:100%;height:100%;}
-    .full(x){width:100%;}
-    .full(y){height:100%;}
-
-    //一半容器
-    .half(){width:50%;height:50%;} 
-    .half(x){width:50%;}
-    .half(y){height:50%;}
 
     //最小尺寸
     .min-width(@min-width){min-width:@min-width;_width:@min-width;}
@@ -188,11 +176,6 @@
     .db(){display:block;} //表现为块级,比如将a、span等内联元素块级化
     .dbi(){display:inline-block;*display:inline;*zoom:1;} //表现为内联块级元素，兼容IE6
     .di(){display:inline;} //表现为内联元素
-    .df(){display:flex;} //表现为flex伸缩盒
-    .dfi(){display:inline-flex;} //表现为flex伸缩盒
-    .dg(){display:grid;}
-    .dgi(){display:inline-grid;}
-    .dgsub(){display:subgrid;}
 
     //隐藏简写
     .none(){display:none;}
@@ -208,10 +191,10 @@
     └------------------------------------*/
 
     //浮动
-    .fl(){float:left;*display:inline;}      //IE6-7双倍margin bug处理
-    .fr(){float:right;*display:inline;}
+    .fl{float:left;*display:inline;}      //IE6-7双倍margin bug处理
+    .fr{float:right;*display:inline;}
     .fn(){float:none;}
-    .clearfix(){                            //清除浮动塌陷
+    .clearfix{                            //清除浮动塌陷
         *zoom:1;
         &:after{content:"\200B";display:block;height:0;clear:both;}
     }
@@ -270,10 +253,6 @@
         font-size:0;white-space:nowrap;overflow:visible;
         li{.dbi;.y(top);font-size:12px;white-space:normal;}
     }
-
-    //flex-box
-    .flex(x){justify-content:center;}
-    .flex(y){align-items:center;align-content:center;}
     
     //多列
     .cols(@width,@count,@gap) {
@@ -448,16 +427,6 @@
     }
 
     /*-------------------------------------
-    ├   Transform                          ┆
-    └------------------------------------*/
-
-    //三维闪动bug处理
-    .tsfix(){
-        -webkit-backface-visibility:hidden;
-        -webkit-transform-style:preserve-3d;
-    }
-
-    /*-------------------------------------
     ├   Other                              ┆
     └------------------------------------*/
     
@@ -467,4 +436,20 @@
     //指针
     .pointer(){cursor:pointer;}
 
-    
+    //三维闪动bug处理
+    .tsfix(){
+        -webkit-backface-visibility:hidden;
+        -webkit-transform-style:preserve-3d;
+    }
+
+    //字体图标
+    .iconfont{
+        display:inline-block;*display:inline;*zoom:1;
+        vertical-align:middle;
+        font-family:"iconfont";
+        font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+        cursor:pointer;
+    }
