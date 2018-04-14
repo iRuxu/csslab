@@ -1,21 +1,22 @@
 {{import "module/head"}}
 {{import "module/header"}}
 <div class="m-sidebar">
-	<h2 class="m-sidebar-title">Base<span>(2017.4.7)</span></h2>
+	<h2 class="m-sidebar-title">Base<span></span></h2>
 	<ul class="m-sidebar-list" id="m-sidebar-list">
 		<h4>字体</h4>
-		<li class="current new">.fz</li>
+		<li>.fz</li>
 		<li>.lh</li>
 		<li>.bold</li>
 		<li>.italic</li>
 		<li>.normal</li>
 		<li>.color</li>
-		<li>.tip</li>
+		<li class="new">.tip</li>
+		<li class="new">.tips</li>
 		<h4>文本</h4>
-		<li class="new">.break</li>
+		<li>.break</li>
 		<li>.nobreak</li>
 		<li>.indent</li>
-		<li class="new">.retext</li>
+		<li>.retext</li>
 		<h4>对齐</h4>
 		<li>.x</li>
 		<li>.y</li>
@@ -25,18 +26,12 @@
 		<li>.h</li>
 		<li>.size</li>
 		<li>.full</li>
-		<li>.half</li>
 		<li>.min-width</li>
 		<li>.min-height</li>
 		<h4>表现</h4>
 		<li>.db</li>
 		<li>.dbi</li>
 		<li>.di</li>
-		<li>.df</li>
-		<li>.dfi</li>
-		<li>.dg</li>
-		<li>.dgi</li>
-		<li>.dgsub</li>
 		<li>.none</li>
 		<li>.hide</li>
 		<li>.show</li>
@@ -45,14 +40,11 @@
 		<h4>布局</h4>
 		<li>.fl</li>
 		<li>.fr</li>
+		<li class="new">.fn</li>
 		<li>.clear</li>
 		<li>.clearfix</li>
 		<li class="new">.flist</li>
 		<li>.iblock</li>
-		<li>.flex</li>
-		<li>.flexs</li>
-		<li>.grid</li>
-		<li>.grids</li>
 		<li>.cols</li>
 		<h4>定位</h4>
 		<li>.ps</li>
@@ -65,24 +57,21 @@
 		<li>.lb</li>
 		<li>.rb</li>
 		<li>.auto</li>
-		<li class="new">.ct</li>
+		<li>.ct</li>
 		<li>.fixed</li>
 		<li>.hasfixed</li>
 		<h4>图像</h4>
-		<li class="new">.gradient</li>
+		<li>.gradient</li>
 		<li>.sprite</li>
 		<h4>效果</h4>
 		<li>.tm</li>
 		<li>.tb</li>
 		<li>.blur</li>
-		<li>.tsfix</li>
-		<h4>动画</h4>
-		<li class="new">.ani</li>
-		<li class="new">.ani-repeat</li>
-		<li class="new">.ani-delay</li>
 		<h4>其它</h4>
 		<li>.r</li>
 		<li>.pointer</li>
+		<li>.tsfix</li>
+		<li>.iconfont</li>
 	</ul>
 </div>
 <div class="m-content" id="m-content-list">
@@ -148,17 +137,21 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.tip</b><span>(@font-size,@color,[@text-align:left])</span>/<span>(custom,@property,@value)</span><i>定义placeholder样式</i></h3>
+	<h3><b>.tip</b><span>(@property,@value)</span><i>定义placeholder样式</i></h3>
+	<p>设置placeholder占位提醒字符的指定样式。<br>
+	<pre><code class="less">
+		.test{.tip(font-family,'Verdana');}         //定义占位符使用Verdana字体
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.tips</b><span>(@font-size,@color,[@text-align:left])</span><i>定义placeholder样式</i></h3>
 	<p>设置placeholder占位提醒字符样式。默认函数接受3个传值，分别为字体大小、字体颜色、对齐方式，对齐方式默认为左可缺省。<br>
 	<pre><code class="less">
 		.test{.tip(12px,#999);}         //占位符12px，颜色#999
 		.test{.tip(12px,#999,right);}       //占位符12px，颜色#999，在右侧
 	</code></pre>
-	</p><p>你也可以定义更多需要的属性，此时首参数“custom”是必传的。</p>
-	<pre><code class="less">
-		.test{.tip(custom,font-family,'Verdana');}  //定义占位符使用Verdana字体
-	</code></pre>
-	<p></p>
+	</p>
 </div>
 <div class="m-content-list-item">
 	<h3><b>.break</b><span>([]/@lines,[@height])</span><i>文本折行或多行省略</i></h3>
@@ -252,22 +245,10 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.full</b><span>([x]/[y])</span><i>满宽/高</i></h3>
+	<h3><b>.full</b><span>()</span><i>满宽/高</i></h3>
 	<p>设置元素满宽或满高，或二者皆100%。<br>
 	<pre><code class="less">
 		.test{.full;}       //width:100%;height:100%;
-		.test{.full(x);}        //width:100%;
-		.test{.full(y);}        //height:100%;
-	</code></pre>
-	</p>
-</div>
-<div class="m-content-list-item">
-	<h3><b>.half</b><span>([x]/[y])</span><i>半宽/高</i></h3>
-	<p>设置元素满宽或满高，或二者皆100%。<br>
-	<pre><code class="less">
-		.test{.half;}       //width:50%;height:50%;
-		.test{.half(x);}        //width:50%;
-		.test{.half(y);}        //height:50%;
 	</code></pre>
 	</p>
 </div>
@@ -300,40 +281,20 @@
 	<p>display:inline简写。</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.df</b><span></span><i>表现为伸缩盒</i></h3>
-	<p>display:flex简写。</p>
-</div>
-<div class="m-content-list-item">
-	<h3><b>.dfi</b><span></span><i>表现为内联伸缩盒</i></h3>
-	<p>display:inline-flex简写。</p>
-</div>
-<div class="m-content-list-item">
-	<h3><b>.dg</b><span></span><i>表现为网格</i></h3>
-	<p>display:grid简写。</p>
-</div>
-<div class="m-content-list-item">
-	<h3><b>.dgi</b><span></span><i>表现为内联网格</i></h3>
-	<p>display:inline-grid简写。</p>
-</div>
-<div class="m-content-list-item">
-	<h3><b>.dgsub</b><span></span><i>表现为子网格</i></h3>
-	<p>display:subgrid简写。</p>
-</div>
-<div class="m-content-list-item">
 	<h3><b>.none</b><span></span><i>元素不可见（移除占位）</i></h3>
-	<p>display:none简写。你也可以直接在元素上添加.none类，达到一致的效果。</p>
+	<p>display:none简写。你也可以直接在元素上添加该类名。</p>
 </div>
 <div class="m-content-list-item">
 	<h3><b>.hide</b><span></span><i>元素隐藏（不移除占位）</i></h3>
-	<p>visibility:hidden简写。</p>
+	<p>visibility:hidden简写。你也可以直接在元素上添加该类名。</p>
 </div>
 <div class="m-content-list-item">
 	<h3><b>.show</b><span></span><i>元素显示</i></h3>
-	<p>visibility:visible简写。</p>
+	<p>visibility:visible简写。你也可以直接在元素上添加该类名。</p>
 </div>
 <div class="m-content-list-item">
 	<h3><b>.clip</b><span></span><i>溢出隐藏</i></h3>
-	<p>overflow:hidden;*zoom:1;</p>
+	<p>overflow:hidden;*zoom:1;你也可以直接在元素上添加该类名。</p>
 </div>
 <div class="m-content-list-item">
 	<h3><b>.noclip</b><span></span><i>溢出显示</i></h3>
@@ -341,7 +302,7 @@
 </div>
 <div class="m-content-list-item">
 	<h3><b>.fl</b><span></span><i>左浮动</i></h3>
-	<p>ie6-7 双倍margin hack。<br>
+	<p>ie6-7 双倍margin hack。你也可以直接在元素上添加该类名。<br>
 	<pre><code class="less">
 		.test{.fl;}     //float:left;*display:inline;
 	</code></pre>
@@ -349,7 +310,7 @@
 </div>
 <div class="m-content-list-item">
 	<h3><b>.fr</b><span></span><i>右浮动</i></h3>
-	<p>ie6-7 双倍margin hack。</p>
+	<p>ie6-7 双倍margin hack。你也可以直接在元素上添加该类名。</p>
 	<pre><code class="less">
 		.test{.fl;}     //float:right;*display:inline;
 	</code></pre>
@@ -360,7 +321,7 @@
 </div>
 <div class="m-content-list-item">
 	<h3><b>.clearfix</b><span></span><i>闭合浮动塌陷</i></h3>
-	<p>应用在闭合浮动元素的父级元素上，当浮动元素父级有BFC时无需设置。</p>
+	<p>应用在闭合浮动元素的父级元素上，当浮动元素父级有BFC时无需设置。你也可以直接在元素上添加该类名。</p>
 	<pre><code class="less">
 		.test{.clearfix;}   
 		//.test{*zoom:1;}
@@ -383,20 +344,16 @@
         @outer:外层包裹class名,例videobox<br>
         @inner:内层包裹class名,例videolist<br>
         @item:循环单元class命,例videoitem<br>
-        @item-width:列表项宽度<br>
-        @item-spacing:列表项间距<br>
-        @item-count:每行数目</p>
+        @item-spacing:列表项间距</p>
     <p>当不指定内层与单元元素的class名时，默认作为div>ul>li结构处理。如其它情况或元素可指定一个class名。</p>
 	<pre><code class="less">
 		.videobox{
-			.flist(200px,20px,5);
+			.flist(20px);
 		}
 		//编译后生成
 		.videobox{
 			//默认遮盖溢出显示
 			.clip;*position:relative;
-			//div宽度等于（列表项宽+列表项间距）×每行项目数 - 列表项间距
-			width:(200px + 20px)*5 - 20px;
 			ul{
 			    //浮动闭合
 			    .clearfix;
@@ -407,13 +364,13 @@
 			        //每个单元浮动
 			        .fl;
 			        //单元宽度与间距
-			        width:200px;
 			        margin-right:20px;
+			        margin-bottom:20px;
 			    }
 			}   
 		}
 		.imagebox{
-			.flist(gallery,pic,120px,10px,8);
+			.flist(gallery,pic,10px);
 		}
 		//编译后将上例中的ul替换为.gallery，li替换为.pic。
 	</code></pre>
@@ -482,12 +439,12 @@
 	<h3><b>.rb</b><span>(@r,@b)</span><i>右下角</i></h3>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.auto</b><span>(x)</span><i>居中对齐</i></h3>
+	<h3><b>.auto</b><span>(x/y)</span><i>居中对齐</i></h3>
 	<p>传入x水平居中对齐
 	<pre><code class="less">
 		.test{.auto(x);}    //margin-left:auto;margin-right:auto; 作用于自身
+		.test{.auto(y);}    //display:table-cell;vertical-align:middle; 作用于自身内部元素
 	</code></pre>
-	<!-- .test{.auto(y);}   //display:table-cell;vertical-align:middle; 作用于自身内部元素 -->
 	</p>
 </div>
 <div class="m-content-list-item">
@@ -627,13 +584,7 @@
 		.test{.blur(5px);}      //filter:blur(5px);filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='5px');*zoom: 1;
 	</code></pre>
 </div>
-<div class="m-content-list-item">
-	<h3><b>.tsfix</b><span></span><i>三维闪动bug处理</i></h3>
-	<pre><code class="less">
-		.test{.tsfix;}      //-webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d;
-	</code></pre>
-</div>
-<div class="m-content-list-item">
+{{!-- <div class="m-content-list-item">
 	<h3><b>.ani</b><span>([@name],@time:1s,@ease:ease-in-out,@fillmode:forwards)</span><i>动画</i></h3>
 	<pre><code class="less">
 		.test{.ani(goTop,1s);}   //指定一个动画;
@@ -652,7 +603,7 @@
 	<pre><code class="less">
 		.test{.ani-delay(1.2s);}         //延迟1.2s播放
 	</code></pre>
-</div>
+</div> --}}
 <div class="m-content-list-item">
 	<h3><b>.r</b><span>(@radius)</span><i>圆角</i></h3>
 	<pre><code class="less">
@@ -662,6 +613,27 @@
 <div class="m-content-list-item">
 	<h3><b>.pointer</b><span></span><i>手形指针</i></h3>
 	<p>cursor:pointer;简写</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.tsfix</b><span></span><i>三维闪动bug处理</i></h3>
+	<pre><code class="less">
+		.test{.tsfix;}      //-webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d;
+	</code></pre>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.iconfont</b><span></span><i>图标字体</i></h3>
+	<p>*需提前自行设置iconfont字体的fontface。</p>
+	<p>字体图标目前有两种引入形式，一种为html内的unicode码（以下简称“实体形式”），一种为在伪元素中引用（以下简称“伪元素形式”）。</p>
+	<p>1.当必须保证IE6-7的兼容性和可见性时，使用实体形式。</p>
+	<p>2.当可以不用考虑IE6-7的可见性或影响不大时（即只是字符前图标非单个图标），使用伪元素形式。</p>
+	<p>你也可以直接在元素上添加该类名</p>
+	<pre><code class="html">
+		<span>\</span>e600  伪元素形式
+		<span>&#x</span>e600<span>;</span> 实体形式
+	</code></pre>
+	<h4>实体方式</h4>
+	<p>在HTML写入对应实体，添加.iconfont类。</p>
+	<pre><code class="html"><span>&lt;i class="iconfont">&amp;#xe600;</i> 立刻下载&lt;/span></code></pre>
 </div>
 
 </div>

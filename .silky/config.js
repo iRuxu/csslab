@@ -23,7 +23,7 @@ module.exports = {
 	build: {
 		output: "./build",
 		copy: [],
-		ignore: [/^src$/i, /^css$/i, /^font$/i, /^image$/i, /^snippet$/i, /^js$/i],
+		ignore: [/^temp$/,/^css[\/\\]module$/i,/^\.git$/],
 		rename: [],
 		compress: {
 			ignore: [],

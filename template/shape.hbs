@@ -1,8 +1,8 @@
 {{import "module/head"}}
 {{import "module/header"}}
-<link rel="stylesheet" href="css/page/shape.css" type="text/css"/>
+<link rel="stylesheet" href="css/shape.css" type="text/css"/>
 <div class="m-sidebar">
-	<h2 class="m-sidebar-title">Shape<span>(2015.6.10)</span></h2>
+	<h2 class="m-sidebar-title">Shape<span></span></h2>
 	<ul class="m-sidebar-list" id="m-sidebar-list">
 		<h4>Arrow</h4>
 		<li>.arrow</li>
@@ -13,10 +13,6 @@
 		<li>.circle</li>
 		<li>.pie</li>
 		<li>.leaf</li>
-		<h4>Iconfont</h4>
-		<li>.iconfont</li>
-		<li>.iconfont</li>
-		<li>.iconfonts</li>
 	</ul>
 </div>
 <div class="m-content" id="m-content-list">
@@ -147,31 +143,5 @@
 		<div class="leaf-test3">LR</div>
 		<div class="leaf-test4">RL</div>
 	</div>
-</div>
-<div class="m-content-list-item">
-	<h3><b>.iconfont</b><span></span><i>图标字体</i></h3>
-	<p>*需提前自行设置iconfont字体的fontface。</p>
-	<p>字体图标目前有两种引入形式，一种为html内的unicode码（以下简称“实体形式”），一种为在伪元素中引用（以下简称“伪元素形式”）。</p>
-	<p>1.当必须保证IE6-7的兼容性和可见性时，使用实体形式。</p>
-	<p>2.当可以不用考虑IE6-7的可见性或影响不大时（即只是字符前图标非单个图标），使用伪元素形式。</p>
-	<pre><code class="html">
-		<span>\</span>e600  伪元素形式
-		<span>&#x</span>e600<span>;</span> 实体形式
-	</code></pre>
-	<h4>实体方式</h4>
-	<p>在HTML写入对应实体，添加.iconfont类。</p>
-	<pre><code class="html"><span>&lt;i class="iconfont">&amp;#xe600;</i> 立刻下载&lt;/span></code></pre>
-</div>
-<div class="m-content-list-item">
-	<h3><b>.iconfont</b><span>(@iconfont;@fz:inherit;@color:inherit;@y:middle)</span><i>图标字体</i></h3>
-	<pre><code class="html"><span> &lt;i class="myClass"></i>立刻下载&lt;/span></code></pre>
-	<p>在该元素自定myClass上应用对应函数</p>
-	<pre><code data-language="css">.myClass{.iconfont(字符编码,图标大小,图标颜色,图标对齐方式)}</code></pre>
-	<p>默认图标大小继承字体大小，颜色继承，对齐方式默认居中</p>
-</div>
-<div class="m-content-list-item">
-	<h3><b>.iconfonts</b><span>(@iconfont,@fz:inherit,@color-a,@color-b,@y:middle)</span><i>图标字体</i></h3>
-	<p>简单的涂色动画，你可以通过下面的函数与传值调用它</p>
-	<pre><code data-language="css">.myClass{.iconfonts(字符编码,图标大小,默认颜色,翻转颜色,图标对齐方式)}</code></pre>
 </div>
 {{import "module/footer"}}
