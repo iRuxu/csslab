@@ -1,6 +1,8 @@
 # CssLab 
 ###### Homepage: <http://csslab.cc>
-###### v3旧版本不再更新，全新在v4上进行开发。2018/4/15
+**v3旧版本不再更新，全新在v4上进行开发。2018/4/15**
+
+-------------------------------
 
 ## 目录
 + [简介说明](#intro)
@@ -91,28 +93,12 @@ csslab是一个动态css依赖库，它由一些自定义函数组成，可快�
 ```
 
 ## <a name="documentation"></a> 参考文档
-+ *[base](http://csslab.cc/index.html)* 
-
-基础函数库，常用的IE6-IE8各类HACK，快捷书写函数
-+ *[reset](http://csslab.cc/reset.html)* 
-
-浏览器样式重置
-
-+ *[shape](http://csslab.cc/shape.html)* 
-
-使用CSS绘制常用的图形
-
-+ *[animation](http://csslab.cc/animation.html)* 
-
-基础动画库，提供常见的动画
-
-+ *[twinkle](http://csslab.cc/twinkle.html)* （仅v3及v3版本以前）
-
-扩展动画库
-
-+ *base-fix* （仅v3及v3版本以前）
-
-旧版base废弃函数（芒果TV）
++ *[base](http://csslab.cc/index.html)*  - 基础函数库，常用的IE6-IE8各类HACK，快捷书写函数
++ *[reset](http://csslab.cc/reset.html)* - 浏览器样式重置
++ *[shape](http://csslab.cc/shape.html)* - 使用CSS绘制常用的图形
++ *[animation](http://csslab.cc/animation.html)* - 基础动画库，提供常见的动画
++ *[twinkle](http://csslab.cc/twinkle.html)* - 扩展动画库（仅v3及v3版本以前）
++ *base-fix* - 旧版base废弃函数（限芒果TV）（仅v3及v3版本以前）
 
 ## <a name="contribute"></a> 其它链接
 + *[CSS笔记](http://iruxu.com/notebook)*
