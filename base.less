@@ -59,6 +59,18 @@
     }
 
     //占位符placeholder样式
+    .tip(@property,@value){
+        &:-moz-placeholder {
+            @{property}:@value;
+        }
+        &:-ms-input-placeholder {
+            @{property}:@value;
+        }
+        &::-webkit-input-placeholder {
+            @{property}:@value;
+        }
+    }
+
     .tips(@font-size,@color,@text-align:left){
         &:-moz-placeholder {
             font-size:@font-size;
@@ -74,18 +86,6 @@
             font-size:@font-size;
             color: @color;
             text-align:@text-align;
-        }
-    }
-
-    .tip(@property,@value){
-        &:-moz-placeholder {
-            @{property}:@value;
-        }
-        &:-ms-input-placeholder {
-            @{property}:@value;
-        }
-        &::-webkit-input-placeholder {
-            @{property}:@value;
         }
     }
 
@@ -178,12 +178,12 @@
     .di(){display:inline;} //表现为内联元素
 
     //隐藏简写
-    .none(){display:none;}
-    .hide(){visibility:hidden;}
-    .show(){visibility:visible;}
+    .none{display:none;}
+    .hide{visibility:hidden;}
+    .show{visibility:visible;}
 
     //溢出隐藏
-    .clip(){overflow:hidden;*zoom:1;} //兼容IE6-7
+    .clip{overflow:hidden;*zoom:1;} //兼容IE6-7
     .noclip(){overflow:visible}
 
     /*-------------------------------------
@@ -193,7 +193,6 @@
     //浮动
     .fl{float:left;*display:inline;}      //IE6-7双倍margin bug处理
     .fr{float:right;*display:inline;}
-    .fn(){float:none;}
     .clearfix{                            //清除浮动塌陷
         *zoom:1;
         &:after{content:"\200B";display:block;height:0;clear:both;}
@@ -287,6 +286,7 @@
 
     //居中对齐
     .auto(x){margin-left:auto;margin-right:auto;}
+    .auto(y){display:table-cell;vertical-align:middle;}
 
     //居中定位·绝对定位方式（未定义/不确定尺寸时,不兼容IE6）
     .ct(){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
