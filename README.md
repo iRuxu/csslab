@@ -92,16 +92,26 @@ csslab是一个动态css依赖库，它由一些自定义函数组成，可快�
 
 ## <a name="documentation"></a> 参考文档
 + *[base](http://csslab.cc/index.html)* 
+
 基础函数库，常用的IE6-IE8各类HACK，快捷书写函数
-+ *[shape](http://csslab.cc/shape.html)* 
-使用CSS绘制常用的图形
-+ *[animation](http://csslab.cc/animation.html)* 
-基础动画库，提供常见的动画
-+ *[twinkle](http://csslab.cc/twinkle.html)* （仅v3及v3版本以前）
-扩展动画库
 + *[reset](http://csslab.cc/reset.html)* 
+
 浏览器样式重置
+
++ *[shape](http://csslab.cc/shape.html)* 
+
+使用CSS绘制常用的图形
+
++ *[animation](http://csslab.cc/animation.html)* 
+
+基础动画库，提供常见的动画
+
++ *[twinkle](http://csslab.cc/twinkle.html)* （仅v3及v3版本以前）
+
+扩展动画库
+
 + *base-fix* （仅v3及v3版本以前）
+
 旧版base废弃函数（芒果TV）
 
 ## <a name="contribute"></a> 其它链接
