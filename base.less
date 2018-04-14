@@ -1,9 +1,9 @@
 /*
  * Base.less
- * Version: 3.3
+ * Version: 3.4
  * Author: iRuxu
  * Creat: 2014/08
- * Update: 2018/03/22
+ * Update: 2018/04/14
  * Description: Base function,ie hack,quick layout
  * Manual: http://csslab.cc
  */
@@ -179,7 +179,6 @@
     //最小尺寸
     .min-width(@min-width){min-width:@min-width;_width:@min-width;}
     .min-height(@min-height){min-height:@min-height;_height:@min-height;}
-
     
     /*-------------------------------------
     ├   Display                            ┆
@@ -227,15 +226,11 @@
         @outer:外层包裹class名,例videobox
         @inner:内层包裹class名,例videolist
         @item:循环单元class命,例videoitem
-        @item-width:列表项宽度
         @item-spacing:列表项间距
-        @item-count:每行数目
     --------------------------------------------------------*/
-    .flist(@item-width,@item-spacing,@item-count) when(isnumber(@item-width)){
+    .flist(@item-spacing){
         //默认遮盖溢出显示
         .clip;*position:relative;
-        //div宽度等于（列表项宽+列表项间距）×每行项目数 - 列表项间距
-        width:(@item-width + @item-spacing)*@item-count - @item-spacing;
         ul{
             //浮动闭合
             .clearfix;
@@ -246,16 +241,14 @@
                 //每个单元浮动
                 .fl;
                 //单元宽度与间距
-                width:@item-width;
                 margin-right:@item-spacing;
+                margin-bottom:@item-spacing;
             }
         }   
     }
-    .flist(@inner,@item,@item-width,@item-spacing,@item-count) when(isstring(@inner)){
+    .flist(@inner,@item,@item-spacing){
         //默认遮盖溢出显示
         .clip;*position:relative;
-        //div宽度等于（列表项宽+列表项间距）×每行项目数 - 列表项间距
-        width:(@item-width + @item-spacing)*@item-count - @item-spacing;
         .@{inner}{
             //浮动闭合
             .clearfix;
@@ -266,8 +259,8 @@
                 //每个单元浮动
                 .fl;
                 //单元宽度与间距
-                width:@item-width;
                 margin-right:@item-spacing;
+                margin-bottom:@item-spacing;
             }
         }   
     }
@@ -276,10 +269,6 @@
     .iblock(){
         font-size:0;white-space:nowrap;overflow:visible;
         li{.dbi;.y(top);font-size:12px;white-space:normal;}
-    }
-    .iblock(@selector){
-        font-size:0;white-space:nowrap;overflow:visible;
-        .@{selector}{.dbi;.y(top);font-size:12px;white-space:normal;}
     }
 
     //flex-box
@@ -320,18 +309,6 @@
     //居中对齐
     .auto(x){margin-left:auto;margin-right:auto;}
 
-    //边距
-    .ml(@len){margin-left:@len;}
-    .mr(@len){margin-right:@len;}
-    .mt(@len){margin-top:@len;}
-    .mb(@len){margin-bottom:@len;}
-    .m(@t,@r,@b:@t,@l:@r){margin:@t @r @b @l;}
-    .pl(@len){padding-left:@len;}
-    .pr(@len){padding-right:@len;}
-    .pt(@len){padding-top:@len;}
-    .pb(@len){padding-bottom:@len;}
-    .p(@t,@r,@b:@t,@l:@r){margin:@t @r @b @l;}
-    
     //居中定位·绝对定位方式（未定义/不确定尺寸时,不兼容IE6）
     .ct(){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
     .ct(x){position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;}
@@ -478,30 +455,6 @@
     .tsfix(){
         -webkit-backface-visibility:hidden;
         -webkit-transform-style:preserve-3d;
-    }
-
-    /*-------------------------------------
-    ├   Animation                          ┆
-    └------------------------------------*/
-
-    //动画
-    .ani(@name,@time:1s,@ease:ease-in-out,@fillmode:forwards) when (iskeyword(@name)){
-        animation-name:@name;
-        animation-duration:@time;
-        animation-timing-function:@ease;
-        animation-fill-mode:@fillmode;
-    }
-    .ani(@time:1s,@ease:ease-in-out,@fillmode:forwards) when (iskeyword(@time) = false){
-        animation-duration:@time;
-        animation-timing-function:@ease;
-        animation-fill-mode:@fillmode;
-    }
-    .ani-repeat(@count:infinite){
-        animation-iteration-count:@count;
-    }
-
-    .ani-delay(@delay:0){
-        animation-delay:@delay;
     }
 
     /*-------------------------------------
