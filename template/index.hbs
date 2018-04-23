@@ -8,6 +8,7 @@
 		<li>.lh</li>
 		<li>.bold</li>
 		<li>.italic</li>
+		<li class="new">.smooth</li>
 		<li>.normal</li>
 		<li>.color</li>
 		<li class="new">.tip</li>
@@ -59,6 +60,7 @@
 		<li>.ct</li>
 		<li>.fixed</li>
 		<li>.hasfixed</li>
+		<li class="new">.islocked</li>
 		<h4>图像</h4>
 		<li>.gradient</li>
 		<li>.sprite</li>
@@ -114,6 +116,14 @@
 	<p>字体表现为斜体。<br>
 	<pre><code class="less">
 		.test{.italic;}         //font-style:italic;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.smooth</b><span></span><i>平滑</i></h3>
+	<p>字体或字体图标平滑，减少锯齿。<br>
+	<pre><code class="less">
+		.test{.smooth;}         //-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
 	</code></pre>
 	</p>
 </div>
@@ -447,12 +457,13 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.ct</b><span>([]/x/y | x/y,@size,[@fix] | o,@width,@height:@width,[@fix])</span><i>居中对齐</i></h3>
+	<h3><b>.ct</b><span>([o]/x/y | x/y,@size,[@fix] | o,@width,@height:@width,[@fix])</span><i>居中对齐</i></h3>
 	<p>传入x水平居中对齐，传入y垂直居中对齐，传入o居中对齐。可传入一个修订偏移参数，以修改margin值。<br>
 	<span class="important">3.3版本开始废弃对旧版本的兼容</span>
 	<pre><code class="less">
 		//IE7+，自动膨胀，无需传入元素尺寸
-		.test{.ct;}                 //position:absolute;left:50%;margin-left:负自身一半;
+		.test{.ct;}                 
+		.test{.ct(o);}              //position:absolute;margin:auto;left:0;right:0;top:0;bottom:0;
 		.test{.ct(x);}          	//水平方向
 		.test{.ct(y);}          	//垂直方向
 		//IE6支持，需传入元素尺寸
@@ -478,6 +489,11 @@
 <div class="m-content-list-item">
 	<h3><b>.hasfixed</b><span></span><i>页面有固定定位时</i></h3>
 	<p>当页面有固定定位元素时，在less顶级运行该函数，防止滚动闪动，比如目前的公共头（公共头中已经设置，相关页面无需再设置）<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.islocked</b><span></span><i>禁止页面滚动</i></h3>
+	<p>添加在html元素上，以禁止浏览器进行滚动<br>
 	</p>
 </div>
 <div class="m-content-list-item">
