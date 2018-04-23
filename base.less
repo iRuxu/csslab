@@ -44,6 +44,12 @@
     //字体样式：正常
     .normal(){font-weight:normal;font-style:normal;}
 
+    //字体样式：平滑
+    .smooth(){
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+    }
+
     //字体颜色
     .color(@color){
         color:@color;   //自身颜色，包括链接与非链接
@@ -163,6 +169,8 @@
     .h(@height){height:@height;} 
     .size(@width,@height:@width){width:@width;height:@height;}
     .full(){width:100%;height:100%;}
+    .full(x){width:100%;}
+    .full(y){height:100%;}
 
     //最小尺寸
     .min-width(@min-width){min-width:@min-width;_width:@min-width;}
@@ -290,6 +298,7 @@
 
     //居中定位·绝对定位方式（未定义/不确定尺寸时,不兼容IE6）
     .ct(){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
+    .ct(o){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
     .ct(x){position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;}
     .ct(y){position:absolute;margin-top:auto;margin-bottom:auto;top:0;bottom:0;}
 
@@ -351,6 +360,12 @@
     //在含有fix顶等元素时，在页面less文件的开头添加如下以防止闪动
     .hasfixed(){
         html,body{_background-image:url(about:blank);_background-attachment:fixed;}
+    }
+
+    //弹窗期间给html添加禁止滚动
+    .islocked{
+        width:100%;height:100%;overflow:hidden;
+        body{width:100%;height:100%;overflow:hidden;}
     }
 
     /*-------------------------------------
