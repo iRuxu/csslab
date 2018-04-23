@@ -9,7 +9,7 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimal-ui">
-<link rel="shortcut icon" href="http://www.hunantv.com/favicon.ico?" type="image/x-icon">
+<link rel="shortcut icon" href="image/common/csslab.ico?" type="image/x-icon">
 <!-- <link rel="stylesheet" href='css/monokai.css?' type="text/css"> -->
 <link rel="stylesheet" href="css/markdown.css?" type="text/css">
 <link rel="stylesheet" href="css/github.css?" type="text/css">
@@ -60,6 +60,7 @@
 		<li>.lh</li>
 		<li>.bold</li>
 		<li>.italic</li>
+		<li class="new">.smooth</li>
 		<li>.normal</li>
 		<li>.color</li>
 		<li class="new">.tip</li>
@@ -111,6 +112,7 @@
 		<li>.ct</li>
 		<li>.fixed</li>
 		<li>.hasfixed</li>
+		<li class="new">.islocked</li>
 		<h4>&#x56FE;&#x50CF;</h4>
 		<li>.gradient</li>
 		<li>.sprite</li>
@@ -166,6 +168,14 @@
 	<p>&#x5B57;&#x4F53;&#x8868;&#x73B0;&#x4E3A;&#x659C;&#x4F53;&#x3002;<br>
 	<pre><code class="less">
 		.test{.italic;}         //font-style:italic;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.smooth</b><span></span><i>&#x5E73;&#x6ED1;</i></h3>
+	<p>&#x5B57;&#x4F53;&#x6216;&#x5B57;&#x4F53;&#x56FE;&#x6807;&#x5E73;&#x6ED1;&#xFF0C;&#x51CF;&#x5C11;&#x952F;&#x9F7F;&#x3002;<br>
+	<pre><code class="less">
+		.test{.smooth;}         //-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
 	</code></pre>
 	</p>
 </div>
@@ -499,12 +509,13 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.ct</b><span>([]/x/y | x/y,@size,[@fix] | o,@width,@height:@width,[@fix])</span><i>&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;</i></h3>
+	<h3><b>.ct</b><span>([o]/x/y | x/y,@size,[@fix] | o,@width,@height:@width,[@fix])</span><i>&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;</i></h3>
 	<p>&#x4F20;&#x5165;x&#x6C34;&#x5E73;&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;&#xFF0C;&#x4F20;&#x5165;y&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;&#xFF0C;&#x4F20;&#x5165;o&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;&#x3002;&#x53EF;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x4FEE;&#x8BA2;&#x504F;&#x79FB;&#x53C2;&#x6570;&#xFF0C;&#x4EE5;&#x4FEE;&#x6539;margin&#x503C;&#x3002;<br>
 	<span class="important">3.3&#x7248;&#x672C;&#x5F00;&#x59CB;&#x5E9F;&#x5F03;&#x5BF9;&#x65E7;&#x7248;&#x672C;&#x7684;&#x517C;&#x5BB9;</span>
 	<pre><code class="less">
 		//IE7+&#xFF0C;&#x81EA;&#x52A8;&#x81A8;&#x80C0;&#xFF0C;&#x65E0;&#x9700;&#x4F20;&#x5165;&#x5143;&#x7D20;&#x5C3A;&#x5BF8;
-		.test{.ct;}                 //position:absolute;left:50%;margin-left:&#x8D1F;&#x81EA;&#x8EAB;&#x4E00;&#x534A;;
+		.test{.ct;}                 
+		.test{.ct(o);}              //position:absolute;margin:auto;left:0;right:0;top:0;bottom:0;
 		.test{.ct(x);}          	//&#x6C34;&#x5E73;&#x65B9;&#x5411;
 		.test{.ct(y);}          	//&#x5782;&#x76F4;&#x65B9;&#x5411;
 		//IE6&#x652F;&#x6301;&#xFF0C;&#x9700;&#x4F20;&#x5165;&#x5143;&#x7D20;&#x5C3A;&#x5BF8;
@@ -530,6 +541,11 @@
 <div class="m-content-list-item">
 	<h3><b>.hasfixed</b><span></span><i>&#x9875;&#x9762;&#x6709;&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;&#x65F6;</i></h3>
 	<p>&#x5F53;&#x9875;&#x9762;&#x6709;&#x56FA;&#x5B9A;&#x5B9A;&#x4F4D;&#x5143;&#x7D20;&#x65F6;&#xFF0C;&#x5728;less&#x9876;&#x7EA7;&#x8FD0;&#x884C;&#x8BE5;&#x51FD;&#x6570;&#xFF0C;&#x9632;&#x6B62;&#x6EDA;&#x52A8;&#x95EA;&#x52A8;&#xFF0C;&#x6BD4;&#x5982;&#x76EE;&#x524D;&#x7684;&#x516C;&#x5171;&#x5934;&#xFF08;&#x516C;&#x5171;&#x5934;&#x4E2D;&#x5DF2;&#x7ECF;&#x8BBE;&#x7F6E;&#xFF0C;&#x76F8;&#x5173;&#x9875;&#x9762;&#x65E0;&#x9700;&#x518D;&#x8BBE;&#x7F6E;&#xFF09;<br>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.islocked</b><span></span><i>&#x7981;&#x6B62;&#x9875;&#x9762;&#x6EDA;&#x52A8;</i></h3>
+	<p>&#x6DFB;&#x52A0;&#x5728;html&#x5143;&#x7D20;&#x4E0A;&#xFF0C;&#x4EE5;&#x7981;&#x6B62;&#x6D4F;&#x89C8;&#x5668;&#x8FDB;&#x884C;&#x6EDA;&#x52A8;<br>
 	</p>
 </div>
 <div class="m-content-list-item">
