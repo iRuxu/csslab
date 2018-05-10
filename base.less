@@ -125,7 +125,7 @@
         -webkit-line-clamp: @lines; //设定行数，超出行数则省略，只webkit有效
         -webkit-box-orient: vertical;
         overflow:hidden;
-        height:@height;   //兼容FF等,以直接截断显示
+        height:@height;   //兼容FF等,以直接截断显示,需自行指定移动端时height设为auto
     }
     //文本不折行处理（可应用在inline-block水平排列）
     .nobreak(){
@@ -295,12 +295,12 @@
     //居中对齐
     .auto(x){margin-left:auto;margin-right:auto;}
     .auto(y){display:table-cell;vertical-align:middle;}
+    .auto(img){.auto(y);.x;img{max-width:100%;max-height:100%;.auto(x);}}
 
     //居中定位·绝对定位方式（未定义/不确定尺寸时,不兼容IE6）
-    .ct(){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
-    .ct(o){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
-    .ct(x){position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;}
-    .ct(y){position:absolute;margin-top:auto;margin-bottom:auto;top:0;bottom:0;}
+    .ct(oo,@edgeX:0,@edgeY:@edgeX){position:absolute;margin:auto;left:@edgeX;right:@edgeX;top:@edgeY;bottom:@edgeY;}
+    .ct(xx,@edgeX:0){position:absolute;margin-left:auto;margin-right:auto;left:@edgeX;right:@edgeX;}
+    .ct(yy,@edgeY:0){position:absolute;margin-top:auto;margin-bottom:auto;top:@edgeY;bottom:@edgeY;}
 
     //居中定位·绝对定位方式（已知元素尺寸时,兼容IE6）
     .ct(x,@width,@fix:0){
@@ -317,6 +317,11 @@
         position:absolute;left:50%;top:50%;
         margin-left:-@width/2 + @fix-x;margin-top:-@height/2 + @fix-y;
     }
+
+    //居中定位·固定定位方式（未定义/不确定尺寸时,不兼容IE6）
+    .fix(o,@edgeX:0,@edgeY:@edgeX){position:fixed;left:@edgeX;right:@edgeX;top:@edgeY;bottom:@edgeY;}
+    .fix(x,@edgeX:0){position:fixed;left:@edgeX;right:@edgeX;}
+    .fix(y,@edgeY:0){position:fixed;top:@edgeY;bottom:@edgeY;}
     
     //窗口固定（兼容IE6）
     .fixed(@_,@side:0,@fix:0){
@@ -355,6 +360,18 @@
         @xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);
         margin-left:-@xmargin;margin-top:-@ymargin;
         _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight/2))';
+    }
+    .fixed(x,@width){
+        width:@width;
+        left:50%;
+        @xmargin:@width/2;
+        margin-left:-@xmargin;
+    }
+    .fixed(y,@height){
+        height:@height;
+        top:50%;
+        @ymargin:@height/2;
+        margin-top:-@ymargin;
     }
 
     //在含有fix顶等元素时，在页面less文件的开头添加如下以防止闪动
