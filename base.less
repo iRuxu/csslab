@@ -308,11 +308,17 @@
 
     //居中对齐
     .auto(x){margin-left:auto;margin-right:auto;}
+    .auto(y){margin-left:auto;margin-right:auto;}
 
     //居中定位·绝对定位方式（未定义/不确定尺寸时,不兼容IE6）
-    .ct(){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
+    .pa(){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
     .ct(x){position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;}
     .ct(y){position:absolute;margin-top:auto;margin-bottom:auto;top:0;bottom:0;}
+
+    //窗口固定（未定义/不确定尺寸时,不兼容IE6）
+    .pf(o,@edgeX:0,@edgeY:@edgeX){position:fixed;left:@edgeX;right:@edgeX;top:@edgeY;bottom:@edgeY;}
+    .pf(x,@edgeX:0){position:fixed;left:@edgeX;right:@edgeX;}
+    .pf(y,@edgeY:0){position:fixed;top:@edgeY;bottom:@edgeY;}
 
     //居中定位·绝对定位方式（已知元素尺寸时,兼容IE6）
     .ct(x,@width,@fix:0){
@@ -330,7 +336,7 @@
         margin-left:-@width/2 + @fix-x;margin-top:-@height/2 + @fix-y;
     }
     
-    //窗口固定（兼容IE6）
+    //窗口固定（已知元素尺寸时,部分兼容IE6）
     .fixed(@_,@side:0,@fix:0){
         position: fixed;
         _position:absolute;
@@ -367,6 +373,18 @@
         @xmargin:unit(@width/2,px);@ymargin:unit(@height/2,px);
         margin-left:-@xmargin;margin-top:-@ymargin;
         _top:~'expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight/2))';
+    }
+    .fixed(x,@width){
+        width:@width;
+        left:50%;
+        @xmargin:@width/2;
+        margin-left:-@xmargin;
+    }
+    .fixed(y,@height){
+        height:@height;
+        top:50%;
+        @ymargin:@height/2;
+        margin-top:-@ymargin;
     }
 
     //在含有fix顶等元素时，在页面less文件的开头添加如下以防止闪动
