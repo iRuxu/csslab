@@ -254,10 +254,12 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.full</b><span>()</span><i>满宽/高</i></h3>
+	<h3><b>.full</b><span>([x|y])</span><i>满宽/高</i></h3>
 	<p>设置元素满宽或满高，或二者皆100%。<br>
 	<pre><code class="less">
 		.test{.full;}       //width:100%;height:100%;
+		.test{.full(x);}    //width:100%;
+		.test{.full(y);}    //height:100%;
 	</code></pre>
 	</p>
 </div>
@@ -457,15 +459,10 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.ct</b><span>([o]/x/y | x/y,@size,[@fix] | o,@width,@height:@width,[@fix])</span><i>居中对齐</i></h3>
+	<h3><b>.ct</b><span>(x/y,@size,[@fix] | o,@width,@height:@width,[@fix])</span><i>居中对齐</i></h3>
 	<p>传入x水平居中对齐，传入y垂直居中对齐，传入o居中对齐。可传入一个修订偏移参数，以修改margin值。<br>
 	<span class="important">3.3版本开始废弃对旧版本的兼容</span>
 	<pre><code class="less">
-		//IE7+，自动膨胀，无需传入元素尺寸
-		.test{.ct;}                 
-		.test{.ct(o);}              //position:absolute;margin:auto;left:0;right:0;top:0;bottom:0;
-		.test{.ct(x);}          	//水平方向
-		.test{.ct(y);}          	//垂直方向
 		//IE6支持，需传入元素尺寸
 		.test{.ct(o,220px,110px);}  //居中，高度不传值时则等于宽度
 		.test{.ct(x,220px);}        //水平居中
