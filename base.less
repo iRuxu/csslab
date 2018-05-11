@@ -216,7 +216,6 @@
         *display:inline-block;*width:auto;
     }
 
-
     //浮动阵列
     .flist(@item-spacing){
         //默认遮盖溢出显示
@@ -257,8 +256,12 @@
 
     //inline-block布局替代float
     .iblock(){
-        font-size:0;white-space:nowrap;overflow:visible;
-        li{.dbi;.y(top);font-size:12px;white-space:normal;}
+        font-size:0;white-space:nowrap;
+        li{.dbi;.y(top);font-size:1rem;white-space:normal;}
+    }
+    .iblock(@selector){
+        font-size:0;white-space:nowrap;
+        @{selector}{.dbi;.y(top);font-size:1rem;white-space:normal;}
     }
     
     //多列
@@ -295,12 +298,22 @@
     //居中对齐
     .auto(x){margin-left:auto;margin-right:auto;}
     .auto(y){display:table-cell;vertical-align:middle;}
-    .auto(o){.auto(y);.x;}
+    .auto(o){.auto(y);.x;}  //如内部元素设为display:block,则需自行设置.auto(x)
 
     //居中定位·绝对定位方式（未定义/不确定尺寸时,不兼容IE6）
-    .mid(o,@edgeX:0,@edgeY:@edgeX){position:absolute;margin:auto;left:@edgeX;right:@edgeX;top:@edgeY;bottom:@edgeY;}
-    .mid(x,@edgeX:0){position:absolute;margin-left:auto;margin-right:auto;left:@edgeX;right:@edgeX;}
-    .mid(y,@edgeY:0){position:absolute;margin-top:auto;margin-bottom:auto;top:@edgeY;bottom:@edgeY;}
+    .mid(o,@edgeX:0,@edgeY:@edgeX){
+        position:absolute;margin:auto;
+        left:@edgeX;right:@edgeX;
+        top:@edgeY;bottom:@edgeY;
+    }
+    .mid(x,@edgeL:0,@edgeR:@edgeL){
+        position:absolute;margin-left:auto;margin-right:auto;
+        left:@edgeL;right:@edgeR;
+    }
+    .mid(y,@edgeT:0,@edgeB:@edgeT){
+        position:absolute;margin-top:auto;margin-bottom:auto;
+        top:@edgeT;bottom:@edgeB;
+    }
 
     //居中定位·绝对定位方式（已知元素尺寸时,兼容IE6）
     .ct(x,@width,@fix:0){
@@ -319,9 +332,19 @@
     }
 
     //居中定位·固定定位方式（未定义/不确定尺寸时,不兼容IE6）
-    .fix(o,@edgeX:0,@edgeY:@edgeX){position:fixed;left:@edgeX;right:@edgeX;top:@edgeY;bottom:@edgeY;}
-    .fix(x,@edgeX:0){position:fixed;left:@edgeX;right:@edgeX;}
-    .fix(y,@edgeY:0){position:fixed;top:@edgeY;bottom:@edgeY;}
+    .fix(o,@edgeX:0,@edgeY:@edgeX){
+        position:fixed;
+        left:@edgeX;right:@edgeX;
+        top:@edgeY;bottom:@edgeY;
+    }
+    .fix(x,@edgeL:0,@edgeR:@edgeL){
+        position:fixed;
+        left:@edgeL;right:@edgeR;
+    }
+    .fix(y,@edgeT:0,@edgeB:@edgeT){
+        position:fixed;
+        top:@edgeT;bottom:@edgeB;
+    }
     
     //窗口固定（兼容IE6）
     .fixed(@_,@side:0,@fix:0){
