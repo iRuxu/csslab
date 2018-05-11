@@ -1,8 +1,6 @@
 /*
  * Base.less
  * Author: iRuxu
- * Creat: 2014/08
- * Update: 2018/04/14
  * Description: Base function,ie hack,quick layout
  * Manual: http://csslab.cc
  */
@@ -29,8 +27,12 @@
         height:@height;
     }
 
+    //字体行高
+    .lh(@line-height){
+        line-height:@line-height;
+    }
     //字体行高与高度
-    .lh(@line-height,@height:@line-height){
+    .lhh(@line-height,@height:@line-height){
         line-height:@line-height;
         height:@height;
     }
@@ -96,7 +98,7 @@
     }
 
     /*-------------------------------------
-    ├   对齐                              ┆
+    ├   Align                              ┆
     └------------------------------------*/
     
     //水平（x轴）对齐方式
@@ -176,6 +178,7 @@
     .min-width(@min-width){min-width:@min-width;_width:@min-width;}
     .min-height(@min-height){min-height:@min-height;_height:@min-height;}
     
+
     /*-------------------------------------
     ├   Display                            ┆
     └------------------------------------*/
@@ -203,21 +206,18 @@
     .fr{float:right;*display:inline;}
     .clearfix{                            //清除浮动塌陷
         *zoom:1;
-        &:after{content:"\200B";display:block;height:0;clear:both;}
+        &:after{content:"";display:table;clear:both;}
     }
     .clear(@clear:both){clear:@clear;}    //清除浮动
 
+    //单侧浮动布局
+    .fbox{
+        display:table-cell;width:5000px;
+        *display:inline-block;*width:auto;
+    }
 
-    /*浮动阵列
-    --------------------------------------------------------
-    1.结构演示：$outer > $inner > $item
-    2.函数应用：$outer
-    3.参数说明：
-        @outer:外层包裹class名,例videobox
-        @inner:内层包裹class名,例videolist
-        @item:循环单元class命,例videoitem
-        @item-spacing:列表项间距
-    --------------------------------------------------------*/
+
+    //浮动阵列
     .flist(@item-spacing){
         //默认遮盖溢出显示
         .clip;*position:relative;
@@ -255,7 +255,7 @@
         }   
     }
 
-    //inline-block布局替代float - 纯列表时
+    //inline-block布局替代float
     .iblock(){
         font-size:0;white-space:nowrap;overflow:visible;
         li{.dbi;.y(top);font-size:12px;white-space:normal;}
@@ -295,12 +295,12 @@
     //居中对齐
     .auto(x){margin-left:auto;margin-right:auto;}
     .auto(y){display:table-cell;vertical-align:middle;}
-    .auto(img){.auto(y);.x;img{max-width:100%;max-height:100%;.auto(x);}}
+    .auto(o){.auto(y);.x;}
 
     //居中定位·绝对定位方式（未定义/不确定尺寸时,不兼容IE6）
-    .ct(oo,@edgeX:0,@edgeY:@edgeX){position:absolute;margin:auto;left:@edgeX;right:@edgeX;top:@edgeY;bottom:@edgeY;}
-    .ct(xx,@edgeX:0){position:absolute;margin-left:auto;margin-right:auto;left:@edgeX;right:@edgeX;}
-    .ct(yy,@edgeY:0){position:absolute;margin-top:auto;margin-bottom:auto;top:@edgeY;bottom:@edgeY;}
+    .mid(o,@edgeX:0,@edgeY:@edgeX){position:absolute;margin:auto;left:@edgeX;right:@edgeX;top:@edgeY;bottom:@edgeY;}
+    .mid(x,@edgeX:0){position:absolute;margin-left:auto;margin-right:auto;left:@edgeX;right:@edgeX;}
+    .mid(y,@edgeY:0){position:absolute;margin-top:auto;margin-bottom:auto;top:@edgeY;bottom:@edgeY;}
 
     //居中定位·绝对定位方式（已知元素尺寸时,兼容IE6）
     .ct(x,@width,@fix:0){
