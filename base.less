@@ -1,14 +1,9 @@
 /*
  * Base.less
- * Version: 3.4
  * Author: iRuxu
- * Creat: 2014/08
- * Update: 2018/04/14
  * Description: Base function,ie hack,quick layout
  * Manual: http://csslab.cc
  */
-
-
 
     /*-------------------------------------
     ├   Font                              ┆
@@ -32,8 +27,12 @@
         height:@height;
     }
 
+    //字体行高
+    .lh(@line-height){
+        line-height:@line-height;
+    }
     //字体行高与高度
-    .lh(@line-height,@height:@line-height){
+    .lhh(@line-height,@height:@line-height){
         line-height:@line-height;
         height:@height;
     }
@@ -46,6 +45,12 @@
 
     //字体样式：正常
     .normal(){font-weight:normal;font-style:normal;}
+
+    //字体样式：平滑
+    .smooth(){
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+    }
 
     //字体颜色
     .color(@color){
@@ -62,6 +67,18 @@
     }
 
     //占位符placeholder样式
+    .tip(@property,@value){
+        &:-moz-placeholder {
+            @{property}:@value;
+        }
+        &:-ms-input-placeholder {
+            @{property}:@value;
+        }
+        &::-webkit-input-placeholder {
+            @{property}:@value;
+        }
+    }
+
     .tips(@font-size,@color,@text-align:left){
         &:-moz-placeholder {
             font-size:@font-size;
@@ -80,20 +97,8 @@
         }
     }
 
-    .tip(@property,@value){
-        &:-moz-placeholder {
-            @{property}:@value;
-        }
-        &:-ms-input-placeholder {
-            @{property}:@value;
-        }
-        &::-webkit-input-placeholder {
-            @{property}:@value;
-        }
-    }
-
     /*-------------------------------------
-    ├   对齐                              ┆
+    ├   Align                              ┆
     └------------------------------------*/
     
     //水平（x轴）对齐方式
@@ -122,7 +127,7 @@
         -webkit-line-clamp: @lines; //设定行数，超出行数则省略，只webkit有效
         -webkit-box-orient: vertical;
         overflow:hidden;
-        height:@height;   //兼容FF等,以直接截断显示
+        height:@height;   //兼容FF等,以直接截断显示,需自行指定移动端时height设为auto
     }
     //文本不折行处理（可应用在inline-block水平排列）
     .nobreak(){
@@ -165,21 +170,15 @@
     .w(@width){width:@width;}
     .h(@height){height:@height;} 
     .size(@width,@height:@width){width:@width;height:@height;}
-
-    //满容器
     .full(){width:100%;height:100%;}
     .full(x){width:100%;}
     .full(y){height:100%;}
-
-    //一半容器
-    .half(){width:50%;height:50%;} 
-    .half(x){width:50%;}
-    .half(y){height:50%;}
 
     //最小尺寸
     .min-width(@min-width){min-width:@min-width;_width:@min-width;}
     .min-height(@min-height){min-height:@min-height;_height:@min-height;}
     
+
     /*-------------------------------------
     ├   Display                            ┆
     └------------------------------------*/
@@ -188,19 +187,14 @@
     .db(){display:block;} //表现为块级,比如将a、span等内联元素块级化
     .dbi(){display:inline-block;*display:inline;*zoom:1;} //表现为内联块级元素，兼容IE6
     .di(){display:inline;} //表现为内联元素
-    .df(){display:flex;} //表现为flex伸缩盒
-    .dfi(){display:inline-flex;} //表现为flex伸缩盒
-    .dg(){display:grid;}
-    .dgi(){display:inline-grid;}
-    .dgsub(){display:subgrid;}
 
     //隐藏简写
-    .none(){display:none;}
-    .hide(){visibility:hidden;}
-    .show(){visibility:visible;}
+    .none{display:none;}
+    .hide{visibility:hidden;}
+    .show{visibility:visible;}
 
     //溢出隐藏
-    .clip(){overflow:hidden;*zoom:1;} //兼容IE6-7
+    .clip{overflow:hidden;*zoom:1;} //兼容IE6-7
     .noclip(){overflow:visible}
 
     /*-------------------------------------
@@ -208,26 +202,21 @@
     └------------------------------------*/
 
     //浮动
-    .fl(){float:left;*display:inline;}      //IE6-7双倍margin bug处理
-    .fr(){float:right;*display:inline;}
-    .fn(){float:none;}
-    .clearfix(){                            //清除浮动塌陷
+    .fl{float:left;*display:inline;}      //IE6-7双倍margin bug处理
+    .fr{float:right;*display:inline;}
+    .clearfix{                            //清除浮动塌陷
         *zoom:1;
-        &:after{content:"\200B";display:block;height:0;clear:both;}
+        &:after{content:"";display:table;clear:both;}
     }
     .clear(@clear:both){clear:@clear;}    //清除浮动
 
+    //单侧浮动布局
+    .fbox{
+        display:table-cell;width:5000px;
+        *display:inline-block;*width:auto;
+    }
 
-    /*浮动阵列
-    --------------------------------------------------------
-    1.结构演示：$outer > $inner > $item
-    2.函数应用：$outer
-    3.参数说明：
-        @outer:外层包裹class名,例videobox
-        @inner:内层包裹class名,例videolist
-        @item:循环单元class命,例videoitem
-        @item-spacing:列表项间距
-    --------------------------------------------------------*/
+    //浮动阵列
     .flist(@item-spacing){
         //默认遮盖溢出显示
         .clip;*position:relative;
@@ -265,15 +254,15 @@
         }   
     }
 
-    //inline-block布局替代float - 纯列表时
+    //inline-block布局替代float
     .iblock(){
-        font-size:0;white-space:nowrap;overflow:visible;
-        li{.dbi;.y(top);font-size:12px;white-space:normal;}
+        font-size:0;white-space:nowrap;
+        li{.dbi;.y(top);font-size:1rem;white-space:normal;}
     }
-
-    //flex-box
-    .flex(x){justify-content:center;}
-    .flex(y){align-items:center;align-content:center;}
+    .iblock(@selector){
+        font-size:0;white-space:nowrap;
+        @{selector}{.dbi;.y(top);font-size:1rem;white-space:normal;}
+    }
     
     //多列
     .cols(@width,@count,@gap) {
@@ -308,12 +297,23 @@
 
     //居中对齐
     .auto(x){margin-left:auto;margin-right:auto;}
-    .auto(y){margin-left:auto;margin-right:auto;}
+    .auto(y){display:table-cell;vertical-align:middle;}
+    .auto(o){.auto(y);.x;}  //如内部元素设为display:block,则需自行设置.auto(x)
 
     //居中定位·绝对定位方式（未定义/不确定尺寸时,不兼容IE6）
-    .pa(){position:absolute;margin:auto;left:0;top:0;right:0;bottom:0;}
-    .ct(x){position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;}
-    .ct(y){position:absolute;margin-top:auto;margin-bottom:auto;top:0;bottom:0;}
+    .mid(o,@edgeX:0,@edgeY:@edgeX){
+        position:absolute;margin:auto;
+        left:@edgeX;right:@edgeX;
+        top:@edgeY;bottom:@edgeY;
+    }
+    .mid(x,@edgeL:0,@edgeR:@edgeL){
+        position:absolute;margin-left:auto;margin-right:auto;
+        left:@edgeL;right:@edgeR;
+    }
+    .mid(y,@edgeT:0,@edgeB:@edgeT){
+        position:absolute;margin-top:auto;margin-bottom:auto;
+        top:@edgeT;bottom:@edgeB;
+    }
 
     //窗口固定（未定义/不确定尺寸时,不兼容IE6）
     .pf(o,@edgeX:0,@edgeY:@edgeX){position:fixed;left:@edgeX;right:@edgeX;top:@edgeY;bottom:@edgeY;}
@@ -334,6 +334,21 @@
     .ct(o,@width,@height:@width,@fix-x:0,@fix-y:0){
         position:absolute;left:50%;top:50%;
         margin-left:-@width/2 + @fix-x;margin-top:-@height/2 + @fix-y;
+    }
+
+    //居中定位·固定定位方式（未定义/不确定尺寸时,不兼容IE6）
+    .fix(o,@edgeX:0,@edgeY:@edgeX){
+        position:fixed;
+        left:@edgeX;right:@edgeX;
+        top:@edgeY;bottom:@edgeY;
+    }
+    .fix(x,@edgeL:0,@edgeR:@edgeL){
+        position:fixed;
+        left:@edgeL;right:@edgeR;
+    }
+    .fix(y,@edgeT:0,@edgeB:@edgeT){
+        position:fixed;
+        top:@edgeT;bottom:@edgeB;
     }
     
     //窗口固定（已知元素尺寸时,部分兼容IE6）
@@ -390,6 +405,12 @@
     //在含有fix顶等元素时，在页面less文件的开头添加如下以防止闪动
     .hasfixed(){
         html,body{_background-image:url(about:blank);_background-attachment:fixed;}
+    }
+
+    //弹窗期间给html添加禁止滚动
+    .islocked{
+        width:100%;height:100%;overflow:hidden;
+        body{width:100%;height:100%;overflow:hidden;}
     }
 
     /*-------------------------------------
@@ -466,16 +487,6 @@
     }
 
     /*-------------------------------------
-    ├   Transform                          ┆
-    └------------------------------------*/
-
-    //三维闪动bug处理
-    .tsfix(){
-        -webkit-backface-visibility:hidden;
-        -webkit-transform-style:preserve-3d;
-    }
-
-    /*-------------------------------------
     ├   Other                              ┆
     └------------------------------------*/
     
@@ -485,4 +496,20 @@
     //指针
     .pointer(){cursor:pointer;}
 
-    
+    //三维闪动bug处理
+    .tsfix(){
+        -webkit-backface-visibility:hidden;
+        -webkit-transform-style:preserve-3d;
+    }
+
+    //字体图标
+    .iconfont{
+        display:inline-block;*display:inline;*zoom:1;
+        vertical-align:middle;
+        font-family:"iconfont";
+        font-style:normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+        cursor:pointer;
+    }
