@@ -6,6 +6,7 @@
 		<h4>字体</h4>
 		<li>.fz</li>
 		<li>.lh</li>
+		<li class="new">.lhh</li>
 		<li>.bold</li>
 		<li>.italic</li>
 		<li class="new">.smooth</li>
@@ -43,6 +44,7 @@
 		<li>.fr</li>
 		<li>.clear</li>
 		<li>.clearfix</li>
+		<li class="new">.fbox</li>
 		<li class="new">.flist</li>
 		<li>.iblock</li>
 		<li>.cols</li>
@@ -57,7 +59,9 @@
 		<li>.lb</li>
 		<li>.rb</li>
 		<li>.auto</li>
+		<li class="new">.mid</li>
 		<li>.ct</li>
+		<li class="new">.fix</li>
 		<li>.fixed</li>
 		<li>.hasfixed</li>
 		<li class="new">.islocked</li>
@@ -94,11 +98,19 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.lh</b><span>(@line-height,[@height]:@line-height)</span><i>字体行高与容器高度(相等)</i></h3>
-	<p>定义字体行高与容器高度，常用作高度与行高相等时（列表项较为美观）。行高此处不能定义为乘积因子。<br>
+	<h3><b>.lh</b><span>(@line-height)</span><i>字体行高</i></h3>
+	<p>定义字体行高。<br>
 	<pre><code class="less">
-		.test{.lh(24px);}       //line-height:24px;height:24px; （行高与高度相等）
-		.test{.lh(24px,20px);}      //line-height:24px;height:20px; （高度与行高不相等时，特殊处理时）
+		.test{.lh(2);}       //line-height:2;
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.lhh</b><span>(@line-height,[@height]:@line-height)</span><i>字体行高与容器高度(相等)</i></h3>
+	<p>定义字体行高与容器高度。行高此处不能定义为乘积因子。<br>
+	<pre><code class="less">
+		.test{.lhh(24px);}       //line-height:24px;height:24px; （行高与高度相等）
+		.test{.lhh(24px,20px);}      //line-height:24px;height:20px; （高度与行高不相等时，特殊处理时）
 	</code></pre>
 	</p>
 </div>
@@ -340,22 +352,17 @@
 	</code></pre>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.iblock</b><span>([]/@selector)</span><i>inline-block布局替代浮动布局</i></h3>
-	<p>不允许折行，进行容器水平排列，默认函数应用在ul上，子对象为li。也可以传入一个子选择器类。<br>
+	<h3><b>.fbox</b><span>()</span><i>单侧浮动自适应布局</i></h3>
+	<p>当一侧固定浮动（非固定尺寸），另一侧自适应时可定义此类<br>
 	<pre><code class="less">
-		.test{.iblock;}         //ul.test > li 
-		.test{.iblock(loop);}   //ul.test > li.loop
+		.sidebar{.fl;}         //float:left;
+		.content{.fbox;}   	//display:table-cell;width:5000px;*display:inline-block;*width:auto;
 	</code></pre>
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.flist</b><span>([@inner,@item],@item-width,@item-spacing,@item-count)</span><i>浮动阵列布局</i></h3>
-	<p>假设一个浮动阵列布局的结构为div.$outer > ul.$inner > li.$item，将函数应用于$outer外层元素上，让所有$item全部浮动，并由$inner内层包裹层闭合浮动，且宽度为阵列元素+全部边距，并让$outer外层元素隐藏溢出，即可创建一个完全居中的浮动阵列布局。</p>
-    <p>参数说明：<br>
-        @outer:外层包裹class名,例videobox<br>
-        @inner:内层包裹class名,例videolist<br>
-        @item:循环单元class命,例videoitem<br>
-        @item-spacing:列表项间距</p>
+	<h3><b>.flist</b><span>([@inner,@item],@item-spacing)</span><i>浮动阵列布局</i></h3>
+	<p>假设一个浮动阵列布局的结构为div.$outer > ul.$inner > li.$item，将函数应用于$outer外层元素上，让所有$item全部浮动，并由$inner内层包裹层闭合浮动，且$outer外层元素隐藏溢出，即可创建一个完全居中的浮动阵列布局。</p>
     <p>当不指定内层与单元元素的class名时，默认作为div>ul>li结构处理。如其它情况或元素可指定一个class名。</p>
 	<pre><code class="less">
 		.videobox{
@@ -388,11 +395,15 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.iblock</b><span>([]/@selector)</span><i>inline-block布局替代浮动布局</i></h3>
+	<h3><b>.iblock</b><span>([]/@inner)</span><i>inline-block布局替代浮动布局</i></h3>
 	<p>不允许折行，进行容器水平排列，默认函数应用在ul上，子对象为li。也可以传入一个子选择器类。<br>
 	<pre><code class="less">
-		.test{.iblock;}         //ul.test > li 
-		.test{.iblock(loop);}   //ul.test > li.loop
+		.test{.iblock;}         //.test > li 
+		.test{.iblock(loop);}   //.test > .loop
+		/*
+		font-size:0;white-space:nowrap;overflow:visible;
+		li{.dbi;.y(top);font-size:1rem;white-space:normal;}
+		*/
 	</code></pre>
 	</p>
 </div>
@@ -450,11 +461,23 @@
 	<h3><b>.rb</b><span>(@r,@b)</span><i>右下角</i></h3>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.auto</b><span>(x/y)</span><i>居中对齐</i></h3>
-	<p>传入x水平居中对齐，传入y垂直居中对齐
+	<h3><b>.auto</b><span>(x/y/o)</span><i>居中对齐</i></h3>
+	<p>传入x水平居中对齐，传入y垂直居中对齐，传入x中央居中对齐
 	<pre><code class="less">
 		.test{.auto(x);}    //margin-left:auto;margin-right:auto; 作用于自身
 		.test{.auto(y);}    //display:table-cell;vertical-align:middle; 作用于自身内部元素
+		.test{.auto(o);}    //display:table-cell;vertical-align:middle;text-align:center;	//如内部元素设为display:block,则需自行设置.auto(x)
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.mid</b><span>(x/y,@edge | o,@edgeX,@edgeY:@edgeX)</span><i>居中对齐</i></h3>
+	<p>绝对定位实现居中定位。传入x水平居中对齐，传入y垂直居中对齐，传入o居中对齐。edge以设置边距。不支持IE6，用于元素尺寸不能确定时。<br>
+	<pre><code class="less">
+		//IE6支持，需传入元素尺寸
+		.test{.mid(o,20px,10px);}  	//居中，距水平边缘20px，距垂直边缘10px
+		.test{.mid(x,20px);}        //水平居中，距水平边缘各20px
+		.test{.mid(y,10px);}        //垂直居中，距垂直边缘各10px
 	</code></pre>
 	</p>
 </div>
@@ -475,11 +498,22 @@
 	</p>
 </div>
 <div class="m-content-list-item">
-	<h3><b>.fixed</b><span>(@direction,@x,@y)/(o,@width,@height)</span><i>窗口定位（含IE6兼容）</i></h3>
+	<h3><b>.fix</b><span>(x|y|o,@edge)</span><i>窗口定位（不兼容IE6）</i></h3>
+	<p>第一个参数必须传入方位，并传入边距值，自动拉伸。
+	<pre><code class="less">
+		.test{.fix(x,10px);}    //窗口水平居中，边距10px
+		.test{.fix(y,20px);}   	//窗口垂直中间，边距20px
+		.test{.fix(o,30px);}   	//窗口正中间，边距30px
+	</code></pre>
+	</p>
+</div>
+<div class="m-content-list-item">
+	<h3><b>.fixed</b><span>(@direction,@x,@y)/(o,@width,@height)/(x|y,@edge)</span><i>窗口定位（含部分IE6兼容）</i></h3>
 	<p>参数先水平，后垂直，第一个参数必须传入方位，当为正中间时则传入o，并传入元素的宽高。（是否传入单位均可，但都会转化为像素）
 	<pre><code class="less">
 		.test{.fixed(lt,10px,20px);}        //窗口定位左上角，距左10px，距上20px
 		.test{.fixed(o,400px,300px);}   //窗口正中间
+		.test{.fixed(x,200px);}   	//窗口水平中间
 	</code></pre>
 	</p>
 </div>
