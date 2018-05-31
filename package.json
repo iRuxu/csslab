@@ -1,0 +1,21 @@
+{
+    "name": "csslab",
+    "version": "4.0.1",
+    "description": "用于快速进行页面重构的CSS函数库",
+    "keywords": ["css","less"],
+    "author": "iRuxu",
+    "license": "MIT",
+    "homepage": "http://csslab.cc",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:iRuxu/csslab.git"
+    },
+    "main": "base.less",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+}
