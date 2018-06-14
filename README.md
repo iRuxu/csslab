@@ -1,7 +1,5 @@
 # CssLab 
 ###### Homepage: <http://csslab.cc>
-**v3旧版本不再更新，全新在v4上进行开发。2018/4/15**
-
 -------------------------------
 
 ## 目录
@@ -97,7 +95,7 @@ csslab是一个动态css依赖库，它由一些自定义函数组成，可快�
 + *[reset](http://csslab.cc/reset.html)* - 浏览器样式重置
 + *[shape](http://csslab.cc/shape.html)* - 使用CSS绘制常用的图形
 + *[animation](http://csslab.cc/animation.html)* - 基础动画库，提供常见的动画
-+ *[twinkle](http://csslab.cc/twinkle.html)* - 扩展动画库（仅v3及v3版本以前）
++ *[twinkle](http://csslab.cc/twinkle.html)* - 扩展动画库
 + *base-fix* - 旧版base废弃函数（限芒果TV）（仅v3及v3版本以前）
 
 ## <a name="contribute"></a> 其它链接
