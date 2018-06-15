@@ -1,0 +1,137 @@
+/*
+ * Twinkle.less
+ * Version: 1.0
+ * Author: iRuxu
+ * Creat: 2016/01/28
+ * Update: 2017/02/02
+ * Description: Cute animation
+ * Manual: http://csslab.cc
+ */
+
+.twinkle-border(@time:0.6s,@border:2px,@color:#fff,@child){
+	@keyframes twinkle-borderdraw-borderLR {
+	    from {}
+	    to {height:100%;}
+	}
+	@keyframes twinkle-borderdraw-borderTB {
+	    from {}
+	    to {width:100%;}
+	}
+	position:relative;
+	.@{child}{display:block;width:100%;height:100%;}
+	&:before,&:after,.@{child}:before,.@{child}:after{content:'';display:block;background-color:@color;position: absolute;}
+    &:before,&:after{width:@border;height:0;}
+    .@{child}:before,.@{child}:after{width:0;height:@border;}
+    &:before{left:0;bottom:0;}
+    &:after{right:0;top:0;}
+    .@{child}:before{top:0;left:0;}
+    .@{child}:after{right:0;bottom:0;}
+    &:hover{
+        &:before,&:after{animation:twinkle-borderdraw-borderLR @time forwards;}
+        .@{child}:before,.@{child}:after{animation:twinkle-borderdraw-borderTB @time forwards;}
+    }
+}
+
+.twinkle-borderTop(@time:0.2s,@border:2px,@color:#0cf,@length:50%){
+	position:relative;
+	&:before,&:after{
+		content:'';
+		display: block;
+		width:0;
+		height:@border;
+		background-color:@color;
+		transition:@time ease-in-out;
+		position:absolute;
+	}
+	&:before{
+		left:50%;
+		top:0;
+	}
+	&:after{
+		right:50%;
+		top:0;
+	}
+	&:hover{
+		&:before,&:after{
+			width:@length;
+		}
+	}
+}
+
+.twinkle-borderBottom(@time:0.2s,@border:2px,@color:#0cf,@length:50%){
+	position:relative;
+	&:before,&:after{
+		content:'';
+		display: block;
+		width:0;
+		height:@border;
+		background-color:@color;
+		transition:@time ease-in-out;
+		position:absolute;
+	}
+	&:before{
+		left:50%;
+		bottom:0;
+	}
+	&:after{
+		right:50%;
+		bottom:0;
+	}
+	&:hover{
+		&:before,&:after{
+			width:@length;
+		}
+	}
+}
+
+.twinkle-glimpse(@time:0.5s,@from:-100%,@to:100%){
+    position:relative;
+    overflow:hidden;
+    &:before{
+    	content:'';
+      	display:block;
+    	position: absolute;
+        left: @from;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: skewx(-25deg);
+        background-image: -webkit-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,.5),rgba(255,255,255,0));
+    }
+    &:hover:before{
+        left:@to;
+        transition: @time;
+    }
+}
+
+.twinkle-textFlip(@time:1s){
+	@keyframes twinkle-textFlip {
+	    0% { opacity: 0;
+	        transform: perspective(500px) rotateY(0);
+	        animation-timing-function: ease-out; }
+	    40% {
+	        transform: perspective(500px) translateZ(150px) rotateY(170deg);
+	        animation-timing-function: ease-out; }
+	    50% {
+	        transform: perspective(500px) translateZ(150px) rotateY(190deg) scale(1);
+	        animation-timing-function: ease-in; }
+	    80% {
+	        transform: perspective(500px) rotateY(360deg) scale(.95);
+	        animation-timing-function: ease-in; }
+	    100% {
+	        opacity: 1;
+	        transform: perspective(500px) scale(1);
+	        animation-timing-function: ease-in; }
+	}
+	animation:twinkle-textFlip @time ease-in-out;
+}
+
+.twinkle-textGotop(@time:0.2s){
+	@keyframes twinkle-textGotop{
+		49%{transform:translateY(-100%)}
+		50%{opacity:.3;transform:translateY(40%)}
+		51%{opacity:1}
+	}
+	animation:twinkle-textGotop @time ease-out;
+}
+
