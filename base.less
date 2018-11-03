@@ -280,21 +280,57 @@
     }
 
     /*-------------------------------------
+    ├   Flex & Grid                        ┆
+    └------------------------------------*/
+    .flex{display:flex;}
+    .iflex{display:inline-flex;}
+
+    .grid{display:grid;}
+    .igrid{display:inline-grid;}
+
+    .flex(lr){flex-direction:row;}
+    .flex(rl){flex-direction:row-reverse;}
+    .flex(tb){flex-direction:column;}
+    .flex(bt){flex-direction:row-reverse;}
+
+    .flex(x,@method:center){justify-content:@method;}
+    .flex(y,@method:center){align-content:@method;}
+    .flex(o){justify-content:center;align-content:center;align-items:center;}
+
+    .grid(x,@method:center){justify-content:@method;}
+    .grid(y,@method:center){align-content:@method;}
+    .grid(o){justify-content:center;align-content:center;}
+
+    .item(x,@method:center){justify-items:@method;}
+    .item(y,@method:center){align-items:@method;}
+    .item(o){justify-items:center;align-items:center;}
+
+    /*-------------------------------------
     ├   Position                           ┆
     └------------------------------------*/
 
     //定位简写
-    .ps(){position:static;}
-    .pr(){position:relative;*zoom:1;}
-    .pa(){position:absolute;}
-    .pf(){position:fixed;}
-    .po(){.ps;margin:0;} //复位
+    .ps{position:static;}
+    .pr{position:relative;*zoom:1;}
+    .pa{position:absolute;}
+    .pf{position:fixed;}
+    .po{.ps;margin:0;} //复位
 
     //位置简写    
     .lt(@l,@t:@l){left:@l;top:@t;}
     .rt(@r,@t:@r){right:@r;top:@t;}
     .lb(@l,@b:@l){left:@l;bottom:@b;}
     .rb(@r,@b:@r){right:@r;bottom:@b;}
+
+    //边距
+    .pl(@padding){padding-left:@padding;}
+    .pr(@padding){padding-right:@padding;}
+    .pt(@padding){padding-top:@padding;}
+    .pb(@padding){padding-bottom:@padding;}
+    .ml(@margin){margin-left:@margin;}
+    .mr(@margin){margin-right:@margin;}
+    .mt(@margin){margin-top:@margin;}
+    .mb(@margin){margin-bottom:@margin;}
 
     //居中对齐
     .auto(x){margin-left:auto;margin-right:auto;}
