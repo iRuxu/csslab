@@ -9,14 +9,14 @@
 /* Font -------------------------------------*/
 
     // Font size & line height
-    .fz(@font-size, @line-height: null, @height: null) {
+    .fz(@font-size, @line-height: inherit, @height: auto) {
         font-size: @font-size;
         line-height: @line-height;
         height: @height;
     }
 
     // line height
-    .lh(@line-height, @height: null) {
+    .lh(@line-height, @height: auto) {
         line-height: @line-height;
         height: @height;
     }
@@ -39,8 +39,10 @@
         & when (iscolor(@color)) {
             color: @color;
 
-            &:hover {
-                color: @hovercolor;
+            & when (iscolor(@hovercolor)) {
+                &:hover {
+                    color: @hovercolor;
+                }
             }
         }
         // 非纯色处理（背景填充逻辑）
