@@ -11,20 +11,16 @@
     // Font size & line height
     .fz(@font-size, @line-height: null, @height: null) {
         font-size: @font-size;
-        & when (@line-height) {
-            line-height: @line-height;
-        }
-        & when (@height) {
-            height: @height;
-        }
+        line-height: @line-height;
+        height: @height;
     }
 
     // line height
     .lh(@line-height, @height: null) {
         line-height: @line-height;
-        & when (@height) { height: @height; }
+        height: @height;
     }
-   
+
     // Font style
     .bold(@bold:bold){font-weight:@bold;}
 
@@ -42,11 +38,9 @@
         // 检查是否为纯色
         & when (iscolor(@color)) {
             color: @color;
-    
-            & when (@hovercolor) {
-                &:hover {
-                    color: @hovercolor;
-                }
+
+            &:hover {
+                color: @hovercolor;
             }
         }
         // 非纯色处理（背景填充逻辑）
@@ -67,7 +61,7 @@
 
         word-wrap:normal;
         overflow-wrap: normal;
-        
+
         text-overflow:@style;
         overflow:hidden;
     }
@@ -107,23 +101,23 @@
 
 
 /* Inline(-Block) Align -------------------------------------*/
-    
+
     //水平（x轴）对齐方式
     .x(@align:center){text-align:@align;}
     .auto(x){margin-left:auto;margin-right:auto;}
 
     //垂直（y轴）对齐方式
-    .y(@align:middle){vertical-align:@align;} 
+    .y(@align:middle){vertical-align:@align;}
     .auto(y){display:table-cell;vertical-align:middle;}
 
     //层叠级别（z轴）
-    .z(@index:1){z-index:@index;} 
+    .z(@index:1){z-index:@index;}
 
 
-/* Box -------------------------------------*/    
+/* Box -------------------------------------*/
 
     .w(@width){width:@width;}
-    .h(@height){height:@height;} 
+    .h(@height){height:@height;}
     .size(@width,@height:@width){width:@width;height:@height;}
 
     .db{display:block;}
@@ -132,7 +126,7 @@
     .r(@radius){border-radius:@radius;}
 
 
-/* Layout -------------------------------------*/  
+/* Layout -------------------------------------*/
 
 
     .flex{display:flex;}
@@ -159,7 +153,7 @@
     .rb(@r,@b:@r){right:@r;bottom:@b;}
 
 
-/* Other -------------------------------------*/  
+/* Other -------------------------------------*/
 
     .pointer(){cursor:pointer;}
 
@@ -183,7 +177,7 @@
     }
     .clear(@clear:both){clear:@clear;} //清除浮动
 
-    
+
 /* Deprecated -------------------------------------*/
 
     .pl(@padding){padding-left:@padding;}
@@ -202,4 +196,4 @@
     }
 
 
-    
+

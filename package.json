@@ -1,6 +1,6 @@
 {
     "name": "csslab",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "description": "用于快速进行页面重构的CSS函数库",
     "keywords": ["css","less"],
     "author": "iRuxu",
