@@ -122,8 +122,8 @@
     .h(@height){height:@height;}
     .size(@width,@height:@width){width:@width;height:@height;}
 
-    .db{display:block;}
-    .none{display:none;}
+    .db(){display:block;}
+    .none(){display:none;}
 
     .r(@radius){border-radius:@radius;}
 
@@ -131,12 +131,12 @@
 /* Layout -------------------------------------*/
 
 
-    .flex{display:flex;}
+    .flex(){display:flex;}
     .flex(x){display:flex;justify-content:center;}
     .flex(y){display:flex;align-items:center;}
     .flex(o){display:flex;justify-content:center;align-items:center;}
 
-    .grid{display:grid;}
+    .grid(){display:grid;}
     .grid(x,@count){display:grid;grid-template-columns: repeat(@count, 1fr);}
     .grid(@rows, @cols) {
         display: grid;
@@ -144,10 +144,10 @@
         grid-template-columns: repeat(@cols, 1fr);
     }
 
-    .ps{position:static;}
-    .pr{position:relative;*zoom:1;}
-    .pa{position:absolute;}
-    .pf{position:fixed;}
+    .ps(){position:static;}
+    .pr(){position:relative;}
+    .pa(){position:absolute;}
+    .pf(){position:fixed;}
 
     .lt(@l,@t:@l){left:@l;top:@t;}
     .rt(@r,@t:@r){right:@r;top:@t;}
@@ -167,14 +167,14 @@
     .min-height(@min-height){min-height:@min-height;_height:@min-height;}
 
     // display
-    .dbi(){display:inline-block;*display:inline;*zoom:1;} //表现为内联块级元素，兼容IE6
-    .clip(){overflow:hidden;*zoom:1;} //兼容IE6-7
+    .dbi(){display:inline-block;} //表现为内联块级元素，兼容IE6
+    .clip(){overflow:hidden;} //兼容IE6-7
 
     // float
-    .fl{float:left;*display:inline;}      //IE6-7双倍margin bug处理
-    .fr{float:right;*display:inline;}
-    .clearfix{ //清除浮动塌陷
-        *zoom:1;
+    .fl(){float:left;}      //IE6-7双倍margin bug处理
+    .fr(){float:right;}
+    .clearfix(){ //清除浮动塌陷
+        
         &:after{content:"";display:table;clear:both;}
     }
     .clear(@clear:both){clear:@clear;} //清除浮动
