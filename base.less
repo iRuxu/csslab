@@ -33,6 +33,23 @@
         -moz-osx-font-smoothing:grayscale;
     }
 
+    // Number
+    .number(){
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        font-variant-numeric: tabular-nums slashed-zero;
+        font-feature-settings: "tnum" 1, "zero" 1;
+    }
+
+    // Font-Face
+    // 注意传参时，name后接分号
+    .fontface(@name; @sources...) {
+        @font-face {
+            font-family: @name;
+            src: @sources;
+            font-display: swap;
+        }
+    }
+
     // Font color
     .color(@color, @hovercolor: null) {
         // 检查是否为纯色
@@ -51,6 +68,14 @@
             -webkit-text-fill-color: transparent;
             background-image: @color;
         }
+    }
+
+    // Underline
+    .underline(@offset: 3px, @style: solid, @color: currentColor) {
+        text-decoration: underline;
+        text-decoration-color:@color;
+        text-decoration-style:@style;
+        text-underline-offset: @offset;
     }
 
 
@@ -88,18 +113,17 @@
         }
     }
 
-    // Text Indent
-    .indent(@indent:-200%){
-        text-indent:@indent;
-        overflow:hidden;
-    }
-
-
     // Special Write Mode
     // 书写模式：牌匾从右至左水平单行排版效果
     .retext(x){direction:rtl;unicode-bidi:bidi-override;}
     // 书写模式：文笺从右至左、从上至下排版效果
     .retext(y){writing-mode:vertical-rl;text-combine-upright: all;}
+
+    // Text Indent
+    .indent(@indent:-200%){
+        text-indent:@indent;
+        overflow:hidden;
+    }
 
 
 /* Inline(-Block) Align -------------------------------------*/
@@ -121,6 +145,7 @@
     .w(@width){width:@width;}
     .h(@height){height:@height;}
     .size(@width,@height:@width){width:@width;height:@height;}
+    .ratio(@ratio){aspect-ratio:@ratio;}
 
     .db(){display:block;}
     .none(){display:none;}
@@ -137,11 +162,23 @@
     .flex(o){display:flex;justify-content:center;align-items:center;}
 
     .grid(){display:grid;}
-    .grid(x,@count){display:grid;grid-template-columns: repeat(@count, 1fr);}
     .grid(@rows, @cols) {
         display: grid;
         grid-template-rows: repeat(@rows, 1fr);
         grid-template-columns: repeat(@cols, 1fr);
+    }
+    .grid(x, @count) {
+        display: grid;
+
+        // 无单位数字：固定列数
+        & when (isnumber(@count)) and (isunit(@count, "")) {
+            grid-template-columns: repeat(@count, 1fr);
+        }
+
+        // 带单位数值（px/%/rem/...）：auto-fill + minmax
+        & when (isnumber(@count)) and not (isunit(@count, "")) {
+            grid-template-columns: repeat(auto-fill, minmax(@count, 1fr));
+        }
     }
 
     .ps(){position:static;}
@@ -155,9 +192,31 @@
     .rb(@r,@b:@r){right:@r;bottom:@b;}
 
 
-/* Other -------------------------------------*/
+/* UI -------------------------------------*/
 
     .pointer(){cursor:pointer;}
+
+    .noclick(){pointer-events:none;}
+
+    .scrollbar(@w:4px,@color:#fafafa,@thumb:#eee) {
+        &::-webkit-scrollbar {
+            width: @w;
+        }
+        &::-webkit-scrollbar-track,
+        &::-webkit-scrollbar-track-piece {
+            background-color: @color;
+            border-radius: @w + 2px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: @thumb;
+            border-radius: @w + 2px;
+        }
+        &::-webkit-scrollbar-button,
+        &::-webkit-scrollbar-corner,
+        &::-webkit-resizer {
+            display: none;
+        }
+    }
 
 
 /* IE余孽 -------------------------------------*/
