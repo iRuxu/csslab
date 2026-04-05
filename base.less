@@ -9,15 +9,19 @@
 /* Font -------------------------------------*/
 
     // Font size & line height
-    .fz(@font-size, @line-height: inherit) {
+    .fz(@font-size, @line-height: false) {
         font-size: @font-size;
-        line-height: @line-height;
+        & when not (@line-height = false) {
+            line-height: @line-height;
+        }
     }
 
     // line height
-    .lh(@line-height, @height: auto) {
+    .lh(@line-height, @height: false) {
         line-height: @line-height;
-        height: @height;
+        & when not (@height = false) {
+            height: @height;
+        }
     }
 
     // Font style
@@ -33,8 +37,15 @@
     }
 
     // Number
-    .number(){
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    .number(@font-family: false) {
+        & when (@font-family = true) {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        }
+
+        & when (isstring(@font-family)) {
+            font-family: e(@font-family);
+        }
+
         font-variant-numeric: tabular-nums slashed-zero;
         font-feature-settings: "tnum" 1, "zero" 1;
     }
