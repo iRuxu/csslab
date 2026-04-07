@@ -81,10 +81,18 @@
     }
 
     // Underline
-    .underline(@offset: 3px, @style: solid, @color: currentColor) {
+    .underline() {
+        .underline(3px, solid, currentColor);
+    }
+
+    .underline(@color) when (iscolor(@color)) {
+        .underline(3px, solid, @color);
+    }
+
+    .underline(@offset, @style, @color) {
         text-decoration: underline;
-        text-decoration-color:@color;
-        text-decoration-style:@style;
+        text-decoration-color: @color;
+        text-decoration-style: @style;
         text-underline-offset: @offset;
     }
 
