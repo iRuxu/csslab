@@ -198,6 +198,21 @@
             grid-template-columns: repeat(auto-fill, minmax(@count, 1fr));
         }
     }
+    .gap(@value) {
+        @supports (gap: 1px) {
+            gap: @value;
+        }
+
+        @supports not (gap: 1px) {
+            > * {
+                margin-right: @value;
+            }
+
+            > *:last-child {
+                margin-right: 0;
+            }
+        }
+    }
 
     .ps(){position:static;}
     .pr(){position:relative;}
