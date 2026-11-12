@@ -1,47 +1,58 @@
-import { execFileSync } from 'node:child_process';
+import { createRequire } from 'node:module';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
-const sourceDirectory = path.join(root, 'docs/site');
+const require = createRequire(import.meta.url);
+const contentDirectory = path.join(root, 'content') + path.sep;
+const documentationScript = path.join(root, 'scripts/documentation.cjs');
+const virtualId = 'virtual:documentation';
+const resolvedId = '\0' + virtualId;
 
-function buildDocs() {
-    execFileSync(process.execPath, [path.join(sourceDirectory, 'build.cjs')], {
-        cwd: root,
-        stdio: 'inherit',
-    });
+function readDocumentation() {
+    for (const file of Object.keys(require.cache)) {
+        if (file === documentationScript || file.startsWith(contentDirectory)) delete require.cache[file];
+    }
+    return require(documentationScript).createDocumentation();
 }
 
 export default defineConfig({
-    root,
-    appType: 'mpa',
-    publicDir: false,
-    server: {
-        host: '127.0.0.1',
-        port: 5173,
-        open: true,
-    },
-    plugins: [{
-        name: 'csslab-docs',
-        configureServer(server) {
-            buildDocs();
-            let rebuildTimer;
-            server.watcher.on('all', (event, file) => {
-                if (!['add', 'change', 'unlink'].includes(event)
-                    || !file.startsWith(sourceDirectory + path.sep)) return;
-
-                clearTimeout(rebuildTimer);
-                rebuildTimer = setTimeout(() => {
-                    try {
-                        buildDocs();
-                        server.ws.send({ type: 'full-reload' });
-                    } catch (error) {
-                        server.config.logger.error('文档生成失败，请修正后保存。\n' + error.message);
+    base: '/',
+    server: { host: '127.0.0.1', port: 5173, open: true },
+    build: { outDir: 'docs', emptyOutDir: true },
+    plugins: [
+        vue(),
+        {
+            name: 'csslab-documentation',
+            resolveId(id) {
+                if (id === virtualId) return resolvedId;
+            },
+            load(id) {
+                if (id === resolvedId) return 'export default ' + JSON.stringify(readDocumentation());
+            },
+            handleHotUpdate(context) {
+                if (context.file === documentationScript || context.file.startsWith(contentDirectory)) {
+                    const module = context.server.moduleGraph.getModuleById(resolvedId);
+                    if (module) context.server.moduleGraph.invalidateModule(module);
+                    context.server.ws.send({ type: 'full-reload' });
+                    return [];
+                }
+            },
+            generateBundle: {
+                order: 'post',
+                handler(_, bundle) {
+                    // GitHub Pages serves each existing .html URL directly, without server rewrites.
+                    const entry = bundle['index.html'];
+                    if (!entry) throw new Error('Missing built index.html');
+                    for (const document of readDocumentation().documents) {
+                        const fileName = document.path.slice(1);
+                        if (fileName === 'index.html') continue;
+                        this.emitFile({ type: 'asset', fileName, source: entry.source });
                     }
-                }, 100);
-            });
-            server.httpServer?.once('close', () => clearTimeout(rebuildTimer));
+                },
+            },
         },
-    }],
+    ],
 });

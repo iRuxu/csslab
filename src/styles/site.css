@@ -1,0 +1,16 @@
+.m-logo select.u-version {
+    appearance: none;
+    border: 0;
+    height: 14px;
+    padding: 0 14px 0 6px;
+    font: 10px/14px Arial, sans-serif;
+    cursor: pointer;
+    background-image: linear-gradient(45deg, transparent 50%, #fff 50%), linear-gradient(135deg, #fff 50%, transparent 50%);
+    background-position: calc(100% - 7px) center, calc(100% - 4px) center;
+    background-size: 3px 3px;
+    background-repeat: no-repeat;
+}
+.m-logo select.u-version:focus-visible { outline: 2px solid #333; outline-offset: 2px; }
+.m-logo select.u-version option { background: #fff; color: #333; }
+.m-content [id] { scroll-margin-top: 99px; }
+.m-preview { display: contents; }
