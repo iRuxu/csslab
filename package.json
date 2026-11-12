@@ -1,0 +1,11 @@
+{
+    "name": "csslab-docs",
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "node docs/site/build.cjs"
+    },
+    "devDependencies": {
+        "vite": "^7.2.6"
+    }
+}

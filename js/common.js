@@ -1,1 +1,32 @@
-jQuery(function(t){var i=t("#m-sidebar-list li"),e=t("#m-content-list .m-content-list-item");i.each(function(){0==t(this).children("a").length&&t(this).wrapInner("<a></a>").find("a").attr("href",function(){return"#"+t(this).text()}).attr("target","_self")}),e.attr("id",function(){return t(this).find("h3").children("b").text()}),i.on("click",function(){i.removeClass("current"),t(this).addClass("current");var n=t(this).index("#m-sidebar-list li");e.eq(n).addClass("active");var r=setTimeout(function(){e.eq(n).removeClass("active"),clearTimeout(r)},1e3)}),hljs.initHighlightingOnLoad()});
+/* global hljs */
+if (typeof hljs !== 'undefined') {
+    hljs.initHighlightingOnLoad();
+}
+
+(function () {
+    var versionSelect = document.getElementById('version-select');
+    if (versionSelect) {
+        versionSelect.addEventListener('change', function () {
+            location.assign(this.value);
+        });
+        window.addEventListener('pageshow', function () {
+            versionSelect.value = versionSelect.querySelector('option[selected]').value;
+        });
+    }
+
+    var links = document.querySelectorAll('#m-sidebar-list a');
+    function updateCurrent() {
+        for (var i = 0; i < links.length; i += 1) {
+            var current = links[i].hash === location.hash;
+            links[i].parentNode.classList.toggle('current', current);
+            if (current) {
+                links[i].setAttribute('aria-current', 'location');
+            } else {
+                links[i].removeAttribute('aria-current');
+            }
+        }
+    }
+
+    window.addEventListener('hashchange', updateCurrent);
+    updateCurrent();
+})();
